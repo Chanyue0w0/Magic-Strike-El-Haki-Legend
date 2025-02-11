@@ -8,18 +8,18 @@ public class RoundController : MonoBehaviour
     [SerializeField] private string GameStatus = "Continues";
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    //// Start is called before the first frame update
+    //void Start()
+    //{
             
-    }
+    //}
 
-    // Update is called once per frame
-    void Update()
-    {
-        // p1 or p2 hp == 0 end game
-        //GameStatus = "End" + p1orp2 = Win
-    }
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    // p1 or p2 hp == 0 end game
+    //    //GameStatus = "End" + p1orp2 = Win
+    //}
 
     public void PauseGame()
     {
