@@ -7,9 +7,9 @@ public class PlayerStatusManager : MonoBehaviour
     [Header("----------------- Status Data ------------------")]
     [SerializeField] private int healthPoint;
     [SerializeField] private int attackDamage;
-    [SerializeField] private int magicPoint;
+    [SerializeField] private int currentMagicPoint;
 
-    [Header("----------------- Status Data ------------------")]
+    [Header("----------------- Variable Reference ------------------")]
     [SerializeField] private string[] skills;
 	//[Header("----------------- Script Reference ------------------")]
 	// Start is called before the first frame update
@@ -28,9 +28,10 @@ public class PlayerStatusManager : MonoBehaviour
     {
         // health = get hp
         // dameage = get hp
-        magicPoint = 4;
+        //magicPoint = 0;
         // get skills
-    }
+
+	}
 
     public void GetDamage(int atk)
     {
@@ -58,16 +59,21 @@ public class PlayerStatusManager : MonoBehaviour
 
     public int GetMagicPoint()
     {
-        return magicPoint;
-    }
+        return currentMagicPoint;
+	}
 
     public void SetMagicPoint(int point)
     {
-        magicPoint = point;
+        currentMagicPoint = point;
     }
 
     public void GetOnePointMP()
     {
-        magicPoint += 1;
+		currentMagicPoint += 1;
+    }
+
+    public void SetSkills(string[] skillArray)
+    {
+        skills = skillArray;
     }
 }

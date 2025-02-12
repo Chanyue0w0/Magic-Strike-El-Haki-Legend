@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	private enum MoveVersion { byPoistion, byVelocity };
+	private enum MoveVersion { byVelocity, byAddForce , byPosition };
 	[Header("------------------- Config --------------------")]
 	[SerializeField] private float moveSpeed = 1f;
 	[SerializeField] private MoveVersion moveVersion;
@@ -26,10 +26,11 @@ public class PlayerController : MonoBehaviour
 
 	private List<TouchLocation> touches = new();
 
-	private Vector2 startPoition;
+	private Vector3 startPoition;
 	private float moveStartTime;
 	private Vector3 endPoition;
 	private Rigidbody2D playerRigidbody2D;
+	private bool isDragging;
 
 	private void Start()
 	{
@@ -77,19 +78,29 @@ public class PlayerController : MonoBehaviour
 						// init data
 						endPoition = t.position;
 						float deltaTime = moveStartTime - Time.deltaTime;
-						touchMovement = GetWorldPoistionByCamera(endPoition)- GetWorldPoistionByCamera(startPoition); // Movement vector
-						Vector3 movePostion = playerObject.transform.position + (Vector3)touchMovement * moveSpeed;
+						touchMovement = GetWorldPoistionByCamera(endPoition)- GetWorldPoistionByCamera(startPoition); // world Movement vector
 
 						// move version
-						if (moveVersion == MoveVersion.byPoistion)
+						if (moveVersion == MoveVersion.byPosition)
 						{
 							playerRigidbody2D.velocity = Vector3.zero;
-							playerObject.transform.position = PositionToInEdge(movePostion);
+
+							Vector3 targetPoiston = PositionToInEdge(playerObject.transform.position + (Vector3)touchMovement * moveSpeed);
+							playerObject.transform.position = targetPoiston;
 						}
 						else if (moveVersion == MoveVersion.byVelocity)
 						{
 							playerRigidbody2D.velocity = Vector3.zero;
-							playerRigidbody2D.AddForce(t.deltaPosition * (moveSpeed*5));
+
+							//Vector3 movePostion = (Vector3)touchMovement * moveSpeed;
+							//Vector3 targetPoiston = PositionToInEdge(playerObject.transform.position + movePostion);
+							playerRigidbody2D.velocity = endPoition-startPoition;
+							if(t.deltaPosition == Vector2.zero) playerRigidbody2D.velocity = Vector3.zero;
+						}
+						else if (moveVersion == MoveVersion.byAddForce)
+						{
+							playerRigidbody2D.velocity = Vector3.zero;
+							playerRigidbody2D.AddForce(t.deltaPosition * (moveSpeed*5) * playerRigidbody2D.mass);
 						}
 						else
 						{
@@ -112,6 +123,7 @@ public class PlayerController : MonoBehaviour
 			i += 1;
 		}
 	}
+
 
 	private void EndTouch(Touch t)
 	{
@@ -158,8 +170,9 @@ public class PlayerController : MonoBehaviour
 
 	public bool SetMoveVersion(string ver)
 	{
-		if (ver == "byVelocity") moveVersion = MoveVersion.byVelocity;
-		else if (ver == "byPoistion") moveVersion = MoveVersion.byPoistion;
+		if (ver == "byAddForce") moveVersion = MoveVersion.byAddForce;
+		else if (ver == "byVelocity") moveVersion = MoveVersion.byVelocity;
+		else if (ver == "byPosition") moveVersion = MoveVersion.byPosition;
 		else return false;
 		return true;
 	}
