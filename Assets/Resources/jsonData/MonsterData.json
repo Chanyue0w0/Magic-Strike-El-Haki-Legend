@@ -1,0 +1,17 @@
+{
+    "MS00" : {
+        "ID" : "MS00",
+        "Name": "skill name",
+        "ScriptPath": "Asset/resource"
+    },
+    "MS01" : {
+        "ID" : "MS01",
+        "Name": "aaaa",
+        "ScriptPath": "Asset/resource"
+    },
+    "MS02" : {
+        "ID" : "MS02",
+        "Name": "bbbb",
+        "ScriptPath": "Asset/resource"
+    }
+}

@@ -1,5 +1,6 @@
 //using System.Collections;
 //using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,7 +23,10 @@ public class FightGameButtonController : MonoBehaviour
 
     public void OnClickPauseGame()
     {
-        roundController.PauseGame();
+        JToken data = HeroData.Instance.GetHeroData("HR00");
+        Debug.Log(data["Name"]);
+
+		roundController.PauseGame();
 
         pausePanel.SetActive(true);
     }

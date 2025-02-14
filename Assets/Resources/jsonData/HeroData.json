@@ -1,0 +1,80 @@
+{
+    "HR00" : {
+        "Name" : "Eamaple Hero",
+        "ID" : "HR00",
+        "Rare" : "Normal",
+        "LevelData": [
+            {
+                "AttackDamage": 10,
+                "Defend": 10,
+                "SpicalAttackDamage":10,
+                "HealthPoint": 100
+            },
+            {
+                "AttackDamage": 20,
+                "Defend":20,
+                "SpicalAttackDamage":20,
+                "HealthPoint": 200
+            },
+            {
+                "AttackDamage": 30,
+                "Defend": 30,
+                "SpicalAttackDamage":30,
+                "HealthPoint": 300
+            }
+        ],
+        "Discribe": "Hero introduction"
+    },
+    "HR01" : {
+        "Name" : "aaaa",
+        "ID" : "HR01",
+        "Rare" : "Normal",
+        "LevelData": [
+            {
+                "AttackDamage": 10,
+                "Defend": 10,
+                "SpicalAttackDamage":10,
+                "HealthPoint": 1000
+            },
+            {
+                "AttackDamage": 20,
+                "Defend":20,
+                "SpicalAttackDamage":20,
+                "HealthPoint": 200
+            },
+            {
+                "AttackDamage": 30,
+                "Defend": 30,
+                "SpicalAttackDamage":30,
+                "HealthPoint": 300
+            }
+        ],
+        "Discribe": "Hero introduction"
+    },
+    "HR02" : {
+        "Name" : "bbbb",
+        "ID" : "HR02",
+        "Rare" : "Normal",
+        "LevelData": [
+            {
+                "AttackDamage": 10,
+                "Defend": 10,
+                "SpicalAttackDamage":10,
+                "HealthPoint": 100
+            },
+            {
+                "AttackDamage": 20,
+                "Defend":20,
+                "SpicalAttackDamage":20,
+                "HealthPoint": 200
+            },
+            {
+                "AttackDamage": 30,
+                "Defend": 30,
+                "SpicalAttackDamage":30,
+                "HealthPoint": 300
+            }
+        ],
+        "Discribe": "Hero introduction"
+    }
+}

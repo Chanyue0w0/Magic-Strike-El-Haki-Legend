@@ -1,0 +1,17 @@
+{
+    "SK00" : {
+        "ID" : "SK00",
+        "Name": "skill name",
+        "ScriptPath": "Asset/resource"
+    },
+    "SK01" : {
+        "ID" : "SK01",
+        "Name": "aaaa name",
+        "ScriptPath": "Asset/resource"
+    },
+    "SK02" : {
+        "ID" : "SK02",
+        "Name": "bbbb name",
+        "ScriptPath": "Asset/resource"
+    }
+}
