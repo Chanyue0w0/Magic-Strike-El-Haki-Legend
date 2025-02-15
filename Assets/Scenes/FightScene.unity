@@ -1482,7 +1482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  moveVersion: 0
+  moveVersion: 2
   showTouchStatusInDebugLog: 0
   firstLawTouch: -1
   touchMovement: {x: 0, y: 0}
@@ -2764,7 +2764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  moveVersion: 0
+  moveVersion: 2
   showTouchStatusInDebugLog: 0
   firstLawTouch: -1
   touchMovement: {x: 0, y: 0}
