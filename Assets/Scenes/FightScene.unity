@@ -1519,7 +1519,6 @@ GameObject:
   m_Component:
   - component: {fileID: 731934237}
   - component: {fileID: 731934239}
-  - component: {fileID: 731934238}
   m_Layer: 0
   m_Name: Player 2 Manager
   m_TagString: Untagged
@@ -1546,30 +1545,6 @@ Transform:
   - {fileID: 1452114717}
   m_Father: {fileID: 1082590084}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &731934238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731934236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e354df1fca2c1b843bfbbf002c3b50d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  moveVersion: 0
-  showTouchStatusInDebugLog: 0
-  firstLawTouch: -1
-  touchMovement: {x: 0, y: 0}
-  camera: {fileID: 1121501784}
-  playerObject: {fileID: 1570447976}
-  touchCircle: {fileID: 8667112846615852789, guid: f1b1ef9a77af5fc4eb7692d2e8cbc33e, type: 3}
-  touchEdgeTopLeft: {fileID: 286235203}
-  touchEdgeButtomRight: {fileID: 92869464}
-  moveEdgeTopLeft: {fileID: 1911609161}
-  moveEdgeButtomRight: {fileID: 1452114717}
 --- !u!114 &731934239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2783,7 +2758,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1492323270}
   - component: {fileID: 1492323271}
-  - component: {fileID: 1492323272}
   - component: {fileID: 1492323273}
   m_Layer: 0
   m_Name: Player 1 Manager
@@ -2829,30 +2803,6 @@ MonoBehaviour:
   player: 0
   userIsEnemy: 0
   skills: []
---- !u!114 &1492323272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1492323269}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e354df1fca2c1b843bfbbf002c3b50d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  moveVersion: 2
-  showTouchStatusInDebugLog: 1
-  firstLawTouch: -1
-  touchMovement: {x: 0, y: 0}
-  camera: {fileID: 1121501784}
-  playerObject: {fileID: 193765608}
-  touchCircle: {fileID: 8667112846615852789, guid: f1b1ef9a77af5fc4eb7692d2e8cbc33e, type: 3}
-  touchEdgeTopLeft: {fileID: 1100650954}
-  touchEdgeButtomRight: {fileID: 2024771052}
-  moveEdgeTopLeft: {fileID: 884281873}
-  moveEdgeButtomRight: {fileID: 420494784}
 --- !u!114 &1492323273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2866,6 +2816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveMultiplier: 1
+  movementThreshold: 0.01
   tableLayerMask:
     serializedVersion: 2
     m_Bits: 64
