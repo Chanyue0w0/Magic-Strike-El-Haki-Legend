@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
 		playerRigidbody2D = playerObject.GetComponent<Rigidbody2D>();
 		firstLawTouch = -1;
 	}
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -81,21 +82,47 @@ public class PlayerController : MonoBehaviour
 						touchMovement = GetWorldPoistionByCamera(endPoition)- GetWorldPoistionByCamera(startPoition); // world Movement vector
 
 						// move version
+						//if (moveVersion == MoveVersion.byPosition)
+						//{
+						//    //playerRigidbody2D.velocity = Vector3.zero;
+
+						//    Vector3 targetPoiston = PositionToInEdge(playerObject.transform.position + (Vector3)touchMovement * moveSpeed);
+						//    playerObject.transform.position = targetPoiston;
+						//}
 						if (moveVersion == MoveVersion.byPosition)
 						{
-							playerRigidbody2D.velocity = Vector3.zero;
-
-							Vector3 targetPoiston = PositionToInEdge(playerObject.transform.position + (Vector3)touchMovement * moveSpeed);
-							playerObject.transform.position = targetPoiston;
+							Vector3 targetPosition = PositionToInEdge(playerObject.transform.position + (Vector3)touchMovement * moveSpeed);
+							playerRigidbody2D.MovePosition(targetPosition);
 						}
-						else if (moveVersion == MoveVersion.byVelocity)
-						{
-							playerRigidbody2D.velocity = Vector3.zero;
 
-							//Vector3 movePostion = (Vector3)touchMovement * moveSpeed;
-							//Vector3 targetPoiston = PositionToInEdge(playerObject.transform.position + movePostion);
-							playerRigidbody2D.velocity = endPoition-startPoition;
-							if(t.deltaPosition == Vector2.zero) playerRigidbody2D.velocity = Vector3.zero;
+						//else if (moveVersion == MoveVersion.byVelocity)
+						//{
+						//	playerRigidbody2D.velocity = Vector3.zero;
+
+						//	//Vector3 movePostion = (Vector3)touchMovement * moveSpeed;
+						//	//Vector3 targetPoiston = PositionToInEdge(playerObject.transform.position + movePostion);
+						//	playerRigidbody2D.velocity = endPoition-startPoition;
+						//	if(t.deltaPosition == Vector2.zero) playerRigidbody2D.velocity = Vector3.zero;
+						//}
+						if (moveVersion == MoveVersion.byVelocity)
+						{
+							float minMoveThreshold = 0.5f; // 設定手指移動最小閾值（可以根據需求調整）
+
+							// 先清除舊速度
+							playerRigidbody2D.velocity = Vector2.zero;
+
+							// 計算世界座標中的 deltaPosition
+							Vector2 worldDeltaPosition = (GetWorldPoistionByCamera(t.position) - GetWorldPoistionByCamera(t.position - t.deltaPosition)) / Time.deltaTime;
+
+							// 如果手指移動量小於閾值，則停止玩家移動
+							if (t.deltaPosition.magnitude < minMoveThreshold)
+							{
+								playerRigidbody2D.velocity = Vector2.zero;
+							}
+							else
+							{
+								playerRigidbody2D.velocity = worldDeltaPosition * moveSpeed; // 設定移動速度
+							}
 						}
 						else if (moveVersion == MoveVersion.byAddForce)
 						{
@@ -151,7 +178,7 @@ public class PlayerController : MonoBehaviour
 	}
 	private Vector2 GetWorldPoistionByCamera(Vector2 touchPosition)
 	{
-		return camera.ScreenToWorldPoint(new Vector3(touchPosition.x, touchPosition.y, transform.position.z));
+		return camera.ScreenToWorldPoint(new Vector3(touchPosition.x, touchPosition.y, camera.nearClipPlane));
 	}
 
 	private GameObject CreateCircle(Touch t)
