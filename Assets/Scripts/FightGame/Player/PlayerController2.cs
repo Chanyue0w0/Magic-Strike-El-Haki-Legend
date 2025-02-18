@@ -5,18 +5,16 @@ using UnityEngine;
 public class PlayerController2 : MonoBehaviour
 {
     [Header("移動設定")]
-    public float moveMultiplier = 10.0f;
+    [Tooltip("微小移動閥值，用來濾除雜訊")]
     public float movementThreshold = 0.01f;
 
     [Tooltip("桌面所在的Layer，用於射線偵測")]
     public LayerMask tableLayerMask;
 
     private Camera mainCamera;
-    private Vector2 lastTouchWorldPos;
-    private Vector2 previousTouchWorldPos;
     private bool isDragging = false;
     private Rigidbody2D rb;
-    private Vector2 velocity;
+    private Vector2 previousTouchWorldPos;
 
     [SerializeField] private GameObject playerObject;
 
@@ -56,86 +54,75 @@ public class PlayerController2 : MonoBehaviour
     void Update()
     {
 #if UNITY_EDITOR || UNITY_STANDALONE
+        // 滑鼠版
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 worldPoint = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            // 用射線檢測確認是否點擊到指定區域（桌面）
             RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, 0.1f, tableLayerMask);
-
             if (hit.collider != null)
             {
-                lastTouchWorldPos = hit.point;
-                previousTouchWorldPos = hit.point;
                 isDragging = true;
+                previousTouchWorldPos = worldPoint;
             }
         }
         else if (Input.GetMouseButton(0) && isDragging)
         {
             Vector2 worldPoint = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            if ((worldPoint - previousTouchWorldPos).magnitude > movementThreshold)
+            Vector2 delta = worldPoint - previousTouchWorldPos;
+
+            // 當手指移動超過閥值時，直接用相同位移更新玩家位置
+            if (delta.magnitude > movementThreshold)
             {
-                velocity = (worldPoint - lastTouchWorldPos) / Time.deltaTime;
-                lastTouchWorldPos = worldPoint;
-            }
-            else
-            {
-                velocity = Vector2.zero;
+                Vector2 newPosition = rb.position + delta;
+                newPosition = ClampPosition(newPosition);
+                rb.MovePosition(newPosition);
             }
             previousTouchWorldPos = worldPoint;
         }
         else if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
-            velocity = Vector2.zero;
         }
-
 #else
+        // 手機版
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
             Vector2 worldPoint = mainCamera.ScreenToWorldPoint(touch.position);
             RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, 0.1f, tableLayerMask);
-
             if (hit.collider != null)
             {
                 if (touch.phase == TouchPhase.Began)
                 {
-                    lastTouchWorldPos = worldPoint;
-                    previousTouchWorldPos = worldPoint;
                     isDragging = true;
+                    previousTouchWorldPos = worldPoint;
                 }
                 else if (touch.phase == TouchPhase.Moved && isDragging)
                 {
-                    if ((worldPoint - previousTouchWorldPos).magnitude > movementThreshold)
+                    Vector2 delta = worldPoint - previousTouchWorldPos;
+                    if (delta.magnitude > movementThreshold)
                     {
-                        velocity = (worldPoint - lastTouchWorldPos) / Time.deltaTime;
-                        lastTouchWorldPos = worldPoint;
-                    }
-                    else
-                    {
-                        velocity = Vector2.zero;
+                        Vector2 newPosition = rb.position + delta;
+                        newPosition = ClampPosition(newPosition);
+                        rb.MovePosition(newPosition);
                     }
                     previousTouchWorldPos = worldPoint;
                 }
                 else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
                 {
                     isDragging = false;
-                    velocity = Vector2.zero;
                 }
             }
         }
 #endif
     }
 
-    void FixedUpdate()
-    {
-        if (isDragging)
-        {
-            Vector2 newPosition = rb.position + velocity * moveMultiplier * Time.fixedDeltaTime;
-            newPosition = ClampPosition(newPosition);
-            rb.MovePosition(newPosition);
-        }
-    }
-
+    /// <summary>
+    /// 限制玩家移動在指定邊界內
+    /// </summary>
+    /// <param name="position">原始位置</param>
+    /// <returns>被限制過的座標</returns>
     private Vector2 ClampPosition(Vector2 position)
     {
         float minX = topLeftBoundary.position.x;

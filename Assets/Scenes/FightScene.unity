@@ -2758,7 +2758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1492323270}
   - component: {fileID: 1492323271}
-  - component: {fileID: 1492323273}
+  - component: {fileID: 1492323272}
   m_Layer: 0
   m_Name: Player 1 Manager
   m_TagString: Untagged
@@ -2803,7 +2803,7 @@ MonoBehaviour:
   player: 0
   userIsEnemy: 0
   skills: []
---- !u!114 &1492323273
+--- !u!114 &1492323272
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2812,10 +2812,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1492323269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc6627d261c480e4f885dfc5a46c2ea4, type: 3}
+  m_Script: {fileID: 11500000, guid: f065e601c66d4004e97997b67e2aa39a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveMultiplier: 1
   movementThreshold: 0.01
   tableLayerMask:
     serializedVersion: 2
@@ -4475,7 +4474,7 @@ Transform:
   m_GameObject: {fileID: 2092771454}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.14, y: -0.74, z: 0}
+  m_LocalPosition: {x: 0.2, y: 1.31, z: 0}
   m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_ConstrainProportionsScale: 0
   m_Children: []

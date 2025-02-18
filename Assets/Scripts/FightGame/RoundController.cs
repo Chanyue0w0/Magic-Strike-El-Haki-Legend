@@ -16,10 +16,11 @@ public class RoundController : MonoBehaviour
 
 	[SerializeField] private GameObject gameOverPanel;
 	//// Start is called before the first frame update
-	//void Start()
-	//{
+	void Start()
+	{
+		Application.targetFrameRate = 60;
+	}
 
-	//}
 
 	// Update is called once per frame
 	void Update()
