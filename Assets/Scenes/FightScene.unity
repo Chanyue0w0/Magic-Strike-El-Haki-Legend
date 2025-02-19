@@ -701,7 +701,7 @@ GameObject:
   - component: {fileID: 193765612}
   m_Layer: 8
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1767,11 +1767,14 @@ MonoBehaviour:
   originMaxMovementSpeed: 10
   rb: {fileID: 0}
   startingPosition: {x: 0, y: 0}
+  animator: {fileID: 0}
   player2: {fileID: 0}
+  player2Collider: {fileID: 0}
   Ball: {fileID: 2092771457}
   ball: {fileID: 600071182}
   ballController: {fileID: 2092771456}
   AISightAlpha: 0.8
+  collisionNotifier: {fileID: 0}
   topLeftBoundary: {fileID: 1911609161}
   bottomRightBoundary: {fileID: 1452114717}
   upBoardY: 3
@@ -1820,8 +1823,9 @@ GameObject:
   m_Component:
   - component: {fileID: 865603842}
   - component: {fileID: 865603843}
+  - component: {fileID: 865603844}
   m_Layer: 8
-  m_Name: Player2Image
+  m_Name: Player2Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1894,6 +1898,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &865603844
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865603841}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a23e1e2e44ac46645aebac0aca737143, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &874705229
 GameObject:
   m_ObjectHideFlags: 0
@@ -2312,7 +2337,7 @@ GameObject:
   - component: {fileID: 1033643907}
   - component: {fileID: 1033643908}
   m_Layer: 8
-  m_Name: Player1Image
+  m_Name: Player1Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3675,9 +3700,10 @@ GameObject:
   - component: {fileID: 1570447977}
   - component: {fileID: 1570447978}
   - component: {fileID: 1570447980}
+  - component: {fileID: 1570447981}
   m_Layer: 8
   m_Name: Player2
-  m_TagString: Untagged
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3760,6 +3786,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1570447981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570447976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198736d747bcbb24f896c4b9d17d60ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1631073177
 GameObject:
   m_ObjectHideFlags: 0
@@ -5557,6 +5595,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1159402458984011122, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0801192
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159402458984011122, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0801192
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159402458984011122, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0801192
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159402458984011122, guid: f167040b27f725f45b7466070cd23987, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -5608,6 +5658,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 7.4629693
       objectReference: {fileID: 0}
+    - target: {fileID: 4614121849620815956, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6973456524052729341, guid: f167040b27f725f45b7466070cd23987, type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
       value: 1
@@ -5619,6 +5673,10 @@ PrefabInstance:
     - target: {fileID: 7562544301210983039, guid: f167040b27f725f45b7466070cd23987, type: 3}
       propertyPath: m_Name
       value: ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562544301210983039, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: m_TagString
+      value: Ball
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

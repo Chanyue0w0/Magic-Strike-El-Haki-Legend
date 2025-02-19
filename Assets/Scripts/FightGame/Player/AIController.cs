@@ -8,12 +8,16 @@ public class AIController : MonoBehaviour
     [SerializeField] private float originMaxMovementSpeed; // = 10 * GlobalIndex.AILevel
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Vector2 startingPosition;
+    [SerializeField] private Animator animator;
 
     [SerializeField] private GameObject player2;
+    [SerializeField] private CircleCollider2D player2Collider;
     [SerializeField] private Rigidbody2D Ball;
     [SerializeField] private GameObject ball;
     [SerializeField] private BallController ballController;
     [SerializeField] private float AISightAlpha = 0.8f;
+
+    [SerializeField] private PlayerCollisionNotifier collisionNotifier;
 
     [Header("移動範圍限制")]
     [SerializeField] private Transform topLeftBoundary;
@@ -34,7 +38,15 @@ public class AIController : MonoBehaviour
         player2 = GameObject.Find("Player2");
         rb = player2.GetComponent<Rigidbody2D>();
         startingPosition = rb.position;
-        
+        animator = GameObject.Find("Player2Sprite").GetComponent<Animator>();
+        player2Collider = player2.GetComponent<CircleCollider2D>();
+
+        // 嘗試取得 CollisionNotifier
+        collisionNotifier = player2.GetComponent<PlayerCollisionNotifier>();
+        if (collisionNotifier != null)
+        {
+            collisionNotifier.OnBallCollision += HandleBallCollision;
+        }
     }
 
     private void FixedUpdate()
@@ -68,7 +80,14 @@ public class AIController : MonoBehaviour
         rb.MovePosition(Vector2.MoveTowards(rb.position, targetPosition,
                 movementSpeed * Time.fixedDeltaTime));
 
-        
+       
+    }
+
+    private void HandleBallCollision(GameObject ballObject)
+    {
+        Debug.Log("AIController 收到 Player2 與 Ball 碰撞的通知");
+        // 在這裡處理碰撞時的邏輯
+        animator.SetTrigger("OnHit");
     }
 
     public void SkillAttack()
