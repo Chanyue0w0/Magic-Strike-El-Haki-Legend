@@ -14883,7 +14883,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62463b216040f3047814b0f3acef4fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocityNow: {x: 0, y: 0}
+  moveSpeed: 1
   maxSpeed: 15
+  towardMiddleSpeed: 0.5
+  decelerationRate: 1
 --- !u!1 &8481834921624443751
 GameObject:
   m_ObjectHideFlags: 0

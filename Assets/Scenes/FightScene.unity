@@ -5506,6 +5506,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 604630663}
     m_Modifications:
+    - target: {fileID: 665508703571335232, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: m_Intensity
+      value: 2.9295926
+      objectReference: {fileID: 0}
     - target: {fileID: 1159402458984011122, guid: f167040b27f725f45b7466070cd23987, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5546,25 +5550,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4958314868292373843, guid: f167040b27f725f45b7466070cd23987, type: 3}
-      propertyPath: maxSpeed
-      value: 15
+    - target: {fileID: 1337221530067289528, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5235172023049094651, guid: f167040b27f725f45b7466070cd23987, type: 3}
-      propertyPath: m_Mass
-      value: 150
+    - target: {fileID: 2790359254925498756, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 7.4629693
       objectReference: {fileID: 0}
-    - target: {fileID: 5235172023049094651, guid: f167040b27f725f45b7466070cd23987, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 3c39f27e487ee9143acbbfaffc7b4d7c, type: 2}
+    - target: {fileID: 2790359254925498756, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 7.4629693
+      objectReference: {fileID: 0}
+    - target: {fileID: 6973456524052729341, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7537653734683726419, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.5921569
+      objectReference: {fileID: 0}
     - target: {fileID: 7562544301210983039, guid: f167040b27f725f45b7466070cd23987, type: 3}
       propertyPath: m_Name
       value: ball
-      objectReference: {fileID: 0}
-    - target: {fileID: 8824572585741761402, guid: f167040b27f725f45b7466070cd23987, type: 3}
-      propertyPath: m_Material
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

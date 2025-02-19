@@ -40,7 +40,7 @@ public class ballController : MonoBehaviour
         }
         else
         {
-            // 緩慢降低速度至 0
+            // 緩慢降低速度至 towardMiddleSpeed
             if (rb.velocity.magnitude > towardMiddleSpeed)
             {
                 float newSpeed = rb.velocity.magnitude - decelerationRate * Time.fixedDeltaTime;

@@ -101,7 +101,7 @@ public class PlayerControllerRelative : MonoBehaviour
             float playerMovementDistance = playerMovementVec.magnitude;
             float playerSpeed = (dragDuration > 0) ? playerMovementDistance / dragDuration : 0f;
 
-            Debug.Log($"[滑鼠拖曳] 手指移動：距離 {gestureDistance:F2}，速度 {gestureSpeed:F2} 單位/秒；玩家移動：距離 {playerMovementDistance:F2}，速度 {playerSpeed:F2} 單位/秒。");
+            //Debug.Log($"[滑鼠拖曳] 手指移動：距離 {gestureDistance:F2}，速度 {gestureSpeed:F2} 單位/秒；玩家移動：距離 {playerMovementDistance:F2}，速度 {playerSpeed:F2} 單位/秒。");
 
             isDragging = false;
         }
@@ -143,7 +143,7 @@ public class PlayerControllerRelative : MonoBehaviour
                     float playerMovementDistance = playerMovementVec.magnitude;
                     float playerSpeed = (dragDuration > 0) ? playerMovementDistance / dragDuration : 0f;
 
-                    Debug.Log($"[手指拖曳] 手指移動：距離 {gestureDistance:F2}，速度 {gestureSpeed:F2} 單位/秒；玩家移動：距離 {playerMovementDistance:F2}，速度 {playerSpeed:F2} 單位/秒。");
+                    //Debug.Log($"[手指拖曳] 手指移動：距離 {gestureDistance:F2}，速度 {gestureSpeed:F2} 單位/秒；玩家移動：距離 {playerMovementDistance:F2}，速度 {playerSpeed:F2} 單位/秒。");
 
                     isDragging = false;
                 }
