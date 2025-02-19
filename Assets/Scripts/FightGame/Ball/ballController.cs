@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ballController : MonoBehaviour
+public class BallController : MonoBehaviour
 {
     [SerializeField] private Vector2 velocityNow;
     [SerializeField] private float moveSpeed = 1f;

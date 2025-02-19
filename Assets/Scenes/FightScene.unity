@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 193765610}
   - component: {fileID: 193765612}
   m_Layer: 8
-  m_Name: Player 1
+  m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -715,7 +715,7 @@ Transform:
   m_GameObject: {fileID: 193765608}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.488, y: -2.847, z: 0}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1292,6 +1292,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9026118524749550660, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
   m_PrefabInstance: {fileID: 3340851331901099523}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &600071182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7562544301210983039, guid: f167040b27f725f45b7466070cd23987, type: 3}
+  m_PrefabInstance: {fileID: 2276570338171022705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &604630662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1706,7 @@ GameObject:
   m_Component:
   - component: {fileID: 731934237}
   - component: {fileID: 731934239}
+  - component: {fileID: 731934240}
   m_Layer: 0
   m_Name: Player 2 Manager
   m_TagString: Untagged
@@ -1745,6 +1751,30 @@ MonoBehaviour:
   player: 1
   userIsEnemy: 0
   skills: []
+--- !u!114 &731934240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731934236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae097f1e41b3754382e9d81878faa95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxMovementSpeed: 10
+  originMaxMovementSpeed: 10
+  rb: {fileID: 0}
+  startingPosition: {x: 0, y: 0}
+  player2: {fileID: 0}
+  Ball: {fileID: 2092771457}
+  ball: {fileID: 600071182}
+  ballController: {fileID: 2092771456}
+  AISightAlpha: 0.8
+  topLeftBoundary: {fileID: 1911609161}
+  bottomRightBoundary: {fileID: 1452114717}
+  upBoardY: 3
 --- !u!1 &815692596
 GameObject:
   m_ObjectHideFlags: 0
@@ -3646,7 +3676,7 @@ GameObject:
   - component: {fileID: 1570447978}
   - component: {fileID: 1570447980}
   m_Layer: 8
-  m_Name: Player 2
+  m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3661,7 +3691,7 @@ Transform:
   m_GameObject: {fileID: 1570447976}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.455, y: 2.914, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5364,6 +5394,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1159402458984011122, guid: f167040b27f725f45b7466070cd23987, type: 3}
   m_PrefabInstance: {fileID: 2276570338171022705}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2092771456 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4958314868292373843, guid: f167040b27f725f45b7466070cd23987, type: 3}
+  m_PrefabInstance: {fileID: 2276570338171022705}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600071182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62463b216040f3047814b0f3acef4fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &2092771457 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5235172023049094651, guid: f167040b27f725f45b7466070cd23987, type: 3}
+  m_PrefabInstance: {fileID: 2276570338171022705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2105154082
 GameObject:
   m_ObjectHideFlags: 0
@@ -5508,7 +5554,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 665508703571335232, guid: f167040b27f725f45b7466070cd23987, type: 3}
       propertyPath: m_Intensity
-      value: 2.9295926
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1159402458984011122, guid: f167040b27f725f45b7466070cd23987, type: 3}
       propertyPath: m_LocalPosition.x
