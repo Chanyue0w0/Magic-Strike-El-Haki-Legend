@@ -28,10 +28,6 @@ public class AudioManager : MonoBehaviour
 		}
 		Instance = this;
 
-		//audioMixer.SetFloat("Master", Mathf.Log10(masterVolume) * 20);
-		//audioMixer.SetFloat("SFX", Mathf.Log10(sfxVolume) * 20);
-		//audioMixer.SetFloat("Music", Mathf.Log10(musicVolume) * 20);
-
 
 		if (PlayerPrefs.HasKey("MasterVolume")) masterVolume = PlayerPrefs.GetFloat("MasterVolume");
 		if (PlayerPrefs.HasKey("MusicVolume")) musicVolume = PlayerPrefs.GetFloat("MusicVolume");
