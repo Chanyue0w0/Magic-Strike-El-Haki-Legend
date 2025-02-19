@@ -37,9 +37,9 @@ public class PlayerStatusManager : MonoBehaviour
     private void InitStatus()
     {
 		if (player == UserPotstion.player1)
-			skills = FightConfigGlobalIndex.player1_Group;
+			skills = FightPlayer1Config.Group;
         if (player == UserPotstion.player2)
-            skills = FightConfigGlobalIndex.player2_Group;
+            skills = FightPlayer2Config.Group;
         else
             Debug.Log("user poistion is not setting!!!!");
 
