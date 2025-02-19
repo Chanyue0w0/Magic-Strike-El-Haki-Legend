@@ -6,7 +6,7 @@ public class RoundController : MonoBehaviour
 {
 
 	[Header("----------------- Value ------------------")]
-	[SerializeField] private float timeScale = 1f;
+	//[SerializeField] private float timeScale = 1f;
 	[SerializeField] private string gameStatus = "Continue";
 
 
