@@ -3729,7 +3729,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &1631073177
 GameObject:
   m_ObjectHideFlags: 0
@@ -5546,29 +5546,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4958314868292373843, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: maxSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235172023049094651, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: m_Mass
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 7562544301210983039, guid: f167040b27f725f45b7466070cd23987, type: 3}
       propertyPath: m_Name
       value: ball
-      objectReference: {fileID: 0}
-    - target: {fileID: 8573137887274109706, guid: f167040b27f725f45b7466070cd23987, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.6681137
-      objectReference: {fileID: 0}
-    - target: {fileID: 8573137887274109706, guid: f167040b27f725f45b7466070cd23987, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.6681137
-      objectReference: {fileID: 0}
-    - target: {fileID: 8573137887274109706, guid: f167040b27f725f45b7466070cd23987, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.6681137
-      objectReference: {fileID: 0}
-    - target: {fileID: 8573137887274109706, guid: f167040b27f725f45b7466070cd23987, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.018706
-      objectReference: {fileID: 0}
-    - target: {fileID: 8573137887274109706, guid: f167040b27f725f45b7466070cd23987, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.01403
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
