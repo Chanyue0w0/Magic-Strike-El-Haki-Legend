@@ -2110,7 +2110,7 @@ GameObject:
   - component: {fileID: 1026530578}
   - component: {fileID: 1026530577}
   m_Layer: 6
-  m_Name: FieldBackgrounds
+  m_Name: Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2194,7 +2194,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 1026530574}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7e08820b5cfae2d4e99f46ef1fd711b4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2237,7 +2237,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 1026530574}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7e08820b5cfae2d4e99f46ef1fd711b4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5554,9 +5554,17 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 5235172023049094651, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 3c39f27e487ee9143acbbfaffc7b4d7c, type: 2}
     - target: {fileID: 7562544301210983039, guid: f167040b27f725f45b7466070cd23987, type: 3}
       propertyPath: m_Name
       value: ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824572585741761402, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
