@@ -1,9 +1,29 @@
 //using System.Collections;
 //using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 public class HeroData : MonoBehaviour
 {
+	[System.Serializable]
+	public class HeroStats
+	{
+		public int BaseATK;
+		public int BaseHP;
+		public int UltimateSkillDamage;
+	}
+
+	[System.Serializable]
+	public class Hero
+	{
+		public string Name;
+		public string ID;
+		public string Rarity; // Normal, Common, Rare, Special, Legendary
+		public Dictionary<int, HeroStats> LevelStats;
+		public string Description;
+	}
+
 	public static HeroData Instance { get; private set; }
 
 	[SerializeField] private string filePath = "jsonData/HeroData";
@@ -24,5 +44,13 @@ public class HeroData : MonoBehaviour
 		if (jsonData[id] == null)
 			Debug.Log("id: " + id + " is not found in json data!");
 		return jsonData[id];
+	}
+
+	public Hero GetHero(string id)
+	{
+		JToken heroData = GetHeroData(id);
+
+		Hero hero = JsonConvert.DeserializeObject<Hero>(heroData.ToString());
+		return hero;
 	}
 }

@@ -51,7 +51,7 @@ public class PlayerStatusManager : MonoBehaviour
                 Debug.Log("not found skills[0]: " + skills[0] + "in heroData.json!!!!");
                 return;
             }
-            healthPoint = characterData["LevelData"][0]["HealthPoint"].ToObject<int>();
+            healthPoint = characterData["LevelStats"]["1"]["BaseHP"].ToObject<int>();
 
 		}
         else
