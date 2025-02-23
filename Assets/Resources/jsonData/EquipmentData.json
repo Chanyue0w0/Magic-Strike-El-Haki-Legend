@@ -1,81 +1,33 @@
 {
     "EM00" : {
-        "Name" : "Eamaple Equipment",
-        "ID" : "EM00",
-        "Rare" : "Rare",
-        "Type" : "head",
-        "Discribe": "Hero introduction",
-        "LevelData": [
-            {
-                "AttackDamage": 10,
-                "Defend": 10,
-                "SpicalAttackDamage":10,
-                "HealthPoint": 100
-            },
-            {
-                "AttackDamage": 20,
-                "Defend":20,
-                "SpicalAttackDamage":20,
-                "HealthPoint": 200
-            },
-            {
-                "AttackDamage": 30,
-                "Defend": 30,
-                "SpicalAttackDamage":30,
-                "HealthPoint": 300
-            }
-        ]
+        "Name": "Warrior Helmet",
+        "ID": "HT00",
+        "Type": "Head",
+        "Rarity": "Rare",
+        "SetType": "Warrior",
+        "AttackPower": 15,
+        "HealthPoints": 100,
+        "Description": "A sturdy helmet forged for battle-hardened warriors."
     },
     "EM01" : {
-        "Name" : "aaaa",
-        "ID" : "EM01",
-        "Rare" : "Normal",
-        "LevelData": [
-            {
-                "AttackDamage": 10,
-                "Defend": 10,
-                "SpicalAttackDamage":10,
-                "HealthPoint": 100
-            },
-            {
-                "AttackDamage": 20,
-                "Defend":20,
-                "SpicalAttackDamage":20,
-                "HealthPoint": 200
-            },
-            {
-                "AttackDamage": 30,
-                "Defend": 30,
-                "SpicalAttackDamage":30,
-                "HealthPoint": 300
-            }
-        ],
-        "Discribe": "Hero introduction"
+        "Name": "Warrior Helmet",
+        "ID": "HT00",
+        "Type": "Head",
+        "Rarity": "Rare",
+        "SetType": "Warrior",
+        "AttackPower": 15,
+        "HealthPoints": 100,
+        "Description": "A sturdy helmet forged for battle-hardened warriors."
     },
     "EM02" : {
-        "Name" : "bbbb",
-        "ID" : "EM02",
-        "Rare" : "Normal",
-        "LevelData": [
-            {
-                "AttackDamage": 10,
-                "Defend": 10,
-                "SpicalAttackDamage":10,
-                "HealthPoint": 100
-            },
-            {
-                "AttackDamage": 20,
-                "Defend":20,
-                "SpicalAttackDamage":20,
-                "HealthPoint": 200
-            },
-            {
-                "AttackDamage": 30,
-                "Defend": 30,
-                "SpicalAttackDamage":30,
-                "HealthPoint": 300
-            }
-        ],
-        "Discribe": "Hero introduction"
+        "Name": "Warrior Helmet",
+        "ID": "HT00",
+        "Type": "Head",
+        "Rarity": "Rare",
+        "SetType": "Warrior",
+        "AttackPower": 15,
+        "HealthPoints": 100,
+        "Description": "A sturdy helmet forged for battle-hardened warriors."
     }
+      
 }
