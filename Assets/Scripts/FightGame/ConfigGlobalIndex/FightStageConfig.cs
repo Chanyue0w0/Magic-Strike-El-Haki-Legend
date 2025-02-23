@@ -4,7 +4,6 @@
 
 public static class FightStageConfig
 {
-
 	public static string ChapterNumber;
 	public static string LevelsNumber;
 	public static string StageNumber;

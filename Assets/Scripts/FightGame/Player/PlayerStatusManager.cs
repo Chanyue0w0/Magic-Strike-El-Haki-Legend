@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class PlayerStatusManager : MonoBehaviour
 {
-	private enum UserPotstion { player1, player2 };
+	private enum UserPosition { player1, player2 };
     [Header("----------------- Status Data ------------------")]
     [SerializeField] private int healthPoint;
     [SerializeField] private int attackDamage;
     [SerializeField] private int currentMagicPoint;
 
 	[Header("----------------- Config Setting ------------------")]
-    [SerializeField] private UserPotstion player;
+    [SerializeField] private UserPosition player;
     [SerializeField] private bool userIsEnemy;
 
 	[Header("----------------- Variable Observe ------------------")]
@@ -25,7 +25,7 @@ public class PlayerStatusManager : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-        InitStatus();
+        //InitStatus();
     }
 
     // Update is called once per frame
@@ -34,14 +34,27 @@ public class PlayerStatusManager : MonoBehaviour
         
     }
 
-    private void InitStatus()
+    public void InitStatus()
     {
-		if (player == UserPotstion.player1)
-			skills = FightPlayer1Config.Group;
-        if (player == UserPotstion.player2)
+		if (player == UserPosition.player1)
+        {
+            skills = FightPlayer1Config.Group;
+            SetHP(FightPlayer1Config.StartHP);
+            SetATK(FightPlayer1Config.StartATK);
+            SetMagicPoint(0);
+        }
+        if (player == UserPosition.player2)
+        {
             skills = FightPlayer2Config.Group;
+            SetHP(FightPlayer2Config.StartHP);
+            SetATK(FightPlayer2Config.StartATK);
+            SetMagicPoint(0);
+        }
         else
             Debug.Log("user poistion is not setting!!!!");
+
+        
+
 
         if (!userIsEnemy)
         {
@@ -51,7 +64,7 @@ public class PlayerStatusManager : MonoBehaviour
                 Debug.Log("not found skills[0]: " + skills[0] + "in heroData.json!!!!");
                 return;
             }
-            healthPoint = characterData["LevelStats"]["1"]["BaseHP"].ToObject<int>();
+            //healthPoint = characterData["LevelStats"]["1"]["BaseHP"].ToObject<int>();  //透過MainMenu加總過來
 
 		}
         else
@@ -84,9 +97,13 @@ public class PlayerStatusManager : MonoBehaviour
     {
         healthPoint = hp;
     }
-    public int GetBasicATK()
+    public int GetATK()
     {
         return attackDamage;
+    }
+    public void SetATK(int atk)
+    {
+        attackDamage = atk;
     }
 
     public int GetMagicPoint()

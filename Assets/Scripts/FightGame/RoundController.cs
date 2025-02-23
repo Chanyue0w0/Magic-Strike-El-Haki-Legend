@@ -19,24 +19,32 @@ public class RoundController : MonoBehaviour
 	void Start()
 	{
 		Application.targetFrameRate = 60;
+		GameStart();
 	}
-
 
 	// Update is called once per frame
 	void Update()
 	{
 		// p1 or p2 hp == 0 end game
-		if (player1Status.GetHP() == 0)
+		if (player1Status.GetHP() <= 0)
 		{
 			GameOver();
 			// defeat
 		}
-		else if (player2Status.GetHP() == 0)
+		else if (player2Status.GetHP() <= 0)
 		{
 			GameOver();
 			// win
 
 		}
+	}
+
+	public void GameStart()
+    {
+		player1Status.InitStatus();
+		player2Status.InitStatus();
+
+
 	}
 
 	public void PauseGame()
@@ -55,6 +63,7 @@ public class RoundController : MonoBehaviour
 
 	private void GameOver()
 	{
+		FightPlayer1Config.StartHP = player1Status.GetHP();
 		PauseGame();
 		gameOverPanel.SetActive(true);
 
