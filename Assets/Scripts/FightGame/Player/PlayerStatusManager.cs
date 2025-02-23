@@ -19,6 +19,10 @@ public class PlayerStatusManager : MonoBehaviour
     [SerializeField] private string[] skills;
     //[Header("----------------- Script Reference ------------------")]
 
+
+    [Header("----------------- Health Bar Setting ------------------")]
+    [SerializeField] private HealthBar healthBar;
+
     // private variable
     private JToken characterData;
 
@@ -42,16 +46,19 @@ public class PlayerStatusManager : MonoBehaviour
             SetHP(FightPlayer1Config.StartHP);
             SetATK(FightPlayer1Config.StartATK);
             SetMagicPoint(0);
+            healthBar.SetMaxHealth(FightPlayer1Config.StartHP);
         }
+
         if (player == UserPosition.player2)
         {
             skills = FightPlayer2Config.Group;
             SetHP(FightPlayer2Config.StartHP);
             SetATK(FightPlayer2Config.StartATK);
             SetMagicPoint(0);
+            healthBar.SetMaxHealth(FightPlayer2Config.StartHP);
         }
-        else
-            Debug.Log("user poistion is not setting!!!!");
+        //else
+        //    Debug.Log("user poistion is not setting!!!!");
 
         
 
