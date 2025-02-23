@@ -10,7 +10,7 @@ public static class FightStageConfig
 	public static string Player2Skin;
 	public static string BackGroundImage;
 	public static string FieldImage;
-	public static string BGM;
+	public static string BGM = "BasicBattleBGM";
 	public static int StartHP;
 	public static int StartATK;
 	public static float CriticalPercentage;

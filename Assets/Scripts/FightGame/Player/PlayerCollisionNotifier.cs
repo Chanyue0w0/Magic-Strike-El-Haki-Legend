@@ -10,7 +10,7 @@ public class PlayerCollisionNotifier : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            Debug.Log("Player2 與 Ball 發生碰撞！");
+            //Debug.Log("Player2 與 Ball 發生碰撞！");
             OnBallCollision?.Invoke(collision.gameObject);
         }
     }

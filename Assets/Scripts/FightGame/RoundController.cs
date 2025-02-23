@@ -43,7 +43,10 @@ public class RoundController : MonoBehaviour
     {
 		player1Status.InitStatus();
 		player2Status.InitStatus();
-
+		if(FightStageConfig.BGM == "BasicBattleBGM")
+		{
+			AudioManager.Instance.PlayBGM(MusicAudioClips.Instance.BasicBattleBGM);
+		}			
 
 	}
 

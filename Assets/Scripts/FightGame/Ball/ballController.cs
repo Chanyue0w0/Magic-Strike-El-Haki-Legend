@@ -34,7 +34,7 @@ public class BallController : MonoBehaviour
 
         // 當 x 或 y 速度過小，且球體位置接近邊界時，增加置中速度
         if ((Mathf.Abs(rb.velocity.x) < 0.1f || Mathf.Abs(rb.velocity.y) < 0.1f)
-            && (Mathf.Abs(transform.position.y) >= 3f || Mathf.Abs(transform.position.x) >= 1.6f))
+            && (Mathf.Abs(transform.position.y) >= 4f || Mathf.Abs(transform.position.x) >= 1.6f))
         {
             MoveTowardMiddle(); // 置中
         }
