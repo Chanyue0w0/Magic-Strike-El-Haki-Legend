@@ -9,6 +9,8 @@ public class BallController : MonoBehaviour
     [SerializeField] private float maxSpeed = 10f;          // 球的最大速度
     [SerializeField] private float towardMiddleSpeed = 0.5f; // 置中速度
     [SerializeField] private float decelerationRate = 1f;    // 每秒減速的速度
+    [SerializeField] private Vector2 clampPositionX = new Vector2(-1.87f, 1.87f);    // X軸邊界
+    [SerializeField] private Vector2 clampPositionY = new Vector2(-3.5f, 3.5f);    // Y軸邊界
     private Rigidbody2D rb;
 
     void Start()
@@ -34,7 +36,7 @@ public class BallController : MonoBehaviour
 
         // 當 x 或 y 速度過小，且球體位置接近邊界時，增加置中速度
         if ((Mathf.Abs(rb.velocity.x) < 0.1f || Mathf.Abs(rb.velocity.y) < 0.1f)
-            && (Mathf.Abs(transform.position.y) >= 4f || Mathf.Abs(transform.position.x) >= 1.6f))
+            && (Mathf.Abs(transform.position.y) >= 3.5f || Mathf.Abs(transform.position.x) >= 1.6f))
         {
             MoveTowardMiddle(); // 置中
         }
@@ -64,7 +66,7 @@ public class BallController : MonoBehaviour
     {
         Vector3 pos = transform.position;
         pos.x = Mathf.Clamp(pos.x, -1.87f, 1.87f);
-        pos.y = Mathf.Clamp(pos.y, -3.23f, 3.23f);
+        pos.y = Mathf.Clamp(pos.y, -3.5f, 3.5f);
         transform.position = pos;
     }
 }

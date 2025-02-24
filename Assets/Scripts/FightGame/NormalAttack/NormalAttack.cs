@@ -12,6 +12,8 @@ public class NormalAttack : MonoBehaviour
     [SerializeField] private int targetNumber;
     [SerializeField] private float speed = 5f;
     [SerializeField] private float rotationDistanceThreshold = 1.0f; // 旋轉距離閾值
+    [SerializeField] private int NormalAttackDamage = 0; // 傷害值
+    [SerializeField] private StatusEffect EffectToApply = StatusEffect.Stun; // 要套用的狀態
     [SerializeField] private Rigidbody2D rb;
 
     [Header("----------------- GameObjects ------------------")]
@@ -22,7 +24,6 @@ public class NormalAttack : MonoBehaviour
         player1 = GameObject.FindGameObjectWithTag("Player1");
         player2 = GameObject.FindGameObjectWithTag("Player2");
         rb = gameObject.GetComponent<Rigidbody2D>();
-
         //explosion = (GameObject)Resources.Load("Prefabs/Skills/ElectircExplosion", typeof(GameObject)); //抓取粒子特效 
     }
 
@@ -67,6 +68,11 @@ public class NormalAttack : MonoBehaviour
         playerNumber = pNumber;
     }
 
+    public void SetDamage(int damage)
+    {
+        NormalAttackDamage = damage;
+    }    
+
     public void SetTargetNumber(int tNumber)
     {
         targetNumber = tNumber;
@@ -79,7 +85,26 @@ public class NormalAttack : MonoBehaviour
         {
             Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
             //doorScore.DoorTracingAttackOnHit();
+            // 嘗試獲取 IDamageable 介面（目標可受傷）
+            IDamageable damageable = collision.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(NormalAttackDamage);
+                Debug.Log($"{collision.gameObject.name} 受到 {NormalAttackDamage} 傷害！");
+            }
+
+            // 嘗試獲取 IStatusEffectReceiver 介面（目標可受 Buff/Debuff）
+            IStatusEffectReceiver statusReceiver = collision.GetComponent<IStatusEffectReceiver>();
+            if (statusReceiver != null)
+            {
+                statusReceiver.ApplyStatusEffect(EffectToApply);
+                Debug.Log($"{collision.gameObject.name} 受到狀態影響：{EffectToApply}");
+            }
+
             Destroy(gameObject);
+
+
         }
+        
     }
 }

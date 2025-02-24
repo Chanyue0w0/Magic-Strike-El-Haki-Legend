@@ -45,6 +45,7 @@ public class NormalAttackManager : MonoBehaviour
             //Set Normal Attack targetPlayerNumber
             obj.GetComponent<NormalAttack>().SetPlayerNumber(instPlayerNumber);
             obj.GetComponent<NormalAttack>().SetTargetNumber(targetPlayerNumber);
+            obj.GetComponent<NormalAttack>().SetDamage(FightPlayer1Config.NowATK);
         }
         else
         {
@@ -52,8 +53,9 @@ public class NormalAttackManager : MonoBehaviour
             //Set Normal Attack targetPlayerNumber
             obj.GetComponent<NormalAttack>().SetPlayerNumber(instPlayerNumber);
             obj.GetComponent<NormalAttack>().SetTargetNumber(targetPlayerNumber);
+            obj.GetComponent<NormalAttack>().SetDamage(FightPlayer2Config.NowATK);
         }
-        Debug.Log($"Player {instPlayerNumber} attacks Player {targetPlayerNumber}");
+        //Debug.Log($"Player {instPlayerNumber} attacks Player {targetPlayerNumber}");
         // 在這裡實作攻擊邏輯
     }
 }

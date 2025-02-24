@@ -9,8 +9,10 @@ public static class FightPlayer2Config
 	public static string Ult = "HammerUlt";
 
 	public static string PlayerSkin;
-	public static int StartHP = 1500;
-	public static int StartATK = 100;
+	public static int StartHP = 1000;
+	public static int NowHP = 1000;
+	public static int StartATK = 80;
+	public static int NowATK = 80;
 	public static float CriticalPercentage = 0.0f;
 	public static float SkillDamageIncrease = 0.0f;
 	public static float PoisonDamageIncrease = 0.0f;
