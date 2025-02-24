@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerHeroManager : MonoBehaviour
 {
-	[SerializeField] private string savePath = "/playerHero.json";
+	private string savePath = "/playerHero.json";
 	private List<PlayerHero> heroList = new();
 
 	public static PlayerHeroManager Instance { get; private set; }
@@ -41,7 +41,6 @@ public class PlayerHeroManager : MonoBehaviour
 
 	private void Awake()
 	{
-
 		if (Instance != null)
 		{
 			Debug.Log("Found more than PlayerHeroManager object in the sence");
@@ -49,8 +48,51 @@ public class PlayerHeroManager : MonoBehaviour
 		Instance = this;
 	}
 
+	private void InitJsonFile()
+	{
+		JObject heroDataObj = HeroData.Instance.jsonData;
+
+		// 遍歷每個英雄代號（例如 HR00, HR01, ...）
+		foreach (var heroProp in heroDataObj)
+		{
+			JObject heroJson = (JObject)heroProp.Value;
+
+			// 從 LevelStats 的 "1" 級讀取基本數值
+			JObject levelStats = (JObject)heroJson["LevelStats"];
+			JObject level1Stats = (JObject)levelStats["1"];
+			int baseATK = level1Stats["BaseATK"].Value<int>();
+			int baseHP = level1Stats["BaseHP"].Value<int>();
+			int ultimateDamage = level1Stats["UltimateSkillDamage"].Value<int>();
+
+			// 建立新的 PlayerHero，根據需求覆寫部分欄位：
+			// - currentLevel 固定為 1
+			// - owned 固定為 false
+			// - rarity 固定為 "傳說"（你也可以根據實際需求調整） 
+			// - heroShards 固定為 0
+			// - description 固定為 "擁有冰凍敵人的能力，可以減緩敵人行動。"
+			PlayerHero newHero = new PlayerHero
+			(
+				heroJson["Name"]?.ToString(),         // 可保留原始名稱
+				heroJson["ID"]?.ToString(),             // 可保留原始 ID
+				heroJson["Rarity"].ToString(),                             // 強制設定為「傳說」
+				1,                            // 起始等級 1
+				baseATK,
+				baseHP,
+				ultimateDamage,
+				false,                               // 預設未擁有
+				0,                              // 預設碎片數量為 0
+				heroJson["Description"].ToString()
+			);
+
+			heroList.Add(newHero);
+		}
+		SaveHeroes();
+	}
 	void Start()
 	{
+		if (!File.Exists(SavePath()))
+			InitJsonFile();
+		// test
 		//// 讀取英雄
 		//List<PlayerHero> heroList = PlayerHeroManager.Instance.GetAllHeroData();
 		//foreach (var loadedHero in heroList)
@@ -86,9 +128,8 @@ public class PlayerHeroManager : MonoBehaviour
 	{
 		if (!File.Exists(SavePath()))
 		{
-			heroList = new List<PlayerHero>();
-			SaveHeroes();
-			Debug.LogWarning("找不到英雄存檔!");	
+			Debug.LogWarning("找不到英雄存檔!");
+			return;
 		}
 
 		string json = File.ReadAllText(SavePath());

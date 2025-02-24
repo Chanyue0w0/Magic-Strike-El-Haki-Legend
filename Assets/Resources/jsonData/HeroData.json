@@ -8,7 +8,7 @@
           "10": { "BaseATK": 250, "BaseHP": 2000, "UltimateSkillDamage": 1200 },
           "20": { "BaseATK": 400, "BaseHP": 3200, "UltimateSkillDamage": 2500 }
         },
-        "Description": "A legendary warrior harnessing the power of fire to burn his enemies."
+        "Description": "掌控火焰的戰士，擁有強大的爆發力。"
       },
     "HR01" : {
         "Name": "Flame Warrior",
@@ -19,7 +19,7 @@
         "10": { "BaseATK": 250, "BaseHP": 2000, "UltimateSkillDamage": 1200 },
         "20": { "BaseATK": 400, "BaseHP": 3200, "UltimateSkillDamage": 2500 }
         },
-        "Description": "A legendary warrior harnessing the power of fire to burn his enemies."
+        "Description": "擁有冰凍敵人的能力，可以減緩敵人行動。"
     },
     "HR02" : {
         "Name": "Flame Warrior",
@@ -30,6 +30,6 @@
         "10": { "BaseATK": 250, "BaseHP": 2000, "UltimateSkillDamage": 1200 },
         "20": { "BaseATK": 400, "BaseHP": 3200, "UltimateSkillDamage": 2500 }
         },
-        "Description": "A legendary warrior harnessing the power of fire to burn his enemies."
+        "Description": "meow mewo meow"
     }
 }

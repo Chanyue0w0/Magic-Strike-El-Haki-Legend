@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MainMenuButtonController : MonoBehaviour
 {
+	[Header("Panels")]
 	[SerializeField] private GameObject settingPanel;
 	[SerializeField] private GameObject heroPanel;
 	[SerializeField] private GameObject shopPanel;
