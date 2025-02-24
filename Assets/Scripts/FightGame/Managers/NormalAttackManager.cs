@@ -41,13 +41,17 @@ public class NormalAttackManager : MonoBehaviour
     {
         if(instPlayerNumber == 1)
         {
-            Instantiate(player1_NormalAttack, player1.transform.position, Quaternion.identity);
+            GameObject obj = Instantiate(player1_NormalAttack, player1.transform.position, Quaternion.identity);
             //Set Normal Attack targetPlayerNumber
+            obj.GetComponent<NormalAttack>().SetPlayerNumber(instPlayerNumber);
+            obj.GetComponent<NormalAttack>().SetTargetNumber(targetPlayerNumber);
         }
         else
         {
-            Instantiate(player2_NormalAttack, player2.transform.position, Quaternion.identity);
+            GameObject obj = Instantiate(player2_NormalAttack, player2.transform.position, Quaternion.identity);
             //Set Normal Attack targetPlayerNumber
+            obj.GetComponent<NormalAttack>().SetPlayerNumber(instPlayerNumber);
+            obj.GetComponent<NormalAttack>().SetTargetNumber(targetPlayerNumber);
         }
         Debug.Log($"Player {instPlayerNumber} attacks Player {targetPlayerNumber}");
         // 在這裡實作攻擊邏輯
