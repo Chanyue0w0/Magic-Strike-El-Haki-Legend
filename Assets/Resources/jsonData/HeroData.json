@@ -12,7 +12,7 @@
       },
     "HR01" : {
         "Name": "Flame Warrior",
-        "ID": "HR00",
+        "ID": "HR00"    ,
         "Rarity": "Rare",
         "LevelStats": {
         "1": { "BaseATK": 100, "BaseHP": 1200, "UltimateSkillDamage": 500 },
