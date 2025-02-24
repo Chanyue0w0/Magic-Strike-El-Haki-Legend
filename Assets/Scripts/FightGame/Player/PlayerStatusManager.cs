@@ -35,6 +35,7 @@ public class PlayerStatusManager : MonoBehaviour
 	void Start()
     {
         //InitStatus();
+
     }
 
     // Update is called once per frame
@@ -52,6 +53,8 @@ public class PlayerStatusManager : MonoBehaviour
             SetATK(FightPlayer1Config.StartATK);
             SetMagicPoint(0);
             healthBar.SetMaxHealth(FightPlayer1Config.StartHP);
+            // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
+            PlayerNotification notification = player1.GetComponent<PlayerNotification>();
         }
 
         if (player == UserPosition.player2)
@@ -61,12 +64,9 @@ public class PlayerStatusManager : MonoBehaviour
             SetATK(FightPlayer2Config.StartATK);
             SetMagicPoint(0);
             healthBar.SetMaxHealth(FightPlayer2Config.StartHP);
+            // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
+            PlayerNotification notification = player2.GetComponent<PlayerNotification>();
         }
-        //else
-        //    Debug.Log("user poistion is not setting!!!!");
-
-        
-
 
         if (!userIsEnemy)
         {
@@ -77,7 +77,6 @@ public class PlayerStatusManager : MonoBehaviour
                 return;
             }
             //healthPoint = characterData["LevelStats"]["1"]["BaseHP"].ToObject<int>();  //透過MainMenu加總過來
-
 		}
         else
         {
@@ -90,7 +89,12 @@ public class PlayerStatusManager : MonoBehaviour
         }
 	}
 
-	public void GetDamage(int atk)
+    public void RegisterPlayerNotification(PlayerNotification playerNotification)
+    {
+        playerNotification.OnDamageReceived += HandleDamageNotification;
+    }
+
+    public void GetDamage(int atk)
     {
         healthPoint -= atk;
     }
