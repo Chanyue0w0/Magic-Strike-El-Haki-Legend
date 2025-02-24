@@ -5,6 +5,8 @@
 public static class FightPlayer1Config
 {
 	public static string[] Group = { "HR00", "B02", "B03" };
+	public static string NormalAttack = "HammerNormalAttack";
+	public static string Ult = "HammerUlt";
 
 	public static string PlayerSkin;
 	public static int StartHP = 1500;

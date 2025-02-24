@@ -23,6 +23,11 @@ public class PlayerStatusManager : MonoBehaviour
     [Header("----------------- Health Bar Setting ------------------")]
     [SerializeField] private HealthBar healthBar;
 
+    [Header("----------------- PlayerGameObject ------------------")]
+    [SerializeField] private GameObject player1;
+    [SerializeField] private GameObject player2;
+
+
     // private variable
     private JToken characterData;
 

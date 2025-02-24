@@ -4951,7 +4951,7 @@ GameObject:
   - component: {fileID: 8548214298674421980}
   - component: {fileID: 6328096108097674503}
   m_Layer: 0
-  m_Name: HammerNormalAttack(origin)
+  m_Name: (origin)HammerNormalAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
