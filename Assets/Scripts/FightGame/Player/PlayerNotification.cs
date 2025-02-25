@@ -67,7 +67,8 @@ public class PlayerNotification : MonoBehaviour, IDamageable, IStatusEffectRecei
     {
         for (int i = 0; i < 5; i++) // ¿U¿N 5 ¬í¡A¨C¬í¦© 5 ÂI¦å
         {
-            TakeDamage(5);
+            int burnDamage = Mathf.RoundToInt(20 * (1 + FightPlayer1Config.BurnDamageIncrease));
+            TakeDamage(burnDamage);
             yield return new WaitForSeconds(1);
         }
     }

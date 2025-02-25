@@ -16,6 +16,7 @@ public static class FightPlayer2Config
 	public static float CriticalPercentage = 0.0f;
 	public static float SkillDamageIncrease = 0.0f;
 	public static float PoisonDamageIncrease = 0.0f;
+	public static float BurnDamageIncrease = 0.0f;
 	public static float CC_SkillTimeIncrease = 0.0f;
 	public static float SkillBubbleTimeDecrease = 0.0f;
 	public static string EquipSet = "None";

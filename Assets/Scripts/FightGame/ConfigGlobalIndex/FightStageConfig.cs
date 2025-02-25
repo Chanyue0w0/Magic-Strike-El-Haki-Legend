@@ -16,6 +16,7 @@ public static class FightStageConfig
 	public static float CriticalPercentage;
 	public static float SkillDamageIncrease;
 	public static float PoisonDamageIncrease;
+	public static float BurnDamageIncrease;
 	public static float CC_SkillTimeIncrease;
 	public static float SkillBubbleTimeDecrease;
 	public static string EquipSet;
