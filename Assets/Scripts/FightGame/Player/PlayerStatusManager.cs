@@ -2,6 +2,7 @@
 //using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerStatusManager : MonoBehaviour
 {
@@ -10,8 +11,9 @@ public class PlayerStatusManager : MonoBehaviour
     [SerializeField] private int healthPoint;
     [SerializeField] private int attackDamage;
     [SerializeField] private int currentMagicPoint;
+    [SerializeField] private bool isBurning = false; // 是否正在燃燒
 
-	[Header("----------------- Config Setting ------------------")]
+    [Header("----------------- Config Setting ------------------")]
     [SerializeField] private UserPosition player;
     [SerializeField] private bool userIsEnemy;
 
@@ -55,6 +57,7 @@ public class PlayerStatusManager : MonoBehaviour
             healthBar.SetMaxHealth(FightPlayer1Config.StartHP);
             // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
             PlayerNotification notification = player1.GetComponent<PlayerNotification>();
+            RegisterPlayerNotification(notification);//訂閱通知
         }
 
         if (player == UserPosition.player2)
@@ -66,6 +69,7 @@ public class PlayerStatusManager : MonoBehaviour
             healthBar.SetMaxHealth(FightPlayer2Config.StartHP);
             // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
             PlayerNotification notification = player2.GetComponent<PlayerNotification>();
+            RegisterPlayerNotification(notification);//訂閱通知
         }
 
         if (!userIsEnemy)
@@ -89,14 +93,47 @@ public class PlayerStatusManager : MonoBehaviour
         }
 	}
 
+    //訂閱通知
     public void RegisterPlayerNotification(PlayerNotification playerNotification)
     {
+        Debug.Log($"{gameObject.name} 收到 傷害");
         playerNotification.OnDamageReceived += HandleDamageNotification;
     }
 
-    public void GetDamage(int atk)
+    // 接收 `PlayerNotification` 的受到攻擊通知
+    private void HandleDamageNotification(int damage, GameObject player)
     {
-        healthPoint -= atk;
+        GetDamage(damage);
+    }
+
+    // 接收 `PlayerNotification` 的受到效果通知
+    private void HandleStatusEffectApplied(StatusEffect effect, GameObject player)
+    {
+        if (player == gameObject)
+        {
+            Debug.Log($"{gameObject.name} 觸發狀態效果：{effect}");
+
+            if (effect == StatusEffect.Burn && !isBurning)
+            {
+                StartCoroutine(BurnEffect()); // 在這裡觸發燃燒效果
+            }
+        }
+    }
+    private IEnumerator BurnEffect()//燃燒效果
+    {
+        isBurning = true;
+        for (int i = 0; i < 5; i++) // 燃燒 5 秒，每秒扣 5 點血
+        {
+            GetDamage(5);
+            yield return new WaitForSeconds(1);
+        }
+        isBurning = false;
+    }
+
+    public void GetDamage(int damage)
+    {
+        healthPoint -= damage;
+        healthBar.SetHealth(healthPoint); // 更新血條
     }
 
     public void GetRecoverHP(int recoverHp)

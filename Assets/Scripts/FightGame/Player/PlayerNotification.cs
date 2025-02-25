@@ -10,6 +10,8 @@ public class PlayerNotification : MonoBehaviour, IDamageable, IStatusEffectRecei
 
     // 事件通知 PlayerManager
     public event Action<int, GameObject> OnDamageReceived;
+    public event Action<StatusEffect, GameObject> OnStatusEffectApplied; // 新增事件，通知 PlayerStatusManager
+
 
     public void Start()
     {
@@ -30,17 +32,19 @@ public class PlayerNotification : MonoBehaviour, IDamageable, IStatusEffectRecei
     public void TakeDamage(int damage)
     {
         nowDamage += damage;
-        Debug.Log($"{gameObject.name} 受到 {damage} 傷害");
+        //Debug.Log($"{gameObject.name} 受到 {damage} 傷害");
 
         // 觸發事件，通知 PlayerManager
         OnDamageReceived?.Invoke(damage, gameObject);
 
+        ResetNowDamage();
     }
 
     public void ApplyStatusEffect(StatusEffect effect)
     {
         nowStatusEffect = effect;
-        Debug.Log($"{gameObject.name} 受到狀態影響：{effect}");
+        // 觸發事件，通知 PlayerStatusManager
+        OnStatusEffectApplied?.Invoke(effect, gameObject);
 
         switch (effect)
         {

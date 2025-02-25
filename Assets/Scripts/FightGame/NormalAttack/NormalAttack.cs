@@ -90,7 +90,7 @@ public class NormalAttack : MonoBehaviour
             if (damageable != null)
             {
                 damageable.TakeDamage(NormalAttackDamage);
-                Debug.Log($"{collision.gameObject.name} 受到 {NormalAttackDamage} 傷害！");
+                //Debug.Log($"{collision.gameObject.name} 受到 {NormalAttackDamage} 傷害！");
             }
 
             // 嘗試獲取 IStatusEffectReceiver 介面（目標可受 Buff/Debuff）
@@ -98,7 +98,7 @@ public class NormalAttack : MonoBehaviour
             if (statusReceiver != null)
             {
                 statusReceiver.ApplyStatusEffect(EffectToApply);
-                Debug.Log($"{collision.gameObject.name} 受到狀態影響：{EffectToApply}");
+                //Debug.Log($"{collision.gameObject.name} 受到狀態影響：{EffectToApply}");
             }
 
             Destroy(gameObject);
