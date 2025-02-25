@@ -1,18 +1,18 @@
 {
     "HR00" : {
-        "Name": "Flame Warrior",
+        "Name": "Big Hammer Lion",
         "ID": "HR00",
         "Rarity": "Rare",
         "LevelStats": {
-          "1": { "BaseATK": 100, "BaseHP": 1200, "UltimateSkillDamage": 500 },
-          "10": { "BaseATK": 250, "BaseHP": 2000, "UltimateSkillDamage": 1200 },
-          "20": { "BaseATK": 400, "BaseHP": 3200, "UltimateSkillDamage": 2500 }
+          "1": { "BaseATK": 100, "BaseHP": 1000, "UltimateSkillDamage": 400 },
+          "10": { "BaseATK": 150, "BaseHP": 1500, "UltimateSkillDamage": 600 },
+          "20": { "BaseATK": 200, "BaseHP": 2000, "UltimateSkillDamage": 800 }
         },
-        "Description": "掌控火焰的戰士，擁有強大的爆發力。"
+        "Description": "The leader knight of El'haki kingdom."
       },
     "HR01" : {
         "Name": "Flame Warrior",
-        "ID": "HR00"    ,
+        "ID": "HR01"    ,
         "Rarity": "Rare",
         "LevelStats": {
         "1": { "BaseATK": 100, "BaseHP": 1200, "UltimateSkillDamage": 500 },
@@ -23,7 +23,7 @@
     },
     "HR02" : {
         "Name": "Flame Warrior",
-        "ID": "HR00",
+        "ID": "HR02",
         "Rarity": "Rare",
         "LevelStats": {
         "1": { "BaseATK": 100, "BaseHP": 1200, "UltimateSkillDamage": 500 },
