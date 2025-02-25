@@ -90,6 +90,7 @@ public class NormalAttack : MonoBehaviour
             if (damageable != null)
             {
                 damageable.TakeDamage(NormalAttackDamage);
+                damageable.GetMagicPointNotify(playerNumber);
                 //Debug.Log($"{collision.gameObject.name} ¨ü¨ì {NormalAttackDamage} ¶Ë®`¡I");
             }
 

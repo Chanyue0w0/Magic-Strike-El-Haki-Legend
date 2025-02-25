@@ -32,14 +32,14 @@ public class Door : MonoBehaviour
         {
             if(playerNumber == UserPosition.player1)//進玩家1球門，玩家2攻擊
             {
-                collision.transform.position = ballResetPositionUp.transform.position;
+                collision.transform.position = ballResetPositionBottom.transform.position;
                 collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
                 NormalAttackManager.Instance.InstNormalAttack(2, 1);
             }
             else if (playerNumber == UserPosition.player2)//進玩家2球門，玩家1攻擊
             {
-                collision.transform.position = ballResetPositionBottom.transform.position;
+                collision.transform.position = ballResetPositionUp.transform.position;
                 collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
                 NormalAttackManager.Instance.InstNormalAttack(1, 2);

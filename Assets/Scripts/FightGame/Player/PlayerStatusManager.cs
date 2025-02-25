@@ -10,7 +10,7 @@ public class PlayerStatusManager : MonoBehaviour
     [Header("----------------- Status Data ------------------")]
     [SerializeField] private int healthPoint;
     [SerializeField] private int attackDamage;
-    [SerializeField] private int currentMagicPoint;
+    //[SerializeField] private int currentMagicPoint;
     [SerializeField] private bool isBurning = false; // 是否正在燃燒
 
     [Header("----------------- Config Setting ------------------")]
@@ -29,6 +29,9 @@ public class PlayerStatusManager : MonoBehaviour
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject player2;
 
+    //[Header("----------------- MagicStonesUI ------------------")]
+    //[SerializeField] private GameObject MagicStonesUI;
+    //[SerializeField] private Animator MagicStonesUI_animator;
 
     // private variable
     private JToken characterData;
@@ -53,11 +56,13 @@ public class PlayerStatusManager : MonoBehaviour
             skills = FightPlayer1Config.Group;
             SetHP(FightPlayer1Config.StartHP);
             SetATK(FightPlayer1Config.StartATK);
-            SetMagicPoint(0);
+            //SetMagicPoint(0);
             healthBar.SetMaxHealth(FightPlayer1Config.StartHP);
             // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
             PlayerNotification notification = player1.GetComponent<PlayerNotification>();
             RegisterPlayerNotification(notification);//訂閱通知
+
+            //MagicStonesUI_animator = MagicStonesUI.GetComponent<Animator>();
         }
 
         if (player == UserPosition.player2)
@@ -65,7 +70,7 @@ public class PlayerStatusManager : MonoBehaviour
             skills = FightPlayer2Config.Group;
             SetHP(FightPlayer2Config.StartHP);
             SetATK(FightPlayer2Config.StartATK);
-            SetMagicPoint(0);
+            //SetMagicPoint(0);
             healthBar.SetMaxHealth(FightPlayer2Config.StartHP);
             // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
             PlayerNotification notification = player2.GetComponent<PlayerNotification>();
@@ -98,33 +103,51 @@ public class PlayerStatusManager : MonoBehaviour
     {
         Debug.Log($"{gameObject.name} 收到 傷害");
         playerNotification.OnDamageReceived += HandleDamageNotification;
+        playerNotification.OnStatusEffectApplied += HandleStatusEffectApplied;
+        //playerNotification.OnGetMagicPointApplied += HandleGetMagicPointNotification;
     }
 
     // 接收 `PlayerNotification` 的受到攻擊通知
     private void HandleDamageNotification(int damage, GameObject player)
     {
+        Debug.Log($"{gameObject.name} 受攻擊傷害：{damage}");
         GetDamage(damage);
     }
 
     // 接收 `PlayerNotification` 的受到效果通知
     private void HandleStatusEffectApplied(StatusEffect effect, GameObject player)
     {
-        if (player == gameObject)
-        {
-            Debug.Log($"{gameObject.name} 觸發狀態效果：{effect}");
+        
+        Debug.Log($"{gameObject.name} 觸發狀態效果：{effect}");
 
-            if (effect == StatusEffect.Burn && !isBurning)
-            {
-                StartCoroutine(BurnEffect()); // 在這裡觸發燃燒效果
-            }
+        if (effect == StatusEffect.Burn && !isBurning)
+        {
+            StartCoroutine(BurnEffect()); // 在這裡觸發燃燒效果
         }
     }
+
+    //private void HandleGetMagicPointNotification(int tNumber)
+    //{
+    //    Debug.Log("只有收到" + player);
+    //    if (tNumber == 1 && player == UserPosition.player2)
+    //    {
+    //        Debug.Log("P1收到");
+    //        GetOnePointMP();
+    //    }
+    //    else if(tNumber == 2 && player == UserPosition.player1)
+    //    {
+    //        Debug.Log("P2收到");
+    //        GetOnePointMP();
+    //    }
+    //}
+
     private IEnumerator BurnEffect()//燃燒效果
     {
         isBurning = true;
         for (int i = 0; i < 5; i++) // 燃燒 5 秒，每秒扣 5 點血
         {
-            GetDamage(5);
+            int burnDamage = Mathf.RoundToInt(20 * (1 + FightPlayer1Config.BurnDamageIncrease));
+            GetDamage(burnDamage);
             yield return new WaitForSeconds(1);
         }
         isBurning = false;
@@ -159,20 +182,22 @@ public class PlayerStatusManager : MonoBehaviour
         attackDamage = atk;
     }
 
-    public int GetMagicPoint()
-    {
-        return currentMagicPoint;
-	}
+ //   public int GetMagicPoint()
+ //   {
+ //       return currentMagicPoint;
+	//}
 
-    public void SetMagicPoint(int point)
-    {
-        currentMagicPoint = point;
-    }
+ //   public void SetMagicPoint(int point)
+ //   {
+ //       currentMagicPoint = point;
+ //       MagicStonesUI_animator.SetInteger("MagicPoint", currentMagicPoint);
+ //   }
 
-    public void GetOnePointMP()
-    {
-		currentMagicPoint += 1;
-    }
+ //   public void GetOnePointMP()
+ //   {
+	//	currentMagicPoint += 1;
+ //       MagicStonesUI_animator.SetInteger("MagicPoint", currentMagicPoint);
+ //   }
 
     public void SetSkills(string[] skillArray)
     {

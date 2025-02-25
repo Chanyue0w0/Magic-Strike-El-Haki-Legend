@@ -799,6 +799,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476c3f4b76956f046b025e0b1dee173e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 0
+  nowDamage: 0
+  nowStatusEffect: 0
 --- !u!1 &213413300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1869,7 +1872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoint: 0
   attackDamage: 10
-  currentMagicPoint: 0
+  isBurning: 0
   player: 1
   userIsEnemy: 1
   skills: []
@@ -1903,6 +1906,56 @@ MonoBehaviour:
   topLeftBoundary: {fileID: 1911609161}
   bottomRightBoundary: {fileID: 1452114717}
   upBoardY: 3
+--- !u!1 &758003976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 758003977}
+  - component: {fileID: 758003978}
+  m_Layer: 0
+  m_Name: MagicPoints Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &758003977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758003976}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1117303078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &758003978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758003976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27dc09166ea989f46b3fa5ea032eaea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 193765608}
+  player2: {fileID: 1570447976}
+  p1CurrentMagicPoint: 0
+  p2CurrentMagicPoint: 0
+  MagicStonesUI: {fileID: 1384273428}
+  MagicStonesUI_animator: {fileID: 1384273432}
 --- !u!1 &815692596
 GameObject:
   m_ObjectHideFlags: 0
@@ -3170,6 +3223,7 @@ Transform:
   - {fileID: 504897139}
   - {fileID: 861466917}
   - {fileID: 2009949620}
+  - {fileID: 758003977}
   - {fileID: 1173606764}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3863,8 +3917,9 @@ GameObject:
   - component: {fileID: 1384273429}
   - component: {fileID: 1384273431}
   - component: {fileID: 1384273430}
+  - component: {fileID: 1384273432}
   m_Layer: 5
-  m_Name: MagicPoint5
+  m_Name: MagicPointUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3927,6 +3982,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384273428}
   m_CullTransparentMesh: 1
+--- !u!95 &1384273432
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384273428}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: feb4a400638f4da4aae0f3a515915fc2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1397587371
 GameObject:
   m_ObjectHideFlags: 0
@@ -4181,7 +4257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoint: 0
   attackDamage: 10
-  currentMagicPoint: 0
+  isBurning: 0
   player: 0
   userIsEnemy: 0
   skills: []
@@ -4360,6 +4436,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476c3f4b76956f046b025e0b1dee173e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 0
+  nowDamage: 0
+  nowStatusEffect: 0
 --- !u!1 &1631073177
 GameObject:
   m_ObjectHideFlags: 0
