@@ -25,13 +25,16 @@ public class PlayerStatusManager : MonoBehaviour
     [Header("----------------- Health Bar Setting ------------------")]
     [SerializeField] private HealthBar healthBar;
 
-    [Header("----------------- PlayerGameObject ------------------")]
+    [Header("----------------- Player Gamebject ------------------")]
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject player2;
 
     //[Header("----------------- MagicStonesUI ------------------")]
     //[SerializeField] private GameObject MagicStonesUI;
     //[SerializeField] private Animator MagicStonesUI_animator;
+    [Header("----------------- Damage Number ------------------")]
+    [SerializeField] private float damageSpacing = 1.0f; // 傷害數字間隔範圍調整變數
+    [SerializeField] private Vector2 positionOffset = new Vector2(0, 0); // 傷害數字位置誤差調整變數
 
     // private variable
     private JToken characterData;
@@ -157,6 +160,7 @@ public class PlayerStatusManager : MonoBehaviour
     {
         healthPoint -= damage;
         healthBar.SetHealth(healthPoint); // 更新血條
+        DisplayDamage(damage);
     }
 
     public void GetRecoverHP(int recoverHp)
@@ -182,22 +186,83 @@ public class PlayerStatusManager : MonoBehaviour
         attackDamage = atk;
     }
 
- //   public int GetMagicPoint()
- //   {
- //       return currentMagicPoint;
-	//}
+    public void DisplayDamage(int score)
+    {
+        string scoreString = score.ToString();
 
- //   public void SetMagicPoint(int point)
- //   {
- //       currentMagicPoint = point;
- //       MagicStonesUI_animator.SetInteger("MagicPoint", currentMagicPoint);
- //   }
+        // 根據玩家編號計算起始位置，確保對齊居中顯示
+        float startX = -((scoreString.Length - 1) * damageSpacing * 0.5f); // 由左至右; 
 
- //   public void GetOnePointMP()
- //   {
-	//	currentMagicPoint += 1;
- //       MagicStonesUI_animator.SetInteger("MagicPoint", currentMagicPoint);
- //   }
+        // 雙人
+        //if (playerNumber == 2 && GlobalIndex.playerGroupCount == 2)
+        //    startX = ((scoreString.Length - 1) * damageSpacing * 0.5f);  // 由右至左
+
+        for (int i = 0; i < scoreString.Length; i++)
+        {
+            char digitChar = scoreString[i];
+            int digit = int.Parse(digitChar.ToString());
+
+            GameObject digitObject = DamageNumberPoolManager.Instance.GetDamageEffect(digit);
+
+            if (digitObject != null)
+            {
+                Vector3 adjustedPosition = Vector3.zero;
+
+
+                if (player == UserPosition.player1)
+                {
+                    // 由左至右排列
+                    adjustedPosition = player1.transform.position +
+                                    new Vector3(startX + i * damageSpacing, 0, 0) +
+                                    new Vector3(positionOffset.x, positionOffset.y, 0);
+
+                    SetParticleFlip(digitObject, 0, 0); // 設定 Flip.x = 0 Flip.y = 0
+                }
+                else 
+                {
+                    
+                    // 由左至右排列
+                    adjustedPosition = player2.transform.position +
+                                    new Vector3(startX + i * damageSpacing, 0, 0) +
+                                    new Vector3(positionOffset.x, -positionOffset.y, 0);
+
+                    SetParticleFlip(digitObject, 0, 0); // 設定 Flip.x = 0 Flip.y = 0
+                }
+                    
+
+                // 雙人
+                //if (playerNumber == 2 && GlobalIndex.playerGroupCount == 2)
+                //{
+                //    // 由右至左排列 (使用負的 spacing)
+                //    adjustedPosition = gameObject.transform.position +
+                //                       new Vector3(startX - i * damageSpacing, 0, 0) +
+                //                       new Vector3(positionOffset.x, positionOffset.y, 0);
+
+                //    SetParticleFlip(digitObject, 1, 1); // 設定 Flip.x = 0 Flip.y = 1
+                //}
+
+                digitObject.transform.position = adjustedPosition; // 設定數字位置
+
+                StartCoroutine(ReturnToPoolAfterDelay(digitObject, digit, 1.0f)); // 1秒後將物件返回物件池
+            }
+        }
+    }
+
+    private IEnumerator ReturnToPoolAfterDelay(GameObject obj, int digit, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        DamageNumberPoolManager.Instance.ReturnToPool(obj, digit);
+    }
+
+    // 上下翻轉特效，設定ParticleSystem的Render的Flip.y屬性
+    private void SetParticleFlip(GameObject digitObject, float flipX, float flipY)
+    {
+        ParticleSystemRenderer renderer = digitObject.GetComponent<ParticleSystemRenderer>();
+        if (renderer != null)
+        {
+            renderer.flip = new Vector3(flipX, flipY, renderer.flip.z);
+        }
+    }
 
     public void SetSkills(string[] skillArray)
     {

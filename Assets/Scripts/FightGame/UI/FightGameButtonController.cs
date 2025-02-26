@@ -42,4 +42,11 @@ public class FightGameButtonController : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("Main menu");
     }
+
+    public void OnClickRestart()
+    {
+        //SceneManager.LoadSceneAsync("FightScene");
+        SceneManager.LoadScene("FightScene");
+        Time.timeScale = 1;
+    }
 }
