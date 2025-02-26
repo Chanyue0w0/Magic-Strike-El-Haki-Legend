@@ -1810,8 +1810,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -79.43994}
-  m_SizeDelta: {x: 0, y: -158.88}
+  m_AnchoredPosition: {x: 0, y: -75.77002}
+  m_SizeDelta: {x: 0, y: -151.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &699721344
 MonoBehaviour:
@@ -1960,7 +1960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 746429470}
   - component: {fileID: 746429471}
-  - component: {fileID: 746429472}
+  - component: {fileID: 746429475}
   - component: {fileID: 746429474}
   - component: {fileID: 746429473}
   m_Layer: 0
@@ -2002,18 +2002,6 @@ MonoBehaviour:
   shopPanel: {fileID: 743357381}
   equipmentPanel: {fileID: 573413505}
   adventurePanel: {fileID: 845261663}
---- !u!114 &746429472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746429469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15994286cd85bde4d97fcc3a7acdd10c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &746429473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2042,6 +2030,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroSlotPrefab: {fileID: 6064740652328507991, guid: 41bede5c066f08b4ea0a5279940b4ea9, type: 3}
   heroSlotContainer: {fileID: 699721343}
+--- !u!114 &746429475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746429469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875fb12d632c4b9428c5fe30667e8cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroName: 
+  totalHP: 0
+  totalATK: 0
+  critRateIncrease: 0
+  skillDamageIncrease: 0
+  poisonDamageIncrease: 0
+  controlSkillDurationIncrease: 0
+  totalSkillBubbleCooldownReduction: 0
+  setEffect: 
 --- !u!1 &825883742
 GameObject:
   m_ObjectHideFlags: 0
@@ -2532,7 +2541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c412be9c0ab52d14ea644d9f27f2a303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  savePath: /playerEquipment.json
 --- !u!1 &995792364
 GameObject:
   m_ObjectHideFlags: 0
@@ -3341,7 +3349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215b384a3c139404182d4549da09b882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  savePath: /playerHero.json
 --- !u!1 &1641531314
 GameObject:
   m_ObjectHideFlags: 0

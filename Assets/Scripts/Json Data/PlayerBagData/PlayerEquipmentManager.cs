@@ -3,7 +3,6 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using static PlayerHeroManager;
 
 public class PlayerEquipmentManager : MonoBehaviour
 {
@@ -12,25 +11,35 @@ public class PlayerEquipmentManager : MonoBehaviour
 
 	public static PlayerEquipmentManager Instance { get; private set; }
 
+	private static readonly Dictionary<string, List<string>> buffOptions = new()
+	{
+		{ "Total Attack Increase%", new List<string> { "3%", "5%", "10%" } },
+		{ "Total Health Increase%", new List<string> { "3%", "5%", "10%" } },
+		{ "Critical Rate Increase%", new List<string> { "3%", "5%", "10%" } },
+		{ "Skill Damage Increase%", new List<string> { "3%", "5%", "10%" } },
+		{ "Poison Damage Increase%", new List<string> { "3%", "5%", "10%" } },
+		{ "Control Duration Increase%", new List<string> { "3%", "5%", "10%" } },
+		{ "Reduce Skill Bubble Generation Time", new List<string> { "1s", "2s", "3s" } }
+	};
+
 	[System.Serializable]
 	public class PlayerEquipment
 	{
 		public string name;
 		public string id;
-		public string equipmentType; // 例如：頭、身體、鞋子
-		public string rarity;        // 普通、常見、稀有、特殊、傳說
-		public string setType;       // None, Warrior, Archer, Magician, Healer
+		public string equipmentType;
+		public string rarity;
+		public string setType;
 		public int currentLevel;
 		public int attackPower;
 		public int healthPoints;
 		public string description;
-		public string buff1;
-		public string buff2;
-		public string buff3;
-		public string buff4;
-		public string equippedByHero; // 給予裝備的英雄代號
+		public Dictionary<string, string> buffs;
+		public string equippedByHero;
 
-		public PlayerEquipment(string name, string id, string equipmentType, string rarity, string setType, int currentLevel, int attackPower, int healthPoints, string description, string buff1, string buff2, string buff3, string buff4, string equippedByHero)
+		public PlayerEquipment(string name, string id, string equipmentType, string rarity, string setType,
+			int currentLevel, int attackPower, int healthPoints, string description,
+			Dictionary<string, string> buffs, string equippedByHero)
 		{
 			this.name = name;
 			this.id = id;
@@ -41,10 +50,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 			this.attackPower = attackPower;
 			this.healthPoints = healthPoints;
 			this.description = description;
-			this.buff1 = buff1;
-			this.buff2 = buff2;
-			this.buff3 = buff3;
-			this.buff4 = buff4;
+			this.buffs = buffs ?? new Dictionary<string, string>();
 			this.equippedByHero = equippedByHero;
 		}
 	}
@@ -56,101 +62,83 @@ public class PlayerEquipmentManager : MonoBehaviour
 			Debug.Log("Found more than one PlayerEquipmentManager object in the scene");
 		}
 		Instance = this;
-
 	}
 
-
-	void Start()
+	private void Start()
 	{
-		// test
-		//// 載入所有裝備數據
-		//List<PlayerEquipment> list = PlayerEquipmentManager.Instance.GetAllEquipmentData();
-		//foreach (var eq in list)
-		//{
-		//	if (eq != null)
-		//	{
-		//		Debug.Log($"Loaded Equipment: {eq.name}, Level: {eq.currentLevel}");
-		//	}
-		//}
-		//// 新增一筆裝備
 		//PlayerEquipment newEquipment = new PlayerEquipment(
-		//	"Flame Helmet", "HT01", "Head", "Rare", "Warrior", 1, 50, 200,
-		//	"A helmet forged in flames", "TotalATKIncrease_5%", "CriticalRateIncrease_5%", "SkillDamageIncrease_5%", "SkillBubbleCooldownReduction_2s", "HR01"
+		//	"Legendary Sword", System.Guid.NewGuid().ToString(), "Weapon", "Legendary", "Warrior",
+		//	1, 100, 200, "A powerful warrior's sword", GenerateRandomBuffs(4), "None"
 		//);
-		//PlayerEquipmentManager.Instance.AddEquipment(newEquipment);
-
-		//// 取得指定 ID 的裝備並更新其描述
-		//PlayerEquipment updatedEquipment = PlayerEquipmentManager.Instance.GetEquipmentById("HT01");
-		//if (updatedEquipment != null)
-		//{
-		//	updatedEquipment.description = "Updated description";
-		//	PlayerEquipmentManager.Instance.UpdateEquipment(updatedEquipment);
-		//}
+		//AddEquipment(newEquipment);
+		if(!File.Exists(SavePath()))
+		{
+			CreateEquipmentFromData("EM00");
+			CreateEquipmentFromData("EM01");
+			CreateEquipmentFromData("EM02");
+		}
 	}
+
+	private Dictionary<string, string> GenerateRandomBuffs(int numberOfBuffs)
+	{
+		Dictionary<string, string> selectedBuffs = new Dictionary<string, string>();
+		List<string> keys = new List<string>(buffOptions.Keys);
+		System.Random random = new System.Random();
+
+		while (selectedBuffs.Count < numberOfBuffs && keys.Count > 0)
+		{
+			int index = random.Next(keys.Count);
+			string key = keys[index];
+			string value = buffOptions[key][random.Next(buffOptions[key].Count)];
+
+			selectedBuffs[key] = value;
+			keys.RemoveAt(index);
+		}
+		return selectedBuffs;
+	}
+
+	public void CreateEquipmentFromData(string id)
+	{
+		if (EquipmentData.Instance == null)
+		{
+			Debug.LogError("EquipmentData Instance is not initialized!");
+			return;
+		}
+
+		EquipmentData.Equipment data = EquipmentData.Instance.GetEquipment(id);
+		if (data == null)
+		{
+			Debug.LogError("Equipment data not found for ID: " + id);
+			return;
+		}
+
+		// 創建 PlayerEquipment
+		PlayerEquipment newEquipment = new PlayerEquipment(
+			data.Name,
+			data.ID,
+			data.Type,
+			data.Rarity,
+			data.SetType,
+			1, // 初始等級
+			data.AttackPower,
+			data.HealthPoints,
+			data.Description,
+			GenerateRandomBuffs(2), // 這裡設置為隨機 2 個 Buff，可根據需求更改
+			"None" // 初始未被英雄裝備
+		);
+
+		// 添加設備到列表並存檔
+		AddEquipment(newEquipment);
+		Debug.Log("New equipment created and added: " + newEquipment.name);
+	}
+
 
 	public void AddEquipment(PlayerEquipment equipment)
 	{
 		if (equipment == null) return;
-
 		LoadEquipment();
 		equipmentList.Add(equipment);
 		SaveEquipment();
-	}
-
-	public void DeleteEquipment(int index)
-	{
-		LoadEquipment();
-		PlayerEquipment equipment = equipmentList[index];
-		if (equipment != null)
-		{
-			equipmentList.Remove(equipment);
-			SaveEquipment();
-			Debug.Log("Equipment deleted: " + equipment.name);
-		}
-		else
-		{
-			Debug.LogWarning("Equipment not found to delete index: " + index);
-		}
-	}
-
-	public void UpdateEquipment(PlayerEquipment updatedEquipment)
-	{
-		PlayerEquipment equipment = equipmentList.Find(e => e.id == updatedEquipment.id);
-		if (equipment != null)
-		{
-			equipment.currentLevel = updatedEquipment.currentLevel;
-			equipment.attackPower = updatedEquipment.attackPower;
-			equipment.healthPoints = updatedEquipment.healthPoints;
-			equipment.description = updatedEquipment.description;
-			equipment.buff1 = updatedEquipment.buff1;
-			equipment.buff2 = updatedEquipment.buff2;
-			equipment.buff3 = updatedEquipment.buff3;
-			equipment.buff4 = updatedEquipment.buff4;
-			equipment.equippedByHero = updatedEquipment.equippedByHero;
-			SaveEquipment();
-			Debug.Log("Equipment updated: " + updatedEquipment.name + " " + updatedEquipment.id);
-		}
-		else
-		{
-			Debug.LogWarning("Equipment not found to update: " + updatedEquipment.id);
-		}
-	}
-
-	public PlayerEquipment GetEquipmentbyIndex(int index)
-	{
-		LoadEquipment();
-		PlayerEquipment equipment = equipmentList[index];
-		if (equipment == null)
-		{
-			Debug.LogWarning("Equipment not found index: " + index);
-		}
-		return equipment;
-	}
-
-	public List<PlayerEquipment> GetAllEquipmentData()
-	{
-		LoadEquipment();
-		return equipmentList;
 	}
 
 	public void LoadEquipment()
@@ -161,17 +149,19 @@ public class PlayerEquipmentManager : MonoBehaviour
 			Debug.LogWarning("Equipment save file not found!");
 			SaveEquipment();
 		}
-
-		string json = File.ReadAllText(SavePath());
-		if (string.IsNullOrEmpty(json))
-		{
-			equipmentList = new List<PlayerEquipment>();
-			Debug.LogWarning("Save file is empty, creating new equipment list!");
-		}
 		else
 		{
-			equipmentList = JsonConvert.DeserializeObject<List<PlayerEquipment>>(json);
-			Debug.Log("Equipment data loaded!");
+			string json = File.ReadAllText(SavePath());
+			if (string.IsNullOrEmpty(json))
+			{
+				equipmentList = new List<PlayerEquipment>();
+				Debug.LogWarning("Save file is empty, creating new equipment list!");
+			}
+			else
+			{
+				equipmentList = JsonConvert.DeserializeObject<List<PlayerEquipment>>(json);
+				Debug.Log("Equipment data loaded!");
+			}
 		}
 	}
 
@@ -181,6 +171,12 @@ public class PlayerEquipmentManager : MonoBehaviour
 		string jsonTxt = json.ToString();
 		File.WriteAllText(SavePath(), jsonTxt);
 		Debug.Log("Equipment data saved: " + SavePath());
+	}
+
+	public List<PlayerEquipment> GetAllEquipmentData()
+	{
+		LoadEquipment();
+		return equipmentList;
 	}
 
 	private string SavePath()

@@ -23,8 +23,9 @@ public class PlayerHeroManager : MonoBehaviour
 		public bool owned;
 		public int heroShards;
 		public string description;
+		public List<string> equippedItems; // List of equipment IDs
 
-		public PlayerHero(string name, string id, string rarity, int level, int atk, int hp, int ultDamage, bool isOwned, int shards, string desc)
+		public PlayerHero(string name, string id, string rarity, int level, int atk, int hp, int ultDamage, bool isOwned, int shards, string desc, List<string> equippedItems = null)
 		{
 			this.name = name;
 			this.id = id;
@@ -36,6 +37,7 @@ public class PlayerHeroManager : MonoBehaviour
 			owned = isOwned;
 			heroShards = shards;
 			description = desc;
+			this.equippedItems = equippedItems ?? new List<string>();
 		}
 	}
 
@@ -43,7 +45,7 @@ public class PlayerHeroManager : MonoBehaviour
 	{
 		if (Instance != null)
 		{
-			Debug.Log("Found more than PlayerHeroManager object in the sence");
+			Debug.Log("Found more than PlayerHeroManager object in the scene");
 		}
 		Instance = this;
 	}
@@ -52,62 +54,42 @@ public class PlayerHeroManager : MonoBehaviour
 	{
 		JObject heroDataObj = HeroData.Instance.jsonData;
 
-		// 遍歷每個英雄代號（例如 HR00, HR01, ...）
 		foreach (var heroProp in heroDataObj)
 		{
 			JObject heroJson = (JObject)heroProp.Value;
-
-			// 從 LevelStats 的 "1" 級讀取基本數值
 			JObject levelStats = (JObject)heroJson["LevelStats"];
 			JObject level1Stats = (JObject)levelStats["1"];
 			int baseATK = level1Stats["BaseATK"].Value<int>();
 			int baseHP = level1Stats["BaseHP"].Value<int>();
 			int ultimateDamage = level1Stats["UltimateSkillDamage"].Value<int>();
 
-			// 建立新的 PlayerHero，根據需求覆寫部分欄位：
-			// - currentLevel 固定為 1
-			// - owned 固定為 false
-			// - rarity 固定為 "傳說"（你也可以根據實際需求調整） 
-			// - heroShards 固定為 0
-			// - description 固定為 "擁有冰凍敵人的能力，可以減緩敵人行動。"
 			PlayerHero newHero = new PlayerHero
 			(
-				heroJson["Name"]?.ToString(),         // 可保留原始名稱
-				heroJson["ID"]?.ToString(),             // 可保留原始 ID
-				heroJson["Rarity"].ToString(),                             // 強制設定為「傳說」
-				1,                            // 起始等級 1
+				heroJson["Name"]?.ToString(),
+				heroJson["ID"]?.ToString(),
+				heroJson["Rarity"].ToString(),
+				1,
 				baseATK,
 				baseHP,
 				ultimateDamage,
-				false,                               // 預設未擁有
-				0,                              // 預設碎片數量為 0
-				heroJson["Description"].ToString()
+				false,
+				0,
+				heroJson["Description"].ToString(),
+				new List<string>()
 			);
-
 			heroList.Add(newHero);
 		}
 		SaveHeroes();
 	}
+
 	void Start()
 	{
 		if (!File.Exists(SavePath()))
 			InitJsonFile();
-		// test
-		//// 讀取英雄
-		//List<PlayerHero> heroList = PlayerHeroManager.Instance.GetAllHeroData();
-		//foreach (var loadedHero in heroList)
-		//	if (loadedHero != null)
-		//	{
-		//		Debug.Log($"載入英雄: {loadedHero.name}, 等級: {loadedHero.currentLevel}");
-		//	}
-		//// 新增
-		//PlayerHero newHero = new PlayerHero("喵喵", "HR03", "傳說", 1, 250, 1500, 1000, true, 25, "喵喵喵");
-		//PlayerHeroManager.Instance.AddHero(newHero);
 
-		//// 更新英雄資料
-		//PlayerHero updatedHero = PlayerHeroManager.Instance.GetHeroById("HR03");
-		//updatedHero.description = "汪汪汪";
-		//PlayerHeroManager.Instance.UpdateHero(updatedHero);
+		// Add a new test hero on start
+		PlayerHero newHero = new PlayerHero("Test Hero", "HR99", "Legendary", 1, 300, 2000, 1500, true, 50, "A powerful test hero", new List<string> { "000", "001", "002" });
+		AddHero(newHero);
 	}
 
 	public void AddHero(PlayerHero hero)
@@ -128,7 +110,7 @@ public class PlayerHeroManager : MonoBehaviour
 	{
 		if (!File.Exists(SavePath()))
 		{
-			Debug.LogWarning("找不到英雄存檔!");
+			Debug.LogWarning("Hero save file not found!");
 			return;
 		}
 
@@ -136,12 +118,12 @@ public class PlayerHeroManager : MonoBehaviour
 		if (string.IsNullOrEmpty(json))
 		{
 			heroList = new List<PlayerHero>();
-			Debug.LogWarning("存檔內容為空，建立新的英雄列表!");
+			Debug.LogWarning("Save file is empty, creating new hero list!");
 		}
 		else
 		{
 			heroList = JsonConvert.DeserializeObject<List<PlayerHero>>(json);
-			Debug.Log("英雄數據已載入!");
+			Debug.Log("Hero data loaded!");
 		}
 	}
 
@@ -150,7 +132,7 @@ public class PlayerHeroManager : MonoBehaviour
 		JArray json = JArray.FromObject(heroList);
 		string jsonTxt = json.ToString();
 		File.WriteAllText(SavePath(), jsonTxt);
-		Debug.Log("英雄數據已存檔: " + SavePath());
+		Debug.Log("Hero data saved: " + SavePath());
 	}
 
 	public void UpdateHero(PlayerHero updatedHero)
@@ -166,42 +148,18 @@ public class PlayerHeroManager : MonoBehaviour
 			hero.heroShards = updatedHero.heroShards;
 			hero.description = updatedHero.description;
 			SaveHeroes();
-			Debug.Log("英雄數據已更新: " + updatedHero.name + " " + updatedHero.id);
+			Debug.Log("Hero data updated: " + updatedHero.name + " " + updatedHero.id);
 		}
 		else
 		{
-			Debug.LogWarning("找不到要更新的英雄: " + updatedHero.id);
+			Debug.LogWarning("Hero not found for update: " + updatedHero.id);
 		}
 	}
 
-	public void DeleteHero(string heroID)
+	public PlayerHero GetHeroByID(string heroID)
 	{
-		LoadHeroes();
-		PlayerHero hero = heroList.Find(h => h.id == heroID);
-		if (hero != null)
-		{
-			heroList.Remove(hero);
-			SaveHeroes();
-			Debug.Log("英雄已刪除: " + hero.name);
-		}
-		else
-		{
-			Debug.LogWarning("找不到要刪除的英雄: " + heroID);
-		}
-	}
-
-	public PlayerHero GetHeroById(string heroID)
-	{
-		// 先讀取最新的英雄數據（如果需要）：
-		LoadHeroes();
-
-		// 根據 heroID 找到對應的英雄
-		PlayerHero hero = heroList.Find(h => h.id == heroID);
-		if (hero == null)
-		{
-			Debug.LogWarning("找不到指定的英雄: " + heroID);
-		}
-		return hero;
+		LoadHeroes(); // Ensure the latest data is loaded
+		return heroList.Find(hero => hero.id == heroID);
 	}
 
 	public List<PlayerHero> GetAllHeroData()
