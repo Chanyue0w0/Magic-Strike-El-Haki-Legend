@@ -64,7 +64,7 @@ public class HammerRippleAttack : MonoBehaviour
                 statusReceiver.ApplyStatusEffect(EffectToApply);
                 //Debug.Log($"{collision.gameObject.name} ¨ü¨ìª¬ºA¼vÅT¡G{EffectToApply}");
             }
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }

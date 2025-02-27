@@ -5029,6 +5029,7 @@ GameObject:
   - component: {fileID: 224623018249882786}
   - component: {fileID: 5508433513651158641}
   - component: {fileID: 6224036282018798028}
+  - component: {fileID: 91385859904320861}
   m_Layer: 0
   m_Name: BigHammerLionP2Ult
   m_TagString: Untagged
@@ -5119,6 +5120,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dTime: 0.75
   unscaleDestroy: 1
+--- !u!114 &91385859904320861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122835920403026836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5ff3fdfe35db34689b6c14fdb7ef7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 2
+  targetNumber: 1
+  ultName: HammerUlt
+  ultDamage: 200
+  instTime: 0.7
+  instPosition: {x: 0, y: -2}
+  quaternion: {x: 0, y: 0, z: 0, w: 0}
+  ultGameObject: {fileID: 6857988298647063685, guid: c481d2884093ddf458fd448010068908, type: 3}
 --- !u!1 &1228101936452454226
 GameObject:
   m_ObjectHideFlags: 0
