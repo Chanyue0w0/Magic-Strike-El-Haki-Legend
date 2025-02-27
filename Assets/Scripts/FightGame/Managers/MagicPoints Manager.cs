@@ -130,6 +130,9 @@ public class MagicPointsManager : MonoBehaviour
                 p1CurrentMagicPoint = p1MaxMagicPoint;
 
             MagicStonesUI_animator.SetInteger("MagicPoint", p1CurrentMagicPoint);
+
+            if (p1CurrentMagicPoint == p1MaxMagicPoint)
+                p1MagicSparkling.SetActive(true);
         }
         else
         {
