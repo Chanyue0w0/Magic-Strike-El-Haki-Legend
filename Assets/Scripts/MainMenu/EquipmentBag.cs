@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EquipmentBag : MonoBehaviour
 {
+	[SerializeField] private GameObject equipmentInfoPanel;
 	// 裝備槽預製
 	[SerializeField] private GameObject equipmentSlotPrefab;
 	// 裝備槽容器（例如 ScrollView 的 Content）
@@ -34,13 +35,17 @@ public class EquipmentBag : MonoBehaviour
 		foreach (var equipment in equipmentList)
 		{
 			GameObject slot = Instantiate(equipmentSlotPrefab, equipmentSlotContainer);
-			slot.name = slot.name + " " + index;
+			slot.name = index.ToString();
 			//// 取得預製中的名稱 Text 元件，並設定裝備名稱
 			//Text nameText = slot.transform.Find("NameText")?.GetComponent<Text>();
 			//if (nameText != null)
 			//{
 			//	nameText.text = equipment.name;
 			//}
+
+
+			Button btn = slot.GetComponent<Button>();
+			btn.onClick.AddListener(() => OnClickOpenEquipmentPanel(btn.gameObject.name));
 
 			// 取得預製中的等級 Text 元件，並設定裝備等級
 			TextMeshProUGUI levelText = slot.transform.Find("LevelText")?.GetComponent<TextMeshProUGUI>();
@@ -52,6 +57,23 @@ public class EquipmentBag : MonoBehaviour
 			// 若有其他 UI 元件，例如顯示攻擊力、描述等，也可依此設定
 
 			index++;
+		}
+	}
+
+	public void OnClickOpenEquipmentPanel(string thisGameObjectName)
+	{
+		if (equipmentInfoPanel != null)
+		{
+			int x = 0;
+
+			int.TryParse(thisGameObjectName, out x);
+			equipmentInfoPanel.SetActive(true);
+			PlayerEquipmentManager.PlayerEquipment EquipmentData = PlayerEquipmentManager.Instance.GetEquipmentByIndex(x);
+			Debug.Log("Opened Equipment Panel from: " + thisGameObjectName);
+		}
+		else
+		{
+			Debug.LogWarning("Equipment Panel is not assigned!");
 		}
 	}
 }

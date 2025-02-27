@@ -11,6 +11,8 @@ public class MainMenuButtonController : MonoBehaviour
 	[SerializeField] private GameObject equipmentPanel;
 	[SerializeField] private GameObject adventurePanel;
 
+	[SerializeField] private GameObject heroInfoPanel;
+	[SerializeField] private GameObject equipmentInfoPanel;
 	private GameObject[] panels = new GameObject[5];
 	// Start is called before the first frame update
 	void Start()
@@ -58,5 +60,11 @@ public class MainMenuButtonController : MonoBehaviour
 			p.SetActive(false);
 
 		panel.SetActive(true);
+	}
+
+	public void OnClickCloseInfoPanel()
+	{
+		heroInfoPanel.SetActive(false);
+		equipmentInfoPanel.SetActive(false);
 	}
 }

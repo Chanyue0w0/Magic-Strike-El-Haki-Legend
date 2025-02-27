@@ -172,6 +172,18 @@ public class PlayerEquipmentManager : MonoBehaviour
 		File.WriteAllText(SavePath(), jsonTxt);
 		Debug.Log("Equipment data saved: " + SavePath());
 	}
+	public PlayerEquipment GetEquipmentByIndex(int index)
+	{
+		LoadEquipment(); // Ensure the latest data is loaded
+
+		if (index >= 0 && index < equipmentList.Count)
+		{
+			return equipmentList[index];
+		}
+
+		Debug.LogWarning("Invalid index for fetching equipment: " + index);
+		return null;
+	}
 
 	public List<PlayerEquipment> GetAllEquipmentData()
 	{
