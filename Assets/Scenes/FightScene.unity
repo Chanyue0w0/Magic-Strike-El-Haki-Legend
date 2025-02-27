@@ -2092,8 +2092,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae097f1e41b3754382e9d81878faa95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxMovementSpeed: 10
-  originMaxMovementSpeed: 10
+  MaxMovementSpeed: 5
+  originMaxMovementSpeed: 5
   rb: {fileID: 0}
   startingPosition: {x: 0, y: 0}
   animator: {fileID: 0}
