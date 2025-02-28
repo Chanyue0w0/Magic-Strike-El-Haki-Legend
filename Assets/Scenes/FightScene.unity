@@ -624,7 +624,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a38a27cced16b2247b1d47f6f8089f1c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 75d4b1ae519438842a729e08607c8143, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -806,7 +806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b5222f70b101a7b4fae8ae5198414f9c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01e58a1502df8614a9bb6ce0c838840b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1839,7 +1839,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: de92bd164d6ae5f4b88592153326310f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0984dd47b6ec65469b5a51510ce761e, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2154,6 +2154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 861466917}
+  - component: {fileID: 861466918}
   m_Layer: 0
   m_Name: Skill Manager
   m_TagString: Untagged
@@ -2176,6 +2177,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1117303078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &861466918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861466916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d64bf424d31194d92f43a57c79db1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instTime: 7.0110083
+  instOriginTime: 10
+  player1_card1_cardCode: B02
+  player1_card2_cardCode: B03
+  player2_card1_cardCode: B02
+  player2_card2_cardCode: B03
+  xAxisRange: {x: -1.6, y: 1.6}
+  yAxisRange: {x: -2.8, y: 2.8}
+  instPickUpSkill: {fileID: 8644516757882168708, guid: 0204cf8d64f764d4f9c1ca5126343fa1, type: 3}
+  instPickUpSkillG: {fileID: 7649000507303426057, guid: 1a2ba3ead2f00044e970bf0aafa5a4e9, type: 3}
+  instPickUpSkillR: {fileID: 3181872216940625394, guid: 7c08c5cce409b3c43baed6cdd9f71d78, type: 3}
 --- !u!1 &865603841
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,7 +3731,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b5222f70b101a7b4fae8ae5198414f9c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01e58a1502df8614a9bb6ce0c838840b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3782,7 +3806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: de92bd164d6ae5f4b88592153326310f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0984dd47b6ec65469b5a51510ce761e, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4521,7 +4545,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: de92bd164d6ae5f4b88592153326310f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0984dd47b6ec65469b5a51510ce761e, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5871,7 +5895,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2e5fb297fe5c8634b96a67dcc107af40, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0289fcbb1d8d02d4698eadb4c934e44d, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7198,7 +7222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a38a27cced16b2247b1d47f6f8089f1c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 75d4b1ae519438842a729e08607c8143, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

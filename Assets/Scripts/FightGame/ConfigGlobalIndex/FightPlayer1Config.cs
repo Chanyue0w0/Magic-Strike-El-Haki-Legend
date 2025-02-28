@@ -4,7 +4,7 @@
 
 public static class FightPlayer1Config
 {
-	public static string[] Group = { "HR00", "B02", "B03" };
+	public static string[] Group = { "HR00", "C05", "B02" };
 	public static string NormalAttack = "HammerNormalAttack";
 	public static string Ult = "HammerUlt";
 
@@ -20,4 +20,6 @@ public static class FightPlayer1Config
 	public static float CC_SkillTimeIncrease = 0.0f;
 	public static float SkillBubbleTimeDecrease = 0.0f;
 	public static string EquipSet = "None";
+
+	public static bool instSkillP1 = true;//P1生成技能開啟
 }

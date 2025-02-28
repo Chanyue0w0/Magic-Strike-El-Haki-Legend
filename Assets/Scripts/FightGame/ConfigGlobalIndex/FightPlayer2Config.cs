@@ -20,4 +20,6 @@ public static class FightPlayer2Config
 	public static float CC_SkillTimeIncrease = 0.0f;
 	public static float SkillBubbleTimeDecrease = 0.0f;
 	public static string EquipSet = "None";
+
+	public static bool instSkillP2 = false;//P2生成技能開啟
 }
