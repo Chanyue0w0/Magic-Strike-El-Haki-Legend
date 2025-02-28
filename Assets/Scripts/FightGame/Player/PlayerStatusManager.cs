@@ -158,6 +158,7 @@ public class PlayerStatusManager : MonoBehaviour
 
     public void GetDamage(int damage)
     {
+        VibrationPattern.Instance.StartVibrationPattern();
         healthPoint -= damage;
         healthBar.SetHealth(healthPoint); // §ó·s¦å±ø
         DisplayDamage(damage);
