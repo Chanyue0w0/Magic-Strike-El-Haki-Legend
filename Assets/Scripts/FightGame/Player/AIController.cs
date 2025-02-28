@@ -86,6 +86,7 @@ public class AIController : MonoBehaviour
     private void HandleBallCollision(GameObject ballObject)
     {
         //Debug.Log("AIController 收到 Player2 與 Ball 碰撞的通知");
+
         // 在這裡處理碰撞時的邏輯
         animator.SetTrigger("OnHit");
     }
