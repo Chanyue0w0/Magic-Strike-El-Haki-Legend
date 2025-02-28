@@ -18,6 +18,12 @@ public class DestroyObject : MonoBehaviour
         }
     }
 
+    public void SetDTime(float dtime)
+    {
+        dTime = dtime;
+        Destroy(gameObject, dTime); // 依據一般時間刪除
+    }
+
     private IEnumerator DestroyAfterUnscaledTime(float time)
     {
         yield return new WaitForSecondsRealtime(time); // 使用 Unscaled 時間來計算

@@ -31,6 +31,7 @@ public class AIController : MonoBehaviour
 
     [Header("----------------- Stun Effect ------------------")]
     [SerializeField] private bool isStuned = false;
+    [SerializeField] private GameObject stunEffect;
 
     private void Start()
     {
@@ -110,7 +111,7 @@ public class AIController : MonoBehaviour
     private void HandleStatusEffectApplied(StatusEffect effect, GameObject player)
     {
 
-        if (effect == StatusEffect.Stun)
+        if (effect == StatusEffect.Stun && !isStuned) //不可疊加
         {
             isStuned = true;
             StartCoroutine(StunEffect()); // 在這裡觸發暈眩效果
@@ -121,6 +122,9 @@ public class AIController : MonoBehaviour
     {
         //玩家1 暈眩時間來自於 玩家2是否有加成
         float stunTime = 3 * (1 + FightPlayer1Config.CC_SkillTimeIncrease);
+
+        GameObject obj = Instantiate(stunEffect, player2.transform.position, Quaternion.identity);
+        obj.GetComponent<DestroyObject>().SetDTime(stunTime);
         yield return new WaitForSeconds(stunTime);
         isStuned = false;
     }
