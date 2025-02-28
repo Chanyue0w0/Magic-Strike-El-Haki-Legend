@@ -5012,7 +5012,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9924528, g: 0, b: 0, a: 1}
-  m_Intensity: 0
+  m_Intensity: 2.478161
   m_Range: 4
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -9991,7 +9991,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9531522, y: 0.9531522, z: 0.9531522}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4053585697137260486}
