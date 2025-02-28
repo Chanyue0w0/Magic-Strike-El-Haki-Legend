@@ -3,31 +3,31 @@
         "Name": "Warrior Helmet",
         "ID": "HT00",
         "Type": "Head",
-        "Rarity": "Rare",
+        "Rarity": "Common",
         "SetType": "Warrior",
-        "AttackPower": 15,
-        "HealthPoints": 100,
+        "AttackPower": 10,
+        "HealthPoints": 150,
         "Description": "A sturdy helmet forged for battle-hardened warriors."
     },
     "EM01" : {
-        "Name": "Warrior Helmet",
-        "ID": "HT00",
-        "Type": "Head",
-        "Rarity": "Rare",
+        "Name": "Warrior Armor",
+        "ID": "BD00",
+        "Type": "Armor",
+        "Rarity": "Common",
         "SetType": "Warrior",
-        "AttackPower": 15,
-        "HealthPoints": 100,
-        "Description": "A sturdy helmet forged for battle-hardened warriors."
+        "AttackPower": 0,
+        "HealthPoints": 200,
+        "Description": "A sturdy armor forged for battle-hardened warriors."
     },
     "EM02" : {
-        "Name": "Warrior Helmet",
-        "ID": "HT00",
-        "Type": "Head",
-        "Rarity": "Rare",
+        "Name": "Warrior Shoes",
+        "ID": "SH00",
+        "Type": "Shoes",
+        "Rarity": "Common",
         "SetType": "Warrior",
-        "AttackPower": 15,
-        "HealthPoints": 100,
-        "Description": "A sturdy helmet forged for battle-hardened warriors."
+        "AttackPower": 30,
+        "HealthPoints": 50,
+        "Description": "A sturdy shoes forged for battle-hardened warriors."
     }
       
 }
