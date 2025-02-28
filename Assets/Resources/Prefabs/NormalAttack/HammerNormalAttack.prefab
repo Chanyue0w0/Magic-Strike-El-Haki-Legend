@@ -285,7 +285,7 @@ MonoBehaviour:
   speed: 8
   rotationDistanceThreshold: 1
   NormalAttackDamage: 0
-  EffectToApply: 0
+  EffectToApply: 1
   rb: {fileID: 0}
   explosion: {fileID: 4169145334852256095, guid: 5ee2322ef0c144c4298f48031fb41c50, type: 3}
 --- !u!1 &3840347614851298483

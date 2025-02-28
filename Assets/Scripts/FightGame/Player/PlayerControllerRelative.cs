@@ -26,36 +26,38 @@ public class PlayerControllerRelative : MonoBehaviour
     [SerializeField] private Transform topLeftBoundary;
     [SerializeField] private Transform bottomRightBoundary;
 
+    [Header("----------------- Player Gamebject ------------------")]
+    [SerializeField] private GameObject player1;
+    [SerializeField] private GameObject player2;
+
+
+    [Header("----------------- Stun Effect ------------------")]
+    [SerializeField] private bool isStuned = false;
+
+
     void Start()
     {
         mainCamera = Camera.main;
-        if (mainCamera == null)
-        {
-            Debug.LogError("MainCamera 未設定！");
-        }
-
-        if (playerObject == null)
-        {
-            Debug.LogError("playerObject 未指派！");
-        }
 
         rb = playerObject.GetComponent<Rigidbody2D>();
-        if (rb == null)
-        {
-            Debug.LogError("Player 物件缺少 Rigidbody2D！");
-        }
-        else
-        {
-            rb.isKinematic = true;
-        }
+        rb.isKinematic = true;
 
-        if (topLeftBoundary == null || bottomRightBoundary == null)
-        {
-            Debug.LogError("請在 Inspector 中指派左上與右下的邊界物件！");
-        }
+
+        // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
+        PlayerNotification notification = player1.GetComponent<PlayerNotification>();
+        RegisterPlayerNotification(notification);//訂閱通知
     }
 
     void Update()
+    {
+        if(!isStuned)
+        {
+            PlayerMoving();
+        }
+
+    }
+
+    private void PlayerMoving()
     {
 #if UNITY_EDITOR || UNITY_STANDALONE
         // 滑鼠版
@@ -150,6 +152,34 @@ public class PlayerControllerRelative : MonoBehaviour
             }
         }
 #endif
+    }
+
+    //訂閱通知
+    public void RegisterPlayerNotification(PlayerNotification playerNotification)
+    {
+        Debug.Log($"{gameObject.name} 收到 傷害");
+        playerNotification.OnStatusEffectApplied += HandleStatusEffectApplied;
+        //playerNotification.OnGetMagicPointApplied += HandleGetMagicPointNotification;
+    }
+
+
+    // 接收 `PlayerNotification` 的受到效果通知
+    private void HandleStatusEffectApplied(StatusEffect effect, GameObject player)
+    {
+
+        if (effect == StatusEffect.Stun)
+        {
+            isStuned = true;
+            StartCoroutine(StunEffect()); // 在這裡觸發暈眩效果
+        }
+    }
+
+    private IEnumerator StunEffect()//暈眩效果
+    {
+        //玩家1 暈眩時間來自於 玩家2是否有加成
+        float stunTime = 3 * (1 + FightPlayer2Config.CC_SkillTimeIncrease);
+        yield return new WaitForSeconds(stunTime);
+        isStuned = false;
     }
 
     /// <summary>

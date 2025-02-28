@@ -29,6 +29,9 @@ public class AIController : MonoBehaviour
     private float offsetXFromTarget;
     public float upBoardY = 3f;
 
+    [Header("----------------- Stun Effect ------------------")]
+    [SerializeField] private bool isStuned = false;
+
     private void Start()
     {
         originMaxMovementSpeed = MaxMovementSpeed;
@@ -47,9 +50,21 @@ public class AIController : MonoBehaviour
         {
             collisionNotifier.OnBallCollision += HandleBallCollision;
         }
+
+        // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
+        PlayerNotification notification = player2.GetComponent<PlayerNotification>();
+        RegisterPlayerNotification(notification);//訂閱通知
     }
 
     private void FixedUpdate()
+    {
+        if (!isStuned)
+        {
+            AIMoving();
+        }
+    }
+
+    private void AIMoving()
     {
         float movementSpeed;
         //AI移動，非暈眩狀態
@@ -80,7 +95,34 @@ public class AIController : MonoBehaviour
         rb.MovePosition(Vector2.MoveTowards(rb.position, targetPosition,
                 movementSpeed * Time.fixedDeltaTime));
 
-       
+    }
+
+    //訂閱通知
+    public void RegisterPlayerNotification(PlayerNotification playerNotification)
+    {
+        Debug.Log($"{gameObject.name} 收到 傷害");
+        playerNotification.OnStatusEffectApplied += HandleStatusEffectApplied;
+        //playerNotification.OnGetMagicPointApplied += HandleGetMagicPointNotification;
+    }
+
+
+    // 接收 `PlayerNotification` 的受到效果通知
+    private void HandleStatusEffectApplied(StatusEffect effect, GameObject player)
+    {
+
+        if (effect == StatusEffect.Stun)
+        {
+            isStuned = true;
+            StartCoroutine(StunEffect()); // 在這裡觸發暈眩效果
+        }
+    }
+
+    private IEnumerator StunEffect()//暈眩效果
+    {
+        //玩家1 暈眩時間來自於 玩家2是否有加成
+        float stunTime = 3 * (1 + FightPlayer1Config.CC_SkillTimeIncrease);
+        yield return new WaitForSeconds(stunTime);
+        isStuned = false;
     }
 
     private void HandleBallCollision(GameObject ballObject)

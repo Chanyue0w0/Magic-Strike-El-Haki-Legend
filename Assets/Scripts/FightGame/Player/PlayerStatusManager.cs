@@ -127,6 +127,11 @@ public class PlayerStatusManager : MonoBehaviour
         {
             StartCoroutine(BurnEffect()); // 在這裡觸發燃燒效果
         }
+
+        //if(effect == StatusEffect.Stun)
+        //{
+        //    StartCoroutine(StunEffect()); // 在這裡觸發暈眩效果
+        //}
     }
 
     //private void HandleGetMagicPointNotification(int tNumber)
@@ -155,6 +160,18 @@ public class PlayerStatusManager : MonoBehaviour
         }
         isBurning = false;
     }
+
+    //private IEnumerator StunEffect()//燃燒效果
+    //{
+    //    isBurning = true;
+    //    for (int i = 0; i < 5; i++) // 燃燒 5 秒，每秒扣 5 點血
+    //    {
+    //        int burnDamage = Mathf.RoundToInt(20 * (1 + FightPlayer1Config.BurnDamageIncrease));
+    //        GetDamage(burnDamage);
+    //        yield return new WaitForSeconds(1);
+    //    }
+    //    isBurning = false;
+    //}
 
     public void GetDamage(int damage)
     {

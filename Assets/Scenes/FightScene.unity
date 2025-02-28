@@ -4805,6 +4805,9 @@ MonoBehaviour:
   playerObject: {fileID: 193765608}
   topLeftBoundary: {fileID: 884281873}
   bottomRightBoundary: {fileID: 420494784}
+  player1: {fileID: 193765608}
+  player2: {fileID: 1570447976}
+  isStuned: 0
 --- !u!1 &1508030518
 GameObject:
   m_ObjectHideFlags: 0
