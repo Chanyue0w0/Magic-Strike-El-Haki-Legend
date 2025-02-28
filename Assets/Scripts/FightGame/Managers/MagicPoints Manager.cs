@@ -146,11 +146,13 @@ public class MagicPointsManager : MonoBehaviour
         {
             Instantiate(p1UltEffect, player1.transform.position, Quaternion.identity);
             StartCoroutine(ActivateUltCoroutine(player1.transform.position, pNumber));
+            SetMagicPoint(1, 0);
         }
         else if (pNumber == 2 && p2CurrentMagicPoint == p2MaxMagicPoint)
         {
             Instantiate(p2UltEffect, player2.transform.position, Quaternion.identity);
             StartCoroutine(ActivateUltCoroutine(player2.transform.position, pNumber));
+            SetMagicPoint(2, 0);
         }
     }
 
