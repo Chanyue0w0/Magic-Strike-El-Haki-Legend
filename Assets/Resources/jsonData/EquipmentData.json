@@ -1,5 +1,5 @@
 {
-    "EM00" : {
+    "HT00" : {
         "Name": "Warrior Helmet",
         "ID": "HT00",
         "Type": "Head",
@@ -9,7 +9,7 @@
         "HealthPoints": 150,
         "Description": "A sturdy helmet forged for battle-hardened warriors."
     },
-    "EM01" : {
+    "BD00" : {
         "Name": "Warrior Armor",
         "ID": "BD00",
         "Type": "Armor",
@@ -19,9 +19,39 @@
         "HealthPoints": 200,
         "Description": "A sturdy armor forged for battle-hardened warriors."
     },
-    "EM02" : {
+    "SH00" : {
         "Name": "Warrior Shoes",
         "ID": "SH00",
+        "Type": "Shoes",
+        "Rarity": "Common",
+        "SetType": "Warrior",
+        "AttackPower": 30,
+        "HealthPoints": 50,
+        "Description": "A sturdy shoes forged for battle-hardened warriors."
+    },
+    "HT01" : {
+        "Name": "meow Helmet",
+        "ID": "HT01",
+        "Type": "Head",
+        "Rarity": "Common",
+        "SetType": "Warrior",
+        "AttackPower": 10,
+        "HealthPoints": 150,
+        "Description": "A sturdy helmet forged for battle-hardened warriors."
+    },
+    "BD01" : {
+        "Name": "meow Armor",
+        "ID": "BD01",
+        "Type": "Armor",
+        "Rarity": "Common",
+        "SetType": "Warrior",
+        "AttackPower": 0,
+        "HealthPoints": 200,
+        "Description": "A sturdy armor forged for battle-hardened warriors."
+    },
+    "SH01" : {
+        "Name": "meow Shoes",
+        "ID": "SH01",
         "Type": "Shoes",
         "Rarity": "Common",
         "SetType": "Warrior",

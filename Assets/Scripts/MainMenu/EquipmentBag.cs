@@ -11,6 +11,13 @@ public class EquipmentBag : MonoBehaviour
 	// 裝備槽容器（例如 ScrollView 的 Content）
 	[SerializeField] private Transform equipmentSlotContainer;
 
+
+	[SerializeField] private TextMeshProUGUI equipmentNameText;
+	[SerializeField] private Image equipmentImage;
+	
+	private PlayerHeroManager.PlayerHero currentHeroData;
+	private PlayerEquipmentManager.PlayerEquipment currentEquipment;
+
 	void Start()
 	{
 		RefreshUI();
@@ -43,7 +50,7 @@ public class EquipmentBag : MonoBehaviour
 			//	nameText.text = equipment.name;
 			//}
 
-
+			// 按鈕 OnClick 指令
 			Button btn = slot.GetComponent<Button>();
 			btn.onClick.AddListener(() => OnClickOpenEquipmentPanel(btn.gameObject.name));
 
@@ -62,18 +69,18 @@ public class EquipmentBag : MonoBehaviour
 
 	public void OnClickOpenEquipmentPanel(string thisGameObjectName)
 	{
-		if (equipmentInfoPanel != null)
-		{
-			int x = 0;
+		equipmentInfoPanel.SetActive(true);
+		currentEquipment = PlayerEquipmentManager.Instance.GetEquipmentByIndex(int.Parse(thisGameObjectName));
+		equipmentNameText.text = currentEquipment.name;
+		//equipmentImage.sprite = currentEquipment
+	}
 
-			int.TryParse(thisGameObjectName, out x);
-			equipmentInfoPanel.SetActive(true);
-			PlayerEquipmentManager.PlayerEquipment EquipmentData = PlayerEquipmentManager.Instance.GetEquipmentByIndex(x);
-			Debug.Log("Opened Equipment Panel from: " + thisGameObjectName);
-		}
-		else
-		{
-			Debug.LogWarning("Equipment Panel is not assigned!");
-		}
+	public void OnClickUseEquipment()
+	{
+		currentEquipment.equippedByHero = currentHeroData.name;
+		currentHeroData.equippedItems[0] = currentEquipment.id;
+
+		PlayerHeroManager.Instance.SaveHeroes();
+		PlayerEquipmentManager.Instance.SaveEquipment();
 	}
 }
