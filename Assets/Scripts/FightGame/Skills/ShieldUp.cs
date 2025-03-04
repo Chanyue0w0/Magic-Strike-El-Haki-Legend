@@ -18,6 +18,10 @@ public class ShieldUp : MonoBehaviour
     public void SetPlayerNumber(int pNumber) // initial
     {
         playerNumber = pNumber;
+        InitializedSkillInfo();
+    }
+    public void InitializedSkillInfo()
+    {
         shieldObj = Resources.Load<GameObject>("Prefabs/Skills/ShieldUp");
         player1 = GameObject.FindGameObjectWithTag("Player1");
         player2 = GameObject.FindGameObjectWithTag("Player2");

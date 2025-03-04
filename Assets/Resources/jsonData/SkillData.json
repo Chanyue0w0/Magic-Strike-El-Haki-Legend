@@ -1,7 +1,7 @@
 {
     "SK00": {
-        "Name": "StrikeWave",
-        "ScriptPath": "Asset/Resource/Scripts/FightGame/Skills/StrikeWave"
+        "Name": "FlamingStar",
+        "ScriptPath": "Asset/Resource/Scripts/FightGame/Skills/FlamingStar"
     },
     "SK01": {
         "Name": "ShieldUp",
