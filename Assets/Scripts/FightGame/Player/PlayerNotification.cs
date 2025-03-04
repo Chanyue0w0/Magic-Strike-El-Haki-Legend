@@ -68,7 +68,7 @@ public class PlayerNotification : MonoBehaviour, IDamageable, IStatusEffectRecei
     public void GetMagicPointNotify(int pNumber)//提醒得到魔力
     {
         OnGetMagicPointApplied?.Invoke(pNumber);
-        Debug.Log("傳輸" + pNumber);
+        //Debug.Log("傳輸" + pNumber);
     }
 
     //private System.Collections.IEnumerator BurnEffect()

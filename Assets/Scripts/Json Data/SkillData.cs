@@ -32,4 +32,10 @@ public class SkillData : MonoBehaviour
 			Debug.Log("id: " + id + " is not found in json data!");
 		return jsonData[id]["ScriptPath"].ToString();
 	}
+	public string GetScriptName(string id)
+	{
+		if (jsonData[id] == null)
+			Debug.Log("id: " + id + " is not found in json data!");
+		return jsonData[id]["Name"].ToString();
+	}
 }

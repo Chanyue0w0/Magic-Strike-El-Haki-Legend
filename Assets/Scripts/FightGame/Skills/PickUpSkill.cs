@@ -59,6 +59,7 @@ public class PickUpSkill : MonoBehaviour
         {
             //cardSkillSetScript.Active();
             Instantiate(pickUpExplosionEffect, gameObject.transform.position, Quaternion.identity);
+            SkillManager.Instance.ActiveSkill(playerNumber, cardSkillSetNumber);
             Destroy(gameObject);
         }
     }

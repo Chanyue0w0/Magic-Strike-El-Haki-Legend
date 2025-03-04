@@ -4,7 +4,7 @@
 
 public static class FightPlayer1Config
 {
-	public static string[] Group = { "HR00", "C05", "B02" };
+	public static string[] Group = { "HR00", "SK00", "SK01" };
 	public static string NormalAttack = "HammerNormalAttack";
 	public static string Ult = "HammerUlt";
 

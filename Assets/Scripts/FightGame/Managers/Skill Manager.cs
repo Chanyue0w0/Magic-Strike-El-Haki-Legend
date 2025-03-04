@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SkillManager : MonoBehaviour
 {
+    public static SkillManager Instance { get; private set; }
+
     //[SerializeField] private float p1InstTime = 10;
     //[SerializeField] private float p1InstOriginTime = 0;
 
@@ -24,6 +26,8 @@ public class SkillManager : MonoBehaviour
     [SerializeField] private string player2_card1_cardCode;//Card 1 cardCode
     [SerializeField] private string player2_card2_cardCode;//Card 2 cardCode
 
+    private Dictionary<(int player, int skillIndex), MonoBehaviour> skillComponents = new();
+
     [SerializeField] private Vector2 xAxisRange;
     [SerializeField] private Vector2 yAxisRange;
 
@@ -31,7 +35,14 @@ public class SkillManager : MonoBehaviour
     [SerializeField] private GameObject instPickUpSkillG;//Card 6 cardCode
     [SerializeField] private GameObject instPickUpSkillR;//Card 6 cardCode
 
-
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.Log("Found more than one SkillData object in the sence");
+        }
+        Instance = this;
+    }
 
     void Start()
     {
@@ -40,18 +51,11 @@ public class SkillManager : MonoBehaviour
         //Sprite sprite = Resources.Load<Sprite>(fullPath);
         //player2Sprite.sprite
 
-        //player1_card2_cardCode = GlobalIndex.cardGroup[0];
         player1_card1_cardCode = FightPlayer1Config.Group[1];
         player1_card2_cardCode = FightPlayer1Config.Group[2];
 
-        //player2_card6_cardCode = GlobalIndex.cardGroup[4];
         player2_card1_cardCode = FightPlayer2Config.Group[1];
         player2_card2_cardCode = FightPlayer2Config.Group[2];
-
-        //player1_card1_sprite.sprite = Resources.Load<Sprite>("Arts/PickUpHeadStickers/" + player1_card1_cardCode);
-        //player1_card2_sprite.sprite = Resources.Load<Sprite>("Arts/PickUpHeadStickers/" + player1_card1_cardCode);
-        //player2_card5_sprite.sprite = Resources.Load<Sprite>("Arts/PickUpHeadStickers/" + player2_card5_cardCode);
-        //player2_card6_sprite.sprite = Resources.Load<Sprite>("Arts/PickUpHeadStickers/" + player2_card6_cardCode);
 
         instPickUpSkill = Resources.Load<GameObject>("Prefabs/PickUpSkill/InstPickUpSkill");
         instPickUpSkillG = Resources.Load<GameObject>("Prefabs/PickUpSkill/InstPickUpSkill(G)");
@@ -59,6 +63,61 @@ public class SkillManager : MonoBehaviour
 
         xAxisRange = new Vector2(-1.6f, 1.6f);
         yAxisRange = new Vector2(-2.8f, 2.8f);
+
+
+
+        //// SkillName P1 Skill 1
+        //string skillName1 = SkillData.Instance.GetScriptName(player1_card1_cardCode);
+        //System.Type skillScript = System.Type.GetType(skillName1 + ",Assembly-CSharp");
+        //gameObject.AddComponent(skillScript);
+
+        //// SkillName P1 Skill 2
+        //string skillName2 = SkillData.Instance.GetScriptName(player1_card2_cardCode);
+        //System.Type skillScript2 = System.Type.GetType(skillName2 + ",Assembly-CSharp");
+        //gameObject.AddComponent(skillScript);
+        // 為 Player 1 註冊技能
+        AddSkillComponent(1, 1, player1_card1_cardCode);
+        AddSkillComponent(1, 2, player1_card2_cardCode);
+
+        // 為 Player 2 註冊技能
+        AddSkillComponent(2, 1, player2_card1_cardCode);
+        AddSkillComponent(2, 2, player2_card2_cardCode);
+    }
+
+    private void AddSkillComponent(int playerNumber, int skillIndex, string cardCode)
+    {
+        string skillName = SkillData.Instance.GetScriptName(cardCode);
+        System.Type skillScriptType = System.Type.GetType(skillName + ",Assembly-CSharp");
+
+        if (skillScriptType != null)
+        {
+            MonoBehaviour skillComponent = (MonoBehaviour)gameObject.AddComponent(skillScriptType);
+            skillComponents[(playerNumber, skillIndex)] = skillComponent;
+        }
+        else
+        {
+            Debug.LogError($"技能腳本 {skillName} 找不到，請確認名稱是否正確");
+        }
+    }
+
+    public void ActiveSkill(int playerNumber, int skillIndex)
+    {
+        if (skillComponents.TryGetValue((playerNumber, skillIndex), out MonoBehaviour skillComponent))
+        {
+            var method = skillComponent.GetType().GetMethod("Active");
+            if (method != null)
+            {
+                method.Invoke(skillComponent, null);
+            }
+            else
+            {
+                Debug.LogError($"技能 {skillComponent.GetType().Name} 沒有 Active 方法");
+            }
+        }
+        else
+        {
+            Debug.LogError($"找不到 Player {playerNumber} 的技能 {skillIndex}");
+        }
     }
 
     void Update()
@@ -79,13 +138,12 @@ public class SkillManager : MonoBehaviour
         //Debug.Log("r p1: " + randomP1);
         //Debug.Log("r p2: " + randomP2);
 
-
         if (FightPlayer1Config.instSkillP1)
         {
+            float randomP1positionX = Random.Range(xAxisRange.x, xAxisRange.y);
+            float randomP1positionY = Random.Range(yAxisRange.x, yAxisRange.y);
             if (randomP1 <= 5)//P1 left skill & left side (On Top Left Field)
             {
-                float randomP1positionX = Random.Range(xAxisRange.x, 0);
-                float randomP1positionY = Random.Range(0, yAxisRange.y);
                 GameObject obj = Instantiate(instPickUpSkillG, new Vector2(randomP1positionX, randomP1positionY), Quaternion.identity);
                 obj.GetComponent<InstPickUpSkill>().SetCardCode(player1_card1_cardCode);
                 obj.GetComponent<InstPickUpSkill>().SetPlayerNumber(1);
@@ -94,8 +152,6 @@ public class SkillManager : MonoBehaviour
             }
             else//P1 right skill & right size  (On Top Right Field)
             {
-                float randomP1positionX = Random.Range(0, xAxisRange.y);
-                float randomP1positionY = Random.Range(0, yAxisRange.y);
                 GameObject obj = Instantiate(instPickUpSkillG, new Vector2(randomP1positionX, randomP1positionY), Quaternion.identity);
                 obj.GetComponent<InstPickUpSkill>().SetCardCode(player1_card2_cardCode);
                 obj.GetComponent<InstPickUpSkill>().SetPlayerNumber(1);
@@ -115,7 +171,7 @@ public class SkillManager : MonoBehaviour
                 GameObject obj = Instantiate(instPickUpSkillR, new Vector2(randomP2positionX, randomP2positionY), Quaternion.identity);
                 obj.GetComponent<InstPickUpSkill>().SetCardCode(player2_card1_cardCode);
                 obj.GetComponent<InstPickUpSkill>().SetPlayerNumber(2);
-                obj.GetComponent<InstPickUpSkill>().SetCardSkillSetNumber(5);
+                obj.GetComponent<InstPickUpSkill>().SetCardSkillSetNumber(1);
 
                 //Set cardCode & cardSkillSetNumber
             }
@@ -126,7 +182,7 @@ public class SkillManager : MonoBehaviour
                 GameObject obj = Instantiate(instPickUpSkillR, new Vector2(randomP2positionX, randomP2positionY), Quaternion.identity);
                 obj.GetComponent<InstPickUpSkill>().SetCardCode(player2_card2_cardCode);
                 obj.GetComponent<InstPickUpSkill>().SetPlayerNumber(2);
-                obj.GetComponent<InstPickUpSkill>().SetCardSkillSetNumber(6);
+                obj.GetComponent<InstPickUpSkill>().SetCardSkillSetNumber(2);
                 //obj.GetComponent<InstPickUpSkill>().SetCardSkillSetNumber(4);
 
                 //Set cardCode & cardSkillSetNumber

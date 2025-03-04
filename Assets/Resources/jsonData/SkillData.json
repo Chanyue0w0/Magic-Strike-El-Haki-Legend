@@ -1,17 +1,14 @@
 {
-    "SK00" : {
-        "ID" : "SK00",
-        "Name": "skill name",
-        "ScriptPath": "Asset/resource"
+    "SK00": {
+        "Name": "StrikeWave",
+        "ScriptPath": "Asset/Resource/Scripts/FightGame/Skills/StrikeWave"
     },
-    "SK01" : {
-        "ID" : "SK01",
-        "Name": "aaaa name",
-        "ScriptPath": "Asset/resource"
+    "SK01": {
+        "Name": "ShieldUp",
+        "ScriptPath": "Asset/Scripts/FightGame/Skills/ShieldUp"
     },
     "SK02" : {
-        "ID" : "SK02",
-        "Name": "bbbb name",
-        "ScriptPath": "Asset/resource"
+        "Name": "bbbbname",
+        "ScriptPath": "Asset/Scripts/FightGame/Skills/"
     }
 }

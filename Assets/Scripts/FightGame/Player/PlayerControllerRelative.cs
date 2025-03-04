@@ -158,7 +158,7 @@ public class PlayerControllerRelative : MonoBehaviour
     //訂閱通知
     public void RegisterPlayerNotification(PlayerNotification playerNotification)
     {
-        Debug.Log($"{gameObject.name} 收到 傷害");
+        //Debug.Log($"{gameObject.name} 收到 傷害");
         playerNotification.OnStatusEffectApplied += HandleStatusEffectApplied;
         //playerNotification.OnGetMagicPointApplied += HandleGetMagicPointNotification;
     }
