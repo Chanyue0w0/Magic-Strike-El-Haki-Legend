@@ -2189,8 +2189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d64bf424d31194d92f43a57c79db1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instTime: 7.0110083
-  instOriginTime: 10
+  instTime: 3
+  instOriginTime: 3
   player1_card1_cardCode: B02
   player1_card2_cardCode: B03
   player2_card1_cardCode: B02

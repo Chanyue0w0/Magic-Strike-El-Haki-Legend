@@ -104,14 +104,20 @@ public class SkillManager : MonoBehaviour
     {
         if (skillComponents.TryGetValue((playerNumber, skillIndex), out MonoBehaviour skillComponent))
         {
+            var setPlayerNumber = skillComponent.GetType().GetMethod("SetPlayerNumber");
             var method = skillComponent.GetType().GetMethod("Active");
-            if (method != null)
+            if (method != null && setPlayerNumber != null)
             {
+                setPlayerNumber.Invoke(skillComponent, new object[] { playerNumber });
                 method.Invoke(skillComponent, null);
             }
-            else
+            else if(method == null)
             {
                 Debug.LogError($"技能 {skillComponent.GetType().Name} 沒有 Active 方法");
+            }
+            else if(setPlayerNumber == null)
+            {
+                Debug.LogError($"技能 {skillComponent.GetType().Name} 沒有 SetPlayerNumber 方法");
             }
         }
         else
@@ -141,7 +147,7 @@ public class SkillManager : MonoBehaviour
         if (FightPlayer1Config.instSkillP1)
         {
             float randomP1positionX = Random.Range(xAxisRange.x, xAxisRange.y);
-            float randomP1positionY = Random.Range(yAxisRange.x, yAxisRange.y);
+            float randomP1positionY = Random.Range(0, yAxisRange.y);
             if (randomP1 <= 5)//P1 left skill & left side (On Top Left Field)
             {
                 GameObject obj = Instantiate(instPickUpSkillG, new Vector2(randomP1positionX, randomP1positionY), Quaternion.identity);

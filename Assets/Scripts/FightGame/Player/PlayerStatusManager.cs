@@ -113,7 +113,7 @@ public class PlayerStatusManager : MonoBehaviour
     // 接收 `PlayerNotification` 的受到攻擊通知
     private void HandleDamageNotification(int damage, GameObject player)
     {
-        Debug.Log($"{gameObject.name} 受攻擊傷害：{damage}");
+        //Debug.Log($"{gameObject.name} 受攻擊傷害：{damage}");
         GetDamage(damage);
     }
 
@@ -121,33 +121,15 @@ public class PlayerStatusManager : MonoBehaviour
     private void HandleStatusEffectApplied(StatusEffect effect, GameObject player)
     {
         
-        Debug.Log($"{gameObject.name} 觸發狀態效果：{effect}");
+        //Debug.Log($"{gameObject.name} 觸發狀態效果：{effect}");
 
         if (effect == StatusEffect.Burn && !isBurning)
         {
             StartCoroutine(BurnEffect()); // 在這裡觸發燃燒效果
         }
 
-        //if(effect == StatusEffect.Stun)
-        //{
-        //    StartCoroutine(StunEffect()); // 在這裡觸發暈眩效果
-        //}
     }
 
-    //private void HandleGetMagicPointNotification(int tNumber)
-    //{
-    //    Debug.Log("只有收到" + player);
-    //    if (tNumber == 1 && player == UserPosition.player2)
-    //    {
-    //        Debug.Log("P1收到");
-    //        GetOnePointMP();
-    //    }
-    //    else if(tNumber == 2 && player == UserPosition.player1)
-    //    {
-    //        Debug.Log("P2收到");
-    //        GetOnePointMP();
-    //    }
-    //}
 
     private IEnumerator BurnEffect()//燃燒效果
     {
@@ -161,24 +143,26 @@ public class PlayerStatusManager : MonoBehaviour
         isBurning = false;
     }
 
-    //private IEnumerator StunEffect()//燃燒效果
-    //{
-    //    isBurning = true;
-    //    for (int i = 0; i < 5; i++) // 燃燒 5 秒，每秒扣 5 點血
-    //    {
-    //        int burnDamage = Mathf.RoundToInt(20 * (1 + FightPlayer1Config.BurnDamageIncrease));
-    //        GetDamage(burnDamage);
-    //        yield return new WaitForSeconds(1);
-    //    }
-    //    isBurning = false;
-    //}
-
     public void GetDamage(int damage)
     {
         VibrationPattern.Instance.StartVibrationPattern();
-        healthPoint -= damage;
+        int finalDamage = 0;
+        if(player == UserPosition.player1)
+        {
+            finalDamage = Mathf.RoundToInt(damage * (1 - FightPlayer1Config.ShieldPercentage));
+            healthPoint -= finalDamage; //扣除減傷量
+            Debug.Log("FightPlayer1Config.ShieldPercentage" + FightPlayer1Config.ShieldPercentage);
+            Debug.Log("Final Damage 1 :" + finalDamage);
+        }
+        else if(player == UserPosition.player2)
+        {
+            finalDamage = Mathf.RoundToInt(damage * (1 - FightPlayer2Config.ShieldPercentage));
+            healthPoint -= finalDamage; //扣除減傷量
+            Debug.Log("FightPlayer2Config.ShieldPercentage" + FightPlayer2Config.ShieldPercentage);
+            Debug.Log("Final Damage 2 :" + finalDamage);
+        }
         healthBar.SetHealth(healthPoint); // 更新血條
-        DisplayDamage(damage);
+        DisplayDamage(finalDamage);
     }
 
     public void GetRecoverHP(int recoverHp)

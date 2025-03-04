@@ -4,7 +4,7 @@
 
 public static class FightPlayer1Config
 {
-	public static string[] Group = { "HR00", "SK00", "SK01" };
+	public static string[] Group = { "HR00", "SK01", "SK01" };
 	public static string NormalAttack = "HammerNormalAttack";
 	public static string Ult = "HammerUlt";
 
@@ -21,5 +21,6 @@ public static class FightPlayer1Config
 	public static float SkillBubbleTimeDecrease = 0.0f;
 	public static string EquipSet = "None";
 
+	public static float ShieldPercentage = 0.0f;//減傷比例，戰鬥中才會取得
 	public static bool instSkillP1 = true;//P1生成技能開啟
 }
