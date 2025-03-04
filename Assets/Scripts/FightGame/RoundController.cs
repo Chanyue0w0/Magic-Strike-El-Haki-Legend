@@ -57,6 +57,7 @@ public class RoundController : MonoBehaviour
 
 	public void GameStart()
     {
+		Time.timeScale = 1;
 		player1Status.InitStatus();
 		player2Status.InitStatus();
 		if(FightStageConfig.BGM == "BasicBattleBGM")
