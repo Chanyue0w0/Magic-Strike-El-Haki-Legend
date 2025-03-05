@@ -247,83 +247,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   filePath: jsonData/HeroData
---- !u!1001 &21747943
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5859418926344093280, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
-      propertyPath: m_Intensity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6336178034950356976, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7104528071564232231, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7974378409680383752, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7974378410249274817, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
-      propertyPath: m_Name
-      value: CFXR3 Fire Shield A
-      objectReference: {fileID: 0}
-    - target: {fileID: 7974378410249274828, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -12.78
-      objectReference: {fileID: 0}
-    - target: {fileID: 7974378410249274828, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 7974378410249274828, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7974378410249274828, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7974378410249274828, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7974378410249274828, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7974378410249274828, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7974378410249274828, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7974378410249274828, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7974378410249274828, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7974378410249274830, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e1fb5c88ab219c14fba771238f902bc4, type: 3}
 --- !u!1 &24223733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,87 +1215,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339735532}
   m_CullTransparentMesh: 1
---- !u!1001 &345693013
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 676679003280214964, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1142363812516727332, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_Intensity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467777503510229381, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_Name
-      value: CFXR3 Fire Shield B
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467777503510229384, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -9.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467777503510229384, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.78
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467777503510229384, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467777503510229384, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467777503510229384, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467777503510229384, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467777503510229384, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467777503510229384, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467777503510229384, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467777503510229384, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3467777503510229386, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4328787234519134819, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439142715157075882, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7550623198992881964, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 89e3560769ad7aa438ed0e2c04896cfa, type: 3}
 --- !u!1 &349183767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2385,7 +2227,7 @@ Transform:
   m_GameObject: {fileID: 865603841}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5005,7 +4847,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 2ee761167258e4f47a47c18e91da0467, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3dad7c4d6ab7df479e61a24fb1d08ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6108,7 +5950,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -206.97, y: -164}
+  m_AnchoredPosition: {x: -206.97003, y: -164}
   m_SizeDelta: {x: -90.35, y: 337.21997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701202708
@@ -22928,6 +22770,4 @@ SceneRoots:
   - {fileID: 1117303078}
   - {fileID: 1869898470}
   - {fileID: 121773957}
-  - {fileID: 21747943}
   - {fileID: 3482539089209251073}
-  - {fileID: 345693013}
