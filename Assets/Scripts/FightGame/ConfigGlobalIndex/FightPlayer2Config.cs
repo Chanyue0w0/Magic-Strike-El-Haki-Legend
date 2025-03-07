@@ -4,9 +4,10 @@
 
 public static class FightPlayer2Config
 {
-	public static string[] Group = { "MS00", "SK01", "SK00" };
+	public static string[] Group = { "MS00", "MS01", "MS00" };
 	public static string NormalAttack = "OriginSlimeNormalAttack";
 	public static string Ult = "HammerUlt";
+	public static bool isMonster = true;
 
 	public static string PlayerSkin;
 	public static int StartHP = 1000;

@@ -86,18 +86,37 @@ public class SkillManager : MonoBehaviour
 
     private void AddSkillComponent(int playerNumber, int skillIndex, string cardCode)
     {
-        string skillName = SkillData.Instance.GetScriptName(cardCode);
-        System.Type skillScriptType = System.Type.GetType(skillName + ",Assembly-CSharp");
 
-        if (skillScriptType != null)
+        if(playerNumber == 2 && FightPlayer2Config.isMonster)//玩家2為史萊姆敵人
         {
-            MonoBehaviour skillComponent = (MonoBehaviour)gameObject.AddComponent(skillScriptType);
-            skillComponents[(playerNumber, skillIndex)] = skillComponent;
+            string skillName = MonsterData.Instance.GetScriptName(cardCode);
+            System.Type skillScriptType = System.Type.GetType(skillName + ",Assembly-CSharp");
+            if (skillScriptType != null)
+            {
+                MonoBehaviour skillComponent = (MonoBehaviour)gameObject.AddComponent(skillScriptType);
+                skillComponents[(playerNumber, skillIndex)] = skillComponent;
+            }
+            else
+            {
+                Debug.LogError($"怪物技能腳本 {skillName} 找不到，請確認名稱是否正確");
+            }
         }
-        else
+        else//玩家1為英雄角色
         {
-            Debug.LogError($"技能腳本 {skillName} 找不到，請確認名稱是否正確");
+            string skillName = SkillData.Instance.GetScriptName(cardCode);
+            System.Type skillScriptType = System.Type.GetType(skillName + ",Assembly-CSharp");
+            if (skillScriptType != null)
+            {
+                MonoBehaviour skillComponent = (MonoBehaviour)gameObject.AddComponent(skillScriptType);
+                skillComponents[(playerNumber, skillIndex)] = skillComponent;
+            }
+            else
+            {
+                Debug.LogError($"英雄技能腳本 {skillName} 找不到，請確認名稱是否正確");
+            }
         }
+
+        
     }
 
     public void ActiveSkill(int playerNumber, int skillIndex)

@@ -1,17 +1,14 @@
 {
     "MS00" : {
-        "ID" : "MS00",
-        "Name": "skill name",
-        "ScriptPath": "Asset/resource"
+        "Name": "GrassSlime",
+        "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
     },
     "MS01" : {
-        "ID" : "MS01",
-        "Name": "aaaa",
-        "ScriptPath": "Asset/resource"
+        "Name": "WoodBarrelSlime",
+        "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
     },
     "MS02" : {
-        "ID" : "MS02",
         "Name": "bbbb",
-        "ScriptPath": "Asset/resource"
+        "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
     }
 }
