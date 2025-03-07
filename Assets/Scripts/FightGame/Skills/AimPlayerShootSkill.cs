@@ -33,6 +33,7 @@ public class AimPlayerShootSkill : MonoBehaviour
     {
         if(aimingType == AimingType.targetDirection)
         {
+            RotateTowardsDirection();
             MoveTowardsDirection();
         }
         //else if(aimingType == AimingType.trackingPlayer)
@@ -41,6 +42,12 @@ public class AimPlayerShootSkill : MonoBehaviour
         //}
 
     }
+    private void RotateTowardsDirection()
+    {
+        float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
     private void MoveTowardsDirection()
     {
         transform.position += moveDirection * skillMoveSpeed * Time.deltaTime;

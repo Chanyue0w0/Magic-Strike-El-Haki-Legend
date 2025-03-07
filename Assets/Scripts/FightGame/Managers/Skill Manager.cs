@@ -134,6 +134,25 @@ public class SkillManager : MonoBehaviour
             InstSkill();
             instTime = instOriginTime;
         }
+
+        // 檢測按鍵輸入來觸發技能
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            ActiveSkill(1, 1);
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            ActiveSkill(1, 2);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ActiveSkill(2, 1);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ActiveSkill(2, 2);
+        }
+
     }
 
     public void InstSkill()

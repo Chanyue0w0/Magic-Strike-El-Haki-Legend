@@ -151,15 +151,15 @@ public class PlayerStatusManager : MonoBehaviour
         {
             finalDamage = Mathf.RoundToInt(damage * (1 - FightPlayer1Config.ShieldPercentage));
             healthPoint -= finalDamage; //扣除減傷量
-            Debug.Log("FightPlayer1Config.ShieldPercentage" + FightPlayer1Config.ShieldPercentage);
-            Debug.Log("Final Damage 1 :" + finalDamage);
+            //Debug.Log("FightPlayer1Config.ShieldPercentage" + FightPlayer1Config.ShieldPercentage);
+            //Debug.Log("Final Damage 1 :" + finalDamage);
         }
         else if(player == UserPosition.player2)
         {
             finalDamage = Mathf.RoundToInt(damage * (1 - FightPlayer2Config.ShieldPercentage));
             healthPoint -= finalDamage; //扣除減傷量
-            Debug.Log("FightPlayer2Config.ShieldPercentage" + FightPlayer2Config.ShieldPercentage);
-            Debug.Log("Final Damage 2 :" + finalDamage);
+            //Debug.Log("FightPlayer2Config.ShieldPercentage" + FightPlayer2Config.ShieldPercentage);
+            //Debug.Log("Final Damage 2 :" + finalDamage);
         }
         healthBar.SetHealth(healthPoint); // 更新血條
         DisplayDamage(finalDamage);
