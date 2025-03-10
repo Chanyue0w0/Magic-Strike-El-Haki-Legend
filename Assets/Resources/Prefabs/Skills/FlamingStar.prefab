@@ -4906,6 +4906,7 @@ GameObject:
   - component: {fileID: 7796870760771349346}
   - component: {fileID: 4594404823281874241}
   - component: {fileID: 8832621003716107978}
+  - component: {fileID: -5309348049909950897}
   m_Layer: 0
   m_Name: FlamingStar
   m_TagString: DamageSkill
@@ -9788,6 +9789,33 @@ CircleCollider2D:
   m_Offset: {x: 0.01901114, y: -0.10042131}
   serializedVersion: 2
   m_Radius: 0.31764078
+--- !u!50 &-5309348049909950897
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401344329813812173}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &4210409211977849236
 GameObject:
   m_ObjectHideFlags: 0
