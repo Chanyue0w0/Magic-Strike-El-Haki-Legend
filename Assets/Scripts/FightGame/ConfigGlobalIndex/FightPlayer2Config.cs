@@ -4,12 +4,13 @@
 
 public static class FightPlayer2Config
 {
-	public static string[] Group = { "MS00", "MS00", "MS00" };
+	public static string[] Group = { "MS01", "MS01", "MS01" };
 	public static string NormalAttack = "OriginSlimeNormalAttack";
 	public static string Ult = "HammerUlt";
 	public static bool isMonster = true;
 
-	public static string PlayerSkin;
+	public static string PlayerSkin = "OriginSlime";
+	public static string PuckSkin = "Chapter1SlimePuck3";
 	public static int StartHP = 1000;
 	public static int NowHP = 1000;
 	public static int StartATK = 80;

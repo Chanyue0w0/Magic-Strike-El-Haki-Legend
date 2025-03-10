@@ -1,39 +1,41 @@
 [
-    {
-        "ChapterNumber": "1",
-        "LevelsNumber": "3",
-        "StageNumber": "2",
-        "BackGroundImage": "forest_bg",
-        "FieldImage": "grass_field",
-        "BGM": "battle_theme_1",
-        "StartHP": 100,
-        "StartATK": 50,
-        "CriticalPercent": 0.1,
-        "SkillDamageIncreasePercent": 0.2,
-        "PoisonDamageIncreasePercent": 0.15,
-        "CCSkillTimeIncreasePercent": 0.3,
-        "SkillBubbleTimeDecreasePercent": 0.1,
-        "EquiptSet": "Warrior_Set",
-        "Player2Skin": "HR01",
-        "player2_Group": [ "HR01", "B04", "B05" ]
-    },
-    {
-        "ChapterNumber": "1",
-        "LevelsNumber": "3",
-        "StageNumber": "2",
-        "BackGroundImage": "forest_bg",
-        "FieldImage": "grass_field",
-        "BGM": "battle_theme_1",
-        "StartHP": 100,
-        "StartATK": 50,
-        "CriticalPercent": 0.1,
-        "SkillDamageIncreasePercent": 0.2,
-        "PoisonDamageIncreasePercent": 0.15,
-        "CCSkillTimeIncreasePercent": 0.3,
-        "SkillBubbleTimeDecreasePercent": 0.1,
-        "EquiptSet": "Warrior_Set",
-        "Player2Skin": "HR01",
-        "player2_Group": [ "HR01", "B04", "B05" ]
-    }
-      
+  {
+    "ChapterNumber": "1",
+    "LevelsNumber": "1",
+    "StageNumber": "1",
+    "BackGroundImage": "Wilderness village(Background)",
+    "FieldImage": "Wilderness village(Field3)",
+    "BGM": "battle_theme_1",
+    "StartHP": 800,
+    "StartATK": 50,
+    "CriticalPercent": 0,
+    "SkillDamageIncreasePercent": 0,
+    "PoisonDamageIncreasePercent": 0,
+    "CCSkillTimeIncreasePercent": 0,
+    "SkillBubbleTimeDecreasePercent": 0,
+    "EquiptSet": "None",
+    "Player2Skin": "OriginSlime",
+    "Player2PuckSkin": "Chapter1SlimePuck3",
+    "player2_Group": [ "MS00", "MS00", "MS00" ]
+  },
+  {
+    "ChapterNumber": "1",
+    "LevelsNumber": "1",
+    "StageNumber": "2",
+    "BackGroundImage": "Wilderness village(Background)",
+    "FieldImage": "Wilderness village(Field3)",
+    "BGM": "battle_theme_1",
+    "StartHP": 1000,
+    "StartATK": 50,
+    "CriticalPercent": 0,
+    "SkillDamageIncreasePercent": 0,
+    "PoisonDamageIncreasePercent": 0,
+    "CCSkillTimeIncreasePercent": 0,
+    "SkillBubbleTimeDecreasePercent": 0,
+    "EquiptSet": "None",
+    "Player2Skin": "GrassSlime",
+    "Player2PuckSkin": "Chapter1SlimePuck3",
+    "player2_Group": [ "MS01", "MS01", "MS01" ]
+  }
+
 ]

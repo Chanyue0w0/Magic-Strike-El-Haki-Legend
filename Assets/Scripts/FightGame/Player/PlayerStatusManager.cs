@@ -29,9 +29,10 @@ public class PlayerStatusManager : MonoBehaviour
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject player2;
 
-    //[Header("----------------- MagicStonesUI ------------------")]
-    //[SerializeField] private GameObject MagicStonesUI;
-    //[SerializeField] private Animator MagicStonesUI_animator;
+    [Header("----------------- SpriteSkin ------------------")]
+    [SerializeField] private SpriteRenderer player_skin;
+    [SerializeField] private SpriteRenderer playerPuck_skin;
+
     [Header("----------------- Damage Number ------------------")]
     [SerializeField] private float damageSpacing = 1.0f; // 傷害數字間隔範圍調整變數
     [SerializeField] private Vector2 positionOffset = new Vector2(0, 0); // 傷害數字位置誤差調整變數
@@ -59,6 +60,7 @@ public class PlayerStatusManager : MonoBehaviour
             skills = FightPlayer1Config.Group;
             SetHP(FightPlayer1Config.StartHP);
             SetATK(FightPlayer1Config.StartATK);
+            SetPlayerSkin(FightPlayer1Config.PlayerSkin);
             //SetMagicPoint(0);
             healthBar.SetMaxHealth(FightPlayer1Config.StartHP);
             // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
@@ -73,6 +75,8 @@ public class PlayerStatusManager : MonoBehaviour
             skills = FightPlayer2Config.Group;
             SetHP(FightPlayer2Config.StartHP);
             SetATK(FightPlayer2Config.StartATK);
+            //SetPlayerSkin(FightPlayer2Config.PlayerSkin);  //史萊姆需要用更改生成Prefab
+            SetPuckSkin(FightPlayer2Config.PuckSkin);
             //SetMagicPoint(0);
             healthBar.SetMaxHealth(FightPlayer2Config.StartHP);
             // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
@@ -100,6 +104,14 @@ public class PlayerStatusManager : MonoBehaviour
 			}
         }
 	}
+    public void SetPlayerSkin(string playerSkin)
+    {
+        player_skin.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/FieldObjects/" + playerSkin);
+    }
+    public void SetPuckSkin(string puckSkin)
+    {
+        playerPuck_skin.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/FieldObjects/" + puckSkin);
+    }
 
     //訂閱通知
     public void RegisterPlayerNotification(PlayerNotification playerNotification)

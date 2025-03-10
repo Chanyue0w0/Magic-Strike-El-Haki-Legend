@@ -1,14 +1,18 @@
 {
-    "MS00" : {
-        "Name": "GrassSlime",
-        "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
+    "MS00": {
+      "Name": "OriginSlime",
+      "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
     },
-    "MS01" : {
-        "Name": "WoodBarrelSlime",
-        "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
+    "MS01": {
+      "Name": "GrassSlime",
+      "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
     },
-    "MS02" : {
-        "Name": "bbbb",
-        "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
+    "MS02": {
+      "Name": "WoodBarrelSlime",
+      "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
+    },
+    "MS03": {
+      "Name": "bbbb",
+      "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
     }
 }

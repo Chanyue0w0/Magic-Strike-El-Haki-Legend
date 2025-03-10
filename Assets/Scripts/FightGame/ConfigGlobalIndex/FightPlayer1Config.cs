@@ -8,7 +8,7 @@ public static class FightPlayer1Config
 	public static string NormalAttack = "HammerNormalAttack";
 	public static string Ult = "HammerUlt";
 
-	public static string PlayerSkin;
+	public static string PlayerSkin = "BigHammerLionRex";
 	public static int StartHP = 1500;
 	public static int NowHP = 1500;
 	public static int StartATK = 100;
