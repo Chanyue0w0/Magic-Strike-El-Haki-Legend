@@ -33,7 +33,7 @@ public class ObstaclesSkill : MonoBehaviour
                 canInstExplosion = false;
             }
             animator.SetBool("Die", true);
-            Destroy(gameObject,0.3f);
+            Destroy(gameObject,0.15f);
         }
     }
 
