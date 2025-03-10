@@ -8,6 +8,8 @@ public static class FightPlayer2Config
 	public static string NormalAttack = "OriginSlimeNormalAttack";
 	public static string Ult = "HammerUlt";
 	public static bool isMonster = true;
+	public static float AI_level = 1.0f;
+	public static bool instSkillP2 = false;//P2生成技能開啟
 
 	public static string PlayerSkin = "OriginSlime";
 	public static string PuckSkin = "Chapter1SlimePuck3";
@@ -24,5 +26,4 @@ public static class FightPlayer2Config
 	public static string EquipSet = "None";
 
 	public static float ShieldPercentage = 0.0f;//減傷比例，戰鬥中才會取得
-	public static bool instSkillP2 = false;//P2生成技能開啟
 }

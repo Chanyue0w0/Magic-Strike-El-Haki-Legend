@@ -2118,8 +2118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae097f1e41b3754382e9d81878faa95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxMovementSpeed: 3
-  originMaxMovementSpeed: 3
   rb: {fileID: 0}
   startingPosition: {x: 0, y: 0}
   animator: {fileID: 0}
@@ -2130,6 +2128,13 @@ MonoBehaviour:
   ballController: {fileID: 2092771456}
   AISightAlpha: 0.8
   collisionNotifier: {fileID: 0}
+  nowAI_Level: 0
+  MaxMovementSpeed: 3
+  originMaxMovementSpeed: 3
+  maxAttackFrequency: 15
+  attackFrequency: 0
+  nowAttackTime: 0
+  attackTimeChosen: 0
   topLeftBoundary: {fileID: 1911609161}
   bottomRightBoundary: {fileID: 1452114717}
   upBoardY: 3

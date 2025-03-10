@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class AIController : MonoBehaviour
 {
-    [SerializeField] private float MaxMovementSpeed; // = 10 * GlobalIndex.AILevel
-    [SerializeField] private float originMaxMovementSpeed; // = 10 * GlobalIndex.AILevel
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Vector2 startingPosition;
     [SerializeField] private Animator animator;
@@ -18,6 +16,15 @@ public class AIController : MonoBehaviour
     [SerializeField] private float AISightAlpha = 0.8f;
 
     [SerializeField] private PlayerCollisionNotifier collisionNotifier;
+    [Header("----------------- Fight Config ------------------")]
+    [SerializeField] private float nowAI_Level; // AILevel
+    [SerializeField] private float MaxMovementSpeed; // = 10 * GlobalIndex.AILevel
+    [SerializeField] private float originMaxMovementSpeed; // = 10 * GlobalIndex.AILevel
+    [SerializeField] private float maxAttackFrequency = 15f; // 最大攻擊頻率
+    [SerializeField] private float attackFrequency; // 攻擊頻率
+    [SerializeField] private float nowAttackTime; // 當次攻擊時間
+    [SerializeField] private Coroutine attackCoroutine; // 用來存儲協程，以便在 isStuned 時取消
+    [SerializeField] private bool attackTimeChosen = false; // 是否已選擇攻擊時間
 
     [Header("移動範圍限制")]
     [SerializeField] private Transform topLeftBoundary;
@@ -35,9 +42,14 @@ public class AIController : MonoBehaviour
 
     private void Start()
     {
+        nowAI_Level = FightPlayer2Config.AI_level;
+        MaxMovementSpeed = 3 * nowAI_Level;
         originMaxMovementSpeed = MaxMovementSpeed;
+        attackFrequency = (maxAttackFrequency - 2 * nowAI_Level);
+
         ball = GameObject.Find("ball");
         ballController = ball.GetComponent<BallController>();//取得球的控制狀態
+
 
         player2 = GameObject.Find("Player2");
         rb = player2.GetComponent<Rigidbody2D>();
@@ -62,8 +74,38 @@ public class AIController : MonoBehaviour
         if (!isStuned)
         {
             AIMoving();
+
+            if (!attackTimeChosen) // 只在尚未選擇攻擊時間時執行
+            {
+                nowAttackTime = Random.Range(maxAttackFrequency, attackFrequency);
+                attackTimeChosen = true;
+                attackCoroutine = StartCoroutine(DelayedAttack(nowAttackTime));
+            }
+        }
+        else
+        {
+            // 若 AI 被暈眩，取消當前的 Attack 計時並重新選擇攻擊時間
+            if (attackCoroutine != null)
+            {
+                StopCoroutine(attackCoroutine);
+                attackCoroutine = null;
+            }
+            attackTimeChosen = false; // 重置選擇狀態，暈眩結束後可以重新選擇
         }
     }
+
+    private IEnumerator DelayedAttack(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SkillAttack();
+        attackTimeChosen = false; // 攻擊後重置選擇狀態，讓下一輪可以再選擇新時間
+    }
+    public void SkillAttack()
+    {
+        int skillIndex = Random.Range(1, 3);
+        SkillManager.Instance.ActiveSkill(2,skillIndex);
+    }
+
 
     private void AIMoving()
     {
@@ -137,15 +179,6 @@ public class AIController : MonoBehaviour
         animator.SetTrigger("OnHit");
     }
 
-    public void SkillAttack()
-    {
-        
-    }
-
-    public void TheSkillAttack(int chooseCard)
-    {
-
-    }
 
     public void SetMaxMoveSpeed(float maxMoveSpeed)
     {
