@@ -15,6 +15,8 @@ public class ObstaclesSkill : MonoBehaviour
 
     [SerializeField] private GameObject explosion;
 
+    [SerializeField] private Animator animator;
+
     void Start()
     {
         canInstExplosion = true;
@@ -30,8 +32,8 @@ public class ObstaclesSkill : MonoBehaviour
                 Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
                 canInstExplosion = false;
             }
-
-            Destroy(gameObject,0.1f);
+            animator.SetBool("Die", true);
+            Destroy(gameObject,0.3f);
         }
     }
 
@@ -41,6 +43,7 @@ public class ObstaclesSkill : MonoBehaviour
             && obstacleType == ObstacleType.canBreakable)
         {
             obstacleHP--;
+
         }
     }
 

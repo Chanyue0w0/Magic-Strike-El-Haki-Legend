@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8852371663787801435}
   - component: {fileID: 7113080279671852867}
   - component: {fileID: 3833716248506549799}
+  - component: {fileID: -7427563737187409688}
   m_Layer: 0
   m_Name: HammerRippleLarge
   m_TagString: DamageSkill
@@ -5106,6 +5107,33 @@ MonoBehaviour:
   attackDamage: 0
   EffectToApply: 1
   explosion: {fileID: 0}
+--- !u!50 &-7427563737187409688
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040636958626629706}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &3748654749430140381
 GameObject:
   m_ObjectHideFlags: 0
