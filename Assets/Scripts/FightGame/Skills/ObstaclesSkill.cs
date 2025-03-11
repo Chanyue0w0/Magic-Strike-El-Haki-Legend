@@ -10,8 +10,11 @@ public class ObstaclesSkill : MonoBehaviour
 
     [SerializeField] private int playerNumber = 1;
     [SerializeField] private int obstacleHP = 1;
+    [SerializeField] private float nowTime = 0;
+    [SerializeField] private float destroyTime = 999;
 
     [SerializeField] private bool canInstExplosion = true;
+    [SerializeField] private bool animatorDestroy = false;//透過動畫控制刪除
 
     [SerializeField] private GameObject explosion;
 
@@ -20,22 +23,32 @@ public class ObstaclesSkill : MonoBehaviour
     void Start()
     {
         canInstExplosion = true;
+        //Destroy(gameObject, destroyTime);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(obstacleHP <= 0)
+        nowTime += Time.deltaTime;
+
+        if(obstacleHP <= 0 || nowTime >= destroyTime)
         {
             if(explosion != null && canInstExplosion)
             {
                 Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
                 canInstExplosion = false;
+                animator.SetTrigger("Die");
             }
-            animator.SetBool("Die", true);
-            Destroy(gameObject,0.15f);
+            //animator.SetBool("Die", true);
+            //Destroy(gameObject,1f);
+        }
+
+        if(animatorDestroy)
+        {
+            Destroy(gameObject);
         }
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -53,7 +66,7 @@ public class ObstaclesSkill : MonoBehaviour
         if (collision.gameObject.CompareTag("DamageSkill")
             && obstacleType == ObstacleType.canBreakable)
         {
-            Debug.Log("Damage Skill");
+            //Debug.Log("Damage Skill");
             obstacleHP--;
         }
     }
