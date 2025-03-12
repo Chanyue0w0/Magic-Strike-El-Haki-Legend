@@ -38,6 +38,7 @@ public class ObstaclesSkill : MonoBehaviour
                 Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
                 canInstExplosion = false;
                 animator.SetTrigger("Die");
+                VibrationPattern.Instance.StartVibrationPattern();
             }
             //animator.SetBool("Die", true);
             //Destroy(gameObject,1f);
@@ -45,7 +46,6 @@ public class ObstaclesSkill : MonoBehaviour
             {
                 gameObject.GetComponent<AimPlayerShootSkill>().StopMoving();
             }
-            VibrationPattern.Instance.StartVibrationPattern();
         }
 
         if(animatorDestroy)
