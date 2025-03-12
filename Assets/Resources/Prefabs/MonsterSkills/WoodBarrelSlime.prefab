@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8910255061125821299}
   - component: {fileID: 2959117486311245121}
   - component: {fileID: 4320129336215035608}
+  - component: {fileID: 1742536201759938042}
   - component: {fileID: 3045812597434380015}
   - component: {fileID: 1758411290830216586}
   m_Layer: 0
@@ -137,6 +138,29 @@ MonoBehaviour:
   animatorDestroy: 0
   explosion: {fileID: 7303246784775837857, guid: 3cbaaa41657d4ad49b77ab66d6f91ec6, type: 3}
   animator: {fileID: 1758411290830216586}
+--- !u!114 &1742536201759938042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7378089300388782688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f1b00674b7cf748ab1f938260175ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimingType: 3
+  playerNumber: 2
+  targetNumber: 1
+  skillDamage: 80
+  skillMoveSpeed: 3
+  explosion: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
+  moveDirection: {x: 0, y: 0, z: 0}
+  EffectToApply: 1
 --- !u!212 &3045812597434380015
 SpriteRenderer:
   m_ObjectHideFlags: 0

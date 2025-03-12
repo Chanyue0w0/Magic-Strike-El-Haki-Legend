@@ -41,6 +41,11 @@ public class ObstaclesSkill : MonoBehaviour
             }
             //animator.SetBool("Die", true);
             //Destroy(gameObject,1f);
+            if(gameObject.GetComponent<AimPlayerShootSkill>() != null)
+            {
+                gameObject.GetComponent<AimPlayerShootSkill>().StopMoving();
+            }
+            VibrationPattern.Instance.StartVibrationPattern();
         }
 
         if(animatorDestroy)

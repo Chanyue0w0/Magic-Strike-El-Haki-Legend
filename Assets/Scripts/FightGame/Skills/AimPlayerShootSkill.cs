@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AimPlayerShootSkill : MonoBehaviour
 {
-    private enum AimingType { targetDirection, targetPosition, trackingPlayer };
+    private enum AimingType { targetDirection, targetPosition, trackingPlayer, straightDirection};
     [Header("----------------- Config Setting ------------------")]
     [SerializeField] private AimingType aimingType;
 
@@ -36,12 +36,32 @@ public class AimPlayerShootSkill : MonoBehaviour
             RotateTowardsDirection();
             MoveTowardsDirection();
         }
-        //else if(aimingType == AimingType.trackingPlayer)
-        //{
-
-        //}
+        else if (aimingType == AimingType.straightDirection)
+        {
+            MoveStraight();
+        }
 
     }
+    public void StopMoving()
+    {
+        skillMoveSpeed = 0;
+    }
+
+    private void MoveStraight()
+    {
+        if (playerNumber == 1) // 往正上方
+        {
+            moveDirection = Vector3.up;
+        }
+        else // 往正下方
+        {
+            moveDirection = Vector3.down;
+        }
+
+        transform.position += moveDirection * skillMoveSpeed * Time.deltaTime;
+    }
+
+
     private void RotateTowardsDirection()
     {
         float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
