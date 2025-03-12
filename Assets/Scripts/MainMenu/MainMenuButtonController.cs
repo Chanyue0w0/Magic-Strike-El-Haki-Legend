@@ -11,9 +11,12 @@ public class MainMenuButtonController : MonoBehaviour
 	[SerializeField] private GameObject equipmentPanel;
 	[SerializeField] private GameObject adventurePanel;
 
-	[SerializeField] private GameObject heroInfoPanel;
-	[SerializeField] private GameObject equipmentInfoPanel;
+	[SerializeField] private GameObject chapterPanel;
+	[SerializeField] private GameObject[] infoPanels;
+
+
 	private GameObject[] panels = new GameObject[5];
+	
 	// Start is called before the first frame update
 	void Start()
     {
@@ -23,6 +26,7 @@ public class MainMenuButtonController : MonoBehaviour
 		heroPanel.SetActive(false);
 		shopPanel.SetActive(false);
 		equipmentPanel.SetActive(false);
+		chapterPanel.SetActive(false);
 
 		adventurePanel.SetActive(true);
 
@@ -31,6 +35,8 @@ public class MainMenuButtonController : MonoBehaviour
 		panels[2] = shopPanel;
 		panels[3] = equipmentPanel;
 		panels[4] = adventurePanel;
+
+		OnClickCloseInfoPanel();
 	}
 
     // Update is called once per frame
@@ -64,7 +70,14 @@ public class MainMenuButtonController : MonoBehaviour
 
 	public void OnClickCloseInfoPanel()
 	{
-		heroInfoPanel.SetActive(false);
-		equipmentInfoPanel.SetActive(false);
+		foreach(var panel in infoPanels)
+		{
+			panel.SetActive(false);
+		}
+	}
+
+	public void OnClickChapterPanel(bool isOpen)
+	{
+		chapterPanel.SetActive(isOpen);
 	}
 }

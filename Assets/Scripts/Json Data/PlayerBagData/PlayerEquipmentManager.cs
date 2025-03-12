@@ -71,12 +71,14 @@ public class PlayerEquipmentManager : MonoBehaviour
 		//	1, 100, 200, "A powerful warrior's sword", GenerateRandomBuffs(4), "None"
 		//);
 		//AddEquipment(newEquipment);
-		if(!File.Exists(SavePath()))
-		{
-			CreateEquipmentFromData("EM00");
-			CreateEquipmentFromData("EM01");
-			CreateEquipmentFromData("EM02");
-		}
+		//CreateEquipmentFromData("HT00");
+		//CreateEquipmentFromData("HT00");
+		//CreateEquipmentFromData("HT01");
+		//CreateEquipmentFromData("BD00");
+		//CreateEquipmentFromData("SH00");
+		//CreateEquipmentFromData("SH01");
+		//CreateEquipmentFromData("SH01");
+		//CreateEquipmentFromData("SH01");
 	}
 
 	private Dictionary<string, string> GenerateRandomBuffs(int numberOfBuffs)
@@ -115,7 +117,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 		// 創建 PlayerEquipment
 		PlayerEquipment newEquipment = new PlayerEquipment(
 			data.Name,
-			data.ID,
+			System.Guid.NewGuid().ToString(),
 			data.Type,
 			data.Rarity,
 			data.SetType,
@@ -123,7 +125,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 			data.AttackPower,
 			data.HealthPoints,
 			data.Description,
-			GenerateRandomBuffs(2), // 這裡設置為隨機 2 個 Buff，可根據需求更改
+			GenerateRandomBuffs(4), // 這裡設置為隨機 2 個 Buff，可根據需求更改
 			"None" // 初始未被英雄裝備
 		);
 
