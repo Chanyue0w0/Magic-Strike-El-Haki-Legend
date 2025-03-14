@@ -31,6 +31,7 @@ public class MagicPointsManager : MonoBehaviour
     [SerializeField] private float cameraFadeInSpeed = 20f; // 相機淡入淡出速度
     [SerializeField] private float cameraFadeOutSpeed = 100f; // 相機淡入淡出速度
     private float originalCameraSize;
+    private Vector3 originalCameraPosition;
 
     [Header("----------------- Double Click------------------")]
     [SerializeField] private float lastClickTime = 0f; // 記錄上次點擊時間
@@ -49,8 +50,9 @@ public class MagicPointsManager : MonoBehaviour
         SetMagicPoint(2, 0);
 
         originalCameraSize = mainCamera.orthographicSize;
+        originalCameraPosition = mainCamera.transform.position;
 
-        if(FightPlayer1Config.Group[0] == "HR00")
+        if (FightPlayer1Config.Group[0] == "HR00")
         {
             p1UltEffect = Resources.Load<GameObject>("Prefabs/Ult/BigHammerLionP1Ult");
         }
@@ -84,12 +86,12 @@ public class MagicPointsManager : MonoBehaviour
         //Debug.Log("只有收到" + player);
         if (pNumber == 1)
         {
-            Debug.Log("P1收到");
+            //Debug.Log("P1收到");
             GetOnePointMP(pNumber);
         }
         else if (pNumber == 2)
         {
-            Debug.Log("P2收到");
+            //Debug.Log("P2收到");
             GetOnePointMP(pNumber);
         }
     }
@@ -185,12 +187,12 @@ public class MagicPointsManager : MonoBehaviour
         while (mainCamera.orthographicSize < originalCameraSize)
         {
             mainCamera.orthographicSize += cameraFadeOutSpeed * Time.unscaledDeltaTime;
-            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, new Vector3(0, -0.55f, mainCamera.transform.position.z), cameraFadeOutSpeed * Time.unscaledDeltaTime);
+            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, originalCameraPosition, cameraFadeOutSpeed * Time.unscaledDeltaTime);
             yield return null;
         }
 
         mainCamera.orthographicSize = originalCameraSize;
-        mainCamera.transform.position = new Vector3(0, -0.55f, mainCamera.transform.position.z);
+        mainCamera.transform.position = originalCameraPosition;
 
         // Resume the game
         Time.timeScale = 1;

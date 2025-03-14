@@ -29,9 +29,10 @@ public class PlayerStatusManager : MonoBehaviour
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject player2;
 
-    //[Header("----------------- MagicStonesUI ------------------")]
-    //[SerializeField] private GameObject MagicStonesUI;
-    //[SerializeField] private Animator MagicStonesUI_animator;
+    [Header("----------------- SpriteSkin ------------------")]
+    [SerializeField] private SpriteRenderer player_skin;
+    [SerializeField] private SpriteRenderer playerPuck_skin;
+
     [Header("----------------- Damage Number ------------------")]
     [SerializeField] private float damageSpacing = 1.0f; // 傷害數字間隔範圍調整變數
     [SerializeField] private Vector2 positionOffset = new Vector2(0, 0); // 傷害數字位置誤差調整變數
@@ -59,6 +60,7 @@ public class PlayerStatusManager : MonoBehaviour
             skills = FightPlayer1Config.Group;
             SetHP(FightPlayer1Config.StartHP);
             SetATK(FightPlayer1Config.StartATK);
+            SetPlayerSkin(FightPlayer1Config.PlayerSkin);
             //SetMagicPoint(0);
             healthBar.SetMaxHealth(FightPlayer1Config.StartHP);
             // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
@@ -73,6 +75,8 @@ public class PlayerStatusManager : MonoBehaviour
             skills = FightPlayer2Config.Group;
             SetHP(FightPlayer2Config.StartHP);
             SetATK(FightPlayer2Config.StartATK);
+            //SetPlayerSkin(FightPlayer2Config.PlayerSkin);  //史萊姆需要用更改生成Prefab
+            SetPuckSkin(FightPlayer2Config.PuckSkin);
             //SetMagicPoint(0);
             healthBar.SetMaxHealth(FightPlayer2Config.StartHP);
             // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
@@ -100,11 +104,19 @@ public class PlayerStatusManager : MonoBehaviour
 			}
         }
 	}
+    public void SetPlayerSkin(string playerSkin)
+    {
+        player_skin.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/FieldObjects/" + playerSkin);
+    }
+    public void SetPuckSkin(string puckSkin)
+    {
+        playerPuck_skin.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/FieldObjects/" + puckSkin);
+    }
 
     //訂閱通知
     public void RegisterPlayerNotification(PlayerNotification playerNotification)
     {
-        Debug.Log($"{gameObject.name} 收到 傷害");
+        //Debug.Log($"{gameObject.name} 收到 傷害");
         playerNotification.OnDamageReceived += HandleDamageNotification;
         playerNotification.OnStatusEffectApplied += HandleStatusEffectApplied;
         //playerNotification.OnGetMagicPointApplied += HandleGetMagicPointNotification;
@@ -113,7 +125,7 @@ public class PlayerStatusManager : MonoBehaviour
     // 接收 `PlayerNotification` 的受到攻擊通知
     private void HandleDamageNotification(int damage, GameObject player)
     {
-        Debug.Log($"{gameObject.name} 受攻擊傷害：{damage}");
+        //Debug.Log($"{gameObject.name} 受攻擊傷害：{damage}");
         GetDamage(damage);
     }
 
@@ -121,28 +133,15 @@ public class PlayerStatusManager : MonoBehaviour
     private void HandleStatusEffectApplied(StatusEffect effect, GameObject player)
     {
         
-        Debug.Log($"{gameObject.name} 觸發狀態效果：{effect}");
+        //Debug.Log($"{gameObject.name} 觸發狀態效果：{effect}");
 
         if (effect == StatusEffect.Burn && !isBurning)
         {
             StartCoroutine(BurnEffect()); // 在這裡觸發燃燒效果
         }
+
     }
 
-    //private void HandleGetMagicPointNotification(int tNumber)
-    //{
-    //    Debug.Log("只有收到" + player);
-    //    if (tNumber == 1 && player == UserPosition.player2)
-    //    {
-    //        Debug.Log("P1收到");
-    //        GetOnePointMP();
-    //    }
-    //    else if(tNumber == 2 && player == UserPosition.player1)
-    //    {
-    //        Debug.Log("P2收到");
-    //        GetOnePointMP();
-    //    }
-    //}
 
     private IEnumerator BurnEffect()//燃燒效果
     {
@@ -158,9 +157,24 @@ public class PlayerStatusManager : MonoBehaviour
 
     public void GetDamage(int damage)
     {
-        healthPoint -= damage;
+        VibrationPattern.Instance.StartVibrationPattern();
+        int finalDamage = 0;
+        if(player == UserPosition.player1)
+        {
+            finalDamage = Mathf.RoundToInt(damage * (1 - FightPlayer1Config.ShieldPercentage));
+            healthPoint -= finalDamage; //扣除減傷量
+            //Debug.Log("FightPlayer1Config.ShieldPercentage" + FightPlayer1Config.ShieldPercentage);
+            //Debug.Log("Final Damage 1 :" + finalDamage);
+        }
+        else if(player == UserPosition.player2)
+        {
+            finalDamage = Mathf.RoundToInt(damage * (1 - FightPlayer2Config.ShieldPercentage));
+            healthPoint -= finalDamage; //扣除減傷量
+            //Debug.Log("FightPlayer2Config.ShieldPercentage" + FightPlayer2Config.ShieldPercentage);
+            //Debug.Log("Final Damage 2 :" + finalDamage);
+        }
         healthBar.SetHealth(healthPoint); // 更新血條
-        DisplayDamage(damage);
+        DisplayDamage(finalDamage);
     }
 
     public void GetRecoverHP(int recoverHp)

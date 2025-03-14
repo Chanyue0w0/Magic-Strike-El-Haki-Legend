@@ -5,6 +5,8 @@ using UnityEngine;
 public class RoundController : MonoBehaviour
 {
 
+	public static RoundController Instance { get; private set; }
+
 	[Header("----------------- Value ------------------")]
 	//[SerializeField] private float timeScale = 1f;
 	[SerializeField] private string gameStatus = "Continue";
@@ -15,6 +17,20 @@ public class RoundController : MonoBehaviour
 	[SerializeField] private PlayerStatusManager player2Status;
 
 	[SerializeField] private GameObject gameOverPanel;
+
+	private void Awake()
+	{
+		if (Instance == null)
+		{
+			Instance = this;
+			DontDestroyOnLoad(gameObject);
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
+
 	//// Start is called before the first frame update
 	void Start()
 	{
@@ -41,6 +57,7 @@ public class RoundController : MonoBehaviour
 
 	public void GameStart()
     {
+		Time.timeScale = 1;
 		player1Status.InitStatus();
 		player2Status.InitStatus();
 		if(FightStageConfig.BGM == "BasicBattleBGM")

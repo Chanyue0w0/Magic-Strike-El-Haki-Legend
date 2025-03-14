@@ -9,6 +9,7 @@ TagManager:
   - Player1
   - Player2
   - Ball
+  - DamageSkill
   layers:
   - Default
   - TransparentFX
