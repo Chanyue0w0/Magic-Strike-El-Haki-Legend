@@ -79,6 +79,8 @@ public class PlayerHeroManager : MonoBehaviour
 			);
 			heroList.Add(newHero);
 		}
+
+		heroList[0].owned = true;
 		SaveHeroes();
 	}
 
@@ -129,6 +131,7 @@ public class PlayerHeroManager : MonoBehaviour
 
 	public void SaveHeroes()
 	{
+		SortHeroes();
 		JArray json = JArray.FromObject(heroList);
 		string jsonTxt = json.ToString();
 		File.WriteAllText(SavePath(), jsonTxt);
@@ -162,6 +165,12 @@ public class PlayerHeroManager : MonoBehaviour
 		return heroList.Find(hero => hero.id == heroID);
 	}
 
+	public PlayerHero GetHeroByIndex(int index)
+	{
+		LoadHeroes(); // Ensure the latest data is loaded
+		return heroList[index];
+	}
+
 	public List<PlayerHero> GetAllHeroData()
 	{
 		LoadHeroes();
@@ -171,5 +180,10 @@ public class PlayerHeroManager : MonoBehaviour
 	private string SavePath()
 	{
 		return Application.persistentDataPath + savePath;
+	}
+
+	private void SortHeroes()
+	{
+		heroList.Sort((a, b) => a.owned.CompareTo(b.owned));
 	}
 }

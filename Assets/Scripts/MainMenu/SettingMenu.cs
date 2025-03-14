@@ -22,6 +22,8 @@ public class SettingsMenu : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI fpsText;
 
 	[Header("------------- gameboject ------------------")]
+
+	[SerializeField] private GameObject settingPanel;
 	[SerializeField] private GameObject volumePanel;
 	[SerializeField] private GameObject staffPanel;
 	[SerializeField] private GameObject graphicsPanel;
@@ -154,5 +156,10 @@ public class SettingsMenu : MonoBehaviour
 		volumePanel.SetActive(false);
 		staffPanel.SetActive(false);
 		graphicsPanel.SetActive(true);
+	}
+
+	public void OnClickIsEnableSettingPanel(bool isEnable)
+	{
+		settingPanel.SetActive(isEnable);
 	}
 }
