@@ -16,7 +16,7 @@ public class BattleDataCalculator : MonoBehaviour
 
 	void Start()
 	{
-		//CalculateBattleData("HR01");
+		CalculateBattleData("HR02");
 	}
 
 	public void CalculateBattleData(string heroID)
@@ -46,7 +46,7 @@ public class BattleDataCalculator : MonoBehaviour
 
 		foreach (var equipmentId in hero.equippedItems)
 		{
-			var equipment = PlayerEquipmentManager.Instance.GetAllEquipmentData().Find(e => e.id == equipmentId);
+			var equipment = PlayerEquipmentManager.Instance.GetEquipmentByID(equipmentId);
 			if (equipment != null)
 			{
 				equipmentTotalHP += equipment.healthPoints;
@@ -92,12 +92,28 @@ public class BattleDataCalculator : MonoBehaviour
 		totalHP = (int)((baseHP + equipmentTotalHP) * totalHPBuff);
 		totalATK = (int)((baseATK + equipmentTotalATK) * totalATKBuff);
 		setEffect = DetermineSetEffect(setTypeCount);
+
+		ApplyToFightPlayerConfig();
+	}
+
+	private void ApplyToFightPlayerConfig()
+	{
+		FightPlayer1Config.StartHP = totalHP;
+		FightPlayer1Config.NowHP = totalHP;
+		FightPlayer1Config.StartATK = totalATK;
+		FightPlayer1Config.NowATK = totalATK;
+		FightPlayer1Config.CriticalPercentage = critRateIncrease;
+		FightPlayer1Config.SkillDamageIncrease = skillDamageIncrease;
+		FightPlayer1Config.PoisonDamageIncrease = poisonDamageIncrease;
+		FightPlayer1Config.CC_SkillTimeIncrease = controlSkillDurationIncrease;
+		FightPlayer1Config.SkillBubbleTimeDecrease = totalSkillBubbleCooldownReduction;
+		FightPlayer1Config.EquipSet = setEffect;
 	}
 
 	private float ParseBuffValue(string buff)
 	{
-		string[] parts = buff.Split(' ');
-		if (parts.Length > 1 && float.TryParse(parts[1].Replace("%", "").Replace("s", ""), out float value))
+		buff = buff.Replace("%", "").Replace("s", "");
+		if (float.TryParse(buff, out float value))
 		{
 			return value / 100f;
 		}
