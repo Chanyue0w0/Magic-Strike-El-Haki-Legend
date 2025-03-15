@@ -83,8 +83,8 @@ public class RoundController : MonoBehaviour
 
 	private void GameOver()
 	{
-		FightPlayer1Config.StartHP = player1Status.GetHP();
-		PauseGame();
+		FightPlayer1Config.NowHP = player1Status.GetHP();
+		//PauseGame();
 		gameOverPanel.SetActive(true);
 
 		gameStatus = "gameover";

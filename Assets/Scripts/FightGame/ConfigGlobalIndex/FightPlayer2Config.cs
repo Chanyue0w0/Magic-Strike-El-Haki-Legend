@@ -11,7 +11,7 @@ public static class FightPlayer2Config
 	public static float AI_level = 1.0f;
 	public static bool instSkillP2 = false;//P2生成技能開啟
 
-	public static string PlayerSkin = "OriginSlime";
+	public static string PlayerSkin = "WindmillSlime";
 	public static string PuckSkin = "Chapter1SlimePuck3";
 	public static int StartHP = 1000;
 	public static int NowHP = 1000;

@@ -37,6 +37,9 @@ public class PlayerStatusManager : MonoBehaviour
     [SerializeField] private float damageSpacing = 1.0f; // 傷害數字間隔範圍調整變數
     [SerializeField] private Vector2 positionOffset = new Vector2(0, 0); // 傷害數字位置誤差調整變數
 
+    [Header("----------------- Animator ------------------")] //Only for Player2
+    [SerializeField] private Animator player_animator;
+
     // private variable
     private JToken characterData;
 
@@ -58,11 +61,12 @@ public class PlayerStatusManager : MonoBehaviour
 		if (player == UserPosition.player1)
         {
             skills = FightPlayer1Config.Group;
-            SetHP(FightPlayer1Config.StartHP);
+            SetHP(FightPlayer1Config.NowHP);
             SetATK(FightPlayer1Config.StartATK);
             SetPlayerSkin(FightPlayer1Config.PlayerSkin);
             //SetMagicPoint(0);
             healthBar.SetMaxHealth(FightPlayer1Config.StartHP);
+            healthBar.SetHealth(FightPlayer1Config.NowHP);
             // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
             PlayerNotification notification = player1.GetComponent<PlayerNotification>();
             RegisterPlayerNotification(notification);//訂閱通知
@@ -76,9 +80,17 @@ public class PlayerStatusManager : MonoBehaviour
             SetHP(FightPlayer2Config.StartHP);
             SetATK(FightPlayer2Config.StartATK);
             //SetPlayerSkin(FightPlayer2Config.PlayerSkin);  //史萊姆需要用更改生成Prefab
+            //GameObject skinPrefab = Resources.Load<GameObject>("Prefabs/SlimeSkins/" + FightPlayer2Config.PlayerSkin + "Skin");
+            //GameObject skinObj = Instantiate(skinPrefab, player2.transform.position, Quaternion.identity);
+            //skinObj.transform.SetParent(player2.transform);
+            RuntimeAnimatorController loadedController = Resources.Load<RuntimeAnimatorController>("AnimationForSkin/" 
+                + FightPlayer2Config.PlayerSkin + "Skin");
+            player_animator.runtimeAnimatorController = loadedController;
+
             SetPuckSkin(FightPlayer2Config.PuckSkin);
             //SetMagicPoint(0);
             healthBar.SetMaxHealth(FightPlayer2Config.StartHP);
+            healthBar.SetHealth(FightPlayer2Config.StartHP);
             // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
             PlayerNotification notification = player2.GetComponent<PlayerNotification>();
             RegisterPlayerNotification(notification);//訂閱通知

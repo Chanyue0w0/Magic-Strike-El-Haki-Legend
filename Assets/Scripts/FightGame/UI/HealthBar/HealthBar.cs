@@ -69,15 +69,15 @@ public class HealthBar : MonoBehaviour
 
 	public void SetMaxHealth(int health)
 	{
-		fillImage.fillAmount = 1;
+		
 		//slider.maxValue = health;
 		//slider.value = health;
 		maxHealth = health;
-		currentHealth = health;
-		healthPointAmount.text = (health.ToString());// + '/' + health.ToString()  //去除最大血量數字
+		//currentHealth = health;
+		//healthPointAmount.text = (health.ToString());// + '/' + health.ToString()  //去除最大血量數字
 
-
-		delayedFillImage.fillAmount = fillImage.fillAmount; // 同步延遲血條的初始值
+		//fillImage.fillAmount = 1;
+		//delayedFillImage.fillAmount = fillImage.fillAmount; // 同步延遲血條的初始值
 	}
 
 	public void SetHealth(int health)
@@ -91,6 +91,7 @@ public class HealthBar : MonoBehaviour
 		//	slider.value = 0;
 		currentHealth = health;
 		fillImage.fillAmount = currentHealth / maxHealth;
+		//delayedFillImage.fillAmount = fillImage.fillAmount; // 同步延遲血條的初始值
 		healthPointAmount.text = (health.ToString());// +'/' + slider.maxValue.ToString() //去除最大血量數字
 	}
 
