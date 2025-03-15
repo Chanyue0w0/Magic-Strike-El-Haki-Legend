@@ -49,4 +49,12 @@ public class FightGameButtonController : MonoBehaviour
         SceneManager.LoadScene("FightScene");
         //Time.timeScale = 1;
     }
+
+    public void OnClickNextLevel()
+    {
+        //SceneManager.LoadSceneAsync("FightScene");
+        FightPlayer1Config.CurrentLevel++;
+        SceneManager.LoadScene("FightScene");
+        //Time.timeScale = 1;
+    }
 }

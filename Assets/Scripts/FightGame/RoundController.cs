@@ -1,6 +1,7 @@
 //using System.Collections;
 //using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RoundController : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class RoundController : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+		currentStageIndex = FightPlayer1Config.CurrentStage;
 	}
 
 	//// Start is called before the first frame update
@@ -53,10 +55,17 @@ public class RoundController : MonoBehaviour
 		}
 		else if (player2Status.GetHP() <= 0)
 		{
-			GameOver();
+			//GameOver();
 			// win
-
+			NextStage();
+			SceneManager.LoadScene("FightScene");
 		}
+	}
+
+	public void NextStage()
+    {
+		currentStageIndex++;
+		FightPlayer1Config.CurrentStage = currentStageIndex;
 	}
 
 	public void GameStart()
@@ -95,6 +104,7 @@ public class RoundController : MonoBehaviour
 		MagicPointsManager.Instance.InitialMagicPointsManager();
 
 	}
+
 
 	public void PauseGame()
     {
