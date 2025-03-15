@@ -181,7 +181,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 			else
 			{
 				equipmentList = JsonConvert.DeserializeObject<List<PlayerEquipment>>(json);
-				Debug.Log("Equipment data loaded!");
+				//Debug.Log("Equipment data loaded!");
 			}
 		}
 	}

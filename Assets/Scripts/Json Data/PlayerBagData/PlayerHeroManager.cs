@@ -126,7 +126,7 @@ public class PlayerHeroManager : MonoBehaviour
 		else
 		{
 			heroList = JsonConvert.DeserializeObject<List<PlayerHero>>(json);
-			Debug.Log("Hero data loaded!");
+			//Debug.Log("Hero data loaded!");
 		}
 	}
 

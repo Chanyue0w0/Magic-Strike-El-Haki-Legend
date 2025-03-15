@@ -312,6 +312,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 746429471}
         m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
         m_MethodName: OnClickChapterPanel
         m_Mode: 6
         m_Arguments:
@@ -377,7 +389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &66407364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -544,9 +556,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 943836484}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -71.76499, y: -17.370008}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 16.235008, y: -17.370008}
   m_SizeDelta: {x: 26.07, y: 25.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &114036046
@@ -657,10 +669,10 @@ RectTransform:
   - {fileID: 418421393}
   m_Father: {fileID: 13581430}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.3318, y: -15.320068}
-  m_SizeDelta: {x: 176.06, y: 31.440002}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -15.719971}
+  m_SizeDelta: {x: 0.05999756, y: 31.440002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &160407820
 MonoBehaviour:
@@ -734,9 +746,9 @@ RectTransform:
   - {fileID: 1843800624}
   m_Father: {fileID: 943836484}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 47.9, y: -66.5}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 47.9, y: 11.5}
   m_SizeDelta: {x: 26.26, y: 35.190002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &168963860
@@ -783,6 +795,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 746429473}
         m_TargetAssemblyTypeName: EquipmentBag, Assembly-CSharp
         m_MethodName: OnClickChangeCurrentHero
@@ -865,9 +889,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 943836484}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40.2, y: -52.8}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 40.2, y: 25.2}
   m_SizeDelta: {x: 64.82, y: 34.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &172750995
@@ -1320,6 +1344,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 746429471}
         m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
         m_MethodName: OnClickOpenPanel
         m_Mode: 2
         m_Arguments:
@@ -1404,8 +1440,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 64.82, y: 45.91}
-  m_SizeDelta: {x: 37.46, y: 17.99}
+  m_AnchoredPosition: {x: 64.82001, y: 98.099976}
+  m_SizeDelta: {x: 37.46, y: 17.990005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &243010252
 MonoBehaviour:
@@ -1451,6 +1487,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 746429471}
         m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
         m_MethodName: OnClickCloseInfoPanel
@@ -1614,10 +1662,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 13581430}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -74.6, y: 142.8}
-  m_SizeDelta: {x: 18.34, y: 18.12}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 13.400002, y: -48.199997}
+  m_SizeDelta: {x: 18.339996, y: 18.119995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &266093440
 MonoBehaviour:
@@ -1663,6 +1711,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 492037663}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: OnClickIsEnableSettingPanel
@@ -2168,10 +2228,10 @@ RectTransform:
   - {fileID: 1251476040}
   m_Father: {fileID: 160407819}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68.7, y: -4.699996}
-  m_SizeDelta: {x: 33.55, y: 14.38}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -19.300003, y: -4.699996}
+  m_SizeDelta: {x: 33.550003, y: 14.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &418421394
 MonoBehaviour:
@@ -2217,6 +2277,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 746429471}
         m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
         m_MethodName: OnClickOpenPanel
@@ -2301,10 +2373,10 @@ RectTransform:
   - {fileID: 454626025}
   m_Father: {fileID: 1349010797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37.21, y: -38.3}
-  m_SizeDelta: {x: 58.78, y: 27.9}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -36.177002, y: 20.5}
+  m_SizeDelta: {x: 58.78, y: 27.900002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &432602640
 MonoBehaviour:
@@ -2350,6 +2422,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 746429473}
         m_TargetAssemblyTypeName: EquipmentBag, Assembly-CSharp
         m_MethodName: OnClickUseEquipment
@@ -2432,10 +2516,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 432602639}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 14}
+  m_SizeDelta: {x: 58, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &454626026
 MonoBehaviour:
@@ -2595,6 +2679,140 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   filePath: jsonData/EquipmentData
+--- !u!1 &554921828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 554921829}
+  - component: {fileID: 554921831}
+  - component: {fileID: 554921830}
+  m_Layer: 5
+  m_Name: Rarity Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &554921829
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554921828}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1349010797}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 3.05, y: 103.85}
+  m_SizeDelta: {x: 42.3, y: 15.05}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &554921830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554921828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: rarity
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 12
+  m_fontSizeBase: 12
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &554921831
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554921828}
+  m_CullTransparentMesh: 1
 --- !u!1 &568431685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2960,6 +3178,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 746429471}
         m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
         m_MethodName: OnClickCloseInfoPanel
         m_Mode: 1
         m_Arguments:
@@ -3255,10 +3485,10 @@ RectTransform:
   - {fileID: 652529784}
   m_Father: {fileID: 160407819}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.41, y: -4.7}
-  m_SizeDelta: {x: 33.55, y: 14.38}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -91.41, y: -4.7}
+  m_SizeDelta: {x: 33.550003, y: 14.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &615171005
 MonoBehaviour:
@@ -3304,6 +3534,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 746429471}
         m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
         m_MethodName: OnClickOpenPanel
@@ -3494,10 +3736,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 943836484}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 71.66501, y: -18.07001}
-  m_SizeDelta: {x: 27.34, y: 26.39}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -16.334991, y: -18.07001}
+  m_SizeDelta: {x: 27.339996, y: 26.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &636326464
 MonoBehaviour:
@@ -3622,23 +3864,23 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 746429471}
         m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
-        m_MethodName: OnClickOpenPanel
-        m_Mode: 2
+        m_MethodName: SoundClick
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 995792364}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 746429474}
-        m_TargetAssemblyTypeName: HeroBag, Assembly-CSharp
-        m_MethodName: RefreshUI
-        m_Mode: 1
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: OnClickOpenPanel
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 995792364}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3765,6 +4007,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 746429474}
         m_TargetAssemblyTypeName: HeroBag, Assembly-CSharp
         m_MethodName: OnClickOpenHeroUpgradePanel
@@ -3883,10 +4137,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 615171004}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8, y: -0.30250263}
-  m_SizeDelta: {x: 18.47, y: 14.275}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -10.8293, y: -0.30250263}
+  m_SizeDelta: {x: 22.127998, y: 14.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &652529785
 MonoBehaviour:
@@ -3908,7 +4162,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 35/35
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4148,7 +4402,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 711607185}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &711607185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4605,6 +4871,17 @@ MonoBehaviour:
   equipmentImage: {fileID: 867576995}
   equipmentDescribe: {fileID: 1692125744}
   useButtonText: {fileID: 454626026}
+  HPText: {fileID: 1554599645}
+  ATKText: {fileID: 1604713751}
+  levelText: {fileID: 1943522401}
+  equipmentTypeText: {fileID: 1309494164}
+  buff1Text: {fileID: 0}
+  buff2Text: {fileID: 0}
+  buff3Text: {fileID: 0}
+  buff4Text: {fileID: 0}
+  equipmentIcon: {fileID: 867576995}
+  buff3LockIcon: {fileID: 0}
+  buff4LockIcon: {fileID: 0}
   heroImage: {fileID: 729469827}
   heroNameText: {fileID: 1452755898}
   skill1Icon: {fileID: 1333334987}
@@ -5160,23 +5437,23 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 746429471}
         m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
-        m_MethodName: OnClickOpenPanel
-        m_Mode: 2
+        m_MethodName: SoundClick
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 573413505}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 746429473}
-        m_TargetAssemblyTypeName: EquipmentBag, Assembly-CSharp
-        m_MethodName: RefreshUI
-        m_Mode: 1
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: OnClickOpenPanel
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 573413505}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5741,7 +6018,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 859237926}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &859237926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5812,10 +6101,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1349010797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -41.1, y: 22.45}
-  m_SizeDelta: {x: 44.897, y: 44.9}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 32.451, y: -43.699997}
+  m_SizeDelta: {x: 44.897, y: 44.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &867576995
 MonoBehaviour:
@@ -5938,6 +6227,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 746429474}
         m_TargetAssemblyTypeName: HeroBag, Assembly-CSharp
         m_MethodName: OnClickOpenHeroInfoPanel
@@ -6106,7 +6407,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 930793474}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &930793474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6188,10 +6501,10 @@ RectTransform:
   - {fileID: 172750994}
   m_Father: {fileID: 573413506}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -78.26001}
-  m_SizeDelta: {x: 176, y: 156.52}
+  m_SizeDelta: {x: 0, y: 156.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &943836485
 MonoBehaviour:
@@ -6358,6 +6671,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 746429471}
         m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
         m_MethodName: OnClickCloseInfoPanel
@@ -7052,10 +7377,10 @@ RectTransform:
   - {fileID: 1062932472}
   m_Father: {fileID: 160407819}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31.2, y: -4.949978}
-  m_SizeDelta: {x: 33.55, y: 14.38}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -55.8, y: -4.949978}
+  m_SizeDelta: {x: 33.550003, y: 14.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1048883416
 MonoBehaviour:
@@ -7101,6 +7426,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 746429471}
         m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
         m_MethodName: OnClickOpenPanel
@@ -7236,6 +7573,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 746429471}
         m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
         m_MethodName: OnClickOpenPanel
         m_Mode: 2
         m_Arguments:
@@ -7316,10 +7665,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1048883415}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.54, y: -0.0525}
-  m_SizeDelta: {x: 18.47, y: 14.275}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -9.46, y: -0.0525}
+  m_SizeDelta: {x: 18.470001, y: 14.275}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1062932473
 MonoBehaviour:
@@ -7977,7 +8326,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1150480248}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1150480248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8234,7 +8595,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1156956739}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1156956739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8305,10 +8678,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 943836484}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 71.66501, y: 10.319996}
-  m_SizeDelta: {x: 27.34, y: 26.39}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -16.334991, y: 10.319996}
+  m_SizeDelta: {x: 27.339996, y: 26.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1174330680
 MonoBehaviour:
@@ -8536,10 +8909,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 418421393}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.8, y: -0.30250263}
-  m_SizeDelta: {x: 18.47, y: 14.275}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -9.200001, y: -0.30250263}
+  m_SizeDelta: {x: 18.470001, y: 14.275}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1251476041
 MonoBehaviour:
@@ -8858,6 +9231,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 746429471}
         m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
         m_MethodName: OnClickOpenPanel
         m_Mode: 2
         m_Arguments:
@@ -9074,10 +9459,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1349010797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.9450035, y: 44.995003}
-  m_SizeDelta: {x: 165.01, y: 44.25}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -40.35, y: 42.015}
+  m_SizeDelta: {x: 86.86, y: 14.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1309494164
 MonoBehaviour:
@@ -9099,7 +9484,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Equiptment Name
+  m_text: ' Name'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9126,8 +9511,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9342,9 +9727,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 943836484}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -71.76499, y: 9.199999}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 16.235008, y: 9.199999}
   m_SizeDelta: {x: 26.07, y: 25.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1333334987
@@ -9550,6 +9935,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1309494163}
+  - {fileID: 1554599643}
+  - {fileID: 1604713749}
+  - {fileID: 554921829}
   - {fileID: 1692125743}
   - {fileID: 1943522400}
   - {fileID: 432602639}
@@ -9559,8 +9947,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.89, y: -17.12}
-  m_SizeDelta: {x: 145.12, y: 134.24}
+  m_AnchoredPosition: {x: -0.00000023842, y: -5.4}
+  m_SizeDelta: {x: 145.12, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1349010798
 MonoBehaviour:
@@ -10303,10 +10691,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 160407819}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.153}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -60.4, y: -1.8}
-  m_SizeDelta: {x: 81.234, y: 54.97}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 34.336, y: -0.57255}
+  m_SizeDelta: {x: 66.842, y: 30.171}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1505489100
 MonoBehaviour:
@@ -10352,6 +10740,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 746429471}
         m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
         m_MethodName: OnClickOpenPanel
@@ -10446,6 +10846,140 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215b384a3c139404182d4549da09b882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1554599642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1554599643}
+  - component: {fileID: 1554599644}
+  - component: {fileID: 1554599645}
+  m_Layer: 5
+  m_Name: 'HP Text (TMP) '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1554599643
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554599642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1349010797}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -37.29, y: 80.5}
+  m_SizeDelta: {x: 86.86, y: 14.07}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1554599644
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554599642}
+  m_CullTransparentMesh: 1
+--- !u!114 &1554599645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554599642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: HP
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 10
+  m_fontSizeBase: 10
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1559463756
 GameObject:
   m_ObjectHideFlags: 0
@@ -10521,6 +11055,140 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559463756}
   m_CullTransparentMesh: 1
+--- !u!1 &1604713748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1604713749}
+  - component: {fileID: 1604713750}
+  - component: {fileID: 1604713751}
+  m_Layer: 5
+  m_Name: 'ATK Text (TMP) '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1604713749
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604713748}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1349010797}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -40.35, y: 62.5}
+  m_SizeDelta: {x: 86.86, y: 14.07}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1604713750
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604713748}
+  m_CullTransparentMesh: 1
+--- !u!114 &1604713751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604713748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: ATK
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 10
+  m_fontSizeBase: 10
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1641531314
 GameObject:
   m_ObjectHideFlags: 0
@@ -10648,7 +11316,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643349213}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1643349213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10720,9 +11400,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 845261664}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000095367, y: -102.9}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0.00000095367, y: 46.1}
   m_SizeDelta: {x: 151.05, y: 61.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1643497069
@@ -10768,7 +11448,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643497070}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1643497070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11086,6 +11778,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 746429474}
         m_TargetAssemblyTypeName: HeroBag, Assembly-CSharp
         m_MethodName: OnClickSelectHero
@@ -11170,7 +11874,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27.23, y: 10.1}
+  m_AnchoredPosition: {x: 6.5, y: -19.2}
   m_SizeDelta: {x: 90.66, y: 49.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1692125744
@@ -11575,10 +12279,10 @@ RectTransform:
   - {fileID: 1050344156}
   m_Father: {fileID: 13581430}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.3318, y: 26.300049}
-  m_SizeDelta: {x: 176.06, y: 54.589996}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0.3317871, y: 26.300049}
+  m_SizeDelta: {x: 0.05999756, y: 54.589996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1750710560
 MonoBehaviour:
@@ -12210,10 +12914,10 @@ RectTransform:
   - {fileID: 1009600237}
   m_Father: {fileID: 573413506}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 70.880005}
-  m_SizeDelta: {x: 176, y: 141.75}
+  m_SizeDelta: {x: 0, y: 141.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1882069032
 MonoBehaviour:
@@ -12865,10 +13569,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1349010797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -35.925, y: -10.77}
-  m_SizeDelta: {x: 56.21, y: 14.11}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 38.108, y: 33.800003}
+  m_SizeDelta: {x: 56.21, y: 14.110001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1943522401
 MonoBehaviour:
@@ -13176,6 +13880,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 746429474}
         m_TargetAssemblyTypeName: HeroBag, Assembly-CSharp
         m_MethodName: OnClickOpenHeroUpgradePanel
@@ -13309,6 +14025,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 746429473}
         m_TargetAssemblyTypeName: EquipmentBag, Assembly-CSharp
         m_MethodName: OnClickChangeCurrentHero
@@ -13393,10 +14121,10 @@ RectTransform:
   - {fileID: 1114811394}
   m_Father: {fileID: 1349010797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33.4, y: -38.3}
-  m_SizeDelta: {x: 58.78, y: 27.9}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 35.71, y: 20.5}
+  m_SizeDelta: {x: 58.78, y: 27.900002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1969059029
 MonoBehaviour:
@@ -13441,7 +14169,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1969059030}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1969059030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13832,10 +14572,10 @@ RectTransform:
   - {fileID: 1794969888}
   m_Father: {fileID: 845261664}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.17, y: 85.81}
-  m_SizeDelta: {x: 164.34, y: 61.62}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 2.17, y: -63.190002}
+  m_SizeDelta: {x: 164.34, y: 61.619995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2019000826
 MonoBehaviour:
@@ -13881,6 +14621,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 746429471}
         m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
         m_MethodName: OnClickChapterPanel
@@ -14099,8 +14851,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 7.5, y: 0}
-  m_SizeDelta: {x: 15.11, y: 14.38}
+  m_AnchoredPosition: {x: 5.91, y: 0}
+  m_SizeDelta: {x: 11.94, y: 14.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2030621019
 MonoBehaviour:
@@ -14254,9 +15006,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 943836484}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -71.76499, y: 35.33}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 16.235008, y: 35.33}
   m_SizeDelta: {x: 26.07, y: 25.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2094887039
@@ -14329,9 +15081,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 943836484}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36.5, y: -52.8}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -36.5, y: 25.2}
   m_SizeDelta: {x: 64.82, y: 34.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2124033479
@@ -14463,10 +15215,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 943836484}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 71.66501, y: 37.19999}
-  m_SizeDelta: {x: 27.34, y: 26.39}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -16.334991, y: 37.19999}
+  m_SizeDelta: {x: 27.339996, y: 26.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2136278205
 MonoBehaviour:
@@ -14514,6 +15266,106 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 660777998}
     m_Modifications:
+    - target: {fileID: 391073510237225803, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 391073510237225803, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 391073510237225803, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 746429471}
+    - target: {fileID: 391073510237225803, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 492037663}
+    - target: {fileID: 391073510237225803, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 391073510237225803, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 391073510237225803, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OpenFPSList
+      objectReference: {fileID: 0}
+    - target: {fileID: 391073510237225803, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuButtonController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 391073510237225803, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SettingsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 391073510237225803, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 391073510237225803, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 717273428251016637, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 717273428251016637, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 717273428251016637, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 717273428251016637, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 746429471}
+    - target: {fileID: 717273428251016637, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 492037663}
+    - target: {fileID: 717273428251016637, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 717273428251016637, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 717273428251016637, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetTargetFPS
+      objectReference: {fileID: 0}
+    - target: {fileID: 717273428251016637, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuButtonController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 717273428251016637, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SettingsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 717273428251016637, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 717273428251016637, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 717273428251016637, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 717273428251016637, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1358101052416173152, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -14602,18 +15454,210 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2481706738600835317, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481706738600835317, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481706738600835317, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481706738600835317, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 746429471}
+    - target: {fileID: 2481706738600835317, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 492037663}
+    - target: {fileID: 2481706738600835317, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481706738600835317, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481706738600835317, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnClickIsEnableSettingPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481706738600835317, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuButtonController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481706738600835317, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SettingsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481706738600835317, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481706738600835317, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004864442064277058, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004864442064277058, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004864442064277058, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004864442064277058, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 746429471}
+    - target: {fileID: 7004864442064277058, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 492037663}
+    - target: {fileID: 7004864442064277058, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004864442064277058, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004864442064277058, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetTargetFPS
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004864442064277058, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuButtonController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004864442064277058, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SettingsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004864442064277058, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004864442064277058, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004864442064277058, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004864442064277058, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7096013994882541838, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7659878951029484921, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659878951029484921, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659878951029484921, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 746429471}
+    - target: {fileID: 7659878951029484921, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 746429471}
+    - target: {fileID: 7659878951029484921, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 746429471}
+    - target: {fileID: 7659878951029484921, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659878951029484921, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659878951029484921, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SoundClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659878951029484921, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuButtonController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659878951029484921, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: MainMenuButtonController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659878951029484921, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659878951029484921, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598243535610926238, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598243535610926238, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598243535610926238, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 746429471}
     - target: {fileID: 8598243535610926238, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 746429471}
+    - target: {fileID: 8598243535610926238, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 746429471}
+    - target: {fileID: 8598243535610926238, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598243535610926238, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598243535610926238, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SoundClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598243535610926238, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuButtonController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598243535610926238, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: MainMenuButtonController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598243535610926238, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598243535610926238, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14726,6 +15770,34 @@ PrefabInstance:
     - target: {fileID: 6064740652328507991, guid: 41bede5c066f08b4ea0a5279940b4ea9, type: 3}
       propertyPath: m_Name
       value: Hero item UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440926846030471818, guid: 41bede5c066f08b4ea0a5279940b4ea9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440926846030471818, guid: 41bede5c066f08b4ea0a5279940b4ea9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440926846030471818, guid: 41bede5c066f08b4ea0a5279940b4ea9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 746429471}
+    - target: {fileID: 6440926846030471818, guid: 41bede5c066f08b4ea0a5279940b4ea9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440926846030471818, guid: 41bede5c066f08b4ea0a5279940b4ea9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440926846030471818, guid: 41bede5c066f08b4ea0a5279940b4ea9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuButtonController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440926846030471818, guid: 41bede5c066f08b4ea0a5279940b4ea9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -16,6 +16,17 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private Image equipmentImage;
 	[SerializeField] private TextMeshProUGUI equipmentDescribe;
 	[SerializeField] private TextMeshProUGUI useButtonText;
+	[SerializeField] private TextMeshProUGUI HPText;
+	[SerializeField] private TextMeshProUGUI ATKText;
+	[SerializeField] private TextMeshProUGUI levelText;
+	[SerializeField] private TextMeshProUGUI equipmentTypeText;
+	[SerializeField] private TextMeshProUGUI buff1Text;
+	[SerializeField] private TextMeshProUGUI buff2Text;
+	[SerializeField] private TextMeshProUGUI buff3Text;
+	[SerializeField] private TextMeshProUGUI buff4Text;
+	[SerializeField] private Image equipmentIcon;
+	[SerializeField] private Image buff3LockIcon;
+	[SerializeField] private Image buff4LockIcon;
 
 	[Header("-------------------- Current Hero GUI -------------------- ")]
 	[SerializeField] private Image heroImage;
@@ -70,14 +81,22 @@ public class EquipmentBag : MonoBehaviour
 		}
 	}
 
+	//public void OnClickOpenEquipmentPanel(string thisGameObjectName)
+	//{
+	//	equipmentInfoPanel.SetActive(true);
+	//	currentEquipment = PlayerEquipmentManager.Instance.GetEquipmentByIndex(int.Parse(thisGameObjectName));
+	//	equipmentNameText.text = currentEquipment.name;
+	//	equipmentDescribe.text = currentEquipment.description;
+
+	//	RefreshCurrentInfoUI();
+	//}
+
 	public void OnClickOpenEquipmentPanel(string thisGameObjectName)
 	{
 		equipmentInfoPanel.SetActive(true);
 		currentEquipment = PlayerEquipmentManager.Instance.GetEquipmentByIndex(int.Parse(thisGameObjectName));
-		equipmentNameText.text = currentEquipment.name;
-		equipmentDescribe.text = currentEquipment.description;
-
-		RefreshCurrentInfoUI();
+		
+		RefreshEquipmentInfo();
 	}
 
 	public void OnClickUseEquipment()
@@ -118,7 +137,8 @@ public class EquipmentBag : MonoBehaviour
 		currentHero.equippedItems[slotIndex] = currentEquipment.id;
 		PlayerHeroManager.Instance.UpdateHero(currentHero);
 		Debug.Log("update hero: " + currentHero.name);
-		RefreshCurrentInfoUI();
+		RefreshEquipmentInfo();
+		RefreshCurrentHeroInfo();
 	}
 
 	private void CancelUseEquipment(PlayerEquipmentManager.PlayerEquipment eq)
@@ -154,7 +174,8 @@ public class EquipmentBag : MonoBehaviour
 		eq.equippedByHero = "None";
 		PlayerEquipmentManager.Instance.UpdateEquipment(eq);
 
-		RefreshCurrentInfoUI();
+		RefreshEquipmentInfo();
+		RefreshCurrentHeroInfo();
 	}
 
 	public void OnClickChangeCurrentHero(int next)
@@ -168,10 +189,11 @@ public class EquipmentBag : MonoBehaviour
 		} while (!allHeroData[currentHeroIndex].owned);
 
 		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(currentHeroIndex);
-		RefreshCurrentInfoUI();
+
+		RefreshCurrentHeroInfo();
 	}
 
-	private void RefreshCurrentInfoUI()
+	public void RefreshCurrentHeroInfo()
 	{
 		if (currentHero == null)
 		{
@@ -188,8 +210,26 @@ public class EquipmentBag : MonoBehaviour
 		headEquipmentIcon.sprite = Resources.Load<Sprite>("EquipmentIcons/" + currentHero.id);
 		bodyEquipmentIcon.sprite = Resources.Load<Sprite>("EquipmentIcons/" + currentHero.id);
 		shoesEquipmentIcon.sprite = Resources.Load<Sprite>("EquipmentIcons/" + currentHero.id);
-
-		if (currentEquipment != null)
-			useButtonText.text = (currentEquipment.equippedByHero == "None") ? "use" : "unuse";
 	}
+
+	public void RefreshEquipmentInfo()
+	{
+		if (currentEquipment == null) return;
+
+		equipmentNameText.text = currentEquipment.name;
+		equipmentDescribe.text = currentEquipment.description;
+		HPText.text = "HP: " + currentEquipment.healthPoints;
+		ATKText.text = "ATK: " + currentEquipment.attackPower;
+		levelText.text = "Lv. " + currentEquipment.currentLevel + "/30";
+		equipmentTypeText.text = currentEquipment.equipmentType;
+		equipmentIcon.sprite = Resources.Load<Sprite>("EquipmentIcons/" + currentEquipment.id);
+
+		//List<string> buffKeys = new List<string>(currentEquipment.buffs.Keys);
+		//buff1Text.text = buffKeys.Count > 0 ? buffKeys[0] + ": " + currentEquipment.buffs[buffKeys[0]] : "";
+		//buff2Text.text = buffKeys.Count > 1 ? buffKeys[1] + ": " + currentEquipment.buffs[buffKeys[1]] : "";
+		//buff3Text.text = buffKeys.Count > 2 ? buffKeys[2] + ": " + currentEquipment.buffs[buffKeys[2]] : "";
+		//buff4Text.text = buffKeys.Count > 3 ? buffKeys[3] + ": " + currentEquipment.buffs[buffKeys[3]] : "";
+	}
+
+
 }
