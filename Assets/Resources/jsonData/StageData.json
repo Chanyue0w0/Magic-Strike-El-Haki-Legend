@@ -37,7 +37,7 @@
     "AI_level": 1.0,
     "StartHP": 1300,
     "StartATK": 50,
-    "Player2Skin": "GrassSlime",
+    "Player2Skin": "WoodBarrelSlime",
     "Player2PuckSkin": "Chapter1SlimePuck3",
     "player2_Group": [ "MS02", "MS02", "MS02" ]
   },
@@ -51,7 +51,7 @@
     "AI_level": 1.0,
     "StartHP": 1400,
     "StartATK": 50,
-    "Player2Skin": "GrassSlime",
+    "Player2Skin": "WindmillSlime",
     "Player2PuckSkin": "Chapter1SlimePuck3",
     "player2_Group": [ "MS03", "MS03", "MS03" ]
   }

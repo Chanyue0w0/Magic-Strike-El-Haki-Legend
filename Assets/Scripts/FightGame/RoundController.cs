@@ -18,6 +18,9 @@ public class RoundController : MonoBehaviour
 
 	[SerializeField] private GameObject gameOverPanel;
 
+	[Header("----------------- Now Stage Info ------------------")]
+	[SerializeField] private int currentStageIndex = 0; // 當前關卡索引
+
 	private void Awake()
 	{
 		if (Instance == null)
@@ -29,13 +32,14 @@ public class RoundController : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+		GameStart();
 	}
 
 	//// Start is called before the first frame update
 	void Start()
 	{
 		Application.targetFrameRate = 60;
-		GameStart();
+		
 	}
 
 	// Update is called once per frame
@@ -58,6 +62,25 @@ public class RoundController : MonoBehaviour
 	public void GameStart()
     {
 		Time.timeScale = 1;
+
+		// 透過 StageData Singleton 取得 "StageNumber" 為 currentStageIndex 的關卡
+		StageDataEntry currentStage = StageData.Instance.FindStageByNumber(currentStageIndex);
+		if (currentStage != null)
+		{
+			// 確保 player2_Group 轉換成 string[]
+			string[] groupArray = currentStage.player2_Group != null ? currentStage.player2_Group.ToArray() : new string[0];
+
+			// 設定 FightPlayer2Config
+			FightPlayer2Config.AI_level = currentStage.AI_level;
+			FightPlayer2Config.StartHP = currentStage.StartHP;
+			FightPlayer2Config.NowHP = currentStage.StartHP;
+			FightPlayer2Config.StartATK = currentStage.StartATK;
+			FightPlayer2Config.NowATK = currentStage.StartATK;
+			FightPlayer2Config.PlayerSkin = currentStage.Player2Skin;
+			FightPlayer2Config.PuckSkin = currentStage.Player2PuckSkin;
+			FightPlayer2Config.Group = currentStage.player2_Group.ToArray();
+		}
+
 		player1Status.InitStatus();
 		player2Status.InitStatus();
 		if(FightStageConfig.BGM == "BasicBattleBGM")

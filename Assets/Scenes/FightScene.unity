@@ -2205,6 +2205,7 @@ Transform:
   - {fileID: 1982218828}
   - {fileID: 235774501}
   - {fileID: 1725393464}
+  - {fileID: 1746945393}
   m_Father: {fileID: 1117303078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &861466916
@@ -2336,7 +2337,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 4d82530fc157f974c86fb1d0de5279e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 41a5a46ffe4f9c547beda6ebaf8d14da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3555,6 +3556,7 @@ MonoBehaviour:
   player1Status: {fileID: 1492323271}
   player2Status: {fileID: 731934239}
   gameOverPanel: {fileID: 339735532}
+  currentStageIndex: 4
 --- !u!114 &1082590086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6661,6 +6663,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1746945392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1746945393}
+  - component: {fileID: 1746945394}
+  m_Layer: 0
+  m_Name: Stage Data
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1746945393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746945392}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 815692597}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1746945394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746945392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7638b4a1b434c6642845821be9d41493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filePath: jsonData/StageData
 --- !u!1 &1812504721
 GameObject:
   m_ObjectHideFlags: 0
