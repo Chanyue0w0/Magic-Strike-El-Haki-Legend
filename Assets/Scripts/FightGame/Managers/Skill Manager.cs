@@ -46,6 +46,11 @@ public class SkillManager : MonoBehaviour
 
     void Start()
     {
+        
+    }
+
+    public void InitialSkillManager()
+    {
         instTime = instOriginTime - FightPlayer1Config.SkillBubbleTimeDecrease;
         //string fullPath = "Arts/Field/Object/" + player2IMGName;
         //Sprite sprite = Resources.Load<Sprite>(fullPath);

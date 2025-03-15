@@ -32,14 +32,14 @@ public class RoundController : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
-		GameStart();
 	}
 
 	//// Start is called before the first frame update
 	void Start()
 	{
 		Application.targetFrameRate = 60;
-		
+
+		GameStart();
 	}
 
 	// Update is called once per frame
@@ -79,6 +79,9 @@ public class RoundController : MonoBehaviour
 			FightPlayer2Config.PlayerSkin = currentStage.Player2Skin;
 			FightPlayer2Config.PuckSkin = currentStage.Player2PuckSkin;
 			FightPlayer2Config.Group = currentStage.player2_Group.ToArray();
+
+			Debug.Log("Stage Loaded: " + currentStage.StageNumber);
+			Debug.Log("Player2 Group: " + string.Join(", ", FightPlayer2Config.Group));
 		}
 
 		player1Status.InitStatus();
@@ -86,7 +89,10 @@ public class RoundController : MonoBehaviour
 		if(FightStageConfig.BGM == "BasicBattleBGM")
 		{
 			AudioManager.Instance.PlayBGM(MusicAudioClips.Instance.BasicBattleBGM);
-		}			
+		}
+
+		SkillManager.Instance.InitialSkillManager();
+		MagicPointsManager.Instance.InitialMagicPointsManager();
 
 	}
 
