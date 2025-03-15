@@ -5,23 +5,19 @@ using UnityEngine.UI;
 
 public class EquipmentBag : MonoBehaviour
 {
+
 	[SerializeField] private GameObject equipmentInfoPanel;
 	[SerializeField] private GameObject equipmentSlotPrefab;
 	[SerializeField] private Transform equipmentSlotContainer;
 
+
+	[Header("-------------------- Equipment Info GUI -------------------- ")]
 	[SerializeField] private TextMeshProUGUI equipmentNameText;
 	[SerializeField] private Image equipmentImage;
 	[SerializeField] private TextMeshProUGUI equipmentDescribe;
+	[SerializeField] private TextMeshProUGUI useButtonText;
 
-	[SerializeField] private TextMeshProUGUI totalATKText;
-	[SerializeField] private TextMeshProUGUI totalHPText;
-
-	[SerializeField] private HeroBag heroBag;
-	private PlayerEquipmentManager.PlayerEquipment currentEquipment;
-	private PlayerHeroManager.PlayerHero currentHero;
-	private int currentHeroIndex;
-
-	[SerializeField] private Image heroIcon;
+	[Header("-------------------- Current Hero GUI -------------------- ")]
 	[SerializeField] private Image heroImage;
 	[SerializeField] private TextMeshProUGUI heroNameText;
 	[SerializeField] private Image skill1Icon;
@@ -30,9 +26,21 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private Image headEquipmentIcon;
 	[SerializeField] private Image bodyEquipmentIcon;
 	[SerializeField] private Image shoesEquipmentIcon;
+	[SerializeField] private TextMeshProUGUI totalATKText;
+	[SerializeField] private TextMeshProUGUI totalHPText;
+
+
+	[Header("Script")]
+	[SerializeField] private HeroBag heroBag;
+	private PlayerEquipmentManager.PlayerEquipment currentEquipment;
+	private PlayerHeroManager.PlayerHero currentHero;
+	private int currentHeroIndex;
+
 
 	void Start()
 	{
+		currentHeroIndex = 0;
+		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(0);
 		RefreshBagUI();
 	}
 
@@ -68,16 +76,97 @@ public class EquipmentBag : MonoBehaviour
 		currentEquipment = PlayerEquipmentManager.Instance.GetEquipmentByIndex(int.Parse(thisGameObjectName));
 		equipmentNameText.text = currentEquipment.name;
 		equipmentDescribe.text = currentEquipment.description;
+
+		RefreshCurrentInfoUI();
 	}
 
 	public void OnClickUseEquipment()
 	{
-		PlayerEquipmentManager.Instance.SaveEquipment();
+		// cancel equip
+		if (currentEquipment.equippedByHero != "None")
+		{
+			CancelUseEquipment(currentEquipment);
+			return;
+		}
+
+
+		// Determine equipment type and assign it to the correct slot
+		int slotIndex = -1;
+		switch (currentEquipment.equipmentType)
+		{
+			case "Head":
+				slotIndex = 0;
+				break;
+			case "Armor":
+				slotIndex = 1;
+				break;
+			case "Shoes":
+				slotIndex = 2;
+				break;
+		}
+
+		if (slotIndex == -1)
+		{
+			Debug.LogWarning("Invalid equipment type: " + currentEquipment.equipmentType);
+			return;
+		}
+		// use
+		CancelUseEquipment(PlayerEquipmentManager.Instance.GetEquipmentByID(currentHero.equippedItems[slotIndex]));
+		currentEquipment.equippedByHero = currentHero.id;
+		PlayerEquipmentManager.Instance.UpdateEquipment(currentEquipment);
+
+		currentHero.equippedItems[slotIndex] = currentEquipment.id;
+		PlayerHeroManager.Instance.UpdateHero(currentHero);
+		Debug.Log("update hero: " + currentHero.name);
+		RefreshCurrentInfoUI();
+	}
+
+	private void CancelUseEquipment(PlayerEquipmentManager.PlayerEquipment eq)
+	{
+		if (eq == null || eq.equippedByHero == "None") return;
+
+		PlayerHeroManager.PlayerHero eqHero = PlayerHeroManager.Instance.GetHeroByID(eq.equippedByHero);
+
+		// Determine equipment type and assign it to the correct slot
+		int slotIndex = -1;
+		switch (eq.equipmentType)
+		{
+			case "Head":
+				slotIndex = 0;
+				break;
+			case "Armor":
+				slotIndex = 1;
+				break;
+			case "Shoes":
+				slotIndex = 2;
+				break;
+		}
+
+		if (slotIndex == -1)
+		{
+			Debug.LogWarning("Invalid equipment type: " + currentEquipment.equipmentType);
+			return;
+		}
+		eqHero.equippedItems[slotIndex] = "";
+		PlayerHeroManager.Instance.UpdateHero(eqHero);
+
+
+		eq.equippedByHero = "None";
+		PlayerEquipmentManager.Instance.UpdateEquipment(eq);
+
+		RefreshCurrentInfoUI();
 	}
 
 	public void OnClickChangeCurrentHero(int next)
 	{
-		currentHeroIndex += next;
+		var allHeroData = PlayerHeroManager.Instance.GetAllHeroData();
+		do
+		{
+			currentHeroIndex += next;
+			if (currentHeroIndex >= allHeroData.Count) currentHeroIndex = 0;
+			else if (currentHeroIndex < 0) currentHeroIndex = allHeroData.Count - 1;
+		} while (!allHeroData[currentHeroIndex].owned);
+
 		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(currentHeroIndex);
 		RefreshCurrentInfoUI();
 	}
@@ -91,7 +180,6 @@ public class EquipmentBag : MonoBehaviour
 		}
 
 		heroNameText.text = currentHero.name;
-		heroIcon.sprite = Resources.Load<Sprite>("HeroIcons/" + currentHero.id);
 		heroImage.sprite = Resources.Load<Sprite>("HeroImages/" + currentHero.id);
 		ultimateSkillIcon.sprite = Resources.Load<Sprite>("SkillIcons/Ultimate/" + currentHero.id);
 		skill1Icon.sprite = Resources.Load<Sprite>("SkillIcons/Skill1/" + currentHero.id);
@@ -100,5 +188,8 @@ public class EquipmentBag : MonoBehaviour
 		headEquipmentIcon.sprite = Resources.Load<Sprite>("EquipmentIcons/" + currentHero.id);
 		bodyEquipmentIcon.sprite = Resources.Load<Sprite>("EquipmentIcons/" + currentHero.id);
 		shoesEquipmentIcon.sprite = Resources.Load<Sprite>("EquipmentIcons/" + currentHero.id);
+
+		if (currentEquipment != null)
+			useButtonText.text = (currentEquipment.equippedByHero == "None") ? "use" : "unuse";
 	}
 }

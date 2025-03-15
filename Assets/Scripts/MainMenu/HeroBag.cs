@@ -6,14 +6,16 @@ using static HeroData;
 
 public class HeroBag : MonoBehaviour
 {
+	public string selectedHeroID;
+
 	[Header("Gameobject")]
 	[SerializeField] private GameObject heroInfoPanel; // 英雄面板
 	[SerializeField] private GameObject heroUpgradePanel; // 英雄面板
 
 	[SerializeField] private GameObject heroSlotPrefab;
 	[SerializeField] private GameObject levelUpButtonObject;
-
 	[Header("UI")]
+	[SerializeField] private Image advanturePanelHeroImage;
 	[SerializeField] private TextMeshProUGUI[] heroNameTexts;
 	[SerializeField] private Image[] heroImages;
 	[SerializeField] private TextMeshProUGUI heroATKText;
@@ -27,6 +29,7 @@ public class HeroBag : MonoBehaviour
 
 	void Start()
 	{
+		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(0);
 		RefreshUI();
 	}
 
@@ -124,5 +127,11 @@ public class HeroBag : MonoBehaviour
 		//{
 		//	//image.sprite = PlayerHeroManager.Instance.GetHeroByID(heroID).name;
 		//}
+	}
+
+	public void OnClickSelectHero()
+	{
+		selectedHeroID = currentHero.id;
+		//advanturePanelHeroImage.sprite =
 	}
 }
