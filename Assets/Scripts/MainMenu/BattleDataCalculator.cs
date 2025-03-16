@@ -1,18 +1,17 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleDataCalculator : MonoBehaviour
 {
-	[SerializeField] private string playerName;
-	[SerializeField] private int totalHP;
-	[SerializeField] private int totalATK;
-	[SerializeField] private float critRateIncrease;
-	[SerializeField] private float skillDamageIncrease;
-	[SerializeField] private float poisonDamageIncrease;
-	[SerializeField] private float controlSkillDurationIncrease;
-	[SerializeField] private float totalSkillBubbleCooldownReduction;
-	[SerializeField] private string setEffect;
+	[SerializeField] public string playerName;
+	[SerializeField] public int totalHP;
+	[SerializeField] public int totalATK;
+	[SerializeField] public float critRateIncrease;
+	[SerializeField] public float skillDamageIncrease;
+	[SerializeField] public float poisonDamageIncrease;
+	[SerializeField] public float controlSkillDurationIncrease;
+	[SerializeField] public float totalSkillBubbleCooldownReduction;
+	[SerializeField] public string setEffect;
 
 	void Start()
 	{
@@ -93,10 +92,9 @@ public class BattleDataCalculator : MonoBehaviour
 		totalATK = (int)((baseATK + equipmentTotalATK) * totalATKBuff);
 		setEffect = DetermineSetEffect(setTypeCount);
 
-		ApplyToFightPlayerConfig();
 	}
 
-	private void ApplyToFightPlayerConfig()
+	public void ApplyToFightPlayerConfig()
 	{
 		FightPlayer1Config.StartHP = totalHP;
 		FightPlayer1Config.NowHP = totalHP;

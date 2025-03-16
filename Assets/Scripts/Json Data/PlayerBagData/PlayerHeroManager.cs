@@ -3,7 +3,6 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using static HeroData;
 
 public class PlayerHeroManager : MonoBehaviour
 {
