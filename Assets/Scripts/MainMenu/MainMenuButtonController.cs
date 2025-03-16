@@ -10,12 +10,13 @@ public class MainMenuButtonController : MonoBehaviour
 	[SerializeField] private GameObject shopPanel;
 	[SerializeField] private GameObject equipmentPanel;
 	[SerializeField] private GameObject adventurePanel;
+	[SerializeField] private GameObject rankPanel;
 
 	[SerializeField] private GameObject chapterPanel;
 	[SerializeField] private GameObject[] infoPanels;
 
 
-	private GameObject[] panels = new GameObject[5];
+	private GameObject[] panels = new GameObject[6];
 	
 	// Start is called before the first frame update
 	void Start()
@@ -35,7 +36,7 @@ public class MainMenuButtonController : MonoBehaviour
 		panels[2] = shopPanel;
 		panels[3] = equipmentPanel;
 		panels[4] = adventurePanel;
-
+		panels[5] = rankPanel;
 		OnClickCloseInfoPanel();
 	}
 
@@ -55,10 +56,7 @@ public class MainMenuButtonController : MonoBehaviour
 		AudioManager.Instance.PlaySFX(SFXAudioClips.Instance.ClickButton);
 	}
 
-	public void OnClickExitPanel()
-	{
-		settingPanel.SetActive(false);
-	}
+	
 
 	public void OnClickOpenPanel(GameObject panel)
 	{

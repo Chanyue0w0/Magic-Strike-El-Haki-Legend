@@ -135,6 +135,24 @@ public class PlayerEquipmentManager : MonoBehaviour
 	}
 
 
+	public void UpdateEquipment(PlayerEquipment updatedEquipment)
+	{
+		//LoadEquipment(); // Load the latest data
+
+		for (int i = 0; i < equipmentList.Count; i++)
+		{
+			if (equipmentList[i].id == updatedEquipment.id)
+			{
+				equipmentList[i] = updatedEquipment;
+				SaveEquipment(); // Save the updated data
+				Debug.Log("Equipment updated: " + updatedEquipment.name);
+				return;
+			}
+		}
+
+		Debug.LogWarning("Equipment not found for update: " + updatedEquipment.id);
+	}
+
 	public void AddEquipment(PlayerEquipment equipment)
 	{
 		if (equipment == null) return;
@@ -145,7 +163,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 
 	public void LoadEquipment()
 	{
-		if (!File.Exists(SavePath()))
+		if (!File.Exists(FinePath()))
 		{
 			equipmentList = new List<PlayerEquipment>();
 			Debug.LogWarning("Equipment save file not found!");
@@ -153,7 +171,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 		}
 		else
 		{
-			string json = File.ReadAllText(SavePath());
+			string json = File.ReadAllText(FinePath());
 			if (string.IsNullOrEmpty(json))
 			{
 				equipmentList = new List<PlayerEquipment>();
@@ -162,7 +180,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 			else
 			{
 				equipmentList = JsonConvert.DeserializeObject<List<PlayerEquipment>>(json);
-				Debug.Log("Equipment data loaded!");
+				//Debug.Log("Equipment data loaded!");
 			}
 		}
 	}
@@ -171,8 +189,8 @@ public class PlayerEquipmentManager : MonoBehaviour
 	{
 		JArray json = JArray.FromObject(equipmentList);
 		string jsonTxt = json.ToString();
-		File.WriteAllText(SavePath(), jsonTxt);
-		Debug.Log("Equipment data saved: " + SavePath());
+		File.WriteAllText(FinePath(), jsonTxt);
+		Debug.Log("Equipment data saved: " + FinePath());
 	}
 	public PlayerEquipment GetEquipmentByIndex(int index)
 	{
@@ -187,13 +205,18 @@ public class PlayerEquipmentManager : MonoBehaviour
 		return null;
 	}
 
+	public PlayerEquipment GetEquipmentByID(string id)
+	{
+		LoadEquipment(); // Ensure the latest data is loaded
+		return equipmentList.Find(eq => eq.id == id);
+	}
 	public List<PlayerEquipment> GetAllEquipmentData()
 	{
 		LoadEquipment();
 		return equipmentList;
 	}
 
-	private string SavePath()
+	private string FinePath()
 	{
 		return Application.persistentDataPath + savePath;
 	}

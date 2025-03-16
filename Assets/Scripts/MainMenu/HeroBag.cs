@@ -6,20 +6,30 @@ using static HeroData;
 
 public class HeroBag : MonoBehaviour
 {
+	public string selectedHeroID;
+
+	[Header("Gameobject")]
 	[SerializeField] private GameObject heroInfoPanel; // 璣动狾
 	[SerializeField] private GameObject heroUpgradePanel; // 璣动狾
 
 	[SerializeField] private GameObject heroSlotPrefab;
-	// 璣动佳甧竟ㄒ ScrollView  Content
-	[SerializeField] private Transform heroSlotContainer;
-
+	[SerializeField] private GameObject levelUpButtonObject;
+	[Header("UI")]
+	[SerializeField] private Image advanturePanelHeroImage;
 	[SerializeField] private TextMeshProUGUI[] heroNameTexts;
 	[SerializeField] private Image[] heroImages;
+	[SerializeField] private TextMeshProUGUI heroATKText;
+	[SerializeField] private TextMeshProUGUI heroHPText;
 
+	[Header("Other")]
+	// 璣动佳甧竟ㄒ ScrollView  Content
+	[SerializeField] private Transform heroSlotContainer;
+	
 	private PlayerHeroManager.PlayerHero currentHero;
 
 	void Start()
 	{
+		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(0);
 		RefreshUI();
 	}
 
@@ -45,13 +55,6 @@ public class HeroBag : MonoBehaviour
 			GameObject slot = Instantiate(heroSlotPrefab, heroSlotContainer);
 
 			slot.name = hero.id;
-			//// 眔璣动嘿 TextMeshProUGUI じン砞﹚嘿
-			//TextMeshProUGUI nameTextMeshProUGUI = slot.transform.Find("NameText")?.GetComponent<TextMeshProUGUI>();
-			//if (nameTextMeshProUGUI != null)
-			//{
-			//	nameTextMeshProUGUI.text = hero.name;
-			//}
-
 
 			// 秙 OnClick 
 			Button btn = slot.GetComponent<Button>();
@@ -64,43 +67,33 @@ public class HeroBag : MonoBehaviour
 				levelText.text = "Lv. " + hero.currentLevel;
 			}
 
-			//// 眔璣动祡Τ TextMeshProUGUI じン砞﹚祡Τ
-			//TextMeshProUGUI rarityTextMeshProUGUI = slot.transform.Find("RarityText")?.GetComponent<TextMeshProUGUI>();
-			//if (rarityTextMeshProUGUI != null)
-			//{
-			//	rarityTextMeshProUGUI.text = hero.rarity;
-			//}
 
 			// 璝Τㄤ UI じンㄒ磞瓃璣动瓜ボ单硂柑砞﹚
+
+			Image image = slot.GetComponent<Image>();
+			//image.sprite = slot.GetComponent<Sprite>();
+			if (!hero.owned)
+			{
+				image.color = new Vector4(0, 0, 0, 0.8f);
+			}
 		}
 	}
 
 	public void OnClickOpenHeroInfoPanel()
 	{
-		if (heroInfoPanel != null)
-		{
-			heroInfoPanel.SetActive(true);
-			PlayerHeroManager.PlayerHero heroData = PlayerHeroManager.Instance.GetHeroByID(currentHero.id);
-			Debug.Log("Opened Hero Panel from: " + currentHero.id);
-		}
-		else
-		{
-			Debug.LogWarning("Hero Panel is not assigned!");
-		}
+		heroInfoPanel.SetActive(true);
+		PlayerHeroManager.PlayerHero heroData = PlayerHeroManager.Instance.GetHeroByID(currentHero.id);
+		Debug.Log("Opened Hero Panel from: " + currentHero.id);
 	}
 
 	public void OnClickOpenHeroUpgradePanel()
 	{
-		if (heroUpgradePanel != null)
-		{
-			heroUpgradePanel.SetActive(true);
-			PlayerHeroManager.PlayerHero heroData = PlayerHeroManager.Instance.GetHeroByID(currentHero.id);
-			Debug.Log("Opened Hero Panel from: " + currentHero.id);
-		}
-		else
-		{
-			Debug.LogWarning("Hero Panel is not assigned!");
-		}
+		heroUpgradePanel.SetActive(true);
+		PlayerHeroManager.PlayerHero heroData = PlayerHeroManager.Instance.GetHeroByID(currentHero.id);
+
+		heroATKText.text = currentHero.baseATK.ToString();
+		heroHPText.text = currentHero.baseHP.ToString();
+		Debug.Log("Opened Hero Panel from: " + currentHero.id);	
 	}
 
 	public void OnClickLevelUp()
@@ -114,15 +107,31 @@ public class HeroBag : MonoBehaviour
 	public void SwitchCurrentHero(string heroID)
 	{
 		currentHero = PlayerHeroManager.Instance.GetHeroByID(heroID);
-		//ChangeHeroNames(heroID);
+
+        if (currentHero.owned)
+        {
+			levelUpButtonObject.GetComponent<Image>().color = new Vector4(255, 255, 255, 255);
+			levelUpButtonObject.GetComponent<Button>().interactable = true;
+		}
+		else
+		{
+			levelUpButtonObject.GetComponent<Image>().color = new Vector4(80, 80, 80, 255);
+			levelUpButtonObject.GetComponent<Button>().interactable = false;
+		}
+
 		foreach (var tmp in heroNameTexts)
 		{
 			tmp.text = currentHero.name;
 		}
-		//ChangeHeroImages(heroID);
 		//foreach (var image in heroImages)
 		//{
 		//	//image.sprite = PlayerHeroManager.Instance.GetHeroByID(heroID).name;
 		//}
+	}
+
+	public void OnClickSelectHero()
+	{
+		selectedHeroID = currentHero.id;
+		//advanturePanelHeroImage.sprite =
 	}
 }

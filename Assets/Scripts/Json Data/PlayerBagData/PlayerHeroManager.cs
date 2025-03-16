@@ -75,20 +75,22 @@ public class PlayerHeroManager : MonoBehaviour
 				false,
 				0,
 				heroJson["Description"].ToString(),
-				new List<string>()
+				new List<string> { "", "", ""}
 			);
 			heroList.Add(newHero);
 		}
+
+		heroList[0].owned = true;
 		SaveHeroes();
 	}
 
 	void Start()
 	{
-		if (!File.Exists(SavePath()))
+		if (!File.Exists(FilePath()))
 			InitJsonFile();
 
 		// Add a new test hero on start
-		PlayerHero newHero = new PlayerHero("Test Hero", "HR99", "Legendary", 1, 300, 2000, 1500, true, 50, "A powerful test hero", new List<string> { "000", "001", "002" });
+		PlayerHero newHero = new PlayerHero("Test Hero", "HR99", "Legendary", 1, 300, 2000, 1500, false, 50, "A powerful test hero", new List<string> { "", "", "" });
 		AddHero(newHero);
 	}
 
@@ -108,13 +110,13 @@ public class PlayerHeroManager : MonoBehaviour
 
 	public void LoadHeroes()
 	{
-		if (!File.Exists(SavePath()))
+		if (!File.Exists(FilePath()))
 		{
 			Debug.LogWarning("Hero save file not found!");
 			return;
 		}
 
-		string json = File.ReadAllText(SavePath());
+		string json = File.ReadAllText(FilePath());
 		if (string.IsNullOrEmpty(json))
 		{
 			heroList = new List<PlayerHero>();
@@ -123,37 +125,33 @@ public class PlayerHeroManager : MonoBehaviour
 		else
 		{
 			heroList = JsonConvert.DeserializeObject<List<PlayerHero>>(json);
-			Debug.Log("Hero data loaded!");
+			//Debug.Log("Hero data loaded!");
 		}
 	}
 
 	public void SaveHeroes()
 	{
+		SortHeroes();
 		JArray json = JArray.FromObject(heroList);
 		string jsonTxt = json.ToString();
-		File.WriteAllText(SavePath(), jsonTxt);
-		Debug.Log("Hero data saved: " + SavePath());
+		File.WriteAllText(FilePath(), jsonTxt);
+		Debug.Log("Hero data saved: " + FilePath());
 	}
 
 	public void UpdateHero(PlayerHero updatedHero)
 	{
-		PlayerHero hero = heroList.Find(h => h.id == updatedHero.id);
-		if (hero != null)
+		for (int i = 0; i < heroList.Count; i++)
 		{
-			hero.currentLevel = updatedHero.currentLevel;
-			hero.baseATK = updatedHero.baseATK;
-			hero.baseHP = updatedHero.baseHP;
-			hero.ultimateDamage = updatedHero.ultimateDamage;
-			hero.owned = updatedHero.owned;
-			hero.heroShards = updatedHero.heroShards;
-			hero.description = updatedHero.description;
-			SaveHeroes();
-			Debug.Log("Hero data updated: " + updatedHero.name + " " + updatedHero.id);
+			if (heroList[i].id == updatedHero.id)
+			{
+				heroList[i] = updatedHero;
+				SaveHeroes(); // Save the updated data
+				Debug.Log("Equipment updated: " + updatedHero.name);
+				return;
+			}
 		}
-		else
-		{
-			Debug.LogWarning("Hero not found for update: " + updatedHero.id);
-		}
+
+		Debug.LogWarning("Equipment not found for update: " + updatedHero.id);
 	}
 
 	public PlayerHero GetHeroByID(string heroID)
@@ -162,14 +160,26 @@ public class PlayerHeroManager : MonoBehaviour
 		return heroList.Find(hero => hero.id == heroID);
 	}
 
+	public PlayerHero GetHeroByIndex(int index)
+	{
+		LoadHeroes(); // Ensure the latest data is loaded
+		return heroList[index];
+	}
+
 	public List<PlayerHero> GetAllHeroData()
 	{
 		LoadHeroes();
 		return heroList;
 	}
 
-	private string SavePath()
+	private string FilePath()
 	{
 		return Application.persistentDataPath + savePath;
 	}
+
+	private void SortHeroes()
+	{
+		heroList.Sort((a, b) => a.owned.CompareTo(b.owned));
+	}
+
 }
