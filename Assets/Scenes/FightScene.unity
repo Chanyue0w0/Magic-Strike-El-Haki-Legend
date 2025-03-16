@@ -3556,7 +3556,7 @@ MonoBehaviour:
   player1Status: {fileID: 1492323271}
   player2Status: {fileID: 731934239}
   gameOverPanel: {fileID: 339735532}
-  currentStageIndex: 1
+  currentStageIndex: 3
 --- !u!114 &1082590086
 MonoBehaviour:
   m_ObjectHideFlags: 0
