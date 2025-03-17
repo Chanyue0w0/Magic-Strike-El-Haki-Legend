@@ -19,6 +19,9 @@ public class RoundController : MonoBehaviour
 
 	[SerializeField] private GameObject gameOverPanel;
 
+	[SerializeField] private SpriteRenderer BackGroundSprite;
+	[SerializeField] private SpriteRenderer FieldSprite;
+
 	[Header("----------------- Now Stage Info ------------------")]
 	[SerializeField] private int currentStageIndex = 0; // 當前關卡索引
 
@@ -63,7 +66,8 @@ public class RoundController : MonoBehaviour
 	}
 
 	public void NextStage()
-    {
+	{
+		FightPlayer1Config.NowHP = player1Status.GetHP();
 		currentStageIndex++;
 		FightPlayer1Config.CurrentStage = currentStageIndex;
 	}
@@ -85,13 +89,20 @@ public class RoundController : MonoBehaviour
 			FightPlayer2Config.NowHP = currentStage.StartHP;
 			FightPlayer2Config.StartATK = currentStage.StartATK;
 			FightPlayer2Config.NowATK = currentStage.StartATK;
+			FightPlayer2Config.Group = currentStage.player2_Group.ToArray();
+
 			FightPlayer2Config.PlayerSkin = currentStage.Player2Skin;
 			FightPlayer2Config.PuckSkin = currentStage.Player2PuckSkin;
-			FightPlayer2Config.Group = currentStage.player2_Group.ToArray();
+			FightPlayer2Config.BackGroundImage = currentStage.BackGroundImage;
+			FightPlayer2Config.FieldImage = currentStage.FieldImage;
+			FightPlayer2Config.BGM = currentStage.BGM;
 
 			Debug.Log("Stage Loaded: " + currentStage.StageNumber);
 			Debug.Log("Player2 Group: " + string.Join(", ", FightPlayer2Config.Group));
 		}
+
+		FieldSprite.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/" + FightPlayer2Config.FieldImage);
+		BackGroundSprite.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/" + FightPlayer2Config.BackGroundImage);
 
 		player1Status.InitStatus();
 		player2Status.InitStatus();
