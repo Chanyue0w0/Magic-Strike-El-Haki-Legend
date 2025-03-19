@@ -3,7 +3,6 @@
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using static HeroData;
 
 public class EquipmentData : MonoBehaviour
 {

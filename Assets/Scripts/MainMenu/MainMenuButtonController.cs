@@ -1,6 +1,7 @@
 //using System.Collections;
 //using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuButtonController : MonoBehaviour
 {
@@ -17,7 +18,9 @@ public class MainMenuButtonController : MonoBehaviour
 
 
 	private GameObject[] panels = new GameObject[6];
-	
+
+	[SerializeField] private Image buttomBarImage;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -77,5 +80,10 @@ public class MainMenuButtonController : MonoBehaviour
 	public void OnClickChapterPanel(bool isOpen)
 	{
 		chapterPanel.SetActive(isOpen);
+	}
+
+	public void OnClickButtomButton(Sprite sprite)
+	{
+		buttomBarImage.sprite = sprite;
 	}
 }

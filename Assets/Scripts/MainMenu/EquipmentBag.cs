@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -69,9 +70,11 @@ public class EquipmentBag : MonoBehaviour
 		{
 			GameObject slot = Instantiate(equipmentSlotPrefab, equipmentSlotContainer);
 			slot.name = index.ToString();
+			Image img = slot.GetComponent<Image>();
+			img.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + equipment.name);
+
 			Button btn = slot.GetComponent<Button>();
 			btn.onClick.AddListener(() => OnClickOpenEquipmentPanel(btn.gameObject.name));
-
 			TextMeshProUGUI levelText = slot.transform.Find("LevelText")?.GetComponent<TextMeshProUGUI>();
 			if (levelText != null)
 			{
@@ -80,16 +83,6 @@ public class EquipmentBag : MonoBehaviour
 			index++;
 		}
 	}
-
-	//public void OnClickOpenEquipmentPanel(string thisGameObjectName)
-	//{
-	//	equipmentInfoPanel.SetActive(true);
-	//	currentEquipment = PlayerEquipmentManager.Instance.GetEquipmentByIndex(int.Parse(thisGameObjectName));
-	//	equipmentNameText.text = currentEquipment.name;
-	//	equipmentDescribe.text = currentEquipment.description;
-
-	//	RefreshCurrentInfoUI();
-	//}
 
 	public void OnClickOpenEquipmentPanel(string thisGameObjectName)
 	{
@@ -202,14 +195,20 @@ public class EquipmentBag : MonoBehaviour
 		}
 
 		heroNameText.text = currentHero.name;
-		heroImage.sprite = Resources.Load<Sprite>("HeroImages/" + currentHero.id);
+		heroImage.sprite = Resources.Load<Sprite>("Arts/HeroImages/HeroIllustrations/" + currentHero.id);
 		ultimateSkillIcon.sprite = Resources.Load<Sprite>("SkillIcons/Ultimate/" + currentHero.id);
 		skill1Icon.sprite = Resources.Load<Sprite>("SkillIcons/Skill1/" + currentHero.id);
 		skill2Icon.sprite = Resources.Load<Sprite>("SkillIcons/Skill2/" + currentHero.id);
 
-		headEquipmentIcon.sprite = Resources.Load<Sprite>("EquipmentIcons/" + currentHero.id);
-		bodyEquipmentIcon.sprite = Resources.Load<Sprite>("EquipmentIcons/" + currentHero.id);
-		shoesEquipmentIcon.sprite = Resources.Load<Sprite>("EquipmentIcons/" + currentHero.id);
+		PlayerEquipmentManager.PlayerEquipment eq = PlayerEquipmentManager.Instance.GetEquipmentByID(currentHero.equippedItems[0]);
+		if (eq != null) headEquipmentIcon.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + eq.name);
+		else headEquipmentIcon.sprite = null;
+		eq = PlayerEquipmentManager.Instance.GetEquipmentByID(currentHero.equippedItems[1]);
+		if (eq != null) bodyEquipmentIcon.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + eq.name);
+		else bodyEquipmentIcon.sprite = null;
+		eq = PlayerEquipmentManager.Instance.GetEquipmentByID(currentHero.equippedItems[2]);
+		if (eq != null) shoesEquipmentIcon.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + eq.name);
+		else shoesEquipmentIcon.sprite = null;
 	}
 
 	public void RefreshEquipmentInfo()
@@ -218,11 +217,11 @@ public class EquipmentBag : MonoBehaviour
 
 		equipmentNameText.text = currentEquipment.name;
 		equipmentDescribe.text = currentEquipment.description;
-		HPText.text = "HP: " + currentEquipment.healthPoints;
-		ATKText.text = "ATK: " + currentEquipment.attackPower;
+		HPText.text = currentEquipment.healthPoints.ToString();
+		ATKText.text = currentEquipment.attackPower.ToString();
 		levelText.text = "Lv. " + currentEquipment.currentLevel + "/30";
 		equipmentTypeText.text = currentEquipment.equipmentType;
-		equipmentIcon.sprite = Resources.Load<Sprite>("EquipmentIcons/" + currentEquipment.id);
+		equipmentIcon.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + currentEquipment.name);
 
 		//List<string> buffKeys = new List<string>(currentEquipment.buffs.Keys);
 		//buff1Text.text = buffKeys.Count > 0 ? buffKeys[0] + ": " + currentEquipment.buffs[buffKeys[0]] : "";
