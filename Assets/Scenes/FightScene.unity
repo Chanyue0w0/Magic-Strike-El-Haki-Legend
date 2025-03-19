@@ -3562,6 +3562,8 @@ MonoBehaviour:
   gameOverPanel: {fileID: 339735532}
   BackGroundSprite: {fileID: 1326423935}
   FieldSprite: {fileID: 1026530575}
+  currentChapterIndex: 0
+  currentLevelIndex: 0
   currentStageIndex: 1
 --- !u!114 &1082590086
 MonoBehaviour:
@@ -8320,6 +8322,14 @@ PrefabInstance:
     - target: {fileID: 4614121849620815956, guid: f167040b27f725f45b7466070cd23987, type: 3}
       propertyPath: m_SortingOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958314868292373843, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: clampPositionX.x
+      value: -1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958314868292373843, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: clampPositionX.y
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 6973456524052729341, guid: f167040b27f725f45b7466070cd23987, type: 3}
       propertyPath: InitialModule.startColor.maxColor.a

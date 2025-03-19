@@ -6,9 +6,7 @@ using System.Linq;
 [System.Serializable]
 public class StageDataEntry
 {
-    public string ChapterNumber;
-    public string LevelsNumber;
-    public string StageNumber; // 這是我們要比對的值
+    public string StageNumber;
     public string BackGroundImage;
     public string FieldImage;
     public string BGM;
@@ -24,7 +22,7 @@ public class StageData : MonoBehaviour
 {
     public static StageData Instance { get; private set; }
 
-    private List<StageDataEntry> stages;
+    private Dictionary<string, Dictionary<string, List<StageDataEntry>>> chapters;
 
     [SerializeField] private string filePath = "jsonData/StageData"; // JSON 檔案在 Resources 下的路徑
 
@@ -48,10 +46,15 @@ public class StageData : MonoBehaviour
         {
             try
             {
-                stages = JsonConvert.DeserializeObject<List<StageDataEntry>>(jsonFile.text);
-                if (stages == null)
+                // 解析為 Dictionary，符合 JSON 結構
+                chapters = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, List<StageDataEntry>>>>(jsonFile.text);
+                if (chapters == null || chapters.Count == 0)
                 {
-                    Debug.LogError("Failed to parse StageData.json!");
+                    Debug.LogError("Failed to parse StageData.json! Data is null or empty.");
+                }
+                else
+                {
+                    Debug.Log("StageData.json loaded successfully!");
                 }
             }
             catch (System.Exception e)
@@ -65,17 +68,38 @@ public class StageData : MonoBehaviour
         }
     }
 
-    public StageDataEntry FindStageByNumber(int stageNumber)
+    public StageDataEntry FindStage(int chapterNumber, int levelNumber, int stageNumber)
     {
-        if (stages != null)
+        string chapterKey = $"Chapter_{chapterNumber}";
+        string levelKey = $"Level_{levelNumber}";
+
+        if (chapters != null)
         {
-            var stage = stages.FirstOrDefault(s => s.StageNumber == stageNumber.ToString());
-            if (stage != null)
+            if (chapters.ContainsKey(chapterKey))
             {
-                return stage;
+                if (chapters[chapterKey].ContainsKey(levelKey))
+                {
+                    var stageList = chapters[chapterKey][levelKey];
+                    var stage = stageList.FirstOrDefault(s => s.StageNumber == stageNumber.ToString());
+                    if (stage != null)
+                    {
+                        return stage;
+                    }
+                    else
+                    {
+                        Debug.LogError($"Stage {stageNumber} not found in Chapter {chapterNumber}, Level {levelNumber}.");
+                    }
+                }
+                else
+                {
+                    Debug.LogError($"Level {levelNumber} not found in Chapter {chapterNumber}.");
+                }
+            }
+            else
+            {
+                Debug.LogError($"Chapter {chapterNumber} not found in StageData.");
             }
         }
-        Debug.LogError("StageNumber " + stageNumber + " not found in JSON data!");
         return null;
     }
 }

@@ -65,7 +65,7 @@ public class VibrationPattern : MonoBehaviour
             }
         }
 #else
-        Debug.LogWarning("這段代碼只能在 Android 設備上運行！");
+        //Debug.LogWarning("這段代碼只能在 Android 設備上運行！");
 #endif
     }
 

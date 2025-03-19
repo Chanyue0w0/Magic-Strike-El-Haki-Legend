@@ -23,7 +23,9 @@ public class RoundController : MonoBehaviour
 	[SerializeField] private SpriteRenderer FieldSprite;
 
 	[Header("----------------- Now Stage Info ------------------")]
-	[SerializeField] private int currentStageIndex = 0; // 當前關卡索引
+	[SerializeField] private int currentChapterIndex = 0; // 當前章節索引
+	[SerializeField] private int currentLevelIndex = 0; // 當前關卡索引
+	[SerializeField] private int currentStageIndex = 0; // 當前戰鬥索引
 
 	private void Awake()
 	{
@@ -37,6 +39,8 @@ public class RoundController : MonoBehaviour
 			Destroy(gameObject);
 		}
 		currentStageIndex = FightPlayer1Config.CurrentStage;
+		currentLevelIndex = FightPlayer1Config.CurrentLevel;
+		currentChapterIndex = FightPlayer1Config.CurrentChapter;
 	}
 
 	//// Start is called before the first frame update
@@ -61,7 +65,8 @@ public class RoundController : MonoBehaviour
 			//GameOver();
 			// win
 			NextStage();
-			SceneManager.LoadScene("FightScene");
+			GameStart();
+			//SceneManager.LoadScene("FightScene");
 		}
 	}
 
@@ -69,7 +74,27 @@ public class RoundController : MonoBehaviour
 	{
 		FightPlayer1Config.NowHP = player1Status.GetHP();
 		currentStageIndex++;
+		// 需要檢查是否到了新關卡或新章節
+		StageDataEntry nextStage = StageData.Instance.FindStage(currentChapterIndex, currentLevelIndex, currentStageIndex);
+
+		if (nextStage == null)
+		{
+			// 如果找不到下一關，可能需要提升 Level 或 Chapter
+			currentStageIndex = 1; // 重置 Stage
+			currentLevelIndex++;
+
+			nextStage = StageData.Instance.FindStage(currentChapterIndex, currentLevelIndex, currentStageIndex);
+			if (nextStage == null)
+			{
+				// 如果 Level 也找不到，則提升 Chapter
+				currentLevelIndex = 1;
+				currentChapterIndex++;
+			}
+		}
+
 		FightPlayer1Config.CurrentStage = currentStageIndex;
+		FightPlayer1Config.CurrentLevel = currentLevelIndex;
+		FightPlayer1Config.CurrentChapter= currentChapterIndex;
 	}
 
 	public void GameStart()
@@ -77,7 +102,7 @@ public class RoundController : MonoBehaviour
 		Time.timeScale = 1;
 
 		// 透過 StageData Singleton 取得 "StageNumber" 為 currentStageIndex 的關卡
-		StageDataEntry currentStage = StageData.Instance.FindStageByNumber(currentStageIndex);
+		StageDataEntry currentStage = StageData.Instance.FindStage(currentChapterIndex, currentLevelIndex, currentStageIndex);
 		if (currentStage != null)
 		{
 			// 確保 player2_Group 轉換成 string[]

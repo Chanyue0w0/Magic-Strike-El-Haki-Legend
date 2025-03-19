@@ -46,6 +46,7 @@ public class FightGameButtonController : MonoBehaviour
     public void OnClickRestart()
     {
         //SceneManager.LoadSceneAsync("FightScene");
+        FightPlayer1Config.NowHP = FightPlayer1Config.StartHP;
         SceneManager.LoadScene("FightScene");
         //Time.timeScale = 1;
     }
