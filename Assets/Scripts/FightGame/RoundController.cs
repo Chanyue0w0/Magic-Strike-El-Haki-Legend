@@ -2,6 +2,7 @@
 //using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class RoundController : MonoBehaviour
 {
@@ -27,6 +28,14 @@ public class RoundController : MonoBehaviour
 	[SerializeField] private int currentLevelIndex = 0; // 當前關卡索引
 	[SerializeField] private int currentStageIndex = 0; // 當前戰鬥索引
 
+	[Header("----------------- Stage Data Count ------------------")]
+	[SerializeField] private int totalChapters; // 總章節數
+	//[SerializeField] private int nowTotalLevels; // 總關卡數
+	//[SerializeField] private int nowTotalStages; // 總戰鬥數
+	[SerializeField] private Dictionary<int, int> totalLevelsPerChapter = new Dictionary<int, int>(); // 每章節的關卡數
+	[SerializeField] private Dictionary<(int, int), int> totalStagesPerLevel = new Dictionary<(int, int), int>(); // 每關卡的關卡數
+
+
 	private void Awake()
 	{
 		if (Instance == null)
@@ -47,6 +56,33 @@ public class RoundController : MonoBehaviour
 	void Start()
 	{
 		Application.targetFrameRate = 60;
+
+		// 從 StageData 取得總章節、關卡、戰鬥數量
+		(var totalChapters, var levelsPerChapter, var stagesPerLevel) = StageData.Instance.GetStageCounts();
+
+		this.totalChapters = totalChapters;
+		this.totalLevelsPerChapter = levelsPerChapter;
+		this.totalStagesPerLevel = stagesPerLevel;
+
+		// Debug Log 記錄數據
+		Debug.Log($"總章節數: {totalChapters}");
+		foreach (var levelCount in totalLevelsPerChapter)
+		{
+			Debug.Log($"Chapter {levelCount.Key} 共有 {levelCount.Value} 個 Level");
+		}
+		foreach (var stageCount in totalStagesPerLevel)
+		{
+			Debug.Log($"Chapter {stageCount.Key.Item1}, Level {stageCount.Key.Item2} 共有 {stageCount.Value} 個 Stage");
+		}
+
+		//// 組合 Key 為 "Chapter_X_Level_Y"
+		//string levelKey = $"Chapter_{currentChapterIndex}_Level_{currentLevelIndex}";
+
+		//// 確保 Key 存在，避免 `KeyNotFoundException`
+		//int currentStageCount = totalStagesPerLevel.ContainsKey(levelKey) ? totalStagesPerLevel[levelKey] : 0;
+
+		//Debug.Log($"{currentStageCount} Now Stages");
+
 
 		GameStart();
 	}
