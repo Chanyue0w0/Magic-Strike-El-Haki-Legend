@@ -71,14 +71,16 @@ public class PlayerEquipmentManager : MonoBehaviour
 		//	1, 100, 200, "A powerful warrior's sword", GenerateRandomBuffs(4), "None"
 		//);
 		//AddEquipment(newEquipment);
+
 		//CreateEquipmentFromData("HT00");
 		//CreateEquipmentFromData("HT00");
-		//CreateEquipmentFromData("HT01");
+		//CreateEquipmentFromData("HT00");
 		//CreateEquipmentFromData("BD00");
 		//CreateEquipmentFromData("SH00");
-		//CreateEquipmentFromData("SH01");
-		//CreateEquipmentFromData("SH01");
-		//CreateEquipmentFromData("SH01");
+		//CreateEquipmentFromData("SH00");
+		//CreateEquipmentFromData("SH00");
+		//CreateEquipmentFromData("SH00");
+
 	}
 
 	private Dictionary<string, string> GenerateRandomBuffs(int numberOfBuffs)
@@ -190,7 +192,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 		JArray json = JArray.FromObject(equipmentList);
 		string jsonTxt = json.ToString();
 		File.WriteAllText(FinePath(), jsonTxt);
-		Debug.Log("Equipment data saved: " + FinePath());
+		//Debug.Log("Equipment data saved: " + FinePath());	
 	}
 	public PlayerEquipment GetEquipmentByIndex(int index)
 	{
