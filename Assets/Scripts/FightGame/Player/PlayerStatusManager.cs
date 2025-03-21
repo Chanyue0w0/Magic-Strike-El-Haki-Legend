@@ -12,6 +12,7 @@ public class PlayerStatusManager : MonoBehaviour
     [SerializeField] private int attackDamage;
     //[SerializeField] private int currentMagicPoint;
     [SerializeField] private bool isBurning = false; // 是否正在燃燒
+    [SerializeField] private bool isAlive = true; // 是否活著
 
     [Header("----------------- Config Setting ------------------")]
     [SerializeField] private UserPosition player;
@@ -37,6 +38,9 @@ public class PlayerStatusManager : MonoBehaviour
     [SerializeField] private float damageSpacing = 1.0f; // 傷害數字間隔範圍調整變數
     [SerializeField] private Vector2 positionOffset = new Vector2(0, 0); // 傷害數字位置誤差調整變數
 
+    [Header("----------------- Animator ------------------")] //Only for Player2
+    [SerializeField] private Animator player_animator;
+
     // private variable
     private JToken characterData;
 
@@ -50,35 +54,51 @@ public class PlayerStatusManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(player == UserPosition.player2 &&  healthPoint <= 0 && isAlive)
+        {
+            player_animator.SetTrigger("DiePAnimation");
+            isAlive = false;
+        }
     }
 
     public void InitStatus()
     {
-		if (player == UserPosition.player1)
+        // 先確保取消舊的訂閱，避免多次觸發
+        UnregisterPlayerNotification();
+
+        isAlive = true;
+        if (player == UserPosition.player1)
         {
             skills = FightPlayer1Config.Group;
-            SetHP(FightPlayer1Config.StartHP);
+            SetHP(FightPlayer1Config.NowHP);
             SetATK(FightPlayer1Config.StartATK);
             SetPlayerSkin(FightPlayer1Config.PlayerSkin);
             //SetMagicPoint(0);
             healthBar.SetMaxHealth(FightPlayer1Config.StartHP);
+            healthBar.SetHealth(FightPlayer1Config.NowHP);
             // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
             PlayerNotification notification = player1.GetComponent<PlayerNotification>();
             RegisterPlayerNotification(notification);//訂閱通知
 
             //MagicStonesUI_animator = MagicStonesUI.GetComponent<Animator>();
         }
-
-        if (player == UserPosition.player2)
+        else if (player == UserPosition.player2)
         {
             skills = FightPlayer2Config.Group;
             SetHP(FightPlayer2Config.StartHP);
             SetATK(FightPlayer2Config.StartATK);
             //SetPlayerSkin(FightPlayer2Config.PlayerSkin);  //史萊姆需要用更改生成Prefab
+            //GameObject skinPrefab = Resources.Load<GameObject>("Prefabs/SlimeSkins/" + FightPlayer2Config.PlayerSkin + "Skin");
+            //GameObject skinObj = Instantiate(skinPrefab, player2.transform.position, Quaternion.identity);
+            //skinObj.transform.SetParent(player2.transform);
+            RuntimeAnimatorController loadedController = Resources.Load<RuntimeAnimatorController>("AnimationForSkin/" 
+                + FightPlayer2Config.PlayerSkin + "Skin");
+            player_animator.runtimeAnimatorController = loadedController;
+
             SetPuckSkin(FightPlayer2Config.PuckSkin);
             //SetMagicPoint(0);
             healthBar.SetMaxHealth(FightPlayer2Config.StartHP);
+            healthBar.SetHealth(FightPlayer2Config.StartHP);
             // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
             PlayerNotification notification = player2.GetComponent<PlayerNotification>();
             RegisterPlayerNotification(notification);//訂閱通知
@@ -113,14 +133,43 @@ public class PlayerStatusManager : MonoBehaviour
         playerPuck_skin.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/FieldObjects/" + puckSkin);
     }
 
+    // 取消訂閱通知，避免事件重複綁定
+    public void UnregisterPlayerNotification()
+    {
+        if (player == UserPosition.player1)
+        {
+            PlayerNotification notification = player1.GetComponent<PlayerNotification>();
+            if (notification != null)
+            {
+                notification.OnDamageReceived -= HandleDamageNotification;
+                notification.OnStatusEffectApplied -= HandleStatusEffectApplied;
+            }
+        }
+        else if (player == UserPosition.player2)
+        {
+            PlayerNotification notification = player2.GetComponent<PlayerNotification>();
+            if (notification != null)
+            {
+                notification.OnDamageReceived -= HandleDamageNotification;
+                notification.OnStatusEffectApplied -= HandleStatusEffectApplied;
+            }
+        }
+    }
+
+
     //訂閱通知
     public void RegisterPlayerNotification(PlayerNotification playerNotification)
     {
-        //Debug.Log($"{gameObject.name} 收到 傷害");
-        playerNotification.OnDamageReceived += HandleDamageNotification;
-        playerNotification.OnStatusEffectApplied += HandleStatusEffectApplied;
-        //playerNotification.OnGetMagicPointApplied += HandleGetMagicPointNotification;
+        if (playerNotification != null)
+        {
+            playerNotification.OnDamageReceived -= HandleDamageNotification;
+            playerNotification.OnDamageReceived += HandleDamageNotification;
+
+            playerNotification.OnStatusEffectApplied -= HandleStatusEffectApplied;
+            playerNotification.OnStatusEffectApplied += HandleStatusEffectApplied;
+        }
     }
+
 
     // 接收 `PlayerNotification` 的受到攻擊通知
     private void HandleDamageNotification(int damage, GameObject player)
@@ -175,6 +224,7 @@ public class PlayerStatusManager : MonoBehaviour
         }
         healthBar.SetHealth(healthPoint); // 更新血條
         DisplayDamage(finalDamage);
+        Debug.Log(player + " Get Damage "+ finalDamage);
     }
 
     public void GetRecoverHP(int recoverHp)

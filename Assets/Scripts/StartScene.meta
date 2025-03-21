@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animation/FightingScene/UI/ShowStage.meta
+guid: 2a53ea3f53e338141951c52772e2db5a
+========
 guid: f28ec2dc2fac8c449a199990367b399a
+>>>>>>>> WoodToo212:Assets/Scripts/StartScene.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

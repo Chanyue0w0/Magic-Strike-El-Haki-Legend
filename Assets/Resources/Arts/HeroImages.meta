@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/Prefabs/SlimeSkins.meta
+guid: 2d61ab86a7a3ebf4e9e3bf353ba3d864
+========
 guid: bc8bd499170d27b46b8c2e15bd30a91d
+>>>>>>>> WoodToo212:Assets/Resources/Arts/HeroImages.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

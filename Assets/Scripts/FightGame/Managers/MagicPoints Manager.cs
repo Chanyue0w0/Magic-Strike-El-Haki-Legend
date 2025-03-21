@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MagicPointsManager : MonoBehaviour
 {
+    public static MagicPointsManager Instance { get; private set; }
+
     [Header("----------------- PlayerGameObject ------------------")]
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject player2;
@@ -37,12 +39,26 @@ public class MagicPointsManager : MonoBehaviour
     [SerializeField] private float lastClickTime = 0f; // 記錄上次點擊時間
     [SerializeField] private float doubleClickThreshold = 0.3f; // 雙擊時間閾值
 
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.Log("Found more than one MagicPointsData object in the sence");
+        }
+        Instance = this;
+    }
+
     void Start()
+    {
+        
+    }
+
+    public void InitialMagicPointsManager()
     {
         // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
         PlayerNotification notification1 = player1.GetComponent<PlayerNotification>();
         RegisterPlayerNotification(notification1);//訂閱通知
-                                                 // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
+                                                  // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
         PlayerNotification notification2 = player2.GetComponent<PlayerNotification>();
         RegisterPlayerNotification(notification2);//訂閱通知
 

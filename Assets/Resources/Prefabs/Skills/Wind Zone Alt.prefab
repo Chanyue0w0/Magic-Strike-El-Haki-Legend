@@ -9879,4 +9879,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6824cc10a9ce249a387399e7ac491a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windForce: 400
+  windForce: 1000

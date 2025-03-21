@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/AnimationForSkin.meta
+guid: f424fe96698aa5e458bb2cce1a2938c6
+========
 guid: 890e2b90e1989ea488b9ca71101e75b8
+>>>>>>>> WoodToo212:Assets/Resources/Arts/EquipmentImgaes.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -111,7 +111,8 @@ public class AIController : MonoBehaviour
     {
         float movementSpeed;
         //AI移動，非暈眩狀態
-        if (Ball.position.y < 0 || Ball.position.y > upBoardY)//球在P1場
+        if (Ball.position.y < 0 || Ball.position.y > upBoardY 
+            || (Mathf.Abs(Ball.position.x) > 1.4f && Ball.position.y > 2.8f))//球在P1場
         {
             if (isFirstTimeInOpponentsHalf)
             {
@@ -128,6 +129,12 @@ public class AIController : MonoBehaviour
         else//球在AI場
         {
             isFirstTimeInOpponentsHalf = true;
+
+            //// 若 |x| > 1.6 且 y > 2.8，則 AI 不追球，停在原地
+            //if (Mathf.Abs(Ball.position.x) > 1.6f && Ball.position.y > 2.8f)
+            //{
+            //    return;
+            //}
 
             movementSpeed = Random.Range(MaxMovementSpeed * 0.4f, MaxMovementSpeed);
             targetPosition = new Vector2(Mathf.Clamp(Ball.position.x, topLeftBoundary.position.x,
@@ -176,7 +183,7 @@ public class AIController : MonoBehaviour
         //Debug.Log("AIController 收到 Player2 與 Ball 碰撞的通知");
 
         // 在這裡處理碰撞時的邏輯
-        animator.SetTrigger("OnHit");
+        //animator.SetTrigger("OnHit");
     }
 
 

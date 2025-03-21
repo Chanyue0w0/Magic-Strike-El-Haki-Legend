@@ -13,6 +13,11 @@ public static class FightPlayer2Config
 
 	public static string PlayerSkin = "OriginSlime";
 	public static string PuckSkin = "Chapter1SlimePuck3";
+	public static string BackGroundImage = "Wilderness village(Background)";
+	public static string FieldImage = "Wilderness village(Field3)";
+	public static string BGM = "battle_theme_1";
+
+
 	public static int StartHP = 1000;
 	public static int NowHP = 1000;
 	public static int StartATK = 80;
