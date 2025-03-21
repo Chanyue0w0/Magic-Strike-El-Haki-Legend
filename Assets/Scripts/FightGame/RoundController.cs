@@ -42,6 +42,10 @@ public class RoundController : MonoBehaviour
 	[SerializeField] private GameObject showStagePanel;
 	[SerializeField] private Text roundText;
 
+	[Header("----------------- ShowStage Panel ------------------")]
+	[SerializeField] private Image PlayerHeadSticker;
+	[SerializeField] private Image SlimeHeadSticker;
+
 
 	private void Awake()
 	{
@@ -117,15 +121,18 @@ public class RoundController : MonoBehaviour
 			//GameStart();
 
 			// win
-			NextStage();
+			//NextStage();
 
 			StartCoroutine(ReloadSceneDelayed(3f));
+			//PauseGame();
+			//StartCoroutine(ContinueGameDelayed(1.5f));
 		}
 	}
 
 	private IEnumerator ReloadSceneDelayed(float delay)
 	{
 		yield return new WaitForSecondsRealtime(delay);
+		NextStage();
 		SceneManager.LoadScene("FightScene");
 	}
 
@@ -213,6 +220,8 @@ public class RoundController : MonoBehaviour
 
 		FieldSprite.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/" + FightPlayer2Config.FieldImage);
 		BackGroundSprite.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/" + FightPlayer2Config.BackGroundImage);
+		PlayerHeadSticker.sprite = Resources.Load<Sprite>("Arts/FightScene/HeadStickers/" + FightPlayer1Config.PlayerSkin);
+		SlimeHeadSticker.sprite = Resources.Load<Sprite>("Arts/FightScene/HeadStickers/" + FightPlayer2Config.PlayerSkin);
 
 		player1Status.InitStatus();
 		player2Status.InitStatus();

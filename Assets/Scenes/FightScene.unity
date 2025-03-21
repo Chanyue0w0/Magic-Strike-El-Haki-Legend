@@ -995,7 +995,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a0434de3b1ee5824784b292656cf6700, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b5aa59c32f05964a8bfb5cfee96161e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3722,6 +3722,8 @@ MonoBehaviour:
   totalChapters: 0
   showStagePanel: {fileID: 578658825}
   roundText: {fileID: 1621662967}
+  PlayerHeadSticker: {fileID: 204187546}
+  SlimeHeadSticker: {fileID: 1877095631}
 --- !u!114 &1082590086
 MonoBehaviour:
   m_ObjectHideFlags: 0
