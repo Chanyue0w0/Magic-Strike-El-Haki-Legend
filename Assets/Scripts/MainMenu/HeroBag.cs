@@ -30,14 +30,15 @@ public class HeroBag : MonoBehaviour
 	void Start()
 	{
 		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(0);
-		RefreshUI();
+		RefreshBagUI();
+		OnClickSelectHero();
 	}
 
 	
 	/// <summary>
 	/// 重新生成所有英雄的 UI 槽
 	/// </summary>
-	public void RefreshUI()
+	public void RefreshBagUI()
 	{
 		SwitchCurrentHero("HR00");
 		// 清除容器中的舊項目
@@ -71,7 +72,7 @@ public class HeroBag : MonoBehaviour
 			// 若有其他 UI 元件，例如描述、英雄圖示等，也可以在這裡設定
 
 			Image image = slot.GetComponent<Image>();
-			//image.sprite = slot.GetComponent<Sprite>();
+			image.sprite = Resources.Load<Sprite>("Arts/HeroImages/HeroIllustrations/" + hero.id);
 			if (!hero.owned)
 			{
 				image.color = new Vector4(0, 0, 0, 0.8f);
@@ -123,15 +124,17 @@ public class HeroBag : MonoBehaviour
 		{
 			tmp.text = currentHero.name;
 		}
-		//foreach (var image in heroImages)
-		//{
-		//	//image.sprite = PlayerHeroManager.Instance.GetHeroByID(heroID).name;
-		//}
+		foreach (var image in heroImages)
+		{
+			image.sprite = Resources.Load<Sprite>("Arts/HeroImages/HeroIllustrations/" + currentHero.id);
+		}
 	}
 
 	public void OnClickSelectHero()
 	{
 		selectedHeroID = currentHero.id;
-		//advanturePanelHeroImage.sprite =
+		advanturePanelHeroImage.sprite = Resources.Load<Sprite>("Arts/HeroImages/HeroIllustrations/" + currentHero.id);
+		Debug.Log(advanturePanelHeroImage.sprite);
 	}
+
 }

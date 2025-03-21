@@ -208,7 +208,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 	public PlayerEquipment GetEquipmentByID(string id)
 	{
 		LoadEquipment(); // Ensure the latest data is loaded
-		return equipmentList.Find(eq => eq.id == id);
+		return (id != null) ? equipmentList.Find(eq => eq.id == id) : null;
 	}
 	public List<PlayerEquipment> GetAllEquipmentData()
 	{
