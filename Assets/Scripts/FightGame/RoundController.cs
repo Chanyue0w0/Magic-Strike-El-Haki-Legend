@@ -1,8 +1,10 @@
 //using System.Collections;
 //using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System.Collections;
 
 public class RoundController : MonoBehaviour
 {
@@ -34,6 +36,11 @@ public class RoundController : MonoBehaviour
 	//[SerializeField] private int nowTotalStages; // 總戰鬥數
 	[SerializeField] private Dictionary<int, int> totalLevelsPerChapter = new Dictionary<int, int>(); // 每章節的關卡數
 	[SerializeField] private Dictionary<(int, int), int> totalStagesPerLevel = new Dictionary<(int, int), int>(); // 每關卡的關卡數
+
+
+	[Header("----------------- ShowStage Panel ------------------")]
+	[SerializeField] private GameObject showStagePanel;
+	[SerializeField] private Text roundText;
 
 
 	private void Awake()
@@ -85,6 +92,14 @@ public class RoundController : MonoBehaviour
 
 
 		GameStart();
+
+		OpenStagePanel();
+		StartCoroutine(CloseStagePanelDelayed(1.5f));
+
+		PauseGame();
+		StartCoroutine(ContinueGameDelayed(1.5f));
+
+		
 	}
 
 	// Update is called once per frame
@@ -101,10 +116,35 @@ public class RoundController : MonoBehaviour
 			//GameOver();
 			// win
 			NextStage();
-			GameStart();
-			//SceneManager.LoadScene("FightScene");
+			//GameStart();
+			SceneManager.LoadScene("FightScene");
 		}
 	}
+
+	public void OpenStagePanel()
+	{
+		showStagePanel.SetActive(true);
+
+		// 取得當前這個章節與關卡下，總共的 stage 數
+		int totalStagesInCurrentLevel = 0;
+		if (totalStagesPerLevel.ContainsKey((currentChapterIndex, currentLevelIndex)))
+		{
+			totalStagesInCurrentLevel = totalStagesPerLevel[(currentChapterIndex, currentLevelIndex)];
+		}
+
+		// 顯示為 Round X / Y
+		roundText.text = $"Round {currentStageIndex} / {totalStagesInCurrentLevel}";
+	}
+	private IEnumerator CloseStagePanelDelayed(float delay)
+	{
+		yield return new WaitForSecondsRealtime(delay);
+		CloseStagePanel();
+	}
+	public void CloseStagePanel()
+	{
+		showStagePanel.SetActive(false);
+	}
+
 
 	public void NextStage()
 	{
@@ -184,8 +224,13 @@ public class RoundController : MonoBehaviour
 
         gameStatus = "Pause Game";
     }
+	private IEnumerator ContinueGameDelayed(float delay)
+	{
+		yield return new WaitForSecondsRealtime(delay);
+		ContinueGame();
+	}
 
-    public void ContinueGame()
+	public void ContinueGame()
     {
         Time.timeScale = 1f;
 

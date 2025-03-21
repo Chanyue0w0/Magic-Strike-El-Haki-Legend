@@ -161,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -88.69998}
+  m_AnchoredPosition: {x: 0, y: -88.69995}
   m_SizeDelta: {x: -127.18, y: -718.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8612942
@@ -1627,7 +1627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &578658826
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3642,6 +3642,9 @@ MonoBehaviour:
   currentChapterIndex: 0
   currentLevelIndex: 0
   currentStageIndex: 1
+  totalChapters: 0
+  showStagePanel: {fileID: 578658825}
+  roundText: {fileID: 1621662967}
 --- !u!114 &1082590086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5486,7 +5489,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f16dc073574736547af31e3449003b6a, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
