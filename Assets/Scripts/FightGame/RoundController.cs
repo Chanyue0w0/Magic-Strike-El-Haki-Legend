@@ -114,12 +114,21 @@ public class RoundController : MonoBehaviour
 		else if (player2Status.GetHP() <= 0)
 		{
 			//GameOver();
+			//GameStart();
+
 			// win
 			NextStage();
-			//GameStart();
-			SceneManager.LoadScene("FightScene");
+
+			StartCoroutine(ReloadSceneDelayed(3f));
 		}
 	}
+
+	private IEnumerator ReloadSceneDelayed(float delay)
+	{
+		yield return new WaitForSecondsRealtime(delay);
+		SceneManager.LoadScene("FightScene");
+	}
+
 
 	public void OpenStagePanel()
 	{

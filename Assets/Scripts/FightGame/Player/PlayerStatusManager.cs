@@ -12,6 +12,7 @@ public class PlayerStatusManager : MonoBehaviour
     [SerializeField] private int attackDamage;
     //[SerializeField] private int currentMagicPoint;
     [SerializeField] private bool isBurning = false; // 是否正在燃燒
+    [SerializeField] private bool isAlive = true; // 是否活著
 
     [Header("----------------- Config Setting ------------------")]
     [SerializeField] private UserPosition player;
@@ -53,7 +54,11 @@ public class PlayerStatusManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(player == UserPosition.player2 &&  healthPoint <= 0 && isAlive)
+        {
+            player_animator.SetTrigger("DiePAnimation");
+            isAlive = false;
+        }
     }
 
     public void InitStatus()
@@ -61,6 +66,7 @@ public class PlayerStatusManager : MonoBehaviour
         // 先確保取消舊的訂閱，避免多次觸發
         UnregisterPlayerNotification();
 
+        isAlive = true;
         if (player == UserPosition.player1)
         {
             skills = FightPlayer1Config.Group;
