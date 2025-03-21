@@ -21,6 +21,8 @@ public class RoundController : MonoBehaviour
 	[SerializeField] private PlayerStatusManager player2Status;
 
 	[SerializeField] private GameObject gameOverPanel;
+	[SerializeField] private GameObject player1;
+	[SerializeField] private GameObject player2;
 
 	[SerializeField] private SpriteRenderer BackGroundSprite;
 	[SerializeField] private SpriteRenderer FieldSprite;
@@ -40,9 +42,11 @@ public class RoundController : MonoBehaviour
 
 	[Header("----------------- ShowStage Panel ------------------")]
 	[SerializeField] private GameObject showStagePanel;
+	[SerializeField] private GameObject coinFountain;
 	[SerializeField] private Text roundText;
+	[SerializeField] private bool canInstFountain;
 
-	[Header("----------------- ShowStage Panel ------------------")]
+	[Header("----------------- HeadStickers ------------------")]
 	[SerializeField] private Image PlayerHeadSticker;
 	[SerializeField] private Image SlimeHeadSticker;
 
@@ -115,23 +119,26 @@ public class RoundController : MonoBehaviour
 			GameOver();
 			// defeat
 		}
-		else if (player2Status.GetHP() <= 0)
+		else if (player2Status.GetHP() <= 0 && canInstFountain)
 		{
 			//GameOver();
 			//GameStart();
 
 			// win
 			//NextStage();
-
+			Instantiate(coinFountain, player2.transform.position, Quaternion.Euler(-90,0,0));
+			canInstFountain = false;
 			StartCoroutine(ReloadSceneDelayed(3f));
-			//PauseGame();
-			//StartCoroutine(ContinueGameDelayed(1.5f));
+			PauseGame();
+			StartCoroutine(ContinueGameDelayed(3f));
 		}
 	}
 
 	private IEnumerator ReloadSceneDelayed(float delay)
 	{
 		yield return new WaitForSecondsRealtime(delay);
+
+		canInstFountain = true;
 		NextStage();
 		SceneManager.LoadScene("FightScene");
 	}
