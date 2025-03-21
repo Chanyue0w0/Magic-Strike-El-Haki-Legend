@@ -58,7 +58,10 @@ public class PlayerStatusManager : MonoBehaviour
 
     public void InitStatus()
     {
-		if (player == UserPosition.player1)
+        // 先確保取消舊的訂閱，避免多次觸發
+        UnregisterPlayerNotification();
+
+        if (player == UserPosition.player1)
         {
             skills = FightPlayer1Config.Group;
             SetHP(FightPlayer1Config.NowHP);
@@ -73,8 +76,7 @@ public class PlayerStatusManager : MonoBehaviour
 
             //MagicStonesUI_animator = MagicStonesUI.GetComponent<Animator>();
         }
-
-        if (player == UserPosition.player2)
+        else if (player == UserPosition.player2)
         {
             skills = FightPlayer2Config.Group;
             SetHP(FightPlayer2Config.StartHP);
@@ -125,14 +127,43 @@ public class PlayerStatusManager : MonoBehaviour
         playerPuck_skin.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/FieldObjects/" + puckSkin);
     }
 
+    // 取消訂閱通知，避免事件重複綁定
+    public void UnregisterPlayerNotification()
+    {
+        if (player == UserPosition.player1)
+        {
+            PlayerNotification notification = player1.GetComponent<PlayerNotification>();
+            if (notification != null)
+            {
+                notification.OnDamageReceived -= HandleDamageNotification;
+                notification.OnStatusEffectApplied -= HandleStatusEffectApplied;
+            }
+        }
+        else if (player == UserPosition.player2)
+        {
+            PlayerNotification notification = player2.GetComponent<PlayerNotification>();
+            if (notification != null)
+            {
+                notification.OnDamageReceived -= HandleDamageNotification;
+                notification.OnStatusEffectApplied -= HandleStatusEffectApplied;
+            }
+        }
+    }
+
+
     //訂閱通知
     public void RegisterPlayerNotification(PlayerNotification playerNotification)
     {
-        //Debug.Log($"{gameObject.name} 收到 傷害");
-        playerNotification.OnDamageReceived += HandleDamageNotification;
-        playerNotification.OnStatusEffectApplied += HandleStatusEffectApplied;
-        //playerNotification.OnGetMagicPointApplied += HandleGetMagicPointNotification;
+        if (playerNotification != null)
+        {
+            playerNotification.OnDamageReceived -= HandleDamageNotification;
+            playerNotification.OnDamageReceived += HandleDamageNotification;
+
+            playerNotification.OnStatusEffectApplied -= HandleStatusEffectApplied;
+            playerNotification.OnStatusEffectApplied += HandleStatusEffectApplied;
+        }
     }
+
 
     // 接收 `PlayerNotification` 的受到攻擊通知
     private void HandleDamageNotification(int damage, GameObject player)
@@ -187,6 +218,7 @@ public class PlayerStatusManager : MonoBehaviour
         }
         healthBar.SetHealth(healthPoint); // 更新血條
         DisplayDamage(finalDamage);
+        Debug.Log(player + " Get Damage "+ finalDamage);
     }
 
     public void GetRecoverHP(int recoverHp)
