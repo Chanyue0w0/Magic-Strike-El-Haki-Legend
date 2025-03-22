@@ -21,7 +21,6 @@ public class PlayerDataManager : MonoBehaviour
 		}
 
 		Instance = this;
-		DontDestroyOnLoad(gameObject);
 
 		LoadPlayerData();
 	}

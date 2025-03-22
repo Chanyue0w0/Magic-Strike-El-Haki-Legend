@@ -29,6 +29,7 @@ public class HeroBag : MonoBehaviour
 	void Start()
 	{
 		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(0);
+		selectedHeroID = currentHero.id;
 		RefreshBagUI();
 		OnClickSelectHero();
 	}

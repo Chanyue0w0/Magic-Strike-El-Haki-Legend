@@ -18,9 +18,10 @@ public class MainMenuButtonController : MonoBehaviour
 
 
 	private GameObject[] panels = new GameObject[6];
-
+	[Header("Other")]
 	[SerializeField] private Image buttomBarImage;
-
+	[SerializeField] private LoadingSceneController loadingSceneController;
+	[SerializeField] private BattleDataCalculator battleDataCalculator;
 	// Start is called before the first frame update
 	void Start()
     {
@@ -85,5 +86,17 @@ public class MainMenuButtonController : MonoBehaviour
 	public void OnClickButtomButton(Sprite sprite)
 	{
 		buttomBarImage.sprite = sprite;
+	}
+
+	public void OnClickGameStart()
+	{
+		//var (chapter, level, stage) = StageButtonController.Instance.GetSelectedStage();
+		//FightStageConfig.ChapterNumber = chapter;
+		//FightStageConfig.LevelsNumber = level;
+		//FightStageConfig.StageNumber = stage;
+
+		battleDataCalculator.CalculateBattleData(GetComponent<HeroBag>().selectedHeroID);
+		battleDataCalculator.ApplyToFightPlayerConfig();
+		loadingSceneController.LoadStage("FightScene");
 	}
 }
