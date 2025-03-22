@@ -15,7 +15,6 @@ public class BattleDataCalculator : MonoBehaviour
 
 	void Start()
 	{
-		CalculateBattleData("HR02");
 	}
 
 	public void CalculateBattleData(string heroID)
