@@ -78,6 +78,10 @@ public class MainMenuButtonController : MonoBehaviour
 		}
 	}
 
+	public void OnClickClosePanel(GameObject panel)
+	{
+		panel?.SetActive(false);
+	}
 	public void OnClickChapterPanel(bool isOpen)
 	{
 		chapterPanel.SetActive(isOpen);

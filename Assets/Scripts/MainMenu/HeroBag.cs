@@ -28,10 +28,9 @@ public class HeroBag : MonoBehaviour
 
 	void Start()
 	{
-		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(0);
+		currentHero = PlayerHeroManager.Instance.GetHeroByID("HR00");
+		Debug.Log("current hero:" + currentHero.id);
 		selectedHeroID = currentHero.id;
-
-		RefreshBagUI();
 		OnClickSelectHero();
 	}
 
@@ -142,6 +141,9 @@ public class HeroBag : MonoBehaviour
 
 		GetComponent<BattleDataCalculator>().CalculateBattleData(selectedHeroID);
 		GetComponent<BattleDataCalculator>().ApplyToFightPlayerConfig();
+
+		RefreshBagUI();
+		GetComponent<EquipmentBag>().InitEquipmentBag();
 	}
 
 }
