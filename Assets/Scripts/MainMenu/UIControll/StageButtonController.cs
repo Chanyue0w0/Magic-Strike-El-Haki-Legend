@@ -9,8 +9,8 @@ public class StageButtonController : MonoBehaviour
 	[SerializeField] private GameObject stagePanel;
 	[SerializeField] private Text chapterText;
 
-	private string selectedChapter;
-	private string selectedLevel;
+	private int selectedChapter;
+	private int selectedLevel;
 
 	private void Start()
 	{
@@ -101,18 +101,30 @@ public class StageButtonController : MonoBehaviour
 			return;
 		}
 
-		selectedChapter = $"Chapter_{match.Groups[1].Value}";
-		selectedLevel = $"Level_{match.Groups[2].Value}";
+		// 將匹配到的章節與關卡字串轉換成整數
+		if (!int.TryParse(match.Groups[1].Value, out selectedChapter))
+		{
+			Debug.LogError("無法解析章節數: " + match.Groups[1].Value);
+			return;
+		}
+		if (!int.TryParse(match.Groups[2].Value, out selectedLevel))
+		{
+			Debug.LogError("無法解析關卡數: " + match.Groups[2].Value);
+			return;
+		}
 
-		chapterText.text = $"{match.Groups[1].Value} - {match.Groups[2].Value}";
+		// 更新介面文字顯示
+		chapterText.text = $"{selectedChapter} - {selectedLevel}";
 
 		ApplySelectedStageToConfig();
 		stagePanel.SetActive(false);
 	}
 
+
 	public void ApplySelectedStageToConfig()
 	{
-		FightStageConfig.ChapterNumber = selectedChapter;
-		FightStageConfig.LevelsNumber = selectedLevel;
+		FightPlayer1Config.CurrentChapter = selectedChapter;
+		FightPlayer1Config.CurrentLevel = selectedLevel;
+		//FightPlayer1Config.isFirstTimeEnter = true;
 	}
 }
