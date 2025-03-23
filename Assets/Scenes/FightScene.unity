@@ -8761,7 +8761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nowTime: 0
-  maxTime: 10
+  maxTime: 180
   timeText: {fileID: 1256130288}
   player1Status: {fileID: 1492323271}
   player2Status: {fileID: 731934239}

@@ -49,7 +49,7 @@ public class HealthBar : MonoBehaviour
 
 		if (playerNumber == UserPosition.player1)
         {
-			if (currentHealth < maxHealth * 0.3f && !warningEffect.activeSelf)
+			if ((currentHealth < maxHealth * 0.3f && !warningEffect.activeSelf) || RoundController.Instance.nowTime <= 10)
 			{
 				warningEffect.SetActive(true);
 			}

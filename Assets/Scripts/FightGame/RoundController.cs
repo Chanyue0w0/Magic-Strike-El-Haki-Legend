@@ -17,7 +17,7 @@ public class RoundController : MonoBehaviour
 
 
 	[Header("----------------- Time Counting Down------------------")]
-	[SerializeField] private float nowTime = 180;
+	[SerializeField] public float nowTime = 180;
 	[SerializeField] private float maxTime = 180;
 	[SerializeField] private Text timeText;
 
