@@ -53,14 +53,14 @@
     "Level_2": [
       {
         "StageNumber": "1",
-        "BackGroundImage": "Dense Forest(Background)",
-        "FieldImage": "Dense Forest(Field2)",
+        "BackGroundImage": "Wilderness village(Background)",
+        "FieldImage": "Wilderness village(Field3)",
         "BGM": "battle_theme_1",
         "AI_level": 1.0,
         "StartHP": 700,
         "StartATK": 100,
         "Player2Skin": "WindmillSlime",
-        "Player2PuckSkin": "Chapter2SlimePuck",
+        "Player2PuckSkin": "Chapter1SlimePuck",
         "player2_Group": [ "MS03", "MS03", "MS03" ]
       }
     ]
@@ -73,9 +73,37 @@
         "FieldImage": "Dense Forest(Field2)",
         "BGM": "battle_theme_1",
         "AI_level": 1.0,
-        "StartHP": 1000,
+        "StartHP": 300,
         "StartATK": 100,
-        "Player2Skin": "WindmillSlime",
+        "Player2Skin": "PoisonFlowerSlime",
+        "Player2PuckSkin": "Chapter2SlimePuck",
+        "player2_Group": [ "MS03", "MS03", "MS03" ]
+      }
+    ],
+    "Level_2": [
+      {
+        "StageNumber": "1",
+        "BackGroundImage": "Dense Forest(Background)",
+        "FieldImage": "Dense Forest(Field2)",
+        "BGM": "battle_theme_1",
+        "AI_level": 1.0,
+        "StartHP": 300,
+        "StartATK": 100,
+        "Player2Skin": "VineSlime",
+        "Player2PuckSkin": "Chapter2SlimePuck",
+        "player2_Group": [ "MS03", "MS03", "MS03" ]
+      }
+    ],
+    "Level_3": [
+      {
+        "StageNumber": "1",
+        "BackGroundImage": "Dense Forest(Background)",
+        "FieldImage": "Dense Forest(Field2)",
+        "BGM": "battle_theme_1",
+        "AI_level": 1.0,
+        "StartHP": 300,
+        "StartATK": 100,
+        "Player2Skin": "FairySlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [ "MS03", "MS03", "MS03" ]
       }
