@@ -256,16 +256,19 @@ public class RoundController : MonoBehaviour
 		P1HSBackGround.sprite = Resources.Load<Sprite>("Arts/FightScene/UI/Magic Panel ver2/" + FightPlayer2Config.HSBackGroundImage);
 		P2HSBackGround.sprite = Resources.Load<Sprite>("Arts/FightScene/UI/Magic Panel ver2/" + FightPlayer2Config.HSBackGroundImage);
 
-		player1Status.InitStatus();
-		player2Status.InitStatus();
-
-		if(levelIsChanged || FightPlayer1Config.isFirstTimeEnter)//有換關卡才要重設置音樂 & 重製魔力值
+		if (levelIsChanged || FightPlayer1Config.isFirstTimeEnter)//有換關卡才要重設置音樂 & 重製魔力值
 		{
 			//MagicPointsManager.Instance.InitialMagicPointsManager();
 			levelIsChanged = false; //暫時仍無法持續播放
 			FightPlayer1Config.isFirstTimeEnter = false;
 			FightPlayer1Config.NowMagicPoint = 0;
+			FightPlayer1Config.NowHP = FightPlayer1Config.StartHP;
 		}
+
+		player1Status.InitStatus();
+		player2Status.InitStatus();
+
+		
 		if (FightPlayer2Config.BGM == "battle_theme_1")
 		{
 			AudioManager.Instance.PlayBGM(MusicAudioClips.Instance.BasicBattleBGM);
