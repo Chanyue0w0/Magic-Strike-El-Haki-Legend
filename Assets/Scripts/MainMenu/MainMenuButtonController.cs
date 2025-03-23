@@ -41,7 +41,7 @@ public class MainMenuButtonController : MonoBehaviour
 		panels[3] = equipmentPanel;
 		panels[4] = adventurePanel;
 		panels[5] = rankPanel;
-		OnClickCloseInfoPanels();
+		OnClickCloseInfoPanel();
 	}
 
     // Update is called once per frame
@@ -70,7 +70,7 @@ public class MainMenuButtonController : MonoBehaviour
 		panel.SetActive(true);
 	}
 
-	public void OnClickCloseInfoPanels()
+	public void OnClickCloseInfoPanel()
 	{
 		foreach(var panel in infoPanels)
 		{
@@ -82,7 +82,6 @@ public class MainMenuButtonController : MonoBehaviour
 	{
 		panel?.SetActive(false);
 	}
-
 	public void OnClickChapterPanel(bool isOpen)
 	{
 		chapterPanel.SetActive(isOpen);
