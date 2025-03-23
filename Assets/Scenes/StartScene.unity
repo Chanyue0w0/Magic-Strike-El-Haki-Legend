@@ -317,7 +317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4e78a5cded895c4429f95ffab6c1abee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee9474dae826ef049991a727de38cffa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -536,7 +536,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingSceneController: {fileID: 955007339}
-  loadingPanel: {fileID: 1983079016}
 --- !u!1 &829316896
 GameObject:
   m_ObjectHideFlags: 0
