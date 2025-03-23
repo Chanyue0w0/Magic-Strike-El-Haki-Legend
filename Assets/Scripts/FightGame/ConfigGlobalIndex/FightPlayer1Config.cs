@@ -5,7 +5,7 @@
 public static class FightPlayer1Config
 {
 	public static int CurrentChapter = 1;
-	public static int CurrentLevel = 2;
+	public static int CurrentLevel = 1;
 	public static int CurrentStage = 1;
 
 	public static string[] Group = { "HR00", "SK00", "SK01" };
@@ -27,4 +27,5 @@ public static class FightPlayer1Config
 
 	public static float ShieldPercentage = 0.0f;//減傷比例，戰鬥中才會取得
 	public static bool instSkillP1 = true;//P1生成技能開啟
+	public static bool isFirstTimeEnter = true;
 }

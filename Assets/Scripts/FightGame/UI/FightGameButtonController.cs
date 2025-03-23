@@ -40,6 +40,7 @@ public class FightGameButtonController : MonoBehaviour
 
     public void OnClickExit()
     {
+        Destroy(AudioManager.Instance.gameObject);
         SceneManager.LoadSceneAsync("MainMenuScene");
     }
 

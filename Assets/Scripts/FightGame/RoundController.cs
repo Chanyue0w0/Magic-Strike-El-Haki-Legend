@@ -31,6 +31,8 @@ public class RoundController : MonoBehaviour
 	[SerializeField] private int currentChapterIndex = 0; // 當前章節索引
 	[SerializeField] private int currentLevelIndex = 0; // 當前關卡索引
 	[SerializeField] private int currentStageIndex = 0; // 當前戰鬥索引
+	[SerializeField] private bool levelIsChanged = false;//是否是不同關卡 
+	//[SerializeField] private bool isFirstTimeEnter = true;// 第一次進入關卡預設為true
 
 	[Header("----------------- Stage Data Count ------------------")]
 	[SerializeField] private int totalChapters; // 總章節數
@@ -193,6 +195,13 @@ public class RoundController : MonoBehaviour
 			}
 		}
 
+		if (currentLevelIndex != FightPlayer1Config.CurrentLevel 
+			|| currentChapterIndex != FightPlayer1Config.CurrentChapter)//若換關卡了
+        {
+			levelIsChanged = true;
+
+		}
+
 		FightPlayer1Config.CurrentStage = currentStageIndex;
 		FightPlayer1Config.CurrentLevel = currentLevelIndex;
 		FightPlayer1Config.CurrentChapter= currentChapterIndex;
@@ -238,13 +247,21 @@ public class RoundController : MonoBehaviour
 
 		player1Status.InitStatus();
 		player2Status.InitStatus();
-		if(FightStageConfig.BGM == "BasicBattleBGM")
-		{
-			AudioManager.Instance.PlayBGM(MusicAudioClips.Instance.BasicBattleBGM);
+
+		if(levelIsChanged || FightPlayer1Config.isFirstTimeEnter)//有換關卡才要重設置音樂 & 重製魔力值
+        {
+
+			if (FightStageConfig.BGM == "BasicBattleBGM")
+			{
+				AudioManager.Instance.PlayBGM(MusicAudioClips.Instance.BasicBattleBGM);
+			}
+			MagicPointsManager.Instance.InitialMagicPointsManager();
+			//levelIsChanged = false; //暫時仍無法持續播放
+			FightPlayer1Config.isFirstTimeEnter = false;
 		}
+		
 
 		SkillManager.Instance.InitialSkillManager();
-		MagicPointsManager.Instance.InitialMagicPointsManager();
 
 	}
 
