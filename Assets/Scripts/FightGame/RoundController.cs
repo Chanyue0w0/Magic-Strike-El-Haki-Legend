@@ -49,6 +49,8 @@ public class RoundController : MonoBehaviour
 	[Header("----------------- HeadStickers ------------------")]
 	[SerializeField] private Image PlayerHeadSticker;
 	[SerializeField] private Image SlimeHeadSticker;
+	[SerializeField] private Image P1HSBackGround;
+	[SerializeField] private Image P2HSBackGround;
 
 
 	private void Awake()
@@ -219,6 +221,7 @@ public class RoundController : MonoBehaviour
 			FightPlayer2Config.PuckSkin = currentStage.Player2PuckSkin;
 			FightPlayer2Config.BackGroundImage = currentStage.BackGroundImage;
 			FightPlayer2Config.FieldImage = currentStage.FieldImage;
+			FightPlayer2Config.HSBackGroundImage = currentStage.FieldHSBackGroundImage;
 			FightPlayer2Config.BGM = currentStage.BGM;
 
 			Debug.Log("Stage Loaded: " + currentStage.StageNumber);
@@ -229,6 +232,9 @@ public class RoundController : MonoBehaviour
 		BackGroundSprite.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/" + FightPlayer2Config.BackGroundImage);
 		PlayerHeadSticker.sprite = Resources.Load<Sprite>("Arts/FightScene/HeadStickers/" + FightPlayer1Config.PlayerSkin);
 		SlimeHeadSticker.sprite = Resources.Load<Sprite>("Arts/FightScene/HeadStickers/" + FightPlayer2Config.PlayerSkin);
+
+		P1HSBackGround.sprite = Resources.Load<Sprite>("Arts/FightScene/UI/Magic Panel ver2/" + FightPlayer2Config.HSBackGroundImage);
+		P2HSBackGround.sprite = Resources.Load<Sprite>("Arts/FightScene/UI/Magic Panel ver2/" + FightPlayer2Config.HSBackGroundImage);
 
 		player1Status.InitStatus();
 		player2Status.InitStatus();

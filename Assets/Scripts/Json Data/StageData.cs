@@ -9,6 +9,7 @@ public class StageDataEntry
     public string StageNumber;
     public string BackGroundImage;
     public string FieldImage;
+    public string FieldHSBackGroundImage;
     public string BGM;
     public float AI_level;
     public int StartHP;

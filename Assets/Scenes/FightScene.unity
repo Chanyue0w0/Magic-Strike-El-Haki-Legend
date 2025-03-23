@@ -13628,6 +13628,8 @@ MonoBehaviour:
   canInstFountain: 1
   PlayerHeadSticker: {fileID: 204187546}
   SlimeHeadSticker: {fileID: 1877095631}
+  P1HSBackGround: {fileID: 1917840591}
+  P2HSBackGround: {fileID: 119807910}
 --- !u!114 &1082590086
 MonoBehaviour:
   m_ObjectHideFlags: 0

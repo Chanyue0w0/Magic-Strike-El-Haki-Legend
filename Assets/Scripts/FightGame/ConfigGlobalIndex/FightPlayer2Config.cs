@@ -15,6 +15,7 @@ public static class FightPlayer2Config
 	public static string PuckSkin = "Chapter1SlimePuck";
 	public static string BackGroundImage = "Wilderness village(Background)";
 	public static string FieldImage = "Wilderness village(Field3)";
+	public static string HSBackGroundImage = "Chapter1HSBackGround";
 	public static string BGM = "battle_theme_1";
 
 
