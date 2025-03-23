@@ -10,9 +10,13 @@ public class TopStickBarUIControll : MonoBehaviour
 
 	private void Start()
 	{
-		UpdateUI();
 	}
 
+
+	private void Update()
+	{
+		UpdateUI();
+	}
 	// 更新 UI 內容
 	public void UpdateUI()
 	{

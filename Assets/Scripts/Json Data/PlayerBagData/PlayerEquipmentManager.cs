@@ -76,8 +76,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 		//CreateEquipmentFromData("HT00");
 		//CreateEquipmentFromData("HT00");
 		//CreateEquipmentFromData("BD00");
-		//CreateEquipmentFromData("SH00");
-		//CreateEquipmentFromData("SH00");
+		//CreateEquipmentFromData("BD00");
 		//CreateEquipmentFromData("SH00");
 		//CreateEquipmentFromData("SH00");
 

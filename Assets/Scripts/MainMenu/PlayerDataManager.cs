@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerDataManager : MonoBehaviour
 {
+	[SerializeField] private bool resetPlayerData = false;
 	private const string PLAYER_NAME_KEY = "PlayerName";
 	private const string PLAYER_LEVEL_KEY = "PlayerLevel";
 	private const string PLAYER_EXP_KEY = "PlayerExp";
@@ -9,6 +10,9 @@ public class PlayerDataManager : MonoBehaviour
 	private const string PLAYER_COIN_KEY = "PlayerCoin";
 	private const string PLAYER_ENERGY_KEY = "PlayerEnergy";
 	private const string PLAYER_MAX_ENERGY_KEY = "PlayerMaxEnergy";
+	// 新增玩家目前的 Chapter 與 Level
+	private const string PLAYER_CHAPTER_KEY = "PlayerChapter";
+	private const string PLAYER_CURRENT_LEVEL_KEY = "PlayerCurrentLevel";
 
 	public static PlayerDataManager Instance { get; private set; }
 
@@ -23,6 +27,7 @@ public class PlayerDataManager : MonoBehaviour
 		Instance = this;
 
 		LoadPlayerData();
+		if(resetPlayerData) ResetPlayerData();
 	}
 
 	// 讀取玩家資料，若無則設定預設值
@@ -33,10 +38,13 @@ public class PlayerDataManager : MonoBehaviour
 			PlayerPrefs.SetString(PLAYER_NAME_KEY, "chenyue");
 			PlayerPrefs.SetInt(PLAYER_LEVEL_KEY, 1);
 			PlayerPrefs.SetInt(PLAYER_EXP_KEY, 0);
-			PlayerPrefs.SetInt(PLAYER_GEM_KEY, 100);
-			PlayerPrefs.SetInt(PLAYER_COIN_KEY, 100);
+			PlayerPrefs.SetInt(PLAYER_GEM_KEY, 1000);
+			PlayerPrefs.SetInt(PLAYER_COIN_KEY, 5000);
 			PlayerPrefs.SetInt(PLAYER_ENERGY_KEY, 35);
 			PlayerPrefs.SetInt(PLAYER_MAX_ENERGY_KEY, 35);
+			// 設定 Chapter 與 Level 預設值 (皆為 1)
+			PlayerPrefs.SetInt(PLAYER_CHAPTER_KEY, 1);
+			PlayerPrefs.SetInt(PLAYER_CURRENT_LEVEL_KEY, 1);
 			PlayerPrefs.Save();
 		}
 	}
@@ -117,6 +125,26 @@ public class PlayerDataManager : MonoBehaviour
 			SetPlayerEnergy(maxEnergy);
 		}
 
+		PlayerPrefs.Save();
+	}
+
+	// 取得玩家目前的 Chapter
+	public int GetPlayerChapter() => PlayerPrefs.GetInt(PLAYER_CHAPTER_KEY);
+
+	// 設定玩家目前的 Chapter
+	public void SetPlayerChapter(int chapter)
+	{
+		PlayerPrefs.SetInt(PLAYER_CHAPTER_KEY, chapter);
+		PlayerPrefs.Save();
+	}
+
+	// 取得玩家目前的 Level (遊戲中的關卡等級)
+	public int GetPlayerCurrentLevel() => PlayerPrefs.GetInt(PLAYER_CURRENT_LEVEL_KEY);
+
+	// 設定玩家目前的 Level
+	public void SetPlayerCurrentLevel(int level)
+	{
+		PlayerPrefs.SetInt(PLAYER_CURRENT_LEVEL_KEY, level);
 		PlayerPrefs.Save();
 	}
 
