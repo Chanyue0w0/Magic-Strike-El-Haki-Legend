@@ -10,7 +10,7 @@
         "StartHP": 300,
         "StartATK": 100,
         "Player2Skin": "OriginSlime",
-        "Player2PuckSkin": "Chapter1SlimePuck3",
+        "Player2PuckSkin": "Chapter1SlimePuck",
         "player2_Group": [ "MS00", "MS00", "MS00" ]
       },
       {
@@ -22,7 +22,7 @@
         "StartHP": 300,
         "StartATK": 100,
         "Player2Skin": "GrassSlime",
-        "Player2PuckSkin": "Chapter1SlimePuck3",
+        "Player2PuckSkin": "Chapter1SlimePuck",
         "player2_Group": [ "MS01", "MS01", "MS01" ]
       },
       {
@@ -34,7 +34,7 @@
         "StartHP": 300,
         "StartATK": 100,
         "Player2Skin": "WoodBarrelSlime",
-        "Player2PuckSkin": "Chapter1SlimePuck3",
+        "Player2PuckSkin": "Chapter1SlimePuck",
         "player2_Group": [ "MS02", "MS02", "MS02" ]
       },
       {
@@ -46,7 +46,7 @@
         "StartHP": 300,
         "StartATK": 100,
         "Player2Skin": "WindmillSlime",
-        "Player2PuckSkin": "Chapter1SlimePuck3",
+        "Player2PuckSkin": "Chapter1SlimePuck",
         "player2_Group": [ "MS03", "MS03", "MS03" ]
       }
     ],
@@ -60,7 +60,7 @@
         "StartHP": 700,
         "StartATK": 100,
         "Player2Skin": "WindmillSlime",
-        "Player2PuckSkin": "Chapter1SlimePuck3",
+        "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [ "MS03", "MS03", "MS03" ]
       }
     ]
@@ -76,7 +76,7 @@
         "StartHP": 1000,
         "StartATK": 100,
         "Player2Skin": "WindmillSlime",
-        "Player2PuckSkin": "Chapter1SlimePuck3",
+        "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [ "MS03", "MS03", "MS03" ]
       }
     ]

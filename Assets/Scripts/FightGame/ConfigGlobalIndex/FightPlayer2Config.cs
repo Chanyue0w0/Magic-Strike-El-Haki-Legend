@@ -12,7 +12,7 @@ public static class FightPlayer2Config
 	public static bool instSkillP2 = false;//P2生成技能開啟
 
 	public static string PlayerSkin = "OriginSlime";
-	public static string PuckSkin = "Chapter1SlimePuck3";
+	public static string PuckSkin = "Chapter1SlimePuck";
 	public static string BackGroundImage = "Wilderness village(Background)";
 	public static string FieldImage = "Wilderness village(Field3)";
 	public static string BGM = "battle_theme_1";

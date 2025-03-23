@@ -13610,7 +13610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f4300c785358f74793bb06d2f57d6b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStatus: Continues
   player1Status: {fileID: 1492323271}
   player2Status: {fileID: 731934239}
   gameOverPanel: {fileID: 339735532}
@@ -15167,12 +15166,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 1e708da84a7227242894c76cecbf933d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d7525bf7bf200045b291a9bf128646c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8, y: 8}
+  m_Size: {x: 20, y: 20}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
