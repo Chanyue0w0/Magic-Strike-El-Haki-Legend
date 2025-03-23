@@ -12,6 +12,7 @@ public class PlayerStatusManager : MonoBehaviour
     [SerializeField] private int attackDamage;
     //[SerializeField] private int currentMagicPoint;
     [SerializeField] private bool isBurning = false; // 是否正在燃燒
+    [SerializeField] private bool isPoisoning = false; // 是否正在中毒
     [SerializeField] private bool isAlive = true; // 是否活著
 
     [Header("----------------- Config Setting ------------------")]
@@ -188,9 +189,26 @@ public class PlayerStatusManager : MonoBehaviour
         {
             StartCoroutine(BurnEffect()); // 在這裡觸發燃燒效果
         }
+        else if (effect == StatusEffect.Poison && !isPoisoning)
+        {
+            StartCoroutine(PoisonEffect()); // 在這裡觸發燃燒效果
+        }
 
     }
 
+    private IEnumerator PoisonEffect()//中毒效果
+    {
+        isPoisoning = true;
+        for (int i = 0; i < 5; i++) // 中毒 5 秒，每秒扣 70 點血
+        {
+            int burnDamage = Mathf.RoundToInt(70);
+            GetDamage(burnDamage);
+            player_skin.color = new Color(0.69f, 0, 1, 1);
+            yield return new WaitForSeconds(1);
+        }
+        isPoisoning = false;
+        player_skin.color = new Color(1, 1, 1, 1);
+    }
 
     private IEnumerator BurnEffect()//燃燒效果
     {
