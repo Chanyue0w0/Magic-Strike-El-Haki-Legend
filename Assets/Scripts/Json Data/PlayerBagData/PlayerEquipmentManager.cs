@@ -169,6 +169,14 @@ public class PlayerEquipmentManager : MonoBehaviour
 			equipmentList = new List<PlayerEquipment>();
 			Debug.LogWarning("Equipment save file not found!");
 			SaveEquipment();
+			CreateEquipmentFromData("HT00");
+			CreateEquipmentFromData("HT00");
+			CreateEquipmentFromData("HT00");
+			CreateEquipmentFromData("BD00");
+			CreateEquipmentFromData("BD00");
+			CreateEquipmentFromData("SH00");
+			CreateEquipmentFromData("SH00");
+			SaveEquipment();
 		}
 		else
 		{
