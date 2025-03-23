@@ -41,7 +41,7 @@ public class StageData : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         LoadStageData();
     }
 

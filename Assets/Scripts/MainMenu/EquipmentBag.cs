@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,6 +42,7 @@ public class EquipmentBag : MonoBehaviour
 
 
 	[Header("Script")]
+	[SerializeField] private BattleDataCalculator battleDataCalculator;
 	[SerializeField] private HeroBag heroBag;
 	private PlayerEquipmentManager.PlayerEquipment currentEquipment;
 	private PlayerHeroManager.PlayerHero currentHero;
@@ -53,6 +53,9 @@ public class EquipmentBag : MonoBehaviour
 	{
 		currentHeroIndex = 0;
 		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(0);
+		OnClickChangeCurrentHero(1);
+		OnClickChangeCurrentHero(-1);
+
 		RefreshBagUI();
 	}
 
@@ -94,14 +97,6 @@ public class EquipmentBag : MonoBehaviour
 
 	public void OnClickUseEquipment()
 	{
-		// cancel equip
-		if (currentEquipment.equippedByHero != "None")
-		{
-			CancelUseEquipment(currentEquipment);
-			return;
-		}
-
-
 		// Determine equipment type and assign it to the correct slot
 		int slotIndex = -1;
 		switch (currentEquipment.equipmentType)
@@ -122,38 +117,38 @@ public class EquipmentBag : MonoBehaviour
 			Debug.LogWarning("Invalid equipment type: " + currentEquipment.equipmentType);
 			return;
 		}
+
+		// cancel equipment
+		if (currentEquipment.equippedByHero != "None")
+		{
+			CancelUseEquipment(currentEquipment, slotIndex);
+
+			RefreshEquipmentInfo();
+			RefreshCurrentHeroInfo();
+			return;
+		}
+
 		// use
-		CancelUseEquipment(PlayerEquipmentManager.Instance.GetEquipmentByID(currentHero.equippedItems[slotIndex]));
+		// cancle origin eq on hero
+		CancelUseEquipment(PlayerEquipmentManager.Instance.GetEquipmentByID(currentHero.equippedItems[slotIndex]), slotIndex);
+		
 		currentEquipment.equippedByHero = currentHero.id;
 		PlayerEquipmentManager.Instance.UpdateEquipment(currentEquipment);
 
 		currentHero.equippedItems[slotIndex] = currentEquipment.id;
 		PlayerHeroManager.Instance.UpdateHero(currentHero);
+
 		Debug.Log("update hero: " + currentHero.name);
 		RefreshEquipmentInfo();
 		RefreshCurrentHeroInfo();
 	}
 
-	private void CancelUseEquipment(PlayerEquipmentManager.PlayerEquipment eq)
+	private void CancelUseEquipment(PlayerEquipmentManager.PlayerEquipment eq, int slotIndex)
 	{
 		if (eq == null || eq.equippedByHero == "None") return;
 
 		PlayerHeroManager.PlayerHero eqHero = PlayerHeroManager.Instance.GetHeroByID(eq.equippedByHero);
 
-		// Determine equipment type and assign it to the correct slot
-		int slotIndex = -1;
-		switch (eq.equipmentType)
-		{
-			case "Head":
-				slotIndex = 0;
-				break;
-			case "Armor":
-				slotIndex = 1;
-				break;
-			case "Shoes":
-				slotIndex = 2;
-				break;
-		}
 
 		if (slotIndex == -1)
 		{
@@ -162,13 +157,10 @@ public class EquipmentBag : MonoBehaviour
 		}
 		eqHero.equippedItems[slotIndex] = "";
 		PlayerHeroManager.Instance.UpdateHero(eqHero);
-
+		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(currentHeroIndex);
 
 		eq.equippedByHero = "None";
 		PlayerEquipmentManager.Instance.UpdateEquipment(eq);
-
-		RefreshEquipmentInfo();
-		RefreshCurrentHeroInfo();
 	}
 
 	public void OnClickChangeCurrentHero(int next)
@@ -200,15 +192,17 @@ public class EquipmentBag : MonoBehaviour
 		skill1Icon.sprite = Resources.Load<Sprite>("SkillIcons/Skill1/" + currentHero.id);
 		skill2Icon.sprite = Resources.Load<Sprite>("SkillIcons/Skill2/" + currentHero.id);
 
-		PlayerEquipmentManager.PlayerEquipment eq = PlayerEquipmentManager.Instance.GetEquipmentByID(currentHero.equippedItems[0]);
-		if (eq != null) headEquipmentIcon.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + eq.name);
+		if (currentHero.equippedItems[0] != "") headEquipmentIcon.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + PlayerEquipmentManager.Instance.GetEquipmentByID(currentHero.equippedItems[0]).name);
 		else headEquipmentIcon.sprite = null;
-		eq = PlayerEquipmentManager.Instance.GetEquipmentByID(currentHero.equippedItems[1]);
-		if (eq != null) bodyEquipmentIcon.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + eq.name);
+		if (currentHero.equippedItems[1] != "") bodyEquipmentIcon.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + PlayerEquipmentManager.Instance.GetEquipmentByID(currentHero.equippedItems[1]).name);
 		else bodyEquipmentIcon.sprite = null;
-		eq = PlayerEquipmentManager.Instance.GetEquipmentByID(currentHero.equippedItems[2]);
-		if (eq != null) shoesEquipmentIcon.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + eq.name);
+		if (currentHero.equippedItems[2] != "") shoesEquipmentIcon.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + PlayerEquipmentManager.Instance.GetEquipmentByID(currentHero.equippedItems[2]).name);
 		else shoesEquipmentIcon.sprite = null;
+
+		battleDataCalculator.CalculateBattleData(currentHero.id);
+		totalATKText.text = battleDataCalculator.totalATK.ToString();
+		totalHPText.text = battleDataCalculator.totalHP.ToString();
+
 	}
 
 	public void RefreshEquipmentInfo()

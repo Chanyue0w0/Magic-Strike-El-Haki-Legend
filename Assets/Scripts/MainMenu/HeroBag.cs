@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using static HeroData;
 
 public class HeroBag : MonoBehaviour
 {
@@ -30,6 +29,8 @@ public class HeroBag : MonoBehaviour
 	void Start()
 	{
 		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(0);
+		selectedHeroID = currentHero.id;
+
 		RefreshBagUI();
 		OnClickSelectHero();
 	}
@@ -72,10 +73,12 @@ public class HeroBag : MonoBehaviour
 			// 若有其他 UI 元件，例如描述、英雄圖示等，也可以在這裡設定
 
 			Image image = slot.GetComponent<Image>();
-			image.sprite = Resources.Load<Sprite>("Arts/HeroImages/HeroIllustrations/" + hero.id);
+			image.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/FieldObjects/" + hero.id);
 			if (!hero.owned)
 			{
+				image.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/FieldObjects/HR00");
 				image.color = new Vector4(0, 0, 0, 0.8f);
+				btn.interactable = false;
 			}
 		}
 	}
@@ -135,6 +138,10 @@ public class HeroBag : MonoBehaviour
 		selectedHeroID = currentHero.id;
 		advanturePanelHeroImage.sprite = Resources.Load<Sprite>("Arts/HeroImages/HeroIllustrations/" + currentHero.id);
 		Debug.Log(advanturePanelHeroImage.sprite);
+
+
+		GetComponent<BattleDataCalculator>().CalculateBattleData(selectedHeroID);
+		GetComponent<BattleDataCalculator>().ApplyToFightPlayerConfig();
 	}
 
 }

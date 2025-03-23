@@ -40,7 +40,7 @@ public class FightGameButtonController : MonoBehaviour
 
     public void OnClickExit()
     {
-        SceneManager.LoadSceneAsync("Main menu");
+        SceneManager.LoadSceneAsync("MainMenuScene");
     }
 
     public void OnClickRestart()

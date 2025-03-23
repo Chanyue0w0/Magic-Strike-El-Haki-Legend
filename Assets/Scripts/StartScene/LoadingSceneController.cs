@@ -1,30 +1,36 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoadingSceneController : MonoBehaviour
 {
+	[SerializeField] GameObject loadPanel;
 	[SerializeField] GameObject loadingImage;
 	[SerializeField] Slider slider;
-	[SerializeField] Text progressText;
+	[SerializeField] TextMeshProUGUI progressText;
 
 
 	[Header("------------- Load Image Sprite ------------------")]
-	[SerializeField] Sprite[] loadingImageSprite;
+	[SerializeField] Sprite[] loadingImageSprites;
 
 	private void Start()
 	{
-		loadingImage.SetActive(false);
+		loadPanel.SetActive(false);
+		if (loadingImage != null) loadingImage.SetActive(false);
 	}
 
 	public void LoadStage(int sceneIndex)
 	{
+		loadPanel.SetActive(true);
 		StartCoroutine(LoadAsunchronously(sceneIndex));
 	}
 
 	public void LoadStage(string sceneName)
 	{
+
+		loadPanel.SetActive(true);
 		StartCoroutine(LoadAsunchronously(sceneName));
 	}
 
@@ -32,16 +38,19 @@ public class LoadingSceneController : MonoBehaviour
 	{
 		AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
-		int randomIndex = Random.Range(0, loadingImageSprite.Length);
-		loadingImage.GetComponent<Image>().sprite = loadingImageSprite[randomIndex];
-		loadingImage.SetActive(true);
+		if (loadingImage != null)
+		{
+			int randomIndex = Random.Range(0, loadingImageSprites.Length);
+			loadingImage.GetComponent<Image>().sprite = loadingImageSprites[randomIndex];
+			loadingImage.SetActive(true);
+		}
 
 
 		while (!operation.isDone)
 		{
 			float progress = Mathf.Clamp01(operation.progress / 0.9f);
 
-			slider.value = progress;
+			if (slider != null) slider.value = progress;
 			progressText.text = progress * 10000 * 1f / 100 + "%";
 			//Debug.Log(progress);
 			yield return null;
@@ -52,17 +61,20 @@ public class LoadingSceneController : MonoBehaviour
 	IEnumerator LoadAsunchronously(string sceneName)
 	{
 		AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
-
-		int randomIndex = Random.Range(0, loadingImageSprite.Length);
-		loadingImage.GetComponent<Image>().sprite = loadingImageSprite[randomIndex];
-		loadingImage.SetActive(true);
+		
+		if (loadingImage != null)
+		{
+			int randomIndex = Random.Range(0, loadingImageSprites.Length);
+			loadingImage.GetComponent<Image>().sprite = loadingImageSprites[randomIndex];
+			loadingImage.SetActive(true);
+		}
 
 
 		while (!operation.isDone)
 		{
 			float progress = Mathf.Clamp01(operation.progress / 0.9f);
 
-			slider.value = progress;
+			if(slider != null) slider.value = progress;
 			progressText.text = progress * 10000 * 1f / 100 + "%";
 			//Debug.Log(progress);
 			yield return null;

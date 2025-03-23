@@ -81,6 +81,7 @@ public class PlayerHeroManager : MonoBehaviour
 		}
 
 		heroList[0].owned = true;
+		SortHeroes();
 		SaveHeroes();
 	}
 
@@ -90,8 +91,8 @@ public class PlayerHeroManager : MonoBehaviour
 			InitJsonFile();
 
 		// Add a new test hero on start
-		PlayerHero newHero = new PlayerHero("Test Hero", "HR99", "Legendary", 1, 300, 2000, 1500, false, 50, "A powerful test hero", new List<string> { "", "", "" });
-		AddHero(newHero);
+		//PlayerHero newHero = new PlayerHero("Test Hero", "HR99", "Legendary", 1, 300, 2000, 1500, false, 50, "A powerful test hero", new List<string> { "", "", "" });
+		//AddHero(newHero);
 	}
 
 	public void AddHero(PlayerHero hero)
@@ -135,7 +136,7 @@ public class PlayerHeroManager : MonoBehaviour
 		JArray json = JArray.FromObject(heroList);
 		string jsonTxt = json.ToString();
 		File.WriteAllText(FilePath(), jsonTxt);
-		Debug.Log("Hero data saved: " + FilePath());
+		//Debug.Log("Hero data saved: " + FilePath());
 	}
 
 	public void UpdateHero(PlayerHero updatedHero)

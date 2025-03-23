@@ -13,7 +13,7 @@ public class RoundController : MonoBehaviour
 
 	[Header("----------------- Value ------------------")]
 	//[SerializeField] private float timeScale = 1f;
-	[SerializeField] private string gameStatus = "Continue";
+	//[SerializeField] private string gameStatus = "Continue";
 
 
 	[Header("----------------- Variable Reference ------------------")]
@@ -247,7 +247,7 @@ public class RoundController : MonoBehaviour
     {
         Time.timeScale = 0;
 
-        gameStatus = "Pause Game";
+        //gameStatus = "Pause Game";
     }
 	private IEnumerator ContinueGameDelayed(float delay)
 	{
@@ -259,7 +259,7 @@ public class RoundController : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        gameStatus = "Continue";
+        //gameStatus = "Continue";
     }
 
 	private void GameOver()
@@ -268,6 +268,6 @@ public class RoundController : MonoBehaviour
 		//PauseGame();
 		gameOverPanel.SetActive(true);
 
-		gameStatus = "gameover";
+		//gameStatus = "gameover";
 	}
 }
