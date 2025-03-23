@@ -16,6 +16,12 @@ public class RoundController : MonoBehaviour
 	//[SerializeField] private string gameStatus = "Continue";
 
 
+	[Header("----------------- Time Counting Down------------------")]
+	[SerializeField] private float nowTime = 180;
+	[SerializeField] private float maxTime = 180;
+	[SerializeField] private Text timeText;
+
+
 	[Header("----------------- Variable Reference ------------------")]
 	[SerializeField] private PlayerStatusManager player1Status;
 	[SerializeField] private PlayerStatusManager player2Status;
@@ -74,6 +80,7 @@ public class RoundController : MonoBehaviour
 	//// Start is called before the first frame update
 	void Start()
 	{
+		nowTime = maxTime;
 		Application.targetFrameRate = 60;
 
 		// 從 StageData 取得總章節、關卡、戰鬥數量
@@ -117,8 +124,10 @@ public class RoundController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		nowTime -= Time.deltaTime;
+		timeText.text = "" + ((int)nowTime);
 		// p1 or p2 hp == 0 end game
-		if (player1Status.GetHP() <= 0)
+		if (player1Status.GetHP() <= 0 || nowTime <= 0)
 		{
 			GameOver();
 			// defeat
@@ -133,6 +142,7 @@ public class RoundController : MonoBehaviour
 			Instantiate(coinFountain, player2.transform.position, Quaternion.Euler(-90,0,0));
 			canInstFountain = false;
 			StartCoroutine(ReloadSceneDelayed(3f));
+			//SetTimeScale(0.5f);
 			PauseGame();
 			StartCoroutine(ContinueGameDelayed(3f));
 		}
@@ -176,6 +186,7 @@ public class RoundController : MonoBehaviour
 	public void NextStage()
 	{
 		FightPlayer1Config.NowHP = player1Status.GetHP();
+		FightPlayer1Config.NowMagicPoint = MagicPointsManager.Instance.GetMagicPoint(1);
 		currentStageIndex++;
 		// 需要檢查是否到了新關卡或新章節
 		StageDataEntry nextStage = StageData.Instance.FindStage(currentChapterIndex, currentLevelIndex, currentStageIndex);
@@ -249,29 +260,32 @@ public class RoundController : MonoBehaviour
 		player2Status.InitStatus();
 
 		if(levelIsChanged || FightPlayer1Config.isFirstTimeEnter)//有換關卡才要重設置音樂 & 重製魔力值
-        {
-
-			if (FightStageConfig.BGM == "BasicBattleBGM")
-			{
-				AudioManager.Instance.PlayBGM(MusicAudioClips.Instance.BasicBattleBGM);
-			}
-			MagicPointsManager.Instance.InitialMagicPointsManager();
-			//levelIsChanged = false; //暫時仍無法持續播放
+		{
+			//MagicPointsManager.Instance.InitialMagicPointsManager();
+			levelIsChanged = false; //暫時仍無法持續播放
 			FightPlayer1Config.isFirstTimeEnter = false;
+			FightPlayer1Config.NowMagicPoint = 0;
 		}
-		
+		if (FightPlayer2Config.BGM == "battle_theme_1")
+		{
+			AudioManager.Instance.PlayBGM(MusicAudioClips.Instance.BasicBattleBGM);
+		}
 
 		SkillManager.Instance.InitialSkillManager();
-
+		MagicPointsManager.Instance.InitialMagicPointsManager();
 	}
 
+	public void SetTimeScale(float tScale)
+    {
+		Time.timeScale = tScale;
+    }
 
 	public void PauseGame()
     {
-        Time.timeScale = 0;
+		SetTimeScale(0);
 
-        //gameStatus = "Pause Game";
-    }
+		//gameStatus = "Pause Game";
+	}
 	private IEnumerator ContinueGameDelayed(float delay)
 	{
 		yield return new WaitForSecondsRealtime(delay);
@@ -280,7 +294,7 @@ public class RoundController : MonoBehaviour
 
 	public void ContinueGame()
     {
-        Time.timeScale = 1f;
+		SetTimeScale(1);
 
         //gameStatus = "Continue";
     }
@@ -291,6 +305,7 @@ public class RoundController : MonoBehaviour
 		//PauseGame();
 		gameOverPanel.SetActive(true);
 
+		PauseGame();
 		//gameStatus = "gameover";
 	}
 }

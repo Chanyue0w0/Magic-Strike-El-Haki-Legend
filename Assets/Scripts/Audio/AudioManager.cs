@@ -25,12 +25,12 @@ public class AudioManager : MonoBehaviour
 		if (Instance != null && Instance != this)
 		{
 			Debug.Log("Found more than one Audio Manager in the scene, destroying the new one");
-			Destroy(gameObject);
+			//Destroy(gameObject);
 			return;
 		}
 
 		Instance = this;
-		DontDestroyOnLoad(gameObject);
+		//DontDestroyOnLoad(gameObject);
 
 
 		if (PlayerPrefs.HasKey("MasterVolume")) masterVolume = PlayerPrefs.GetFloat("MasterVolume");
@@ -50,7 +50,7 @@ public class AudioManager : MonoBehaviour
 	// ¼½©ñ­I´º­µ¼Ö
 	public void PlayBGM(AudioClip bgm)
 	{
-		if (musicSource.clip != bgm && musicSource.isPlaying)
+		if (musicSource.clip != bgm) //&& musicSource.isPlaying
 		{
 			musicSource.clip = bgm;
 			musicSource.loop = true;

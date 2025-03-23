@@ -55,6 +55,7 @@ public class MagicPointsManager : MonoBehaviour
 
     public void InitialMagicPointsManager()
     {
+
         // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
         PlayerNotification notification1 = player1.GetComponent<PlayerNotification>();
         RegisterPlayerNotification(notification1);//訂閱通知
@@ -62,7 +63,7 @@ public class MagicPointsManager : MonoBehaviour
         PlayerNotification notification2 = player2.GetComponent<PlayerNotification>();
         RegisterPlayerNotification(notification2);//訂閱通知
 
-        SetMagicPoint(1, 0);
+        SetMagicPoint(1, FightPlayer1Config.NowMagicPoint);
         SetMagicPoint(2, 0);
 
         originalCameraSize = mainCamera.orthographicSize;
@@ -91,6 +92,7 @@ public class MagicPointsManager : MonoBehaviour
             lastClickTime = Time.time; // 更新上次點擊時間
         }
     }
+
 
     public void RegisterPlayerNotification(PlayerNotification playerNotification)
     {
