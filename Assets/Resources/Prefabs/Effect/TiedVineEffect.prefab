@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5917607448679740640}
   - component: {fileID: 1004097478660412575}
   - component: {fileID: 1287643037312627626}
+  - component: {fileID: 530121854963206161}
   m_Layer: 0
   m_Name: TiedVineEffect
   m_TagString: Untagged
@@ -99,3 +100,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dTime: 3
   unscaleDestroy: 0
+--- !u!95 &530121854963206161
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7419748900266850002}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2ec8653f1444a444fbf05e2a4c354777, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
