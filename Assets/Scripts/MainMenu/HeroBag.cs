@@ -51,8 +51,10 @@ public class HeroBag : MonoBehaviour
 		List<PlayerHeroManager.PlayerHero> heroList = PlayerHeroManager.Instance.GetAllHeroData();
 
 		// 為每個英雄生成一個 UI 槽
-		foreach (var hero in heroList)
+		for (int i = heroList.Count-1; i >= 0; i--)
 		{
+			var hero = heroList[i];
+
 			GameObject slot = Instantiate(heroSlotPrefab, heroSlotContainer);
 
 			slot.name = hero.id;

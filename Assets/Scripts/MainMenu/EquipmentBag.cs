@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,25 +16,20 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private GameObject equipmentInfoPanel;
 	[SerializeField] private GameObject equipmentSlotPrefab;
 	[SerializeField] private Transform equipmentSlotContainer;
+	[SerializeField] private List<Sprite> useButtonSprite;
 
 	[Header("-------------------- Equipment Info GUI -------------------- ")]
 	[SerializeField] private TextMeshProUGUI equipmentNameText;
-	[SerializeField] private Image equipmentImage;
-	[SerializeField] private TextMeshProUGUI equipmentDescribe;
-	[SerializeField] private TextMeshProUGUI useButtonText;
+	[SerializeField] private List<Image> equipmentImages;
+	[SerializeField] private List<TextMeshProUGUI> levelTexts;
 	[SerializeField] private TextMeshProUGUI HPText;
 	[SerializeField] private TextMeshProUGUI ATKText;
-	[SerializeField] private TextMeshProUGUI levelText;
 	[SerializeField] private TextMeshProUGUI equipmentTypeText;
-	[SerializeField] private TextMeshProUGUI buff1Text;
-	[SerializeField] private TextMeshProUGUI buff2Text;
-	[SerializeField] private TextMeshProUGUI buff3Text;
-	[SerializeField] private TextMeshProUGUI buff4Text;
-	[SerializeField] private Image equipmentIcon;
-	[SerializeField] private Image buff1LockIcon;
-	[SerializeField] private Image buff2LockIcon;
-	[SerializeField] private Image buff3LockIcon;
-	[SerializeField] private Image buff4LockIcon;
+	[SerializeField] private List<TextMeshProUGUI> buffTexts;
+	[SerializeField] private List<Image> buffLockIcons;
+	[SerializeField] private Image useButtonImage;
+	[SerializeField] private Image bgRarity;
+
 	// 顯示升級所需花費與目前玩家金幣資訊
 	[SerializeField] private TextMeshProUGUI costCoin;
 
@@ -48,10 +44,6 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private GameObject shoesEquipmentIcon;
 	[SerializeField] private TextMeshProUGUI totalATKText;
 	[SerializeField] private TextMeshProUGUI totalHPText;
-
-	[SerializeField] private Button headEquipmentButton;
-	[SerializeField] private Button bodyEquipmentButton;
-	[SerializeField] private Button shoesEquipmentButton;
 
 	[Header("Scripts")]
 	[SerializeField] private BattleDataCalculator battleDataCalculator;
@@ -121,57 +113,39 @@ public class EquipmentBag : MonoBehaviour
 		if (currentEquipment == null)
 			return;
 
-		// 更新裝備基本資訊
 		equipmentNameText.text = currentEquipment.name;
-		//equipmentDescribe.text = currentEquipment.description;
 		HPText.text = currentEquipment.healthPoints.ToString();
 		ATKText.text = currentEquipment.attackPower.ToString();
-		levelText.text = "Lv. " + currentEquipment.currentLevel + "/30";
 		equipmentTypeText.text = currentEquipment.equipmentType;
-		equipmentIcon.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + currentEquipment.name);
 
-		// 根據裝備是否已被英雄裝備更新使用按鈕文字（使用或卸下）
-		//if (currentEquipment.equippedByHero != "None")
-		//	useButtonText.text = "卸下裝備";
-		//else
-		//	useButtonText.text = "使用裝備";
-
-		// 顯示裝備的 buff 資訊（依序顯示前四個 buff）
-		List<string> buffKeys = new List<string>(currentEquipment.buffs.Keys);
-		buff1Text.text = buffKeys.Count > 0 ? buffKeys[0] + ": " + currentEquipment.buffs[buffKeys[0]] : "";
-		buff2Text.text = buffKeys.Count > 1 ? buffKeys[1] + ": " + currentEquipment.buffs[buffKeys[1]] : "";
-		buff3Text.text = buffKeys.Count > 2 ? buffKeys[2] + ": " + currentEquipment.buffs[buffKeys[2]] : "";
-		buff4Text.text = buffKeys.Count > 3 ? buffKeys[3] + ": " + currentEquipment.buffs[buffKeys[3]] : "";
-
-		// 更新 buff 鎖/解鎖圖示：依照裝備稀有度決定可解鎖的 buff 數量
-		int unlockedBuffCount = GetUnlockedBuffCount(currentEquipment.rarity);
-		for (int i = 0; i < 4; i++)
+		foreach (var image in equipmentImages)
 		{
-			Image icon = null;
-			switch (i)
-			{
-				case 0:
-					icon = buff1LockIcon;
-					break;
-				case 1:
-					icon = buff2LockIcon;
-					break;
-				case 2:
-					icon = buff3LockIcon;
-					break;
-				case 3:
-					icon = buff4LockIcon;
-					break;
-			}
-			if (icon != null)
-			{
-				// 若該 buff 編號小於解鎖數量，則顯示解鎖狀態，否則顯示鎖定狀態
-				string spritePath = (i < unlockedBuffCount) ? ("Arts/MainScenes/dots/" + (i + 1)) : ("Arts/MainScenes/locks/" + (i + 1));
-				icon.sprite = Resources.Load<Sprite>(spritePath);
-			}
+			image.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + currentEquipment.name);
+		}
+		foreach (var tmp in levelTexts)
+		{
+			tmp.text = "Lv. " + currentEquipment.currentLevel + "/30";
 		}
 
-		// 更新升級所需花費與目前金幣資訊
+
+		// 使用 buffTexts 來設定 buff 資訊
+		List<string> buffKeys = new List<string>(currentEquipment.buffs.Keys);
+		for (int i = 0; i < buffTexts.Count; i++)
+		{
+			buffTexts[i].text = i < buffKeys.Count ? buffKeys[i] + ": " + currentEquipment.buffs[buffKeys[i]] : "";
+		}
+
+		// 使用 buffLockIcons 來設定 buff 鎖定狀態
+		int unlockedBuffCount = GetEquipmentRarity(currentEquipment.rarity);
+		for (int i = 0; i < buffLockIcons.Count; i++)
+		{
+			string spritePath = (i < unlockedBuffCount) ? ("Arts/MainScenes/dots/" + (i + 1)) : ("Arts/MainScenes/locks/" + (i + 1));
+			buffLockIcons[i].sprite = Resources.Load<Sprite>(spritePath);
+		}
+
+		useButtonImage.sprite = (currentEquipment.equippedByHero != "None") ? useButtonSprite[0] : useButtonSprite[1];
+		bgRarity.sprite = Resources.Load<Sprite>("Arts/MainScenes/EqipmentInfoBackground/" + currentEquipment.rarity);
+
 		int playerCoin = PlayerDataManager.Instance.GetPlayerCoin();
 		costCoin.text = $"{upgradeCost} / {playerCoin}";
 	}
@@ -347,6 +321,8 @@ public class EquipmentBag : MonoBehaviour
 	{
 		obj.GetComponent<Image>().sprite = null;
 		obj.GetComponent<Button>().onClick.RemoveAllListeners();
+		obj.GetComponent<Button>().onClick.AddListener(() => GetComponent<MainMenuButtonController>().SoundClick());
+
 		if (slotIndex >= 0 && slotIndex < equippedItems.Count && !string.IsNullOrEmpty(equippedItems[slotIndex]))
 		{
 			var equipment = PlayerEquipmentManager.Instance.GetEquipmentByID(equippedItems[slotIndex]);
@@ -362,20 +338,22 @@ public class EquipmentBag : MonoBehaviour
 		return;
 	}
 
-	private int GetUnlockedBuffCount(string rarity)
+	private int GetEquipmentRarity(string rarity)
 	{
 		switch (rarity)
 		{
+			case "Normal":
+				return 0;
 			case "Common":
 				return 1;
-			case "稀有":
+			case "Rare":
 				return 2;
-			case "特殊":
+			case "Special":
 				return 3;
-			case "傳說":
+			case "Legendary":
 				return 4;
 			default:
-				return 0;
+				return -1;
 		}
 	}
 
