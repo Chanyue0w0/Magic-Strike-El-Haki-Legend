@@ -196,7 +196,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.58573914, y: 0.58573914, z: 0.58573914}
+  m_LocalScale: {x: 0.44077456, y: 0.44077456, z: 0.44077456}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5384766394026305548}
@@ -264,13 +264,14 @@ MonoBehaviour:
   targetNumber: 2
   skillDamage: 100
   explosion: {fileID: 0}
-  moveSpeed: 3.4
-  scaleSpeed: 6
-  backMoveSpeed: 5
-  backScaleSpeed: 7
+  moveSpeed: 4.2
+  scaleSpeed: 10
+  backMoveSpeed: 8.4
+  backScaleSpeed: 20
   vineMiddle: {fileID: 8987262019954656230}
   vineEnd: {fileID: 2490922755265638475}
   initialSizeY: 0
   isMoving: 1
   canHookedOnce: 1
   EffectToApply: 4
+  vineSlime: {fileID: 0}

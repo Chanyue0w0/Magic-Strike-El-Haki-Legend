@@ -81,11 +81,11 @@
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
         "BGM": "battle_theme_1",
         "AI_level": 1.0,
-        "StartHP": 300,
+        "StartHP": 1000,
         "StartATK": 100,
         "Player2Skin": "VineSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [ "MS03", "MS03", "MS03" ]
+        "player2_Group": [ "MS05", "MS05", "MS05" ]
       }
     ],
     "Level_3": [
@@ -100,7 +100,7 @@
         "StartATK": 100,
         "Player2Skin": "FairySlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [ "MS03", "MS03", "MS03" ]
+        "player2_Group": [ "MS06", "MS06", "MS06" ]
       }
     ]
   }

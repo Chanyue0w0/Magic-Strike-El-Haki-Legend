@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoisonFlowerSlime : MonoBehaviour
+public class VineSlime : MonoBehaviour
 {
     [SerializeField] private int playerNumber = 2;
-    [SerializeField] private GameObject poisonCloudObject;
+    //[SerializeField] private int slimeAmount = 3;
+    [SerializeField] private GameObject graspingVineObject;
 
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject player2;
@@ -28,7 +29,7 @@ public class PoisonFlowerSlime : MonoBehaviour
         player2_controller = GameObject.Find("Player 2 Manager").GetComponent<AIController>();
         player2_animator = GameObject.Find("Player2Sprite").GetComponent<Animator>();
         //instSmoke = Resources.Load<GameObject>("Prefabs/MonsterSkills/MagicPowerGain_Yellow");
-        poisonCloudObject = Resources.Load<GameObject>("Prefabs/MonsterSkills/PoisonCloud");
+        graspingVineObject = Resources.Load<GameObject>("Prefabs/MonsterSkills/GraspingVine");
     }
 
     public void Active()
@@ -37,16 +38,23 @@ public class PoisonFlowerSlime : MonoBehaviour
 
         player2_controller.SetStopMoving(true);
 
-        StartCoroutine(DelayedInstPoison(1f));
+        StartCoroutine(DelayedInstGraspingVine(1f));
 
         StartCoroutine(DelayedStartMoving(3f));
 
     }
-    private IEnumerator DelayedInstPoison(float delay)
+    private IEnumerator DelayedInstGraspingVine(float delay)
     {
-        yield return new WaitForSeconds(delay);
-        GameObject obj = Instantiate(poisonCloudObject, player2.transform.position, Quaternion.Euler(90, 0, 0));
-        obj.GetComponent<AimPlayerShootSkill>().SetTargetNumber(1);
+        yield return new WaitForSeconds(delay);// (-0.23f,-0.7f)
+        GameObject obj = Instantiate(graspingVineObject
+            , new Vector2(player2.transform.position.x - 0.23f, player2.transform.position.y - 0.8f)
+            , Quaternion.identity);
+        // 設定回傳來源
+        GraspingVine gv = obj.GetComponent<GraspingVine>();
+        if (gv != null)
+        {
+            gv.SetVineSlime(this);
+        }
     }
     private IEnumerator DelayedStartMoving(float delay)
     {
@@ -54,11 +62,9 @@ public class PoisonFlowerSlime : MonoBehaviour
         player2_controller.SetStopMoving(false);
     }
 
-    //private IEnumerator DelayedInstSlime(Vector2 position, float delay)
-    //{
-    //    yield return new WaitForSeconds(delay);
+    public void OnGraspSuccess()
+    {
+        player2_animator.SetTrigger("GraspGot");
+    }
 
-    //    GameObject obj = Instantiate(windmillSlimeObject, position, Quaternion.identity);
-    //    obj.GetComponent<Animator>().SetTrigger("Blowing");
-    //}
 }

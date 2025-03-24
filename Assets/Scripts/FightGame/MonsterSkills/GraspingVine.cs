@@ -25,6 +25,11 @@ public class GraspingVine : MonoBehaviour
     //private bool isBackMoving = false;
     
     [SerializeField] private StatusEffect EffectToApply = StatusEffect.Grasp; // 要套用的狀態
+    [SerializeField] private VineSlime vineSlime; // 誰召喚了這個藤蔓
+    public void SetVineSlime(VineSlime vs)
+    {
+        vineSlime = vs;
+    }
 
     void Start()
     {
@@ -85,6 +90,10 @@ public class GraspingVine : MonoBehaviour
         if (gameObject.transform.position.y <= -4f)//長度過長
         {
             //FightStatus.boss2UsingHook = false;//重製Boss2使用鉤子自身固定
+            if (vineSlime != null)
+            {
+                vineSlime.OnGraspSuccess(); // 通知主人動畫可以中斷了
+            }
             Destroy(gameObject);
         }
     }
@@ -94,6 +103,11 @@ public class GraspingVine : MonoBehaviour
         // 如果CandyHook_Hook碰到標記為"Player"的物件
         if (collision.CompareTag("Player1") && canHookedOnce)
         {
+            if (vineSlime != null)
+            {
+                vineSlime.OnGraspSuccess(); // 通知主人動畫可以中斷了
+            }
+
             // 嘗試獲取 IDamageable 介面（目標可受傷）
             IDamageable damageable = collision.GetComponent<IDamageable>();
             if (damageable != null)
