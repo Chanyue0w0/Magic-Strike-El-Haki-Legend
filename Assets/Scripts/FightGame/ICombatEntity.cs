@@ -19,6 +19,7 @@ public enum StatusEffect
     Stun,    // ·w¯t
     Charmed, // ¾y´b
     Poison,  // ¤¤¬r
+    Grasp,   // ¸i¸j
 
     Burn,    // ¿U¿N
     Freeze,  // ­áµ²
