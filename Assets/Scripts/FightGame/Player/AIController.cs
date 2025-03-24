@@ -182,6 +182,7 @@ public class AIController : MonoBehaviour
 
         GameObject obj = Instantiate(stunEffect, player2.transform.position, Quaternion.identity);
         obj.GetComponent<DestroyObject>().SetDTime(stunTime);
+        obj.transform.SetParent(player2.transform);
         yield return new WaitForSeconds(stunTime);
         isStuned = false;
     }
