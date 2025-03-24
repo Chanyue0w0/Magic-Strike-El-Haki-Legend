@@ -161,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -88.69995}
+  m_AnchoredPosition: {x: 0, y: -88.69997}
   m_SizeDelta: {x: -127.18, y: -718.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8612942
@@ -990,7 +990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.99381757, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.99840397, g: 0.99215686, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2342,8 +2342,10 @@ MonoBehaviour:
   player2: {fileID: 1570447976}
   player_skin: {fileID: 865603843}
   playerPuck_skin: {fileID: 1508030520}
+  healthBarImage: {fileID: 1397587373}
+  headStickerImage: {fileID: 1877095631}
   damageSpacing: 0.5
-  positionOffset: {x: 0, y: 0}
+  positionOffset: {x: 0, y: 0.7}
   player_animator: {fileID: 865603844}
 --- !u!114 &731934240
 MonoBehaviour:
@@ -10305,8 +10307,10 @@ MonoBehaviour:
   player2: {fileID: 1570447976}
   player_skin: {fileID: 1033643908}
   playerPuck_skin: {fileID: 525275993}
+  healthBarImage: {fileID: 1697371111}
+  headStickerImage: {fileID: 204187546}
   damageSpacing: 0.5
-  positionOffset: {x: 0, y: 0}
+  positionOffset: {x: 0, y: 0.7}
   player_animator: {fileID: 0}
 --- !u!114 &1492323272
 MonoBehaviour:

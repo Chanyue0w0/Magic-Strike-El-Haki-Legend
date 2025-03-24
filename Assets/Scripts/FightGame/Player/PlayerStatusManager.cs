@@ -3,6 +3,7 @@
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerStatusManager : MonoBehaviour
 {
@@ -34,6 +35,10 @@ public class PlayerStatusManager : MonoBehaviour
     [Header("----------------- SpriteSkin ------------------")]
     [SerializeField] private SpriteRenderer player_skin;
     [SerializeField] private SpriteRenderer playerPuck_skin;
+
+    [Header("----------------- HeadStickers ------------------")]
+    [SerializeField] private Image healthBarImage;
+    [SerializeField] private Image headStickerImage;
 
     [Header("----------------- Damage Number ------------------")]
     [SerializeField] private float damageSpacing = 1.0f; // 傷害數字間隔範圍調整變數
@@ -196,19 +201,41 @@ public class PlayerStatusManager : MonoBehaviour
 
     }
 
-    private IEnumerator PoisonEffect()//中毒效果
+    private IEnumerator PoisonEffect() // 中毒效果
     {
         isPoisoning = true;
-        for (int i = 0; i < 5; i++) // 中毒 5 秒，每秒扣 70 點血
+        Color poisonColor = new Color(0.69f, 0, 1, 1); // 紫色
+        Color poisonLightColor = new Color(0.85f, 0.5f, 1, 1); // 淡紫色
+        Color normalColor = new Color(1, 1, 1, 1);      // 白色
+
+        for (int i = 0; i < 5; i++) // 中毒 5 秒
         {
             int burnDamage = Mathf.RoundToInt(70);
             GetDamage(burnDamage);
-            player_skin.color = new Color(0.69f, 0, 1, 1);
-            yield return new WaitForSeconds(1);
+
+            // 變紫色
+            player_skin.color = poisonColor;
+            healthBarImage.color = poisonColor;
+            headStickerImage.color = poisonColor;
+
+            yield return new WaitForSeconds(0.5f);
+
+            // 變白色
+            player_skin.color = poisonLightColor;
+            healthBarImage.color = poisonLightColor;
+            headStickerImage.color = poisonLightColor;
+
+            yield return new WaitForSeconds(0.5f);
         }
+
         isPoisoning = false;
-        player_skin.color = new Color(1, 1, 1, 1);
+
+        // 結束時保證回復白色
+        player_skin.color = normalColor;
+        healthBarImage.color = normalColor;
+        headStickerImage.color = normalColor;
     }
+
 
     private IEnumerator BurnEffect()//燃燒效果
     {
