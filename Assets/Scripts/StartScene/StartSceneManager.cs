@@ -9,6 +9,8 @@ public class StartSceneManager : MonoBehaviour
     void Start()
     {
 		AudioManager.Instance.PlayBGM(MusicAudioClips.Instance.HallBGM);
+
+        PlayerEquipmentManager.Instance.LoadEquipment();
     }
 
     // Update is called once per frame

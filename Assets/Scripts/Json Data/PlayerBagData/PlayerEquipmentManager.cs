@@ -130,8 +130,9 @@ public class PlayerEquipmentManager : MonoBehaviour
 			"None" // 初始未被英雄裝備
 		);
 
+		bool isReloadData = equipmentList.Count > 0;
 		// 添加設備到列表並存檔
-		AddEquipment(newEquipment);
+		AddEquipment(newEquipment, isReloadData);
 		Debug.Log("New equipment created and added: " + newEquipment.name);
 	}
 
@@ -154,10 +155,10 @@ public class PlayerEquipmentManager : MonoBehaviour
 		Debug.LogWarning("Equipment not found for update: " + updatedEquipment.id);
 	}
 
-	public void AddEquipment(PlayerEquipment equipment)
+	public void AddEquipment(PlayerEquipment equipment, bool isReloadData)
 	{
 		if (equipment == null) return;
-		LoadEquipment();
+		if (isReloadData) LoadEquipment();
 		equipmentList.Add(equipment);
 		SaveEquipment();
 	}
@@ -189,6 +190,17 @@ public class PlayerEquipmentManager : MonoBehaviour
 			else
 			{
 				equipmentList = JsonConvert.DeserializeObject<List<PlayerEquipment>>(json);
+				if (equipmentList.Count < 1)
+				{
+					CreateEquipmentFromData("HT00");
+					CreateEquipmentFromData("HT00");
+					CreateEquipmentFromData("HT00");
+					CreateEquipmentFromData("BD00");
+					CreateEquipmentFromData("BD00");
+					CreateEquipmentFromData("SH00");
+					CreateEquipmentFromData("SH00");
+					SaveEquipment();
+				}
 				//Debug.Log("Equipment data loaded!");
 			}
 		}

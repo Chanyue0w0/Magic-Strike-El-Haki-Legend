@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static EquipmentData;
 
 public class EquipmentBag : MonoBehaviour
 {
@@ -42,11 +43,15 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private Image skill1Icon;
 	[SerializeField] private Image skill2Icon;
 	[SerializeField] private Image ultimateSkillIcon;
-	[SerializeField] private Image headEquipmentIcon;
-	[SerializeField] private Image bodyEquipmentIcon;
-	[SerializeField] private Image shoesEquipmentIcon;
+	[SerializeField] private GameObject headEquipmentIcon;
+	[SerializeField] private GameObject bodyEquipmentIcon;
+	[SerializeField] private GameObject shoesEquipmentIcon;
 	[SerializeField] private TextMeshProUGUI totalATKText;
 	[SerializeField] private TextMeshProUGUI totalHPText;
+
+	[SerializeField] private Button headEquipmentButton;
+	[SerializeField] private Button bodyEquipmentButton;
+	[SerializeField] private Button shoesEquipmentButton;
 
 	[Header("Scripts")]
 	[SerializeField] private BattleDataCalculator battleDataCalculator;
@@ -63,7 +68,7 @@ public class EquipmentBag : MonoBehaviour
 		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(0);
 		OnClickChangeCurrentHero(1);
 		OnClickChangeCurrentHero(-1);
-		RefreshCurrentHeroInfo();
+		RefreshCurrentHeroInfoUI();
 		RefreshBagUI();
 	}
 
@@ -73,11 +78,11 @@ public class EquipmentBag : MonoBehaviour
 
 		OnClickChangeCurrentHero(1);
 		OnClickChangeCurrentHero(-1);
-		RefreshCurrentHeroInfo();
+		RefreshCurrentHeroInfoUI();
 		RefreshBagUI();
 	}
 
-	public void RefreshBagUI()
+	private void RefreshBagUI()
 	{
 		// 清除容器中所有舊的裝備槽
 		foreach (Transform child in equipmentSlotContainer)
@@ -100,8 +105,7 @@ public class EquipmentBag : MonoBehaviour
 
 			// 設定按鈕點擊事件，利用捕捉到的 index 傳入 OnClickOpenEquipmentPanel
 			Button btn = slot.GetComponent<Button>();
-			int index = i; // 捕捉區域變數
-			btn.onClick.AddListener(() => OnClickOpenEquipmentPanel(index.ToString()));
+			btn.onClick.AddListener(() => OnClickOpenEquipmentPanel(equipment.id));
 
 			// 若有子物件 LevelText，則更新其文字內容
 			TextMeshProUGUI slotLevelText = slot.transform.Find("LevelText")?.GetComponent<TextMeshProUGUI>();
@@ -112,7 +116,7 @@ public class EquipmentBag : MonoBehaviour
 		}
 	}
 
-	public void RefreshEquipmentInfo()
+	private void RefreshEquipmentInfoUI()
 	{
 		if (currentEquipment == null)
 			return;
@@ -172,7 +176,7 @@ public class EquipmentBag : MonoBehaviour
 		costCoin.text = $"{upgradeCost} / {playerCoin}";
 	}
 
-	public void RefreshCurrentHeroInfo()
+	private void RefreshCurrentHeroInfoUI()
 	{
 		if (currentHero == null)
 		{
@@ -186,10 +190,11 @@ public class EquipmentBag : MonoBehaviour
 		skill1Icon.sprite = Resources.Load<Sprite>("SkillIcons/Skill1/" + currentHero.id);
 		skill2Icon.sprite = Resources.Load<Sprite>("SkillIcons/Skill2/" + currentHero.id);
 
-		// 更新英雄裝備圖示 (若裝備資料存在則載入圖片，否則設為 null)
-		headEquipmentIcon.sprite = GetEquipmentSprite(currentHero.equippedItems, 0);
-		bodyEquipmentIcon.sprite = GetEquipmentSprite(currentHero.equippedItems, 1);
-		shoesEquipmentIcon.sprite = GetEquipmentSprite(currentHero.equippedItems, 2);
+		// 更新英雄裝備圖示、按鈕功能 (若裝備資料存在則載入圖片，否則設為 null)
+		GetEquipmentSpriteData(currentHero.equippedItems, 0, headEquipmentIcon);
+		GetEquipmentSpriteData(currentHero.equippedItems, 1, bodyEquipmentIcon);
+		GetEquipmentSpriteData(currentHero.equippedItems, 2, shoesEquipmentIcon);
+
 
 		// 計算並更新英雄的戰鬥數據
 		battleDataCalculator.CalculateBattleData(currentHero.id);
@@ -197,18 +202,11 @@ public class EquipmentBag : MonoBehaviour
 		totalHPText.text = battleDataCalculator.totalHP.ToString();
 	}
 
-	public void OnClickOpenEquipmentPanel(string slotName)
+	public void OnClickOpenEquipmentPanel(string id)
 	{
 		equipmentInfoPanel.SetActive(true);
-		if (int.TryParse(slotName, out int index))
-		{
-			currentEquipment = PlayerEquipmentManager.Instance.GetEquipmentByIndex(index);
-			RefreshEquipmentInfo();
-		}
-		else
-		{
-			Debug.LogWarning("無效的裝備槽名稱：" + slotName);
-		}
+		currentEquipment = PlayerEquipmentManager.Instance.GetEquipmentByID(id);
+		RefreshEquipmentInfoUI();
 	}
 
 	public void OnClickCloseEquipmentPanel()
@@ -247,7 +245,7 @@ public class EquipmentBag : MonoBehaviour
 
 		// 更新裝備資料與介面
 		PlayerEquipmentManager.Instance.UpdateEquipment(currentEquipment);
-		RefreshEquipmentInfo();
+		RefreshEquipmentInfoUI();
 		RefreshBagUI();
 
 		Debug.Log("裝備 " + currentEquipment.name + " 已升級至等級 " + currentEquipment.currentLevel);
@@ -272,7 +270,7 @@ public class EquipmentBag : MonoBehaviour
 		} while (!allHeroData[currentHeroIndex].owned);
 
 		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(currentHeroIndex);
-		RefreshCurrentHeroInfo();
+		RefreshCurrentHeroInfoUI();
 	}
 	public void OnClickUseEquipment()
 	{
@@ -290,8 +288,8 @@ public class EquipmentBag : MonoBehaviour
 		{
 			CancelUseEquipment(currentEquipment, slotIndex);
 
-			RefreshEquipmentInfo();
-			RefreshCurrentHeroInfo();
+			RefreshEquipmentInfoUI();
+			RefreshCurrentHeroInfoUI();
 			return;
 		}
 
@@ -306,8 +304,8 @@ public class EquipmentBag : MonoBehaviour
 		PlayerHeroManager.Instance.UpdateHero(currentHero);
 
 		Debug.Log("update hero: " + currentHero.name);
-		RefreshEquipmentInfo();
-		RefreshCurrentHeroInfo();
+		RefreshEquipmentInfoUI();
+		RefreshCurrentHeroInfoUI();
 	}
 
 	private void CancelUseEquipment(PlayerEquipmentManager.PlayerEquipment eq, int slotIndex)
@@ -345,17 +343,23 @@ public class EquipmentBag : MonoBehaviour
 		}
 	}
 
-	private Sprite GetEquipmentSprite(List<string> equippedItems, int slotIndex)
+	private void GetEquipmentSpriteData(List<string> equippedItems, int slotIndex, GameObject obj)
 	{
+		obj.GetComponent<Image>().sprite = null;
+		obj.GetComponent<Button>().onClick.RemoveAllListeners();
 		if (slotIndex >= 0 && slotIndex < equippedItems.Count && !string.IsNullOrEmpty(equippedItems[slotIndex]))
 		{
 			var equipment = PlayerEquipmentManager.Instance.GetEquipmentByID(equippedItems[slotIndex]);
 			if (equipment != null)
 			{
-				return Resources.Load<Sprite>("Arts/EquipmentImgaes/" + equipment.name);
+				obj.GetComponent<Image>().sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + equipment.name);
+				obj.GetComponent<Button>().onClick.AddListener(() => OnClickOpenEquipmentPanel(equipment.id));
+				return;
 			}
 		}
-		return null;
+
+
+		return;
 	}
 
 	private int GetUnlockedBuffCount(string rarity)
