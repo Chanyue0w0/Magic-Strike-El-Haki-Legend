@@ -61,11 +61,11 @@ public class BallController : MonoBehaviour
         rb.velocity += (-direction) * towardMiddleSpeed;
     }
 
-    // 新增：限制球體位置不超出 X座標 ±1.87 及 Y座標 ±3.23
+    // 新增：限制球體位置不超出 X座標 ±1.6 及 Y座標 ±3.5
     private void ClampPosition()
     {
         Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x, -1.87f, 1.87f);
+        pos.x = Mathf.Clamp(pos.x, -1.6f, 1.6f);
         pos.y = Mathf.Clamp(pos.y, -3.5f, 3.5f);
         transform.position = pos;
     }
