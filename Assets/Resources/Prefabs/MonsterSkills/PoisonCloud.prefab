@@ -9461,6 +9461,8 @@ GameObject:
   - component: {fileID: 6305870673698133713}
   - component: {fileID: 6362141826411079229}
   - component: {fileID: 3872671531389256773}
+  - component: {fileID: 8911752076970627419}
+  - component: {fileID: 4539921603588538495}
   m_Layer: 0
   m_Name: PoisonCloud
   m_TagString: Untagged
@@ -9478,7 +9480,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.70710677}
   m_LocalPosition: {x: 1.1555, y: 1.4159, z: -0.000000014472}
-  m_LocalScale: {x: 0.37282097, y: 0.37282097, z: 0.37282097}
+  m_LocalScale: {x: 0.26737228, y: 0.26737228, z: 0.26737228}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8374549454958614837}
@@ -14164,6 +14166,64 @@ MonoBehaviour:
     shakesDelay: 0
   animatedLights: []
   fadeOutReference: {fileID: 0}
+--- !u!58 &8911752076970627419
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3135095174573582329}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.4
+--- !u!114 &4539921603588538495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3135095174573582329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f1b00674b7cf748ab1f938260175ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimingType: 3
+  playerNumber: 2
+  targetNumber: 1
+  skillDamage: 1
+  skillMoveSpeed: 1
+  explosion: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
+  moveDirection: {x: 0, y: 0, z: 0}
+  EffectToApply: 3
 --- !u!1 &6777821320822501286
 GameObject:
   m_ObjectHideFlags: 0
@@ -14192,7 +14252,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.70710677}
   m_LocalPosition: {x: 0.006317, y: 0.0000000010624, z: 0.0047385}
-  m_LocalScale: {x: 1.6775157, y: 1.6775157, z: 1.6775157}
+  m_LocalScale: {x: 2.6681, y: 2.6681, z: 2.6681}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6537106682092732315}

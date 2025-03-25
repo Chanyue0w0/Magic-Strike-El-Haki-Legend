@@ -60,7 +60,7 @@ public class StageData : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("StageData.json loaded successfully!");
+                    //Debug.Log("StageData.json loaded successfully!");
                     CalculateStageCounts();
                 }
             }
@@ -105,7 +105,7 @@ public class StageData : MonoBehaviour
             }
         }
 
-        Debug.Log("CalculateStageCounts() 計算完成");
+        //Debug.Log("CalculateStageCounts() 計算完成");
     }
 
 

@@ -40,6 +40,8 @@ public class FightGameButtonController : MonoBehaviour
 
     public void OnClickExit()
     {
+        roundController.SetTimeScale(1);
+        Destroy(AudioManager.Instance.gameObject);
         SceneManager.LoadSceneAsync("MainMenuScene");
     }
 
@@ -47,6 +49,7 @@ public class FightGameButtonController : MonoBehaviour
     {
         //SceneManager.LoadSceneAsync("FightScene");
         FightPlayer1Config.NowHP = FightPlayer1Config.StartHP;
+        FightPlayer1Config.isFirstTimeEnter = true;
         SceneManager.LoadScene("FightScene");
         //Time.timeScale = 1;
     }

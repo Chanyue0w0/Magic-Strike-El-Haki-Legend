@@ -1,18 +1,30 @@
 {
-    "MS00": {
-      "Name": "OriginSlime",
-      "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
-    },
-    "MS01": {
-      "Name": "GrassSlime",
-      "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
-    },
-    "MS02": {
-      "Name": "WoodBarrelSlime",
-      "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
-    },
-    "MS03": {
-      "Name": "WindmillSlime",
-      "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
-    }
+  "MS00": {
+    "Name": "OriginSlime",
+    "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
+  },
+  "MS01": {
+    "Name": "GrassSlime",
+    "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
+  },
+  "MS02": {
+    "Name": "WoodBarrelSlime",
+    "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
+  },
+  "MS03": {
+    "Name": "WindmillSlime",
+    "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
+  },
+  "MS04": {
+    "Name": "PoisonFlowerSlime",
+    "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
+  },
+  "MS05": {
+    "Name": "VineSlime",
+    "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
+  },
+  "MS06": {
+    "Name": "FairySlime",
+    "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
+  }
 }

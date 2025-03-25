@@ -25,6 +25,7 @@ public class AIController : MonoBehaviour
     [SerializeField] private float nowAttackTime; // 當次攻擊時間
     [SerializeField] private Coroutine attackCoroutine; // 用來存儲協程，以便在 isStuned 時取消
     [SerializeField] private bool attackTimeChosen = false; // 是否已選擇攻擊時間
+    [SerializeField] private bool stopMoving = false;
 
     [Header("移動範圍限制")]
     [SerializeField] private Transform topLeftBoundary;
@@ -73,7 +74,10 @@ public class AIController : MonoBehaviour
     {
         if (!isStuned)
         {
-            AIMoving();
+            if(!stopMoving)
+            {
+                AIMoving();
+            }
 
             if (!attackTimeChosen) // 只在尚未選擇攻擊時間時執行
             {
@@ -106,6 +110,10 @@ public class AIController : MonoBehaviour
         SkillManager.Instance.ActiveSkill(2,skillIndex);
     }
 
+    public void SetStopMoving(bool setting)
+    {
+        stopMoving = setting;
+    }
 
     private void AIMoving()
     {
@@ -174,6 +182,7 @@ public class AIController : MonoBehaviour
 
         GameObject obj = Instantiate(stunEffect, player2.transform.position, Quaternion.identity);
         obj.GetComponent<DestroyObject>().SetDTime(stunTime);
+        obj.transform.SetParent(player2.transform);
         yield return new WaitForSeconds(stunTime);
         isStuned = false;
     }

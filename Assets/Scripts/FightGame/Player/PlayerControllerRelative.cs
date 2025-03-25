@@ -36,6 +36,10 @@ public class PlayerControllerRelative : MonoBehaviour
     [SerializeField] private GameObject stunEffect;
 
 
+    [Header("----------------- Stun Effect ------------------")]
+    [SerializeField] private bool isGrasp = false;
+    [SerializeField] private GameObject graspEffect;
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -51,7 +55,7 @@ public class PlayerControllerRelative : MonoBehaviour
 
     void Update()
     {
-        if(!isStuned)
+        if(!isStuned && !isGrasp)
         {
             PlayerMoving();
         }
@@ -173,6 +177,12 @@ public class PlayerControllerRelative : MonoBehaviour
             isStuned = true;
             StartCoroutine(StunEffect()); // 在這裡觸發暈眩效果
         }
+
+        if (effect == StatusEffect.Grasp && !isGrasp)//不可疊加
+        {
+            isGrasp = true;
+            StartCoroutine(GraspEffect()); // 在這裡觸發暈眩效果
+        }
     }
 
     private IEnumerator StunEffect()//暈眩效果
@@ -182,9 +192,47 @@ public class PlayerControllerRelative : MonoBehaviour
 
         GameObject obj = Instantiate(stunEffect, player1.transform.position, Quaternion.identity);
         obj.GetComponent<DestroyObject>().SetDTime(stunTime);
+        obj.transform.SetParent(player1.transform);
         yield return new WaitForSeconds(stunTime);
         isStuned = false;
     }
+
+    private IEnumerator GraspEffect() // 綑綁拖動效果
+    {
+        float graspTime = 2 * (1 + FightPlayer2Config.CC_SkillTimeIncrease);
+        float targetY = -0.425f;
+        float moveSpeed = 10f; // 調整這個值來控制上升速度
+
+        GameObject obj = Instantiate(graspEffect, player1.transform.position, Quaternion.identity);
+        obj.GetComponent<DestroyObject>().SetDTime(graspTime);
+        obj.transform.SetParent(player1.transform);
+
+        float timer = 0f;
+        Vector2 fixedPosition = new Vector2(player1.transform.position.x, targetY);
+
+        while (timer < graspTime)
+        {
+            Vector3 pos = player1.transform.position;
+
+            if (pos.y < targetY)
+            {
+                // 持續往上移動，直到到達 targetY
+                pos.y = Mathf.MoveTowards(pos.y, targetY, moveSpeed * Time.deltaTime);
+                player1.transform.position = pos;
+            }
+            else
+            {
+                // 到達目標高度後鎖定位置
+                player1.transform.position = fixedPosition;
+            }
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        isGrasp = false;
+    }
+
 
     /// <summary>
     /// 限制玩家移動在指定邊界內

@@ -3,6 +3,7 @@
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerStatusManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerStatusManager : MonoBehaviour
     [SerializeField] private int attackDamage;
     //[SerializeField] private int currentMagicPoint;
     [SerializeField] private bool isBurning = false; // 是否正在燃燒
+    [SerializeField] private bool isPoisoning = false; // 是否正在中毒
     [SerializeField] private bool isAlive = true; // 是否活著
 
     [Header("----------------- Config Setting ------------------")]
@@ -33,6 +35,10 @@ public class PlayerStatusManager : MonoBehaviour
     [Header("----------------- SpriteSkin ------------------")]
     [SerializeField] private SpriteRenderer player_skin;
     [SerializeField] private SpriteRenderer playerPuck_skin;
+
+    [Header("----------------- HeadStickers ------------------")]
+    [SerializeField] private Image healthBarImage;
+    [SerializeField] private Image headStickerImage;
 
     [Header("----------------- Damage Number ------------------")]
     [SerializeField] private float damageSpacing = 1.0f; // 傷害數字間隔範圍調整變數
@@ -188,7 +194,46 @@ public class PlayerStatusManager : MonoBehaviour
         {
             StartCoroutine(BurnEffect()); // 在這裡觸發燃燒效果
         }
+        else if (effect == StatusEffect.Poison && !isPoisoning)
+        {
+            StartCoroutine(PoisonEffect()); // 在這裡觸發燃燒效果
+        }
 
+    }
+
+    private IEnumerator PoisonEffect() // 中毒效果
+    {
+        isPoisoning = true;
+        Color poisonColor = new Color(0.69f, 0, 1, 1); // 紫色
+        Color poisonLightColor = new Color(0.85f, 0.5f, 1, 1); // 淡紫色
+        Color normalColor = new Color(1, 1, 1, 1);      // 白色
+
+        for (int i = 0; i < 5; i++) // 中毒 5 秒
+        {
+            int burnDamage = Mathf.RoundToInt(70);
+            GetDamage(burnDamage);
+
+            // 變紫色
+            player_skin.color = poisonColor;
+            healthBarImage.color = poisonColor;
+            headStickerImage.color = poisonColor;
+
+            yield return new WaitForSeconds(0.5f);
+
+            // 變白色
+            player_skin.color = poisonLightColor;
+            healthBarImage.color = poisonLightColor;
+            headStickerImage.color = poisonLightColor;
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        isPoisoning = false;
+
+        // 結束時保證回復白色
+        player_skin.color = normalColor;
+        healthBarImage.color = normalColor;
+        headStickerImage.color = normalColor;
     }
 
 

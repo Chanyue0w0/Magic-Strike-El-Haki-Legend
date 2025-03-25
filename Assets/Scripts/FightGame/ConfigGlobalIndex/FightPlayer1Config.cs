@@ -4,7 +4,7 @@
 
 public static class FightPlayer1Config
 {
-	public static int CurrentChapter = 1;
+	public static int CurrentChapter = 2;
 	public static int CurrentLevel = 2;
 	public static int CurrentStage = 1;
 
@@ -18,6 +18,7 @@ public static class FightPlayer1Config
 	public static int NowHP = 1500;
 	public static int StartATK = 100;
 	public static int NowATK = 100;
+	public static int NowMagicPoint = 0;
 	public static float CriticalPercentage = 0.0f;
 	public static float SkillDamageIncrease = 0.0f;
 	public static float PoisonDamageIncrease = 0.0f;
@@ -27,4 +28,5 @@ public static class FightPlayer1Config
 
 	public static float ShieldPercentage = 0.0f;//減傷比例，戰鬥中才會取得
 	public static bool instSkillP1 = true;//P1生成技能開啟
+	public static bool isFirstTimeEnter = true;
 }
