@@ -7544,7 +7544,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 50a28d6fb9e9b954abbca6bbafd74aa7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b14c75a98109e24392009cba68f7a57, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7565,7 +7565,7 @@ Animator:
   m_GameObject: {fileID: 865603841}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f3504dde9ca5cea4cb0faf1732925236, type: 2}
+  m_Controller: {fileID: 9100000, guid: 529e1b68edd6f9f4ebc53ce5bdf35695, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -28585,6 +28585,10 @@ PrefabInstance:
       propertyPath: clampPositionX.y
       value: 1.6
       objectReference: {fileID: 0}
+    - target: {fileID: 4958314868292373843, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: ballOnFieldWarningEffect
+      value: 
+      objectReference: {fileID: 1641163068052187020, guid: 287e3c40b03ad6e44bc52c7b98c2e0a8, type: 3}
     - target: {fileID: 6973456524052729341, guid: f167040b27f725f45b7466070cd23987, type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
       value: 1
