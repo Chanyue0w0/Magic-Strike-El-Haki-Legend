@@ -50,31 +50,40 @@ public class BattleDataCalculator : MonoBehaviour
 				equipmentTotalHP += equipment.healthPoints;
 				equipmentTotalATK += equipment.attackPower;
 
-				foreach (var buff in equipment.buffs)
+				// 根據 rarity 決定允許計算的 buff 數量
+				int allowedBuffCount = GetEquipmentRarity(equipment.rarity); // Normal=0, Common=1, Rare=2, Special=3, Legendary=4
+				if (allowedBuffCount > 0)
 				{
-					switch (buff.Key)
+					List<string> buffKeys = new List<string>(equipment.buffs.Keys);
+					int countToApply = Mathf.Min(allowedBuffCount, buffKeys.Count);
+					for (int i = 0; i < countToApply; i++)
 					{
-						case "Total Health Increase%":
-							totalHPBuff += ParseBuffValue(buff.Value);
-							break;
-						case "Total Attack Increase%":
-							totalATKBuff += ParseBuffValue(buff.Value);
-							break;
-						case "Critical Rate Increase%":
-							critRateIncrease += ParseBuffValue(buff.Value);
-							break;
-						case "Skill Damage Increase%":
-							skillDamageIncrease += ParseBuffValue(buff.Value);
-							break;
-						case "Poison Damage Increase%":
-							poisonDamageIncrease += ParseBuffValue(buff.Value);
-							break;
-						case "Control Duration Increase%":
-							controlSkillDurationIncrease += ParseBuffValue(buff.Value);
-							break;
-						case "Reduce Skill Bubble Generation Time":
-							totalSkillBubbleCooldownReduction += ParseBuffValue(buff.Value);
-							break;
+						string buffKey = buffKeys[i];
+						string buffValue = equipment.buffs[buffKey];
+						switch (buffKey)
+						{
+							case "Total Health Increase%":
+								totalHPBuff += ParseBuffValue(buffValue);
+								break;
+							case "Total Attack Increase%":
+								totalATKBuff += ParseBuffValue(buffValue);
+								break;
+							case "Critical Rate Increase%":
+								critRateIncrease += ParseBuffValue(buffValue);
+								break;
+							case "Skill Damage Increase%":
+								skillDamageIncrease += ParseBuffValue(buffValue);
+								break;
+							case "Poison Damage Increase%":
+								poisonDamageIncrease += ParseBuffValue(buffValue);
+								break;
+							case "Control Duration Increase%":
+								controlSkillDurationIncrease += ParseBuffValue(buffValue);
+								break;
+							case "Reduce Skill Bubble Generation Time":
+								totalSkillBubbleCooldownReduction += ParseBuffValue(buffValue);
+								break;
+						}
 					}
 				}
 
@@ -90,8 +99,8 @@ public class BattleDataCalculator : MonoBehaviour
 		totalHP = (int)((baseHP + equipmentTotalHP) * totalHPBuff);
 		totalATK = (int)((baseATK + equipmentTotalATK) * totalATKBuff);
 		setEffect = DetermineSetEffect(setTypeCount);
-
 	}
+
 
 	public void ApplyToFightPlayerConfig()
 	{
@@ -125,5 +134,24 @@ public class BattleDataCalculator : MonoBehaviour
 				return set.Key;
 		}
 		return "None";
+	}
+
+	private int GetEquipmentRarity(string rarity)
+	{
+		switch (rarity)
+		{
+			case "Normal":
+				return 0;
+			case "Common":
+				return 1;
+			case "Rare":
+				return 2;
+			case "Special":
+				return 3;
+			case "Legendary":
+				return 4;
+			default:
+				return -1;
+		}
 	}
 }
