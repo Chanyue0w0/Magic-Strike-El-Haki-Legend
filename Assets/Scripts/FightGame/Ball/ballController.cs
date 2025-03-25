@@ -9,9 +9,21 @@ public class BallController : MonoBehaviour
     [SerializeField] private float maxSpeed = 10f;          // 球的最大速度
     [SerializeField] private float towardMiddleSpeed = 0.5f; // 置中速度
     [SerializeField] private float decelerationRate = 1f;    // 每秒減速的速度
-    [SerializeField] private Vector2 clampPositionX = new Vector2(-1.87f, 1.87f);    // X軸邊界
+    [SerializeField] private Vector2 clampPositionX = new Vector2(-1.6f, 1.6f);    // X軸邊界
     [SerializeField] private Vector2 clampPositionY = new Vector2(-3.5f, 3.5f);    // Y軸邊界
     private Rigidbody2D rb;
+
+    [Header("----------------- OnFieldTime ------------------")]
+    private float timeOnCurrentField = 0f;
+    private bool isOnPlayer2Field = true; // 初始設為 y > 0 假設球在 player2 場
+    private GameObject warningEffectInstance;
+
+    [Header("----------------- BallReset ------------------")]
+    // 設定特效 prefab 與球權重設點與方法
+    [SerializeField] private GameObject ballOnFieldWarningEffect;
+    [SerializeField] private Vector2 player1ResetPosition = new Vector2(0f, -1f);
+    [SerializeField] private Vector2 player2ResetPosition = new Vector2(0f, 1f);
+    //[SerializeField] private BallPossessionManager ballPossessionManager; // 需要掛你控制球權的腳本
 
     void Start()
     {
@@ -23,6 +35,8 @@ public class BallController : MonoBehaviour
     {
         MoveOnMaster();
         ClampPosition(); // 新增：確保球體不會超出設定邊界
+        CheckFieldStayTime();
+
     }
 
     private void MoveOnMaster()
@@ -61,12 +75,73 @@ public class BallController : MonoBehaviour
         rb.velocity += (-direction) * towardMiddleSpeed;
     }
 
-    // 新增：限制球體位置不超出 X座標 ±1.87 及 Y座標 ±3.23
+    // 新增：限制球體位置不超出 X座標 ±1.6 及 Y座標 ±3.5
     private void ClampPosition()
     {
         Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x, -1.87f, 1.87f);
-        pos.y = Mathf.Clamp(pos.y, -3.5f, 3.5f);
+        pos.x = Mathf.Clamp(pos.x, clampPositionX.x, clampPositionX.y);
+        pos.y = Mathf.Clamp(pos.y, clampPositionY.x, clampPositionY.y);
         transform.position = pos;
     }
+
+    private void CheckFieldStayTime()
+    {
+        // 判斷現在在哪一場地
+        bool currentlyOnPlayer2Field = transform.position.y > 0;
+
+        // 若場地改變，重設時間與刪除特效
+        if (currentlyOnPlayer2Field != isOnPlayer2Field)
+        {
+            isOnPlayer2Field = currentlyOnPlayer2Field;
+            timeOnCurrentField = 0f;
+
+            if (warningEffectInstance != null)
+            {
+                Destroy(warningEffectInstance);
+                warningEffectInstance = null;
+            }
+        }
+        else
+        {
+            // 累加在場時間
+            timeOnCurrentField += Time.fixedDeltaTime;
+
+            // 超過4秒產生特效
+            if (timeOnCurrentField > 4f && warningEffectInstance == null)
+            {
+                warningEffectInstance = Instantiate(ballOnFieldWarningEffect, transform);
+            }
+
+            // 超過8秒重置球權
+            if (timeOnCurrentField > 8f)
+            {
+                ResetBallPossession();
+            }
+        }
+    }
+
+    public void ResetBallPossession()
+    {
+        // 切換到對方場地
+        isOnPlayer2Field = !isOnPlayer2Field;
+
+        // 設定新位置
+        transform.position = isOnPlayer2Field ? player2ResetPosition : player1ResetPosition;
+
+        // 停止球的移動
+        rb.velocity = Vector2.zero;
+
+        // 清除警告特效
+        if (warningEffectInstance != null)
+        {
+            Destroy(warningEffectInstance);
+            warningEffectInstance = null;
+        }
+
+        // 重設時間
+        timeOnCurrentField = 0f;
+    }
+
+
+
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AimPlayerShootSkill : MonoBehaviour
 {
-    private enum AimingType { targetDirection, targetPosition, trackingPlayer, straightDirection};
+    private enum AimingType { targetDirection, targetPosition, trackingPlayer, straightDirection , straightWaveringly};
     [Header("----------------- Config Setting ------------------")]
     [SerializeField] private AimingType aimingType;
 
@@ -13,6 +13,8 @@ public class AimPlayerShootSkill : MonoBehaviour
     [SerializeField] private int targetNumber = 2;
     [SerializeField] private int skillDamage = 100;
     [SerializeField] private int skillMoveSpeed = 10;
+    [SerializeField] private float waveringAmount = 1f; // 控制晃動程度
+
     [SerializeField] private GameObject explosion;
 
     [SerializeField] private GameObject player1;
@@ -40,12 +42,30 @@ public class AimPlayerShootSkill : MonoBehaviour
         {
             MoveStraight();
         }
+        else if (aimingType == AimingType.straightWaveringly)
+        {
+            MoveStraightWaveringly();
+        }
+
 
     }
     public void StopMoving()
     {
         skillMoveSpeed = 0;
     }
+
+    private void MoveStraightWaveringly()
+    {
+        // 垂直方向的基本移動方向
+        Vector3 baseDirection = (playerNumber == 1) ? Vector3.up : Vector3.down;
+
+        // 加入水平方向的隨機晃動（用 sin 來達到時間變化的效果）
+        float waveOffset = Mathf.Sin(Time.time * 10f) * waveringAmount;
+        Vector3 waveringDirection = baseDirection + new Vector3(waveOffset, 0, 0);
+
+        transform.position += waveringDirection.normalized * skillMoveSpeed * Time.deltaTime;
+    }
+
 
     private void MoveStraight()
     {
