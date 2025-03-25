@@ -9,6 +9,8 @@ public class StageButtonController : MonoBehaviour
 	[SerializeField] private GameObject stagePanel;
 	[SerializeField] private Text chapterText;
 
+	[SerializeField] MainMenuButtonController mainMenuButtonController;
+
 	private int selectedChapter;
 	private int selectedLevel;
 
@@ -62,32 +64,34 @@ public class StageButtonController : MonoBehaviour
 				}
 
 				// **設定狀態圖片**
+				Button buttonComponent = newButton.GetComponent<Button>();
 				Image statusImage = newButton.transform.Find("status Image")?.GetComponent<Image>();
 				if (statusImage != null)
 				{
 					string statusImagePath;
 					if (isPassed)
 					{
+						buttonComponent.onClick.AddListener(() => SelectStage(chapterLevelName));
+						buttonComponent.onClick.AddListener(() => mainMenuButtonController.SoundClick());
 						statusImagePath = "Arts/MainScenes/StagePanel/StageStatusIcon/PassedStage";
 					}
 					else if (isUnLocked)
 					{
+						buttonComponent.onClick.AddListener(() => SelectStage(chapterLevelName));
+						buttonComponent.onClick.AddListener(() => mainMenuButtonController.SoundClick());
 						statusImagePath = "Arts/MainScenes/StagePanel/StageStatusIcon/UnPassedStage";
 					}
 					else
 					{
+						bgImage.color = Color.gray;
+						buttonComponent.onClick.AddListener(() => mainMenuButtonController.SoundClick());
 						statusImagePath = "Arts/MainScenes/StagePanel/StageStatusIcon/LockStage";
 					}
 
 					statusImage.sprite = Resources.Load<Sprite>(statusImagePath);
 				}
 
-				Button buttonComponent = newButton.GetComponent<Button>();
-				if (isUnLocked)
-				{
-					buttonComponent.onClick.AddListener(() => SelectStage(chapterLevelName));
-				}
-			}
+            }
 		}
 	}
 
