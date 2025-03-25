@@ -125,6 +125,6 @@ public class StageButtonController : MonoBehaviour
 	{
 		FightPlayer1Config.CurrentChapter = selectedChapter;
 		FightPlayer1Config.CurrentLevel = selectedLevel;
-		//FightPlayer1Config.isFirstTimeEnter = true;
+		FightPlayer1Config.isFirstTimeEnter = true;
 	}
 }

@@ -3075,7 +3075,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 746429473}
         m_TargetAssemblyTypeName: EquipmentBag, Assembly-CSharp
-        m_MethodName: OnClickEvolutionPanel
+        m_MethodName: OnClickUseEquipment
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3105,7 +3105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c3b6b33aedd674f4e8bed8de07024f73, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3bb193f78759dd542bb591a64ccfecad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5630,7 +5630,7 @@ MonoBehaviour:
   equipmentSlotPrefab: {fileID: 6064740652328507991, guid: fc21a6fb76fd6e848ac4cea6f9f769bd, type: 3}
   equipmentSlotContainer: {fileID: 96895448}
   useButtonSprite:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 3bb193f78759dd542bb591a64ccfecad, type: 3}
   - {fileID: 21300000, guid: c3b6b33aedd674f4e8bed8de07024f73, type: 3}
   equipmentNameText: {fileID: 1309494164}
   equipmentImages:
