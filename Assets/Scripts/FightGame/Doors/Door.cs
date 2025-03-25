@@ -16,6 +16,7 @@ public class Door : MonoBehaviour
     [SerializeField] private PlayerStatusManager player1_statusManager;
     [SerializeField] private PlayerStatusManager player2_statusManager;
 
+
     void Start()
     {
         
@@ -33,6 +34,7 @@ public class Door : MonoBehaviour
             if(playerNumber == UserPosition.player1)//進玩家1球門，玩家2攻擊
             {
                 collision.transform.position = ballResetPositionBottom.transform.position;
+                //collision.GetComponent<BallController>().ResetBallPossession();
                 collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
                 NormalAttackManager.Instance.InstNormalAttack(2, 1);
@@ -40,6 +42,7 @@ public class Door : MonoBehaviour
             else if (playerNumber == UserPosition.player2)//進玩家2球門，玩家1攻擊
             {
                 collision.transform.position = ballResetPositionUp.transform.position;
+                //collision.GetComponent<BallController>().ResetBallPossession();
                 collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
                 NormalAttackManager.Instance.InstNormalAttack(1, 2);
