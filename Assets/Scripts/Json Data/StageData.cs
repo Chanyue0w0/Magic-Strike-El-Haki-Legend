@@ -12,6 +12,8 @@ public class StageDataEntry
     public string FieldHSBackGroundImage;
     public string BGM;
     public float AI_level;
+    //public float AI_AttackFrequencyReduce;
+    public Vector2 AI_AttackFrequency;
     public int StartHP;
     public int StartATK;
     public string Player2Skin;

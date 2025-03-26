@@ -51,7 +51,10 @@ public class AIController : MonoBehaviour
         nowAI_Level = FightPlayer2Config.AI_level;
         MaxMovementSpeed = 3 * nowAI_Level;
         originMaxMovementSpeed = MaxMovementSpeed;
-        attackFrequency = (maxAttackFrequency - 3 * nowAI_Level);
+        //attackFrequency = (maxAttackFrequency - 3 * nowAI_Level);
+        //attackFrequency = (maxAttackFrequency - FightPlayer2Config.AI_AttackFrequencyReduce);
+        attackFrequency = FightPlayer2Config.AI_AttackFrequency.x;
+        maxAttackFrequency = FightPlayer2Config.AI_AttackFrequency.y;
 
         ball = GameObject.Find("ball");
         ballController = ball.GetComponent<BallController>();//取得球的控制狀態

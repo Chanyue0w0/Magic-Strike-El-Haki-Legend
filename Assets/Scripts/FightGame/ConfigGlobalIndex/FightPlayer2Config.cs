@@ -1,6 +1,6 @@
 //using System.Collections;
 //using System.Collections.Generic;
-//using UnityEngine;
+using UnityEngine;
 
 public static class FightPlayer2Config
 {
@@ -9,6 +9,9 @@ public static class FightPlayer2Config
 	public static string Ult = "HammerUlt";
 	public static bool isMonster = true;
 	public static float AI_level = 1.0f;
+	//public static float AI_AttackFrequencyReduce = 1.0f;
+	public static Vector2 AI_AttackFrequency = new Vector2(1.0f, 1.0f);
+
 	public static bool instSkillP2 = false;//P2生成技能開啟
 
 	public static string PlayerSkin = "OriginSlime";

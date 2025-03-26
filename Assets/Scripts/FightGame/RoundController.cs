@@ -233,7 +233,9 @@ public class RoundController : MonoBehaviour
 
 			// ³]©w FightPlayer2Config
 			FightPlayer2Config.AI_level = currentStage.AI_level;
-			FightPlayer2Config.StartHP = currentStage.StartHP;
+            //FightPlayer2Config.AI_AttackFrequencyReduce = currentStage.AI_AttackFrequencyReduce;
+            FightPlayer2Config.AI_AttackFrequency = currentStage.AI_AttackFrequency;
+            FightPlayer2Config.StartHP = currentStage.StartHP;
 			FightPlayer2Config.NowHP = currentStage.StartHP;
 			FightPlayer2Config.StartATK = currentStage.StartATK;
 			FightPlayer2Config.NowATK = currentStage.StartATK;
