@@ -44,28 +44,31 @@ public class FairySlime : MonoBehaviour
     public void Active()
     {
         player2_animator.SetTrigger("Attack");
-        //player2_controller.SetStopMoving(true);
 
         // 第一次爆炸（原本位置）
-        Instantiate(flashExplosion, player2.transform.position, Quaternion.identity);
+        Vector3 originalPos = player2.transform.position;
+        Instantiate(flashExplosion, originalPos, Quaternion.identity);
 
-        // 瞬間移動到邊界內隨機位置
-        Vector2 randomPos = new Vector2(
-            Random.Range(player2_TopLeftBoundary.x, player2_ButtomRightBoundary.x),
-            Random.Range(player2_ButtomRightBoundary.y, player2_TopLeftBoundary.y)
-        );
+        // 瞬間移動到邊界內隨機位置，距離需 >= 1.5
+        Vector2 randomPos;
+        do
+        {
+            randomPos = new Vector2(
+                Random.Range(player2_TopLeftBoundary.x, player2_ButtomRightBoundary.x),
+                Random.Range(player2_ButtomRightBoundary.y, player2_TopLeftBoundary.y)
+            );
+        } while (Vector2.Distance(originalPos, randomPos) < 1.5f);
+
         player2.transform.position = randomPos;
 
         // 第二次爆炸（新位置）
         Instantiate(flashExplosion, player2.transform.position, Quaternion.identity);
 
         player2_controller.SetStopMoving(true);
-        // 發射 MistAmmo
-        StartCoroutine(SpawnMultipleMistAmmo(0f));
 
-        // 如需之後恢復移動，可以加這行（延遲幾秒後）
-        //StartCoroutine(DelayedStartMoving(3f));
+        StartCoroutine(SpawnMultipleMistAmmo(0f));
     }
+
 
 
     private IEnumerator SpawnMultipleMistAmmo(float initialDelay)

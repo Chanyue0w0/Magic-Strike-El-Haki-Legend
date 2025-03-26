@@ -30,6 +30,8 @@ public class RoundController : MonoBehaviour
 	[SerializeField] private GameObject player1;
 	[SerializeField] private GameObject player2;
 
+	[SerializeField] private AIController ai_controller;
+
 	[SerializeField] private SpriteRenderer BackGroundSprite;
 	[SerializeField] private SpriteRenderer FieldSprite;
 
@@ -268,6 +270,7 @@ public class RoundController : MonoBehaviour
 		player1Status.InitStatus();
 		player2Status.InitStatus();
 
+		ai_controller.InitAI();
 		
 		if (FightPlayer2Config.BGM == "battle_theme_1")
 		{

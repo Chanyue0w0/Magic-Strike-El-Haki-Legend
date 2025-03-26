@@ -3837,6 +3837,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 339735532}
   player1: {fileID: 193765608}
   player2: {fileID: 1570447976}
+  ai_controller: {fileID: 731934240}
   BackGroundSprite: {fileID: 1326423935}
   FieldSprite: {fileID: 1026530575}
   currentChapterIndex: 0

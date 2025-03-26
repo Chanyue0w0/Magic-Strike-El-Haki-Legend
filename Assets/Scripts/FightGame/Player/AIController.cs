@@ -43,6 +43,11 @@ public class AIController : MonoBehaviour
 
     private void Start()
     {
+       
+    }
+
+    public void InitAI()
+    {
         nowAI_Level = FightPlayer2Config.AI_level;
         MaxMovementSpeed = 3 * nowAI_Level;
         originMaxMovementSpeed = MaxMovementSpeed;
