@@ -15,13 +15,15 @@ public class CoinCollisionHandler : MonoBehaviour
         int numCollisionEvents = ps.GetCollisionEvents(other, collisionEvents);
 
         GameObject player1 = GameObject.Find("Player1");
+        //GameObject player2 = GameObject.Find("Player2");
 
         for (int i = 0; i < numCollisionEvents; i++)
         {
             // 在碰撞位置生成硬幣
             GameObject obj = Instantiate(coinPrefab, collisionEvents[i].intersection, Quaternion.identity);
+            //obj.GetComponent<moveToPositionSkill>().SetStartPosition(player2.transform.position);
             obj.GetComponent<moveToPositionSkill>().SetTargetPosition(player1.transform.position);
-            obj.GetComponent<moveToPositionSkill>().SetDelayTime(1f);
+            obj.GetComponent<moveToPositionSkill>().SetDelayTime(2f);
         }
     }
 }

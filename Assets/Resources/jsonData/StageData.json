@@ -3,13 +3,17 @@
     "Level_1": [
       {
         "StageNumber": "1",
+        "DeadFrameBackGroundImage": "Chapter1BackGround",
         "BackGroundImage": "Wilderness village(Background)",
         "FieldImage": "Wilderness village(Field)",
         "FieldHSBackGroundImage": "Chapter1HSBackGround",
         "BGM": "battle_theme_1",
         "AI_level": 1.0,
-        "AI_AttackFrequency": { "x": 5, "y": 7 },
-        "StartHP": 300,
+        "AI_AttackFrequency": {
+          "x": 5,
+          "y": 7
+        },
+        "StartHP": 100,
         "StartATK": 100,
         "Player2Skin": "OriginSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
@@ -17,12 +21,16 @@
       },
       {
         "StageNumber": "2",
+        "DeadFrameBackGroundImage": "Chapter1BackGround",
         "BackGroundImage": "Wilderness village(Background)",
         "FieldImage": "Wilderness village(Field)",
         "FieldHSBackGroundImage": "Chapter1HSBackGround",
         "BGM": "battle_theme_1",
         "AI_level": 1.0,
-        "AI_AttackFrequency": { "x": 5, "y": 7 },
+        "AI_AttackFrequency": {
+          "x": 5,
+          "y": 7
+        },
         "StartHP": 300,
         "StartATK": 100,
         "Player2Skin": "GrassSlime",
@@ -31,12 +39,16 @@
       },
       {
         "StageNumber": "3",
+        "DeadFrameBackGroundImage": "Chapter1BackGround",
         "BackGroundImage": "Wilderness village(Background)",
         "FieldImage": "Wilderness village(Field)",
         "FieldHSBackGroundImage": "Chapter1HSBackGround",
         "BGM": "battle_theme_1",
         "AI_level": 1.0,
-        "AI_AttackFrequency": { "x": 5, "y": 7 },
+        "AI_AttackFrequency": {
+          "x": 5,
+          "y": 7
+        },
         "StartHP": 300,
         "StartATK": 100,
         "Player2Skin": "WoodBarrelSlime",
@@ -47,12 +59,16 @@
     "Level_2": [
       {
         "StageNumber": "1",
+        "DeadFrameBackGroundImage": "Chapter1BackGround",
         "BackGroundImage": "Wilderness village(Background)",
         "FieldImage": "Wilderness village(Field)",
         "FieldHSBackGroundImage": "Chapter1HSBackGround",
         "BGM": "battle_theme_1",
         "AI_level": 1.0,
-        "AI_AttackFrequency": { "x": 5, "y": 7 },
+        "AI_AttackFrequency": {
+          "x": 5,
+          "y": 7
+        },
         "StartHP": 1000,
         "StartATK": 100,
         "Player2Skin": "WindmillSlime",
@@ -65,12 +81,16 @@
     "Level_1": [
       {
         "StageNumber": "1",
+        "DeadFrameBackGroundImage": "Chapter2BackGround",
         "BackGroundImage": "Dense Forest(Background)",
         "FieldImage": "Dense Forest(Field)",
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
         "BGM": "battle_theme_1",
         "AI_level": 1.5,
-        "AI_AttackFrequency": { "x": 5, "y": 7 },
+        "AI_AttackFrequency": {
+          "x": 5,
+          "y": 7
+        },
         "StartHP": 1000,
         "StartATK": 100,
         "Player2Skin": "PoisonFlowerSlime",
@@ -81,12 +101,16 @@
     "Level_2": [
       {
         "StageNumber": "1",
+        "DeadFrameBackGroundImage": "Chapter2BackGround",
         "BackGroundImage": "Dense Forest(Background)",
         "FieldImage": "Dense Forest(Field)",
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
         "BGM": "battle_theme_1",
         "AI_level": 1.5,
-        "AI_AttackFrequency": { "x": 5, "y": 7 },
+        "AI_AttackFrequency": {
+          "x": 5,
+          "y": 7
+        },
         "StartHP": 1000,
         "StartATK": 100,
         "Player2Skin": "VineSlime",
@@ -97,12 +121,16 @@
     "Level_3": [
       {
         "StageNumber": "1",
+        "DeadFrameBackGroundImage": "Chapter2BackGround",
         "BackGroundImage": "Dense Forest(Background)",
         "FieldImage": "Dense Forest(Field)",
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
         "BGM": "battle_theme_1",
         "AI_level": 2.0,
-        "AI_AttackFrequency": { "x": 5, "y": 7 },
+        "AI_AttackFrequency": {
+          "x": 5,
+          "y": 7
+        },
         "StartHP": 1000,
         "StartATK": 100,
         "Player2Skin": "FairySlime",

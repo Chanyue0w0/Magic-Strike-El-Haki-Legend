@@ -10,6 +10,8 @@ public class moveToPositionSkill : MonoBehaviour
 
     [SerializeField] private GameObject explosion;
     [SerializeField] private Vector2 targetPosition;
+    [SerializeField] private bool onTargetDestroyed = false;
+    [SerializeField] private bool movingUnscaledTime = false;//不受時間暫停影響
 
     private Vector2 startPosition;
     private float elapsedTime = 0;
@@ -17,14 +19,18 @@ public class moveToPositionSkill : MonoBehaviour
 
     void Start()
     {
-        //startPosition = transform.position;
+        startPosition = this.transform.position;
     }
 
     void Update()
     {
         if (isMoving)
         {
-            elapsedTime += Time.deltaTime;
+            //elapsedTime += Time.deltaTime;
+            // 根據是否使用 Unscaled Time，選擇對應的 deltaTime
+            float delta = movingUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+            elapsedTime += delta;
+
             float t = Mathf.Clamp01(elapsedTime / arriveTime);
             transform.position = Vector2.Lerp(startPosition, targetPosition, t);
 
@@ -33,6 +39,9 @@ public class moveToPositionSkill : MonoBehaviour
                 isMoving = false;
                 if(explosion != null)
                     Instantiate(explosion, transform.position, Quaternion.identity);
+
+                if (onTargetDestroyed)
+                    Destroy(gameObject);
             }
         }
     }
@@ -63,7 +72,8 @@ public class moveToPositionSkill : MonoBehaviour
 
     private IEnumerator StartMovingAfterDelay()
     {
-        yield return new WaitForSeconds(delayTime);
+        //yield return new WaitForSeconds(delayTime);
+        yield return new WaitForSecondsRealtime(delayTime);
         isMoving = true;
     }
 }

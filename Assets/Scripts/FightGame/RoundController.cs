@@ -32,6 +32,7 @@ public class RoundController : MonoBehaviour
 
 	[SerializeField] private AIController ai_controller;
 
+	[SerializeField] private SpriteRenderer DeadFrameBackGroundSprite;
 	[SerializeField] private SpriteRenderer BackGroundSprite;
 	[SerializeField] private SpriteRenderer FieldSprite;
 
@@ -144,9 +145,9 @@ public class RoundController : MonoBehaviour
 			Instantiate(coinFountain, player2.transform.position, Quaternion.Euler(-90,0,0));
 			canInstFountain = false;
 			StartCoroutine(ReloadSceneDelayed(3f));
-			//SetTimeScale(0.5f);
-			//PauseGame();
-			StartCoroutine(ContinueGameDelayed(3f));
+            //SetTimeScale(0.5f);
+            PauseGame();
+            StartCoroutine(ContinueGameDelayed(3f));
 		}
 	}
 
@@ -243,6 +244,7 @@ public class RoundController : MonoBehaviour
 
 			FightPlayer2Config.PlayerSkin = currentStage.Player2Skin;
 			FightPlayer2Config.PuckSkin = currentStage.Player2PuckSkin;
+			FightPlayer2Config.DeadFrameBackGroundImage = currentStage.DeadFrameBackGroundImage;
 			FightPlayer2Config.BackGroundImage = currentStage.BackGroundImage;
 			FightPlayer2Config.FieldImage = currentStage.FieldImage;
 			FightPlayer2Config.HSBackGroundImage = currentStage.FieldHSBackGroundImage;
@@ -253,6 +255,7 @@ public class RoundController : MonoBehaviour
 		}
 
 		FieldSprite.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/" + FightPlayer2Config.FieldImage);
+		DeadFrameBackGroundSprite.sprite = Resources.Load<Sprite>("Arts/MainScenes/BackgroundImage/" + FightPlayer2Config.DeadFrameBackGroundImage);
 		BackGroundSprite.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/" + FightPlayer2Config.BackGroundImage);
 		PlayerHeadSticker.sprite = Resources.Load<Sprite>("Arts/FightScene/HeadStickers/" + FightPlayer1Config.PlayerSkin);
 		SlimeHeadSticker.sprite = Resources.Load<Sprite>("Arts/FightScene/HeadStickers/" + FightPlayer2Config.PlayerSkin);

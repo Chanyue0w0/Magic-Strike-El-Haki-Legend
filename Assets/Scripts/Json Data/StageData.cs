@@ -7,6 +7,7 @@ using System.Linq;
 public class StageDataEntry
 {
     public string StageNumber;
+    public string DeadFrameBackGroundImage;
     public string BackGroundImage;
     public string FieldImage;
     public string FieldHSBackGroundImage;

@@ -3126,7 +3126,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
-  m_Sprite: {fileID: 21300000, guid: 9789f43db172aa64797c20736202da00, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77309dde39dcb2d44bf51feef5e817f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.7372549}
   m_FlipX: 0
   m_FlipY: 0
@@ -3134,7 +3134,7 @@ SpriteRenderer:
   m_Size: {x: 7.62, y: 13.72}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1008911791
@@ -3909,6 +3909,7 @@ MonoBehaviour:
   player1: {fileID: 193765608}
   player2: {fileID: 1570447976}
   ai_controller: {fileID: 731934240}
+  DeadFrameBackGroundSprite: {fileID: 978842581}
   BackGroundSprite: {fileID: 1326423935}
   FieldSprite: {fileID: 1026530575}
   currentChapterIndex: 0

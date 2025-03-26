@@ -14971,8 +14971,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 1
   arriveTime: 1
+  delayTime: 0
   explosion: {fileID: 2242045170671026846, guid: a5ad0d02f10628147977126250259317, type: 3}
   targetPosition: {x: 0, y: 0}
+  onTargetDestroyed: 1
+  movingUnscaledTime: 1
 --- !u!1 &8927407828405206647
 GameObject:
   m_ObjectHideFlags: 0

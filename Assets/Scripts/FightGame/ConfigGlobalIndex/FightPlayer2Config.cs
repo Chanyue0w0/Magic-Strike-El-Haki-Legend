@@ -16,6 +16,7 @@ public static class FightPlayer2Config
 
 	public static string PlayerSkin = "OriginSlime";
 	public static string PuckSkin = "Chapter1SlimePuck";
+	public static string DeadFrameBackGroundImage = "Chapter1BackGround";
 	public static string BackGroundImage = "Wilderness village(Background)";
 	public static string FieldImage = "Wilderness village(Field3)";
 	public static string HSBackGroundImage = "Chapter1HSBackGround";

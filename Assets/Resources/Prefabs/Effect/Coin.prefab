@@ -181,3 +181,5 @@ MonoBehaviour:
   delayTime: 0
   explosion: {fileID: 1558236833115346133, guid: 01e665a9bc19d694190058f500be225f, type: 3}
   targetPosition: {x: 0, y: 0}
+  onTargetDestroyed: 1
+  movingUnscaledTime: 1
