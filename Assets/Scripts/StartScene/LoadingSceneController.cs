@@ -51,7 +51,7 @@ public class LoadingSceneController : MonoBehaviour
 			float progress = Mathf.Clamp01(operation.progress / 0.9f);
 
 			if (slider != null) slider.value = progress;
-			progressText.text = progress * 10000 * 1f / 100 + "%";
+			progressText.text = (int)(progress * 10000 * 1f) / 100 + "%";
 			//Debug.Log(progress);
 			yield return null;
 		}

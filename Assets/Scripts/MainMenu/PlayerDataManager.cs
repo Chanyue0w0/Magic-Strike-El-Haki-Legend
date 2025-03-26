@@ -14,6 +14,12 @@ public class PlayerDataManager : MonoBehaviour
 	private const string PLAYER_CHAPTER_KEY = "PlayerChapter";
 	private const string PLAYER_CURRENT_LEVEL_KEY = "PlayerCurrentLevel";
 
+	// 進化石數量
+	private const string COMMON_EVOSTONE_KEY = "CommonEvoStone";
+	private const string RARE_EVOSTONE_KEY = "RareEvoStone";
+	private const string SPECIAL_EVOSTONE_KEY = "SpecialEvoStone";
+	private const string LEGENDARY_EVOSTONE_KEY = "LegendaryEvoStone";
+
 	public static PlayerDataManager Instance { get; private set; }
 
 	private void Awake()
@@ -26,8 +32,8 @@ public class PlayerDataManager : MonoBehaviour
 
 		Instance = this;
 
-		LoadPlayerData();
 		if(resetPlayerData) ResetPlayerData();
+		LoadPlayerData();
 	}
 
 	// 讀取玩家資料，若無則設定預設值
@@ -42,9 +48,14 @@ public class PlayerDataManager : MonoBehaviour
 			PlayerPrefs.SetInt(PLAYER_COIN_KEY, 5000);
 			PlayerPrefs.SetInt(PLAYER_ENERGY_KEY, 35);
 			PlayerPrefs.SetInt(PLAYER_MAX_ENERGY_KEY, 35);
-			// 設定 Chapter 與 Level 預設值 (皆為 1)
-			PlayerPrefs.SetInt(PLAYER_CHAPTER_KEY, 1);
-			PlayerPrefs.SetInt(PLAYER_CURRENT_LEVEL_KEY, 1);
+			// 章節
+			PlayerPrefs.SetInt(PLAYER_CHAPTER_KEY, 999);
+			PlayerPrefs.SetInt(PLAYER_CURRENT_LEVEL_KEY, 999);
+			// 石頭
+			PlayerPrefs.SetInt(COMMON_EVOSTONE_KEY, 100);
+			PlayerPrefs.SetInt(RARE_EVOSTONE_KEY, 1000);
+			PlayerPrefs.SetInt(SPECIAL_EVOSTONE_KEY, 10);
+			PlayerPrefs.SetInt(LEGENDARY_EVOSTONE_KEY, 10);
 			PlayerPrefs.Save();
 		}
 	}
@@ -145,6 +156,37 @@ public class PlayerDataManager : MonoBehaviour
 	public void SetPlayerCurrentLevel(int level)
 	{
 		PlayerPrefs.SetInt(PLAYER_CURRENT_LEVEL_KEY, level);
+		PlayerPrefs.Save();
+	}
+
+	
+
+	// 取得與設定進化石數量
+	public int GetCommonEvoStone() => PlayerPrefs.GetInt(COMMON_EVOSTONE_KEY);
+	public void SetCommonEvoStone(int amount)
+	{
+		PlayerPrefs.SetInt(COMMON_EVOSTONE_KEY, Mathf.Max(0, amount));
+		PlayerPrefs.Save();
+	}
+
+	public int GetRareEvoStone() => PlayerPrefs.GetInt(RARE_EVOSTONE_KEY);
+	public void SetRareEvoStone(int amount)
+	{
+		PlayerPrefs.SetInt(RARE_EVOSTONE_KEY, Mathf.Max(0, amount));
+		PlayerPrefs.Save();
+	}
+
+	public int GetSpecialEvoStone() => PlayerPrefs.GetInt(SPECIAL_EVOSTONE_KEY);
+	public void SetSpecialEvoStone(int amount)
+	{
+		PlayerPrefs.SetInt(SPECIAL_EVOSTONE_KEY, Mathf.Max(0, amount));
+		PlayerPrefs.Save();
+	}
+
+	public int GetLegendaryEvoStone() => PlayerPrefs.GetInt(LEGENDARY_EVOSTONE_KEY);
+	public void SetLegendaryEvoStone(int amount)
+	{
+		PlayerPrefs.SetInt(LEGENDARY_EVOSTONE_KEY, Mathf.Max(0, amount));
 		PlayerPrefs.Save();
 	}
 

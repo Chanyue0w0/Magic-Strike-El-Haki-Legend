@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,36 +7,40 @@ using static EquipmentData;
 
 public class EquipmentBag : MonoBehaviour
 {
-	// 升級所需消耗的金幣、以及每次升級增加的 HP 與 ATK 數值（預設為 100）
+	// 升級所需消耗的金幣、以及每次升級增加的 HP 與 ATK 數值（預設為 100）, 等級上限(30)
 	[SerializeField] private int upgradeCost = 1;
 	[SerializeField] private int upgradeHPIncrement = 100;
 	[SerializeField] private int upgradeATKIncrement = 100;
-
+	[SerializeField] private const int maxLevel = 30;
+	[SerializeField] int requiredEvoStones = 10; // 預設消耗量
+	
 	[Header("UI Panels and Containers")]
 	[SerializeField] private GameObject equipmentInfoPanel;
+	[SerializeField] private GameObject evolutionPanel;
 	[SerializeField] private GameObject equipmentSlotPrefab;
 	[SerializeField] private Transform equipmentSlotContainer;
+	[SerializeField] private List<Sprite> useButtonSprite;
 
 	[Header("-------------------- Equipment Info GUI -------------------- ")]
 	[SerializeField] private TextMeshProUGUI equipmentNameText;
-	[SerializeField] private Image equipmentImage;
-	[SerializeField] private TextMeshProUGUI equipmentDescribe;
-	[SerializeField] private TextMeshProUGUI useButtonText;
+	[SerializeField] private List<Image> equipmentImages;
+	[SerializeField] private List<TextMeshProUGUI> levelTexts;
 	[SerializeField] private TextMeshProUGUI HPText;
 	[SerializeField] private TextMeshProUGUI ATKText;
-	[SerializeField] private TextMeshProUGUI levelText;
 	[SerializeField] private TextMeshProUGUI equipmentTypeText;
-	[SerializeField] private TextMeshProUGUI buff1Text;
-	[SerializeField] private TextMeshProUGUI buff2Text;
-	[SerializeField] private TextMeshProUGUI buff3Text;
-	[SerializeField] private TextMeshProUGUI buff4Text;
-	[SerializeField] private Image equipmentIcon;
-	[SerializeField] private Image buff1LockIcon;
-	[SerializeField] private Image buff2LockIcon;
-	[SerializeField] private Image buff3LockIcon;
-	[SerializeField] private Image buff4LockIcon;
+	[SerializeField] private List<TextMeshProUGUI> buffTexts;
+	[SerializeField] private List<Image> buffLockIcons;
+	[SerializeField] private Image useButtonImage;
+	[SerializeField] private Image bgRarity;
+
 	// 顯示升級所需花費與目前玩家金幣資訊
 	[SerializeField] private TextMeshProUGUI costCoin;
+	// 新增升級按鈕參考，用來在達上限或金錢不足時更新狀態
+	[SerializeField] private Button levelUpButton;
+
+	[SerializeField] private TextMeshProUGUI evolutionCostText;
+	[SerializeField] private Image evolutionButtonImage;
+	[SerializeField] private Button evolutionButton;
 
 	[Header("-------------------- Current Hero GUI -------------------- ")]
 	[SerializeField] private Image heroImage;
@@ -48,10 +53,6 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private GameObject shoesEquipmentIcon;
 	[SerializeField] private TextMeshProUGUI totalATKText;
 	[SerializeField] private TextMeshProUGUI totalHPText;
-
-	[SerializeField] private Button headEquipmentButton;
-	[SerializeField] private Button bodyEquipmentButton;
-	[SerializeField] private Button shoesEquipmentButton;
 
 	[Header("Scripts")]
 	[SerializeField] private BattleDataCalculator battleDataCalculator;
@@ -70,6 +71,8 @@ public class EquipmentBag : MonoBehaviour
 		OnClickChangeCurrentHero(-1);
 		RefreshCurrentHeroInfoUI();
 		RefreshBagUI();
+
+		evolutionPanel.SetActive(false);
 	}
 
 	public void InitEquipmentBag()
@@ -121,59 +124,57 @@ public class EquipmentBag : MonoBehaviour
 		if (currentEquipment == null)
 			return;
 
-		// 更新裝備基本資訊
 		equipmentNameText.text = currentEquipment.name;
-		//equipmentDescribe.text = currentEquipment.description;
 		HPText.text = currentEquipment.healthPoints.ToString();
 		ATKText.text = currentEquipment.attackPower.ToString();
-		levelText.text = "Lv. " + currentEquipment.currentLevel + "/30";
 		equipmentTypeText.text = currentEquipment.equipmentType;
-		equipmentIcon.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + currentEquipment.name);
 
-		// 根據裝備是否已被英雄裝備更新使用按鈕文字（使用或卸下）
-		//if (currentEquipment.equippedByHero != "None")
-		//	useButtonText.text = "卸下裝備";
-		//else
-		//	useButtonText.text = "使用裝備";
-
-		// 顯示裝備的 buff 資訊（依序顯示前四個 buff）
-		List<string> buffKeys = new List<string>(currentEquipment.buffs.Keys);
-		buff1Text.text = buffKeys.Count > 0 ? buffKeys[0] + ": " + currentEquipment.buffs[buffKeys[0]] : "";
-		buff2Text.text = buffKeys.Count > 1 ? buffKeys[1] + ": " + currentEquipment.buffs[buffKeys[1]] : "";
-		buff3Text.text = buffKeys.Count > 2 ? buffKeys[2] + ": " + currentEquipment.buffs[buffKeys[2]] : "";
-		buff4Text.text = buffKeys.Count > 3 ? buffKeys[3] + ": " + currentEquipment.buffs[buffKeys[3]] : "";
-
-		// 更新 buff 鎖/解鎖圖示：依照裝備稀有度決定可解鎖的 buff 數量
-		int unlockedBuffCount = GetUnlockedBuffCount(currentEquipment.rarity);
-		for (int i = 0; i < 4; i++)
+		foreach (var image in equipmentImages)
 		{
-			Image icon = null;
-			switch (i)
-			{
-				case 0:
-					icon = buff1LockIcon;
-					break;
-				case 1:
-					icon = buff2LockIcon;
-					break;
-				case 2:
-					icon = buff3LockIcon;
-					break;
-				case 3:
-					icon = buff4LockIcon;
-					break;
-			}
-			if (icon != null)
-			{
-				// 若該 buff 編號小於解鎖數量，則顯示解鎖狀態，否則顯示鎖定狀態
-				string spritePath = (i < unlockedBuffCount) ? ("Arts/MainScenes/dots/" + (i + 1)) : ("Arts/MainScenes/locks/" + (i + 1));
-				icon.sprite = Resources.Load<Sprite>(spritePath);
-			}
+			image.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + currentEquipment.name);
+		}
+		foreach (var tmp in levelTexts)
+		{
+			tmp.text = "Lv. " + currentEquipment.currentLevel + "/" + maxLevel;
 		}
 
-		// 更新升級所需花費與目前金幣資訊
+		// 使用 buffTexts 來設定 buff 資訊
+		List<string> buffKeys = new List<string>(currentEquipment.buffs.Keys);
+		for (int i = 0; i < buffTexts.Count; i++)
+		{
+			buffTexts[i].text = i < buffKeys.Count ? buffKeys[i] + ": " + currentEquipment.buffs[buffKeys[i]] : "";
+		}
+
+		// 使用 buffLockIcons 來設定 buff 鎖定狀態
+		int unlockedBuffCount = GetEquipmentRarity(currentEquipment.rarity);
+		for (int i = 0; i < buffLockIcons.Count; i++)
+		{
+			string spritePath = (i < unlockedBuffCount) ? ("Arts/MainScenes/dots/" + (i + 1)) : ("Arts/MainScenes/locks/" + (i + 1));
+			buffLockIcons[i].sprite = Resources.Load<Sprite>(spritePath);
+		}
+
+		useButtonImage.sprite = (currentEquipment.equippedByHero != "None") ? useButtonSprite[0] : useButtonSprite[1];
+		bgRarity.sprite = Resources.Load<Sprite>("Arts/MainScenes/EqipmentInfoBackground/" + currentEquipment.rarity);
+
+		// 升級金幣部分：若金錢不足則文字變紅
 		int playerCoin = PlayerDataManager.Instance.GetPlayerCoin();
 		costCoin.text = $"{upgradeCost} / {playerCoin}";
+		if (playerCoin < upgradeCost)
+			costCoin.color = Color.red;
+		else
+			costCoin.color = Color.white;
+
+		// 當裝備等級已達上限，將升級按鈕設為不可點擊且灰階
+		if (currentEquipment.currentLevel >= maxLevel)
+		{
+			levelUpButton.interactable = false;
+			levelUpButton.image.color = Color.gray;
+		}
+		else
+		{
+			levelUpButton.interactable = true;
+			levelUpButton.image.color = Color.white;
+		}
 	}
 
 	private void RefreshCurrentHeroInfoUI()
@@ -194,7 +195,6 @@ public class EquipmentBag : MonoBehaviour
 		GetEquipmentSpriteData(currentHero.equippedItems, 0, headEquipmentIcon);
 		GetEquipmentSpriteData(currentHero.equippedItems, 1, bodyEquipmentIcon);
 		GetEquipmentSpriteData(currentHero.equippedItems, 2, shoesEquipmentIcon);
-
 
 		// 計算並更新英雄的戰鬥數據
 		battleDataCalculator.CalculateBattleData(currentHero.id);
@@ -222,10 +222,13 @@ public class EquipmentBag : MonoBehaviour
 			return;
 		}
 
-		// 檢查裝備是否已達最高等級 (30)
-		if (currentEquipment.currentLevel >= 30)
+		// 檢查裝備是否已達最高等級 (maxLevel)
+		if (currentEquipment.currentLevel >= maxLevel)
 		{
 			Debug.Log("該裝備已達到最高等級。");
+			// 保險起見也同步更新按鈕狀態
+			levelUpButton.interactable = false;
+			levelUpButton.image.color = Color.gray;
 			return;
 		}
 
@@ -250,6 +253,7 @@ public class EquipmentBag : MonoBehaviour
 
 		Debug.Log("裝備 " + currentEquipment.name + " 已升級至等級 " + currentEquipment.currentLevel);
 	}
+
 	public void OnClickChangeCurrentHero(int next)
 	{
 		var allHeroData = PlayerHeroManager.Instance.GetAllHeroData();
@@ -272,6 +276,7 @@ public class EquipmentBag : MonoBehaviour
 		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(currentHeroIndex);
 		RefreshCurrentHeroInfoUI();
 	}
+
 	public void OnClickUseEquipment()
 	{
 		// Determine equipment type and assign it to the correct slot
@@ -287,25 +292,26 @@ public class EquipmentBag : MonoBehaviour
 		if (currentEquipment.equippedByHero != "None")
 		{
 			CancelUseEquipment(currentEquipment, slotIndex);
+		}
+		else
+		{
+			// use
+			// cancle origin eq on hero
+			CancelUseEquipment(PlayerEquipmentManager.Instance.GetEquipmentByID(currentHero.equippedItems[slotIndex]), slotIndex);
 
-			RefreshEquipmentInfoUI();
-			RefreshCurrentHeroInfoUI();
-			return;
+			currentEquipment.equippedByHero = currentHero.id;
+			PlayerEquipmentManager.Instance.UpdateEquipment(currentEquipment);
+
+			currentHero.equippedItems[slotIndex] = currentEquipment.id;
+			PlayerHeroManager.Instance.UpdateHero(currentHero);
+
+			Debug.Log("update hero: " + currentHero.name);
 		}
 
-		// use
-		// cancle origin eq on hero
-		CancelUseEquipment(PlayerEquipmentManager.Instance.GetEquipmentByID(currentHero.equippedItems[slotIndex]), slotIndex);
-
-		currentEquipment.equippedByHero = currentHero.id;
-		PlayerEquipmentManager.Instance.UpdateEquipment(currentEquipment);
-
-		currentHero.equippedItems[slotIndex] = currentEquipment.id;
-		PlayerHeroManager.Instance.UpdateHero(currentHero);
-
-		Debug.Log("update hero: " + currentHero.name);
+		// update UI
 		RefreshEquipmentInfoUI();
 		RefreshCurrentHeroInfoUI();
+		RefreshBagUI();
 	}
 
 	private void CancelUseEquipment(PlayerEquipmentManager.PlayerEquipment eq, int slotIndex)
@@ -313,7 +319,6 @@ public class EquipmentBag : MonoBehaviour
 		if (eq == null || eq.equippedByHero == "None") return;
 
 		PlayerHeroManager.PlayerHero eqHero = PlayerHeroManager.Instance.GetHeroByID(eq.equippedByHero);
-
 
 		if (slotIndex == -1)
 		{
@@ -347,6 +352,8 @@ public class EquipmentBag : MonoBehaviour
 	{
 		obj.GetComponent<Image>().sprite = null;
 		obj.GetComponent<Button>().onClick.RemoveAllListeners();
+		obj.GetComponent<Button>().onClick.AddListener(() => GetComponent<MainMenuButtonController>().SoundClick());
+
 		if (slotIndex >= 0 && slotIndex < equippedItems.Count && !string.IsNullOrEmpty(equippedItems[slotIndex]))
 		{
 			var equipment = PlayerEquipmentManager.Instance.GetEquipmentByID(equippedItems[slotIndex]);
@@ -357,26 +364,141 @@ public class EquipmentBag : MonoBehaviour
 				return;
 			}
 		}
-
-
 		return;
 	}
 
-	private int GetUnlockedBuffCount(string rarity)
+	public void OnClickEvolutionPanel()
+	{
+		if (currentEquipment == null)
+		{
+			Debug.LogWarning("沒有選擇要進化的裝備。");
+			return;
+		}
+		
+		
+
+		evolutionPanel.SetActive(true);
+		// 如果裝備等級未達上限，則禁用進化按鈕並更新提示文字
+		if (currentEquipment.currentLevel < maxLevel)
+		{
+			evolutionButton.interactable = false;
+			evolutionButtonImage.color = Color.gray;
+			evolutionCostText.text = (currentEquipment.rarity == "Legendary") ? "MAX" : "Not Max LV";
+			evolutionCostText.color = Color.red;
+			return;
+		}
+
+		//if (currentEquipment.currentLevel == maxLevel)
+		// 當等級達上限時，檢查進化石數量並更新進化介面
+		int playerEvoStones = 0;
+
+
+
+		switch (currentEquipment.rarity)
+		{
+			case "Normal":
+				playerEvoStones = PlayerDataManager.Instance.GetCommonEvoStone();
+				break;
+			case "Common":
+				playerEvoStones = PlayerDataManager.Instance.GetRareEvoStone();
+				break;
+			case "Rare":
+				playerEvoStones = PlayerDataManager.Instance.GetSpecialEvoStone();
+				break;
+			case "Special":
+				playerEvoStones = PlayerDataManager.Instance.GetLegendaryEvoStone();
+				break;
+			case "Legendary":
+				Debug.Log("該裝備已達最高稀有度，無法進化。");
+				return;
+			default:
+				Debug.LogWarning("裝備稀有度無法進化。");
+				return;
+		}
+
+		// 更新 UI 顯示進化石數量，若不足則文字變紅
+		string evoText = (currentEquipment.rarity == "Legendary") ? "MAX" : $"{playerEvoStones} / {requiredEvoStones}";
+		evolutionCostText.text = evoText;
+		evolutionCostText.color = (playerEvoStones < requiredEvoStones) ? Color.red : Color.white;
+
+		// 啟用或禁用進化按鈕
+		bool canEvolve = playerEvoStones >= requiredEvoStones && evoText != "MAX" && currentEquipment.currentLevel >= maxLevel;
+		evolutionButton.interactable = canEvolve;
+		evolutionButtonImage.color = canEvolve ? Color.white : Color.gray;
+	}
+
+
+	public void OnClickEvolution()
+	{
+		if (currentEquipment == null)
+		{
+			Debug.LogWarning("沒有選擇要進化的裝備。");
+			return;
+		}
+
+
+		int requiredEvoStones = 10; // 預設消耗量
+		int playerEvoStones = 0;
+
+		switch (currentEquipment.rarity)
+		{
+			case "Normal":
+				playerEvoStones = PlayerDataManager.Instance.GetCommonEvoStone();
+				PlayerDataManager.Instance.SetCommonEvoStone(playerEvoStones - requiredEvoStones);
+				currentEquipment.rarity = "Common";
+				break;
+			case "Common":
+				playerEvoStones = PlayerDataManager.Instance.GetRareEvoStone();
+				PlayerDataManager.Instance.SetRareEvoStone(playerEvoStones - requiredEvoStones);
+				currentEquipment.rarity = "Rare";
+				break;
+			case "Rare":
+				playerEvoStones = PlayerDataManager.Instance.GetSpecialEvoStone();
+				PlayerDataManager.Instance.SetSpecialEvoStone(playerEvoStones - requiredEvoStones);
+				currentEquipment.rarity = "Special";
+				break;
+			case "Special":
+				playerEvoStones = PlayerDataManager.Instance.GetLegendaryEvoStone();
+				PlayerDataManager.Instance.SetLegendaryEvoStone(playerEvoStones - requiredEvoStones);
+				currentEquipment.rarity = "Legendary";
+				break;
+			case "Legendary":
+				Debug.Log("該裝備已達最高稀有度，無法進化。");
+				evolutionCostText.text = "MAX";
+				return;
+			default:
+				Debug.LogWarning("裝備稀有度無法進化。");
+				return;
+		}
+
+		// 重置等級
+		currentEquipment.currentLevel = 0;
+		PlayerEquipmentManager.Instance.UpdateEquipment(currentEquipment);
+
+		Debug.Log("裝備 " + currentEquipment.name + " 已進化至 " + currentEquipment.rarity);
+		OnClickEvolutionPanel();
+
+		RefreshBagUI();
+		RefreshCurrentHeroInfoUI();
+		RefreshEquipmentInfoUI();
+	}
+
+	private int GetEquipmentRarity(string rarity)
 	{
 		switch (rarity)
 		{
+			case "Normal":
+				return 0;
 			case "Common":
 				return 1;
-			case "稀有":
+			case "Rare":
 				return 2;
-			case "特殊":
+			case "Special":
 				return 3;
-			case "傳說":
+			case "Legendary":
 				return 4;
 			default:
-				return 0;
+				return -1;
 		}
 	}
-
 }
