@@ -9480,7 +9480,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.70710677}
   m_LocalPosition: {x: 1.1555, y: 1.4159, z: -0.000000014472}
-  m_LocalScale: {x: 0.26737228, y: 0.26737228, z: 0.26737228}
+  m_LocalScale: {x: 0.1866593, y: 0.1866593, z: 0.1866593}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8374549454958614837}
@@ -14218,6 +14218,7 @@ MonoBehaviour:
   targetNumber: 1
   skillDamage: 1
   skillMoveSpeed: 1
+  waveringAmount: 1
   explosion: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
