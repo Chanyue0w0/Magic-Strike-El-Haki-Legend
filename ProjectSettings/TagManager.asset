@@ -10,6 +10,7 @@ TagManager:
   - Player2
   - Ball
   - DamageSkill
+  - CloneBall
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Ball
   - Player
   - VFXcollision
-  - 
+  - CloneBall
   - 
   - 
   - 

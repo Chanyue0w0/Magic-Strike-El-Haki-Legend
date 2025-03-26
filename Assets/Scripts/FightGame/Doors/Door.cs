@@ -35,6 +35,7 @@ public class Door : MonoBehaviour
             {
                 collision.transform.position = ballResetPositionBottom.transform.position;
                 //collision.GetComponent<BallController>().ResetBallPossession();
+                collision.GetComponent<BallController>().ResetTimeOnField();
                 collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
                 NormalAttackManager.Instance.InstNormalAttack(2, 1);
@@ -47,6 +48,24 @@ public class Door : MonoBehaviour
                 collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
                 NormalAttackManager.Instance.InstNormalAttack(1, 2);
+            }
+        }
+        else if (collision.CompareTag("CloneBall"))
+        {
+            if (playerNumber == UserPosition.player1)//進玩家1球門，玩家2攻擊
+            {
+
+                NormalAttackManager.Instance.InstNormalAttack(2, 1);
+
+                Destroy(collision.gameObject);
+            }
+            else if (playerNumber == UserPosition.player2)//進玩家2球門，玩家1攻擊
+            {
+
+                NormalAttackManager.Instance.InstNormalAttack(1, 2);
+
+
+                Destroy(collision.gameObject);
             }
         }
     }
