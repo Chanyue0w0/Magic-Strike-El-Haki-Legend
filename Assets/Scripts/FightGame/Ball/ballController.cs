@@ -142,6 +142,10 @@ public class BallController : MonoBehaviour
         timeOnCurrentField = 0f;
     }
 
+    public void ResetTimeOnField()
+    {
+        timeOnCurrentField = 0f;
+    }
 
 
 }

@@ -43,6 +43,7 @@ public class Door : MonoBehaviour
             {
                 collision.transform.position = ballResetPositionUp.transform.position;
                 //collision.GetComponent<BallController>().ResetBallPossession();
+                collision.GetComponent<BallController>().ResetTimeOnField();
                 collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
                 NormalAttackManager.Instance.InstNormalAttack(1, 2);
