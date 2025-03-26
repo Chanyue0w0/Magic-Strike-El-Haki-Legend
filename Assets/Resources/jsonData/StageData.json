@@ -13,7 +13,7 @@
           "x": 5,
           "y": 7
         },
-        "StartHP": 100,
+        "StartHP": 1000,
         "StartATK": 100,
         "Player2Skin": "OriginSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",

@@ -10,5 +10,9 @@
     "SK02" : {
         "Name": "MultiBall",
         "ScriptPath": "Asset/Scripts/FightGame/Skills/MultiBall"
+    },
+    "SK03" : {
+        "Name": "StormStrike",
+        "ScriptPath": "Asset/Scripts/FightGame/Skills/StormStrike"
     }
 }
