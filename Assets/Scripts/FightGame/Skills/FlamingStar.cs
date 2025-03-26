@@ -7,7 +7,7 @@ public class FlamingStar : MonoBehaviour
     [SerializeField] private int playerNumber = 1;
     //[SerializeField] private float OriginalShieldPercentage = 0.0f;
     [SerializeField] private int skillDamage = 100;
-    [SerializeField] private int skillMoveSpeed = 10;
+    //[SerializeField] private int skillMoveSpeed = 10;
     [SerializeField] private GameObject chargeFireShield;
     [SerializeField] private GameObject flamingStarObj;
 

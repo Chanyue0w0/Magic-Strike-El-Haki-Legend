@@ -13,7 +13,7 @@ public class AIController : MonoBehaviour
     [SerializeField] private Rigidbody2D Ball;
     [SerializeField] private GameObject ball;
     [SerializeField] private BallController ballController;
-    [SerializeField] private float AISightAlpha = 0.8f;
+    //[SerializeField] private float AISightAlpha = 0.8f;
 
     [SerializeField] private PlayerCollisionNotifier collisionNotifier;
     [Header("----------------- Fight Config ------------------")]

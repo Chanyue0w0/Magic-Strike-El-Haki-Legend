@@ -6,7 +6,7 @@ public class GraspingVine : MonoBehaviour
 {
     [Header("----------------- Skill info ------------------")]
     [SerializeField] private int playerNumber = 1;
-    [SerializeField] private int targetNumber = 2;
+    //[SerializeField] private int targetNumber = 2;
     [SerializeField] private int skillDamage = 100;
     [SerializeField] private GameObject explosion;
 

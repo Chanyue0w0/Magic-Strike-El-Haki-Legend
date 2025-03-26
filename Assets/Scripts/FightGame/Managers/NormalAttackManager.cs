@@ -24,7 +24,7 @@ public class NormalAttackManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject); // 絋玂初春ち传ぃ穦砆綪反
+        //DontDestroyOnLoad(gameObject); // 絋玂初春ち传ぃ穦砆綪反
     }
 
     private void Start()

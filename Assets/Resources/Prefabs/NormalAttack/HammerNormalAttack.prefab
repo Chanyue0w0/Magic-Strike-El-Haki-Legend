@@ -284,10 +284,12 @@ MonoBehaviour:
   targetNumber: 0
   speed: 8
   rotationDistanceThreshold: 1
+  canInstMagicPowerGain: 1
   NormalAttackDamage: 0
   EffectToApply: 0
   rb: {fileID: 0}
   explosion: {fileID: 4169145334852256095, guid: 5ee2322ef0c144c4298f48031fb41c50, type: 3}
+  magicPowerGain: {fileID: 4845288783440389017, guid: a6c898717705d364cb399f6c4f4aa956, type: 3}
 --- !u!1 &3840347614851298483
 GameObject:
   m_ObjectHideFlags: 0

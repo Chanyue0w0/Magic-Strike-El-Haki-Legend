@@ -12,12 +12,14 @@ public class NormalAttack : MonoBehaviour
     [SerializeField] private int targetNumber;
     [SerializeField] private float speed = 5f;
     [SerializeField] private float rotationDistanceThreshold = 1.0f; // 旋轉距離閾值
+    [SerializeField] private bool canInstMagicPowerGain = false; // 生成獲得魔力效果
     [SerializeField] private int NormalAttackDamage = 0; // 傷害值
     [SerializeField] private StatusEffect EffectToApply = StatusEffect.Stun; // 要套用的狀態
     [SerializeField] private Rigidbody2D rb;
 
     [Header("----------------- GameObjects ------------------")]
     [SerializeField] private GameObject explosion;
+    [SerializeField] private GameObject magicPowerGain;
 
     void Start()
     {
@@ -100,6 +102,13 @@ public class NormalAttack : MonoBehaviour
             {
                 statusReceiver.ApplyStatusEffect(EffectToApply);
                 //Debug.Log($"{collision.gameObject.name} 受到狀態影響：{EffectToApply}");
+            }
+
+            if(canInstMagicPowerGain)
+            {
+                GameObject obj = Instantiate(magicPowerGain, player2.transform.position, Quaternion.identity);
+                obj.GetComponent<moveToPositionSkill>().SetTargetPosition(new Vector2(-2.43f, 0f));
+                //obj.GetComponent<moveToPositionSkill>().SetArriveTime(0.5f);
             }
 
             Destroy(gameObject);
