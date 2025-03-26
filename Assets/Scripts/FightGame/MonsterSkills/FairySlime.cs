@@ -81,7 +81,7 @@ public class FairySlime : MonoBehaviour
             float randomXOffset = Random.Range(-0.5f, 0.5f);
             Vector3 spawnPosition = player2.transform.position + new Vector3(randomXOffset, 0, 0);
 
-            GameObject obj = Instantiate(mistAmmoObject, spawnPosition, Quaternion.Euler(90, 0, 0));
+            GameObject obj = Instantiate(mistAmmoObject, spawnPosition, Quaternion.Euler(0, 0, 0));
             obj.GetComponent<AimPlayerShootSkill>().SetPlayerNumber(2);
             obj.GetComponent<AimPlayerShootSkill>().SetTargetNumber(1);
 
