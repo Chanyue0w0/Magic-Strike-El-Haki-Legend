@@ -145,7 +145,7 @@ public class RoundController : MonoBehaviour
 			canInstFountain = false;
 			StartCoroutine(ReloadSceneDelayed(3f));
 			//SetTimeScale(0.5f);
-			PauseGame();
+			//PauseGame();
 			StartCoroutine(ContinueGameDelayed(3f));
 		}
 	}

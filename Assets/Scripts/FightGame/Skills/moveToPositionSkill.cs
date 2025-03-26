@@ -6,6 +6,7 @@ public class moveToPositionSkill : MonoBehaviour
 {
     [SerializeField] private int playerNumber = 1;
     [SerializeField] private float arriveTime = 1;
+    [SerializeField] private float delayTime = 0f;
 
     [SerializeField] private GameObject explosion;
     [SerializeField] private Vector2 targetPosition;
@@ -46,11 +47,23 @@ public class moveToPositionSkill : MonoBehaviour
         targetPosition = tPosition;
         //startPosition = transform.position;
         elapsedTime = 0;
-        isMoving = true;
+        isMoving = false;
+        StartCoroutine(StartMovingAfterDelay());
     }
 
     public void SetArriveTime(float aTime)
     {
         arriveTime = aTime;
+    }
+
+    public void SetDelayTime(float dTime)
+    {
+        delayTime = dTime;
+    }
+
+    private IEnumerator StartMovingAfterDelay()
+    {
+        yield return new WaitForSeconds(delayTime);
+        isMoving = true;
     }
 }

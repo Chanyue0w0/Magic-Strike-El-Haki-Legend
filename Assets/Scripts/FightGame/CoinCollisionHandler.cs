@@ -14,11 +14,14 @@ public class CoinCollisionHandler : MonoBehaviour
         // 取得碰撞事件並儲存到 List 中
         int numCollisionEvents = ps.GetCollisionEvents(other, collisionEvents);
 
+        GameObject player1 = GameObject.Find("Player1");
 
         for (int i = 0; i < numCollisionEvents; i++)
         {
             // 在碰撞位置生成硬幣
-            Instantiate(coinPrefab, collisionEvents[i].intersection, Quaternion.identity);
+            GameObject obj = Instantiate(coinPrefab, collisionEvents[i].intersection, Quaternion.identity);
+            obj.GetComponent<moveToPositionSkill>().SetTargetPosition(player1.transform.position);
+            obj.GetComponent<moveToPositionSkill>().SetDelayTime(1f);
         }
     }
 }

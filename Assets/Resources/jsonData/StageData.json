@@ -7,7 +7,7 @@
         "FieldImage": "Wilderness village(Field)",
         "FieldHSBackGroundImage": "Chapter1HSBackGround",
         "BGM": "battle_theme_1",
-        "AI_level": 0,
+        "AI_level": 1.0,
         "AI_AttackFrequency": { "x": 5, "y": 7 },
         "StartHP": 300,
         "StartATK": 100,
