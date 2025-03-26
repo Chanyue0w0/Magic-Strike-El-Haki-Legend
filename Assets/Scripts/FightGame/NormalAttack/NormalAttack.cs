@@ -107,7 +107,10 @@ public class NormalAttack : MonoBehaviour
             if(canInstMagicPowerGain)
             {
                 GameObject obj = Instantiate(magicPowerGain, player2.transform.position, Quaternion.identity);
-                obj.GetComponent<moveToPositionSkill>().SetTargetPosition(new Vector2(-2.43f, 0f));
+
+                obj.GetComponent<moveToPositionSkill>().SetStartPosition(player2.transform.position);
+                obj.GetComponent<moveToPositionSkill>().SetTargetPosition(new Vector2(-2f, 0f));
+
                 //obj.GetComponent<moveToPositionSkill>().SetArriveTime(0.5f);
             }
 

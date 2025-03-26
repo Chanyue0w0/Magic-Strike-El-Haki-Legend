@@ -149,7 +149,8 @@ public class MagicPointsManager : MonoBehaviour
             else
                 p1CurrentMagicPoint = p1MaxMagicPoint;
 
-            MagicStonesUI_animator.SetInteger("MagicPoint", p1CurrentMagicPoint);
+            StartCoroutine(DelayAnimation(0.8f));
+            
 
             if (p1CurrentMagicPoint == p1MaxMagicPoint)
                 p1MagicSparkling.SetActive(true);
@@ -158,6 +159,12 @@ public class MagicPointsManager : MonoBehaviour
         {
             p2CurrentMagicPoint += 1;
         }
+    }
+
+    private IEnumerator DelayAnimation(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        MagicStonesUI_animator.SetInteger("MagicPoint", p1CurrentMagicPoint);
     }
 
     public void UseUlt(int pNumber)
