@@ -45,12 +45,28 @@ public class MultiBall : MonoBehaviour
         if (explosion != null)
             Instantiate(explosion, ball.transform.position, Quaternion.identity);
 
-        for(int i=0;i<cloneBallAmount;i++)
+        // 定義四個方向向量
+        Vector2[] directions = new Vector2[]
         {
-            Instantiate(cloneBallObj, ball.transform.position, Quaternion.identity);
-            //GameObject obj = Instantiate(cloneBallObj, ball.transform.position, Quaternion.identity);
+        Vector2.up,
+        Vector2.right,
+        Vector2.down,
+        Vector2.left
+        };
+
+        for (int i = 0; i < cloneBallAmount; i++)
+        {
+            GameObject obj = Instantiate(cloneBallObj, ball.transform.position, Quaternion.identity);
+
+            // 給予速度
+            Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                Vector2 dir = directions[i % directions.Length];
+                float force = 5f; // 可自行調整的初速度大小
+                rb.velocity = dir * force;
+            }
         }
-
-
     }
+
 }
