@@ -10,6 +10,8 @@ public class StormStrike : MonoBehaviour
     [SerializeField] private int skillAmount = 10;
     [SerializeField] private float skillInstTimeGap = 0.1f;//每次雷擊生成時間差
     [SerializeField] private float skillWarningTime = 1f;//警告持續
+    [SerializeField] private float skillGap = 0.5f; // 每個雷擊之間最小距離
+
     //[SerializeField] private int skillMoveSpeed = 10;
     [SerializeField] private GameObject lightningStrikeObj;
     [SerializeField] private GameObject WarningEffectObj;
@@ -56,36 +58,60 @@ public class StormStrike : MonoBehaviour
 
     private IEnumerator DelayedInstLightningStrike()
     {
+        List<Vector2> usedPositions = new List<Vector2>();
+
         for (int i = 0; i < skillAmount; i++)
         {
             Vector2 randomPos;
+            int maxAttempts = 30; // 最多嘗試 30 次避免死循環
+            int attempt = 0;
 
-            if (playerNumber == 1)
+            do
             {
-                // player 1 使用技能，打 player 2 的場地
-                randomPos = new Vector2(
-                    Random.Range(P2Field_instPositionXRange.y, P2Field_instPositionXRange.x),
-                    Random.Range(P2Field_instPositionYRange.x, P2Field_instPositionYRange.y)
-                );
-            }
-            else
-            {
-                // player 2 使用技能，打 player 1 的場地
-                randomPos = new Vector2(
-                    Random.Range(P1Field_instPositionXRange.y, P1Field_instPositionXRange.x),
-                    Random.Range(P1Field_instPositionYRange.x, P1Field_instPositionYRange.y)
-                );
-            }
+                if (playerNumber == 1)
+                {
+                    randomPos = new Vector2(
+                        Random.Range(P2Field_instPositionXRange.y, P2Field_instPositionXRange.x),
+                        Random.Range(P2Field_instPositionYRange.x, P2Field_instPositionYRange.y)
+                    );
+                }
+                else
+                {
+                    randomPos = new Vector2(
+                        Random.Range(P1Field_instPositionXRange.y, P1Field_instPositionXRange.x),
+                        Random.Range(P1Field_instPositionYRange.x, P1Field_instPositionYRange.y)
+                    );
+                }
 
-            // 生成警告特效
-            GameObject warning = Instantiate(WarningEffectObj, randomPos, Quaternion.identity);
+                attempt++;
 
-            // 等待 skillWarningTime 秒後再生成閃電攻擊
+                // 如果嘗試太多次就強制跳出（避免卡住）
+                if (attempt > maxAttempts) break;
+
+            } while (!IsFarEnough(randomPos, usedPositions, skillGap));
+
+            usedPositions.Add(randomPos);
+
+            // 生成警告
+            Instantiate(WarningEffectObj, randomPos, Quaternion.identity);
+
+            // 延遲生成閃電
             StartCoroutine(SpawnLightningAfterWarning(randomPos, skillWarningTime));
 
-            // 每次生成的時間間隔
             yield return new WaitForSeconds(skillInstTimeGap);
         }
+    }
+
+    private bool IsFarEnough(Vector2 candidate, List<Vector2> existingPoints, float minDistance)
+    {
+        foreach (Vector2 point in existingPoints)
+        {
+            if (Vector2.Distance(candidate, point) < minDistance)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 
