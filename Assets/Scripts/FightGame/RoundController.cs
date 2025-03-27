@@ -63,6 +63,10 @@ public class RoundController : MonoBehaviour
 	[SerializeField] private Image P1HSBackGround;
 	[SerializeField] private Image P2HSBackGround;
 
+	[Header("----------------- Win & Lose Panel ------------------")]
+	[SerializeField] private GameObject WinPanel;
+	[SerializeField] private GameObject LosePanel;
+	[SerializeField] private Text totalTimeText;
 
 	private void Awake()
 	{
@@ -132,6 +136,7 @@ public class RoundController : MonoBehaviour
 		// p1 or p2 hp == 0 end game
 		if (player1Status.GetHP() <= 0 || nowTime <= 0)
 		{
+			LosePanel.SetActive(true);
 			GameOver();
 			// defeat
 		}
@@ -196,29 +201,69 @@ public class RoundController : MonoBehaviour
 
 		if (nextStage == null)
 		{
+			NextLevel();
 			// 如果找不到下一關，可能需要提升 Level 或 Chapter
-			currentStageIndex = 1; // 重置 Stage
-			currentLevelIndex++;
+			// 顯示結算畫面
 
-			nextStage = StageData.Instance.FindStage(currentChapterIndex, currentLevelIndex, currentStageIndex);
-			if (nextStage == null)
-			{
-				// 如果 Level 也找不到，則提升 Chapter
-				currentLevelIndex = 1;
-				currentChapterIndex++;
-			}
+			//currentStageIndex = 1; // 重置 Stage
+			//currentLevelIndex++;
+
+			//nextStage = StageData.Instance.FindStage(currentChapterIndex, currentLevelIndex, currentStageIndex);
+			//if (nextStage == null)
+			//{
+			//	// 如果 Level 也找不到，則提升 Chapter
+			//	currentLevelIndex = 1;
+			//	currentChapterIndex++;
+			//}
 		}
 
-		if (currentLevelIndex != FightPlayer1Config.CurrentLevel 
-			|| currentChapterIndex != FightPlayer1Config.CurrentChapter)//若換關卡了
-        {
-			levelIsChanged = true;
+		//if (currentLevelIndex != FightPlayer1Config.CurrentLevel 
+		//	|| currentChapterIndex != FightPlayer1Config.CurrentChapter)//若換關卡了
+		//{
+		//	levelIsChanged = true;
 
-		}
+		//}
 
 		FightPlayer1Config.CurrentStage = currentStageIndex;
 		FightPlayer1Config.CurrentLevel = currentLevelIndex;
 		FightPlayer1Config.CurrentChapter= currentChapterIndex;
+	}
+
+	public void NextLevel()
+	{
+
+		WinPanel.SetActive(true);
+		//FightPlayer1Config.NowHP = player1Status.GetHP();
+		//FightPlayer1Config.NowMagicPoint = MagicPointsManager.Instance.GetMagicPoint(1);
+		//currentStageIndex++;
+		//// 需要檢查是否到了新關卡或新章節
+		//StageDataEntry nextStage = StageData.Instance.FindStage(currentChapterIndex, currentLevelIndex, currentStageIndex);
+
+		//if (nextStage == null)
+		//{
+		//	// 如果找不到下一關，可能需要提升 Level 或 Chapter
+		//	currentStageIndex = 1; // 重置 Stage
+		//						   //currentLevelIndex++;
+
+		//	//nextStage = StageData.Instance.FindStage(currentChapterIndex, currentLevelIndex, currentStageIndex);
+		//	//if (nextStage == null)
+		//	//{
+		//	//	// 如果 Level 也找不到，則提升 Chapter
+		//	//	currentLevelIndex = 1;
+		//	//	currentChapterIndex++;
+		//	//}
+		//}
+
+		////if (currentLevelIndex != FightPlayer1Config.CurrentLevel 
+		////	|| currentChapterIndex != FightPlayer1Config.CurrentChapter)//若換關卡了
+		////      {
+		////	levelIsChanged = true;
+
+		////}
+
+		//FightPlayer1Config.CurrentStage = currentStageIndex;
+		//FightPlayer1Config.CurrentLevel = currentLevelIndex;
+		//FightPlayer1Config.CurrentChapter = currentChapterIndex;
 	}
 
 	public void GameStart()

@@ -18,12 +18,12 @@
         "Player2Skin": "OriginSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
         "player2_Group": [ "MS00", "MS00", "MS00" ],
-        "spawnObjects": [
-          
-        ]
-      },
+        "spawnObjects": []
+      }
+    ],
+    "Level_2": [
       {
-        "StageNumber": "2",
+        "StageNumber": "1",
         "DeadFrameBackGroundImage": "Chapter1BackGround",
         "BackGroundImage": "Wilderness village(Background)",
         "FieldImage": "Wilderness village(Field)",
@@ -42,13 +42,34 @@
         "spawnObjects": [
           {
             "prefabName": "GrassSlimeObj",
-            "position": { "x": 1.5, "y": 1.5, "z": 0 },
-            "rotation": { "x": 0, "y": 0, "z": 0 }
+            "position": {
+              "x": 1.5,
+              "y": 1.5,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 1.5,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
           }
         ]
       },
       {
-        "StageNumber": "3",
+        "StageNumber": "2",
         "DeadFrameBackGroundImage": "Chapter1BackGround",
         "BackGroundImage": "Wilderness village(Background)",
         "FieldImage": "Wilderness village(Field)",
@@ -64,23 +85,10 @@
         "Player2Skin": "WoodBarrelSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
         "player2_Group": [ "MS02", "MS02", "MS02" ],
-        "spawnObjects": [
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 0 }
-          //},
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 180 }
-          //}
-        ]
-      }
-    ],
-    "Level_2": [
+        "spawnObjects": []
+      },
       {
-        "StageNumber": "1",
+        "StageNumber": "3",
         "DeadFrameBackGroundImage": "Chapter1BackGround",
         "BackGroundImage": "Wilderness village(Background)",
         "FieldImage": "Wilderness village(Field)",
@@ -96,13 +104,7 @@
         "Player2Skin": "WindmillSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
         "player2_Group": [ "MS03", "MS03", "MS03" ],
-        "spawnObjects": [
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 0 }
-          //},
-        ]
+        "spawnObjects": []
       }
     ]
   },
