@@ -64,7 +64,7 @@ public class ObstaclesSkill : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if((collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("DamageSkill")) 
+        if((collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("DamageSkill") || collision.gameObject.CompareTag("CloneBall")) 
             && obstacleType == ObstacleType.canBreakable)
         {
             obstacleHP--;

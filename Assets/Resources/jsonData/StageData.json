@@ -13,11 +13,23 @@
           "x": 5,
           "y": 7
         },
-        "StartHP": 100,
+        "StartHP": 1000,
         "StartATK": 100,
         "Player2Skin": "OriginSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
-        "player2_Group": [ "MS00", "MS00", "MS00" ]
+        "player2_Group": [ "MS00", "MS00", "MS00" ],
+        "spawnObjects": [
+          //{
+          //  "prefabName": "GrassSlimeObj",
+          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
+          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
+          //},
+          //{
+          //  "prefabName": "GrassSlimeObj",
+          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
+          //  "rotation": { "x": 0, "y": 0, "z": 180 }
+          //}
+        ]
       },
       {
         "StageNumber": "2",
@@ -35,7 +47,19 @@
         "StartATK": 100,
         "Player2Skin": "GrassSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
-        "player2_Group": [ "MS01", "MS01", "MS01" ]
+        "player2_Group": [ "MS01", "MS01", "MS01" ],
+        "spawnObjects": [
+          //{
+          //  "prefabName": "GrassSlimeObj",
+          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
+          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
+          //},
+          //{
+          //  "prefabName": "GrassSlimeObj",
+          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
+          //  "rotation": { "x": 0, "y": 0, "z": 180 }
+          //}
+        ]
       },
       {
         "StageNumber": "3",
@@ -53,7 +77,19 @@
         "StartATK": 100,
         "Player2Skin": "WoodBarrelSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
-        "player2_Group": [ "MS02", "MS02", "MS02" ]
+        "player2_Group": [ "MS02", "MS02", "MS02" ],
+        "spawnObjects": [
+          //{
+          //  "prefabName": "GrassSlimeObj",
+          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
+          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
+          //},
+          //{
+          //  "prefabName": "GrassSlimeObj",
+          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
+          //  "rotation": { "x": 0, "y": 0, "z": 180 }
+          //}
+        ]
       }
     ],
     "Level_2": [
@@ -73,7 +109,19 @@
         "StartATK": 100,
         "Player2Skin": "WindmillSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
-        "player2_Group": [ "MS03", "MS03", "MS03" ]
+        "player2_Group": [ "MS03", "MS03", "MS03" ],
+        "spawnObjects": [
+          //{
+          //  "prefabName": "GrassSlimeObj",
+          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
+          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
+          //},
+          //{
+          //  "prefabName": "GrassSlimeObj",
+          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
+          //  "rotation": { "x": 0, "y": 0, "z": 180 }
+          //}
+        ]
       }
     ]
   },
@@ -95,7 +143,19 @@
         "StartATK": 100,
         "Player2Skin": "PoisonFlowerSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [ "MS04", "MS04", "MS04" ]
+        "player2_Group": [ "MS04", "MS04", "MS04" ],
+        "spawnObjects": [
+          //{
+          //  "prefabName": "GrassSlimeObj",
+          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
+          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
+          //},
+          //{
+          //  "prefabName": "GrassSlimeObj",
+          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
+          //  "rotation": { "x": 0, "y": 0, "z": 180 }
+          //}
+        ]
       }
     ],
     "Level_2": [
@@ -115,7 +175,19 @@
         "StartATK": 100,
         "Player2Skin": "VineSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [ "MS05", "MS05", "MS05" ]
+        "player2_Group": [ "MS05", "MS05", "MS05" ],
+        "spawnObjects": [
+          //{
+          //  "prefabName": "GrassSlimeObj",
+          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
+          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
+          //},
+          //{
+          //  "prefabName": "GrassSlimeObj",
+          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
+          //  "rotation": { "x": 0, "y": 0, "z": 180 }
+          //}
+        ]
       }
     ],
     "Level_3": [
@@ -135,7 +207,19 @@
         "StartATK": 100,
         "Player2Skin": "FairySlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [ "MS06", "MS06", "MS06" ]
+        "player2_Group": [ "MS06", "MS06", "MS06" ],
+        "spawnObjects": [
+          //{
+          //  "prefabName": "GrassSlimeObj",
+          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
+          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
+          //},
+          //{
+          //  "prefabName": "GrassSlimeObj",
+          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
+          //  "rotation": { "x": 0, "y": 0, "z": 180 }
+          //}
+        ]
       }
     ]
   }

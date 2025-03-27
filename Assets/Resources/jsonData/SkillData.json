@@ -8,7 +8,11 @@
         "ScriptPath": "Asset/Scripts/FightGame/Skills/ShieldUp"
     },
     "SK02" : {
-        "Name": "bbbbname",
-        "ScriptPath": "Asset/Scripts/FightGame/Skills/"
+        "Name": "MultiBall",
+        "ScriptPath": "Asset/Scripts/FightGame/Skills/MultiBall"
+    },
+    "SK03" : {
+        "Name": "StormStrike",
+        "ScriptPath": "Asset/Scripts/FightGame/Skills/StormStrike"
     }
 }
