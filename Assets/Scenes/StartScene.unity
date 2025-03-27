@@ -736,6 +736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c412be9c0ab52d14ea644d9f27f2a303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetJsonFile: 0
 --- !u!1 &1291173125
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,6 +794,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Audio Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 8975513480756269654, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
+      propertyPath: <HallBGM>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: d67e8357ee1b27649a94825427db1645, type: 3}
+    - target: {fileID: 8975513480756269654, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
+      propertyPath: <MainBGM>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: f063dfefa4e58ca46a1b78f6f57d3541, type: 3}
     - target: {fileID: 9026118524749550660, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -8,7 +8,7 @@ public class StartSceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		AudioManager.Instance.PlayBGM(MusicAudioClips.Instance.HallBGM);
+		AudioManager.Instance.PlayBGM(MusicAudioClips.Instance.MainBGM);
 
         PlayerEquipmentManager.Instance.LoadEquipment();
     }
