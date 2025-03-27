@@ -13,22 +13,13 @@
           "x": 5,
           "y": 7
         },
-        "StartHP": 1000,
+        "StartHP": 300,
         "StartATK": 100,
         "Player2Skin": "OriginSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
         "player2_Group": [ "MS00", "MS00", "MS00" ],
         "spawnObjects": [
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
-          //},
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 180 }
-          //}
+          
         ]
       },
       {
@@ -49,16 +40,11 @@
         "Player2PuckSkin": "Chapter1SlimePuck",
         "player2_Group": [ "MS01", "MS01", "MS01" ],
         "spawnObjects": [
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
-          //},
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 180 }
-          //}
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": { "x": 1.5, "y": 1.5, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 }
+          }
         ]
       },
       {
@@ -82,7 +68,7 @@
           //{
           //  "prefabName": "GrassSlimeObj",
           //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
+          //  "rotation": { "x": 0, "y": 0, "z": 0 }
           //},
           //{
           //  "prefabName": "GrassSlimeObj",
@@ -114,13 +100,8 @@
           //{
           //  "prefabName": "GrassSlimeObj",
           //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
+          //  "rotation": { "x": 0, "y": 0, "z": 0 }
           //},
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 180 }
-          //}
         ]
       }
     ]
@@ -145,16 +126,52 @@
         "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [ "MS04", "MS04", "MS04" ],
         "spawnObjects": [
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
-          //},
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 180 }
-          //}
+          {
+            "prefabName": "WaterFlowZoneObj",
+            "position": {
+              "x": -4.3,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 90
+            }
+          }
+        ]
+      },
+      {
+        "StageNumber": "2",
+        "DeadFrameBackGroundImage": "Chapter2BackGround",
+        "BackGroundImage": "Dense Forest(Background)",
+        "FieldImage": "Dense Forest(Field)",
+        "FieldHSBackGroundImage": "Chapter2HSBackGround",
+        "BGM": "battle_theme_1",
+        "AI_level": 1.5,
+        "AI_AttackFrequency": {
+          "x": 5,
+          "y": 7
+        },
+        "StartHP": 1000,
+        "StartATK": 100,
+        "Player2Skin": "PoisonFlowerSlime",
+        "Player2PuckSkin": "Chapter2SlimePuck",
+        "player2_Group": [ "MS04", "MS04", "MS04" ],
+        "spawnObjects": [
+          {
+            "prefabName": "WaterFlowZoneObj",
+            "position": {
+              "x": -4.3,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 90
+            }
+          }
         ]
       }
     ],
@@ -177,16 +194,11 @@
         "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [ "MS05", "MS05", "MS05" ],
         "spawnObjects": [
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
-          //},
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 180 }
-          //}
+          {
+            "prefabName": "WaterFlowZoneObj",
+            "position": { "x": -4.3, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 90 }
+          }
         ]
       }
     ],
@@ -209,16 +221,11 @@
         "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [ "MS06", "MS06", "MS06" ],
         "spawnObjects": [
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
-          //},
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 180 }
-          //}
+          {
+            "prefabName": "WaterFlowZoneObj",
+            "position": { "x": -4.3, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 90 }
+          }
         ]
       }
     ]

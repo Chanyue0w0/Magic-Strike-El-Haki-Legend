@@ -161,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -88.69998}
+  m_AnchoredPosition: {x: 0, y: -88.69995}
   m_SizeDelta: {x: -127.18, y: -718.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8612942
@@ -8599,6 +8599,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrassSlimeObj
       objectReference: {fileID: 0}
+    - target: {fileID: 3116758097125012473, guid: ddf3d86d8ea6a3744b115233e804d7a6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8842,6 +8846,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodBarrelSlimeObj
       objectReference: {fileID: 0}
+    - target: {fileID: 8705636094641605409, guid: 952d7e3c346470141a8170dc6679b026, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8898,6 +8906,10 @@ PrefabInstance:
     - target: {fileID: 6009618997618965284, guid: 72c318e2b84eeb94d817392d2b8be57d, type: 3}
       propertyPath: m_Name
       value: WindmillSlimeObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 6009618997618965284, guid: 72c318e2b84eeb94d817392d2b8be57d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7769578175090747553, guid: 72c318e2b84eeb94d817392d2b8be57d, type: 3}
       propertyPath: destroyTime
