@@ -7,6 +7,8 @@ using static EquipmentData;
 
 public class EquipmentBag : MonoBehaviour
 {
+	public enum EquipmentType { Head, Armor, Shose, All , NULL};
+
 	// 升級所需消耗的金幣、以及每次升級增加的 HP 與 ATK 數值（預設為 100）, 等級上限(30)
 	[SerializeField] private int upgradeCost = 1;
 	[SerializeField] private int upgradeHPIncrement = 100;
@@ -33,14 +35,17 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private Image useButtonImage;
 	[SerializeField] private Image bgRarity;
 
+	[Header("Level up and Evolution GUI -------------------- ")]
 	// 顯示升級所需花費與目前玩家金幣資訊
 	[SerializeField] private TextMeshProUGUI costCoin;
 	// 新增升級按鈕參考，用來在達上限或金錢不足時更新狀態
 	[SerializeField] private Button levelUpButton;
-
 	[SerializeField] private TextMeshProUGUI evolutionCostText;
+
 	[SerializeField] private Image evolutionButtonImage;
 	[SerializeField] private Button evolutionButton;
+	[SerializeField] private Image frame;
+	[SerializeField] private Image nextFrame;
 
 	[Header("-------------------- Current Hero GUI -------------------- ")]
 	[SerializeField] private Image heroImage;
@@ -49,7 +54,7 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private Image skill2Icon;
 	[SerializeField] private Image ultimateSkillIcon;
 	[SerializeField] private GameObject headEquipmentIcon;
-	[SerializeField] private GameObject bodyEquipmentIcon;
+	[SerializeField] private GameObject ArmorEquipmentIcon;
 	[SerializeField] private GameObject shoesEquipmentIcon;
 	[SerializeField] private TextMeshProUGUI totalATKText;
 	[SerializeField] private TextMeshProUGUI totalHPText;
@@ -62,9 +67,11 @@ public class EquipmentBag : MonoBehaviour
 	private PlayerEquipmentManager.PlayerEquipment currentEquipment;
 	private PlayerHeroManager.PlayerHero currentHero;
 	private int currentHeroIndex;
+	private EquipmentType bagEquipmentType = EquipmentType.All;
 
 	private void Start()
 	{
+		bagEquipmentType = EquipmentType.All;
 		currentHeroIndex = 0;
 		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(0);
 		OnClickChangeCurrentHero(1);
@@ -95,10 +102,14 @@ public class EquipmentBag : MonoBehaviour
 
 		List<PlayerEquipmentManager.PlayerEquipment> equipmentList = PlayerEquipmentManager.Instance.GetAllEquipmentData();
 
-		// 使用 for 迴圈以捕捉正確的索引值
 		for (int i = 0; i < equipmentList.Count; i++)
 		{
+			// 目前選擇的裝備欄
 			var equipment = equipmentList[i];
+			EquipmentType type = GetEquipmentType(equipment.equipmentType);
+			if (type != bagEquipmentType && bagEquipmentType != EquipmentType.All) continue;
+
+
 			GameObject slot = Instantiate(equipmentSlotPrefab, equipmentSlotContainer);
 			slot.name = i.ToString();
 
@@ -116,6 +127,9 @@ public class EquipmentBag : MonoBehaviour
 			{
 				slotLevelText.text = "Lv. " + equipment.currentLevel;
 			}
+
+			Image frame = slot.transform.Find("FrameImage")?.GetComponent<Image>();
+			if (frame != null) frame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + equipment.rarity);
 		}
 	}
 
@@ -187,13 +201,23 @@ public class EquipmentBag : MonoBehaviour
 
 		heroNameText.text = currentHero.name;
 		heroImage.sprite = Resources.Load<Sprite>("Arts/HeroImages/HeroIllustrations/" + currentHero.id);
-		ultimateSkillIcon.sprite = Resources.Load<Sprite>("SkillIcons/Ultimate/" + currentHero.id);
-		skill1Icon.sprite = Resources.Load<Sprite>("SkillIcons/Skill1/" + currentHero.id);
-		skill2Icon.sprite = Resources.Load<Sprite>("SkillIcons/Skill2/" + currentHero.id);
+		//ultimateSkillIcon.sprite = Resources.Load<Sprite>("SkillIcons/Ultimate/" + currentHero.id);
+		if (currentHero.equippedItems[3] == "") skill1Icon.color = Color.clear;
+		else
+		{
+			skill1Icon.color = Color.white;
+			skill1Icon.sprite = Resources.Load<Sprite>("Arts/MainScenes/SkillImage/" + currentHero.equippedItems[3]);
+		}
+		if (currentHero.equippedItems[4] == "") skill2Icon.color = Color.clear;
+		else
+		{
+			skill2Icon.color = Color.white;
+			skill2Icon.sprite = Resources.Load<Sprite>("Arts/MainScenes/SkillImage/" + currentHero.equippedItems[4]);
+		}
 
 		// 更新英雄裝備圖示、按鈕功能 (若裝備資料存在則載入圖片，否則設為 null)
 		GetEquipmentSpriteData(currentHero.equippedItems, 0, headEquipmentIcon);
-		GetEquipmentSpriteData(currentHero.equippedItems, 1, bodyEquipmentIcon);
+		GetEquipmentSpriteData(currentHero.equippedItems, 1, ArmorEquipmentIcon);
 		GetEquipmentSpriteData(currentHero.equippedItems, 2, shoesEquipmentIcon);
 
 		// 計算並更新英雄的戰鬥數據
@@ -280,7 +304,25 @@ public class EquipmentBag : MonoBehaviour
 	public void OnClickUseEquipment()
 	{
 		// Determine equipment type and assign it to the correct slot
-		int slotIndex = GetEquipmentSlotIndex(currentEquipment.equipmentType);
+		EquipmentType eqType = GetEquipmentType(currentEquipment.equipmentType);
+
+		int slotIndex = -1;
+
+		switch(eqType)
+		{
+			case EquipmentType.Head:
+				slotIndex = 0; 
+				break;
+			case EquipmentType.Armor:
+				slotIndex = 1;
+				break;
+			case EquipmentType.Shose:
+				slotIndex = 2;
+				break;
+			default:
+				slotIndex = -1;
+				break;
+		}
 
 		if (slotIndex == -1)
 		{
@@ -333,27 +375,14 @@ public class EquipmentBag : MonoBehaviour
 		PlayerEquipmentManager.Instance.UpdateEquipment(eq);
 	}
 
-	private int GetEquipmentSlotIndex(string equipmentType)
-	{
-		switch (equipmentType)
-		{
-			case "Head":
-				return 0;
-			case "Armor":
-				return 1;
-			case "Shoes":
-				return 2;
-			default:
-				return -1;
-		}
-	}
-
 	private void GetEquipmentSpriteData(List<string> equippedItems, int slotIndex, GameObject obj)
 	{
 		obj.GetComponent<Image>().sprite = null;
 		obj.GetComponent<Button>().onClick.RemoveAllListeners();
 		obj.GetComponent<Button>().onClick.AddListener(() => GetComponent<MainMenuButtonController>().SoundClick());
 
+		
+		obj.GetComponent<Image>().sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + slotIndex.ToString());
 		if (slotIndex >= 0 && slotIndex < equippedItems.Count && !string.IsNullOrEmpty(equippedItems[slotIndex]))
 		{
 			var equipment = PlayerEquipmentManager.Instance.GetEquipmentByID(equippedItems[slotIndex]);
@@ -374,8 +403,8 @@ public class EquipmentBag : MonoBehaviour
 			Debug.LogWarning("沒有選擇要進化的裝備。");
 			return;
 		}
-		
-		
+
+		frame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + currentEquipment.rarity);
 
 		evolutionPanel.SetActive(true);
 		// 如果裝備等級未達上限，則禁用進化按鈕並更新提示文字
@@ -398,17 +427,22 @@ public class EquipmentBag : MonoBehaviour
 		{
 			case "Normal":
 				playerEvoStones = PlayerDataManager.Instance.GetCommonEvoStone();
+				nextFrame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/Common");
 				break;
 			case "Common":
 				playerEvoStones = PlayerDataManager.Instance.GetRareEvoStone();
+				nextFrame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/Rare");
 				break;
 			case "Rare":
 				playerEvoStones = PlayerDataManager.Instance.GetSpecialEvoStone();
+				nextFrame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/Special");
 				break;
 			case "Special":
 				playerEvoStones = PlayerDataManager.Instance.GetLegendaryEvoStone();
+				nextFrame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/Legendary");
 				break;
 			case "Legendary":
+				nextFrame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/Legendary");
 				Debug.Log("該裝備已達最高稀有度，無法進化。");
 				return;
 			default:
@@ -483,6 +517,36 @@ public class EquipmentBag : MonoBehaviour
 		RefreshEquipmentInfoUI();
 	}
 
+	public void OnClickSwitchBagType(string eqType)
+	{
+		bagEquipmentType = GetEquipmentType(eqType);
+		RefreshBagUI();
+		return;
+	}
+
+	public void OnClickSelectSkill(Image image)
+	{
+		if (currentHero.equippedItems[3] == "")
+		{
+			currentHero.equippedItems[3] = image.transform.name;
+		}
+		else
+		{
+			currentHero.equippedItems[4] = image.transform.name;
+		}
+
+		PlayerHeroManager.Instance.UpdateHero(currentHero);
+
+		RefreshCurrentHeroInfoUI();
+	}
+
+	public void OnClickCancleSkill(int skillNumber)
+	{
+		currentHero.equippedItems[skillNumber] = "";
+
+		RefreshCurrentHeroInfoUI();
+	}
+
 	private int GetEquipmentRarity(string rarity)
 	{
 		switch (rarity)
@@ -499,6 +563,23 @@ public class EquipmentBag : MonoBehaviour
 				return 4;
 			default:
 				return -1;
+		}
+	}
+
+	private EquipmentType GetEquipmentType(string equipmentType)
+	{
+		switch (equipmentType)
+		{
+			case "Head":
+				return EquipmentType.Head;
+			case "Armor":
+				return EquipmentType.Armor;
+			case "Shoes":
+				return EquipmentType.Shose;
+			case "All":
+				return EquipmentType.All;
+			default:
+				return EquipmentType.NULL;
 		}
 	}
 }

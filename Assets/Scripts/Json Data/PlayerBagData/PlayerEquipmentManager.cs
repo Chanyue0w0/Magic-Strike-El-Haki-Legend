@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerEquipmentManager : MonoBehaviour
 {
+
+	[SerializeField] private bool resetJsonFile;
 	private string savePath = "/playerEquipment.json";
 	private List<PlayerEquipment> equipmentList = new();
 
@@ -71,14 +73,20 @@ public class PlayerEquipmentManager : MonoBehaviour
 		//	1, 100, 200, "A powerful warrior's sword", GenerateRandomBuffs(4), "None"
 		//);
 		//AddEquipment(newEquipment);
+		if (resetJsonFile)
+		{
+			File.Delete(FinePath());
+			CreateEquipmentFromData("HT00");
+			CreateEquipmentFromData("HT00");
+			CreateEquipmentFromData("HT00");
+			CreateEquipmentFromData("BD00");
+			CreateEquipmentFromData("BD00");
+			CreateEquipmentFromData("BD00");
+			CreateEquipmentFromData("SH00");
+			CreateEquipmentFromData("SH00");
+			CreateEquipmentFromData("SH00");
+		}
 
-		//CreateEquipmentFromData("HT00");
-		//CreateEquipmentFromData("HT00");
-		//CreateEquipmentFromData("HT00");
-		//CreateEquipmentFromData("BD00");
-		//CreateEquipmentFromData("BD00");
-		//CreateEquipmentFromData("SH00");
-		//CreateEquipmentFromData("SH00");
 
 	}
 
