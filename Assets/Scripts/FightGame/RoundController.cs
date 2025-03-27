@@ -254,6 +254,19 @@ public class RoundController : MonoBehaviour
 			Debug.Log("Player2 Group: " + string.Join(", ", FightPlayer2Config.Group));
 		}
 
+		foreach (var spawnInfo in currentStage.spawnObjects)
+		{
+			GameObject prefab = Resources.Load<GameObject>($"Prefabs/SpawnObjects/{spawnInfo.prefabName}");
+			if (prefab != null)
+			{
+				Instantiate(prefab, spawnInfo.position, Quaternion.Euler(spawnInfo.rotation));
+			}
+			else
+			{
+				Debug.LogWarning($"Prefab not found: {spawnInfo.prefabName}");
+			}
+		}
+
 		FieldSprite.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/" + FightPlayer2Config.FieldImage);
 		DeadFrameBackGroundSprite.sprite = Resources.Load<Sprite>("Arts/MainScenes/BackgroundImage/" + FightPlayer2Config.DeadFrameBackGroundImage);
 		BackGroundSprite.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/" + FightPlayer2Config.BackGroundImage);

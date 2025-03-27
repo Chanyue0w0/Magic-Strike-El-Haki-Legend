@@ -20,7 +20,17 @@ public class StageDataEntry
     public string Player2Skin;
     public string Player2PuckSkin;
     public List<string> player2_Group;
+    public List<SpawnObjectInfo> spawnObjects;
 }
+
+[System.Serializable]
+public class SpawnObjectInfo
+{
+    public string prefabName;
+    public Vector3 position;
+    public Vector3 rotation;
+}
+
 
 public class StageData : MonoBehaviour
 {
