@@ -236,6 +236,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 13581430}
     m_Modifications:
+    - target: {fileID: 310322980092526459, guid: adbe95961f5da9d40bcbe389b93f1d3c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8409
+      objectReference: {fileID: 0}
+    - target: {fileID: 310322980092526459, guid: adbe95961f5da9d40bcbe389b93f1d3c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8409
+      objectReference: {fileID: 0}
+    - target: {fileID: 310322980092526459, guid: adbe95961f5da9d40bcbe389b93f1d3c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8409
+      objectReference: {fileID: 0}
     - target: {fileID: 2908051867518329080, guid: adbe95961f5da9d40bcbe389b93f1d3c, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -323,6 +335,22 @@ PrefabInstance:
     - target: {fileID: 5039585890849512896, guid: adbe95961f5da9d40bcbe389b93f1d3c, type: 3}
       propertyPath: m_Name
       value: Loading Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643382255687858825, guid: adbe95961f5da9d40bcbe389b93f1d3c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4154
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643382255687858825, guid: adbe95961f5da9d40bcbe389b93f1d3c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4154
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643382255687858825, guid: adbe95961f5da9d40bcbe389b93f1d3c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4154
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643382255687858825, guid: adbe95961f5da9d40bcbe389b93f1d3c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13048,7 +13076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb468ca7d6739c4b94eeb44db22d68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetPlayerData: 1
+  resetPlayerData: 0
 --- !u!1 &1505489098
 GameObject:
   m_ObjectHideFlags: 0
@@ -16734,7 +16762,7 @@ RectTransform:
   m_GameObject: {fileID: 1924564395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.62077165, y: 0.62077165, z: 0.62077165}
+  m_LocalScale: {x: 0.549445, y: 0.549445, z: 0.549445}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 845261664}
