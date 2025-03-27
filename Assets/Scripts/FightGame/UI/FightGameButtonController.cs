@@ -38,6 +38,11 @@ public class FightGameButtonController : MonoBehaviour
         pausePanel.SetActive(false);
     }
 
+    public void OnClickNextLevel()
+    {
+        roundController.NextLevel();
+    }
+
     public void OnClickExit()
     {
         roundController.SetTimeScale(1);
@@ -54,11 +59,11 @@ public class FightGameButtonController : MonoBehaviour
         //Time.timeScale = 1;
     }
 
-    public void OnClickNextLevel()
-    {
-        //SceneManager.LoadSceneAsync("FightScene");
-        FightPlayer1Config.CurrentLevel++;
-        SceneManager.LoadScene("FightScene");
-        //Time.timeScale = 1;
-    }
+    //public void OnClickNextLevel()
+    //{
+    //    //SceneManager.LoadSceneAsync("FightScene");
+    //    FightPlayer1Config.CurrentLevel++;
+    //    SceneManager.LoadScene("FightScene");
+    //    //Time.timeScale = 1;
+    //}
 }

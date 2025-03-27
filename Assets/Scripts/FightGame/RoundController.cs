@@ -241,7 +241,7 @@ public class RoundController : MonoBehaviour
 	}
 	public void NextLevel()
 	{
-		currentStageIndex = 0;
+		currentStageIndex = 1;
 		currentLevelIndex++;
 		FightPlayer1Config.NowHP = FightPlayer1Config.StartHP;
 		FightPlayer1Config.NowMagicPoint = 0;
@@ -250,8 +250,15 @@ public class RoundController : MonoBehaviour
 
 		if (nextStage == null)
 		{
-			//LevelFinished();
-			Debug.Log("No Next stage");
+			currentChapterIndex++;
+			currentStageIndex = 1;
+			currentLevelIndex = 1;
+
+			MagicPointsManager.Instance.InitialMagicPointsManager();
+			FightPlayer1Config.CurrentStage = currentStageIndex;
+			FightPlayer1Config.CurrentLevel = currentLevelIndex;
+			FightPlayer1Config.CurrentChapter = currentChapterIndex;
+			SceneManager.LoadScene("FightScene");
 		}
 		else
 		{
