@@ -202,8 +202,18 @@ public class EquipmentBag : MonoBehaviour
 		heroNameText.text = currentHero.name;
 		heroImage.sprite = Resources.Load<Sprite>("Arts/HeroImages/HeroIllustrations/" + currentHero.id);
 		//ultimateSkillIcon.sprite = Resources.Load<Sprite>("SkillIcons/Ultimate/" + currentHero.id);
-		//skill1Icon.sprite = Resources.Load<Sprite>("SkillIcons/Skill1/" + currentHero.id);
-		//skill2Icon.sprite = Resources.Load<Sprite>("SkillIcons/Skill2/" + currentHero.id);
+		if (currentHero.equippedItems[3] == "") skill1Icon.color = Color.clear;
+		else
+		{
+			skill1Icon.color = Color.white;
+			skill1Icon.sprite = Resources.Load<Sprite>("Arts/MainScenes/SkillImage/" + currentHero.equippedItems[3]);
+		}
+		if (currentHero.equippedItems[4] == "") skill2Icon.color = Color.clear;
+		else
+		{
+			skill2Icon.color = Color.white;
+			skill2Icon.sprite = Resources.Load<Sprite>("Arts/MainScenes/SkillImage/" + currentHero.equippedItems[4]);
+		}
 
 		// 更新英雄裝備圖示、按鈕功能 (若裝備資料存在則載入圖片，否則設為 null)
 		GetEquipmentSpriteData(currentHero.equippedItems, 0, headEquipmentIcon);
@@ -512,6 +522,29 @@ public class EquipmentBag : MonoBehaviour
 		bagEquipmentType = GetEquipmentType(eqType);
 		RefreshBagUI();
 		return;
+	}
+
+	public void OnClickSelectSkill(Image image)
+	{
+		if (currentHero.equippedItems[3] == "")
+		{
+			currentHero.equippedItems[3] = image.transform.name;
+		}
+		else
+		{
+			currentHero.equippedItems[4] = image.transform.name;
+		}
+
+		PlayerHeroManager.Instance.UpdateHero(currentHero);
+
+		RefreshCurrentHeroInfoUI();
+	}
+
+	public void OnClickCancleSkill(int skillNumber)
+	{
+		currentHero.equippedItems[skillNumber] = "";
+
+		RefreshCurrentHeroInfoUI();
 	}
 
 	private int GetEquipmentRarity(string rarity)

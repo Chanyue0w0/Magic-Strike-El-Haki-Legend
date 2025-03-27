@@ -49,7 +49,16 @@ public class PlayerHeroManager : MonoBehaviour
 		}
 		Instance = this;
 	}
-
+	void Start()
+	{
+		if (!File.Exists(FilePath()))
+		{
+			InitJsonFile();
+		}
+		// Add a new test hero on start
+		//PlayerHero newHero = new PlayerHero("Test Hero", "HR99", "Legendary", 1, 300, 2000, 1500, false, 50, "A powerful test hero", new List<string> { "", "", "" });
+		//AddHero(newHero);
+	}
 	private void InitJsonFile()
 	{
 		JObject heroDataObj = HeroData.Instance.jsonData;
@@ -75,7 +84,7 @@ public class PlayerHeroManager : MonoBehaviour
 				false,
 				0,
 				heroJson["Description"].ToString(),
-				new List<string> { "", "", ""}
+				new List<string> { "", "", "", "", ""}
 			);
 			heroList.Add(newHero);
 		}
@@ -85,15 +94,7 @@ public class PlayerHeroManager : MonoBehaviour
 		SaveHeroes();
 	}
 
-	void Start()
-	{
-		if (!File.Exists(FilePath()))
-			InitJsonFile();
-
-		// Add a new test hero on start
-		//PlayerHero newHero = new PlayerHero("Test Hero", "HR99", "Legendary", 1, 300, 2000, 1500, false, 50, "A powerful test hero", new List<string> { "", "", "" });
-		//AddHero(newHero);
-	}
+	
 
 	public void AddHero(PlayerHero hero)
 	{
