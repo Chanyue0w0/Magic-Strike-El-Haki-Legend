@@ -299,8 +299,8 @@ public class RoundController : MonoBehaviour
 			FightPlayer2Config.HSBackGroundImage = currentStage.FieldHSBackGroundImage;
 			FightPlayer2Config.BGM = currentStage.BGM;
 
-			Debug.Log("Stage Loaded: " + currentStage.StageNumber);
-			Debug.Log("Player2 Group: " + string.Join(", ", FightPlayer2Config.Group));
+			//Debug.Log("Stage Loaded: " + currentStage.StageNumber);
+			//Debug.Log("Player2 Group: " + string.Join(", ", FightPlayer2Config.Group));
 		}
 
 		foreach (var spawnInfo in currentStage.spawnObjects)
