@@ -116,7 +116,7 @@
         "BackGroundImage": "Dense Forest(Background)",
         "FieldImage": "Dense Forest(Field)",
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
-        "BGM": "battle_theme_1",
+        "BGM": "CH2 Combat music",
         "AI_level": 1.5,
         "AI_AttackFrequency": {
           "x": 5,
@@ -149,7 +149,7 @@
         "BackGroundImage": "Dense Forest(Background)",
         "FieldImage": "Dense Forest(Field)",
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
-        "BGM": "battle_theme_1",
+        "BGM": "CH2 Combat music",
         "AI_level": 1.5,
         "AI_AttackFrequency": {
           "x": 5,
@@ -184,7 +184,7 @@
         "BackGroundImage": "Dense Forest(Background)",
         "FieldImage": "Dense Forest(Field)",
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
-        "BGM": "battle_theme_1",
+        "BGM": "CH2 Combat music",
         "AI_level": 1.5,
         "AI_AttackFrequency": {
           "x": 5,
@@ -198,8 +198,16 @@
         "spawnObjects": [
           {
             "prefabName": "WaterFlowZoneObj",
-            "position": { "x": -4.3, "y": 0, "z": 0 },
-            "rotation": { "x": 0, "y": 0, "z": 90 }
+            "position": {
+              "x": -4.3,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 90
+            }
           }
         ]
       }
@@ -211,7 +219,7 @@
         "BackGroundImage": "Dense Forest(Background)",
         "FieldImage": "Dense Forest(Field)",
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
-        "BGM": "battle_theme_1",
+        "BGM": "CH2 Combat music",
         "AI_level": 2.0,
         "AI_AttackFrequency": {
           "x": 5,
@@ -225,8 +233,16 @@
         "spawnObjects": [
           {
             "prefabName": "WaterFlowZoneObj",
-            "position": { "x": -4.3, "y": 0, "z": 0 },
-            "rotation": { "x": 0, "y": 0, "z": 90 }
+            "position": {
+              "x": -4.3,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 90
+            }
           }
         ]
       }
