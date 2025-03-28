@@ -13,7 +13,7 @@
           "x": 5,
           "y": 7
         },
-        "StartHP": 300,
+        "StartHP": 500,
         "StartATK": 100,
         "Player2Skin": "OriginSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
@@ -31,10 +31,10 @@
         "BGM": "battle_theme_1",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
+          "x": 8,
+          "y": 10
         },
-        "StartHP": 300,
+        "StartHP": 500,
         "StartATK": 100,
         "Player2Skin": "GrassSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
@@ -77,10 +77,104 @@
         "BGM": "battle_theme_1",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
+          "x": 8,
+          "y": 10
+        },
+        "StartHP": 800,
+        "StartATK": 100,
+        "Player2Skin": "GrassSlime",
+        "Player2PuckSkin": "Chapter1SlimePuck",
+        "player2_Group": [ "MS01", "MS01", "MS01" ],
+        "spawnObjects": [
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 1,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 1,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 2,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 2,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ]
+      }
+      
+      //{
+      //  "StageNumber": "3",
+      //  "DeadFrameBackGroundImage": "Chapter1BackGround",
+      //  "BackGroundImage": "Wilderness village(Background)",
+      //  "FieldImage": "Wilderness village(Field)",
+      //  "FieldHSBackGroundImage": "Chapter1HSBackGround",
+      //  "BGM": "battle_theme_1",
+      //  "AI_level": 1.0,
+      //  "AI_AttackFrequency": {
+      //    "x": 5,
+      //    "y": 7
+      //  },
+      //  "StartHP": 1000,
+      //  "StartATK": 100,
+      //  "Player2Skin": "WindmillSlime",
+      //  "Player2PuckSkin": "Chapter1SlimePuck",
+      //  "player2_Group": [ "MS03", "MS03", "MS03" ],
+      //  "spawnObjects": []
+      //}
+    ],
+    "Level_3": [
+      {
+        "StageNumber": "1",
+        "DeadFrameBackGroundImage": "Chapter1BackGround",
+        "BackGroundImage": "Wilderness village(Background)",
+        "FieldImage": "Wilderness village(Field)",
+        "FieldHSBackGroundImage": "Chapter1HSBackGround",
+        "BGM": "battle_theme_1",
+        "AI_level": 1.0,
+        "AI_AttackFrequency": {
           "x": 5,
           "y": 7
         },
-        "StartHP": 300,
+        "StartHP": 500,
         "StartATK": 100,
         "Player2Skin": "WoodBarrelSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
@@ -88,7 +182,47 @@
         "spawnObjects": []
       },
       {
-        "StageNumber": "3",
+        "StageNumber": "2",
+        "DeadFrameBackGroundImage": "Chapter1BackGround",
+        "BackGroundImage": "Wilderness village(Background)",
+        "FieldImage": "Wilderness village(Field)",
+        "FieldHSBackGroundImage": "Chapter1HSBackGround",
+        "BGM": "battle_theme_1",
+        "AI_level": 1.0,
+        "AI_AttackFrequency": {
+          "x": 5,
+          "y": 7
+        },
+        "StartHP": 1000,
+        "StartATK": 100,
+        "Player2Skin": "WoodBarrelSlime",
+        "Player2PuckSkin": "Chapter1SlimePuck",
+        "player2_Group": [ "MS02", "MS02", "MS02" ],
+        "spawnObjects": []
+      }
+    ],
+    "Level_4": [
+      {
+        "StageNumber": "1",
+        "DeadFrameBackGroundImage": "Chapter1BackGround",
+        "BackGroundImage": "Wilderness village(Background)",
+        "FieldImage": "Wilderness village(Field)",
+        "FieldHSBackGroundImage": "Chapter1HSBackGround",
+        "BGM": "battle_theme_1",
+        "AI_level": 1.0,
+        "AI_AttackFrequency": {
+          "x": 5,
+          "y": 7
+        },
+        "StartHP": 500,
+        "StartATK": 100,
+        "Player2Skin": "WindmillSlime",
+        "Player2PuckSkin": "Chapter1SlimePuck",
+        "player2_Group": [ "MS03", "MS03", "MS03" ],
+        "spawnObjects": []
+      },
+      {
+        "StageNumber": "2",
         "DeadFrameBackGroundImage": "Chapter1BackGround",
         "BackGroundImage": "Wilderness village(Background)",
         "FieldImage": "Wilderness village(Field)",
@@ -122,41 +256,8 @@
           "x": 5,
           "y": 7
         },
-        "StartHP": 1000,
-        "StartATK": 100,
-        "Player2Skin": "PoisonFlowerSlime",
-        "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [ "MS04", "MS04", "MS04" ],
-        "spawnObjects": [
-          {
-            "prefabName": "WaterFlowZoneObj",
-            "position": {
-              "x": -4.3,
-              "y": 0,
-              "z": 0
-            },
-            "rotation": {
-              "x": 0,
-              "y": 0,
-              "z": 90
-            }
-          }
-        ]
-      },
-      {
-        "StageNumber": "2",
-        "DeadFrameBackGroundImage": "Chapter2BackGround",
-        "BackGroundImage": "Dense Forest(Background)",
-        "FieldImage": "Dense Forest(Field)",
-        "FieldHSBackGroundImage": "Chapter2HSBackGround",
-        "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
-        "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
-        },
-        "StartHP": 1000,
-        "StartATK": 100,
+        "StartHP": 1200,
+        "StartATK": 150,
         "Player2Skin": "PoisonFlowerSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [ "MS04", "MS04", "MS04" ],
@@ -187,11 +288,11 @@
         "BGM": "CH2 Combat music",
         "AI_level": 1.5,
         "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
+          "x": 3,
+          "y": 5
         },
-        "StartHP": 1000,
-        "StartATK": 100,
+        "StartHP": 1500,
+        "StartATK": 150,
         "Player2Skin": "VineSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [ "MS05", "MS05", "MS05" ],
@@ -222,11 +323,11 @@
         "BGM": "CH2 Combat music",
         "AI_level": 2.0,
         "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
+          "x": 3,
+          "y": 5
         },
-        "StartHP": 1000,
-        "StartATK": 100,
+        "StartHP": 1500,
+        "StartATK": 150,
         "Player2Skin": "FairySlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [ "MS06", "MS06", "MS06" ],
