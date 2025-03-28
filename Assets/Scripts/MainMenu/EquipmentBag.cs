@@ -529,10 +529,12 @@ public class EquipmentBag : MonoBehaviour
 		if (currentHero.equippedItems[3] == "")
 		{
 			currentHero.equippedItems[3] = image.transform.name;
+			FightPlayer1Config.Group[1] = image.transform.name;// 暫時加上
 		}
 		else
 		{
 			currentHero.equippedItems[4] = image.transform.name;
+			FightPlayer1Config.Group[2] = image.transform.name;// 暫時加上
 		}
 
 		PlayerHeroManager.Instance.UpdateHero(currentHero);
