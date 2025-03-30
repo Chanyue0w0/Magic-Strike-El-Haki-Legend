@@ -4009,7 +4009,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2038217179}
   m_HandleRect: {fileID: 2038217178}
   m_Direction: 3
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 6
   m_OnValueChanged:
@@ -8802,7 +8802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c412be9c0ab52d14ea644d9f27f2a303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetJsonFile: 0
+  resetJsonFile: 1
 --- !u!1 &957126351
 GameObject:
   m_ObjectHideFlags: 0
@@ -16492,7 +16492,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 560649334}
   m_HandleRect: {fileID: 560649333}
   m_Direction: 3
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 6
   m_OnValueChanged:

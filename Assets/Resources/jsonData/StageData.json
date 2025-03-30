@@ -17,7 +17,11 @@
         "StartATK": 100,
         "Player2Skin": "OriginSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
-        "player2_Group": [ "MS00", "MS00", "MS00" ],
+        "player2_Group": [
+          "MS00",
+          "MS00",
+          "MS00"
+        ],
         "spawnObjects": []
       }
     ],
@@ -38,7 +42,11 @@
         "StartATK": 100,
         "Player2Skin": "GrassSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
-        "player2_Group": [ "MS01", "MS01", "MS01" ],
+        "player2_Group": [
+          "MS01",
+          "MS01",
+          "MS01"
+        ],
         "spawnObjects": [
           {
             "prefabName": "GrassSlimeObj",
@@ -84,7 +92,11 @@
         "StartATK": 100,
         "Player2Skin": "GrassSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
-        "player2_Group": [ "MS01", "MS01", "MS01" ],
+        "player2_Group": [
+          "MS01",
+          "MS01",
+          "MS01"
+        ],
         "spawnObjects": [
           {
             "prefabName": "GrassSlimeObj",
@@ -140,26 +152,6 @@
           }
         ]
       }
-
-      //{
-      //  "StageNumber": "3",
-      //  "DeadFrameBackGroundImage": "Chapter1BackGround",
-      //  "BackGroundImage": "Wilderness village(Background)",
-      //  "FieldImage": "Wilderness village(Field)",
-      //  "FieldHSBackGroundImage": "Chapter1HSBackGround",
-      //  "BGM": "battle_theme_1",
-      //  "AI_level": 1.0,
-      //  "AI_AttackFrequency": {
-      //    "x": 5,
-      //    "y": 7
-      //  },
-      //  "StartHP": 1000,
-      //  "StartATK": 100,
-      //  "Player2Skin": "WindmillSlime",
-      //  "Player2PuckSkin": "Chapter1SlimePuck",
-      //  "player2_Group": [ "MS03", "MS03", "MS03" ],
-      //  "spawnObjects": []
-      //}
     ],
     "Level_3": [
       {
@@ -178,7 +170,11 @@
         "StartATK": 100,
         "Player2Skin": "WoodBarrelSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
-        "player2_Group": [ "MS02", "MS02", "MS02" ],
+        "player2_Group": [
+          "MS02",
+          "MS02",
+          "MS02"
+        ],
         "spawnObjects": []
       },
       {
@@ -197,7 +193,11 @@
         "StartATK": 100,
         "Player2Skin": "WoodBarrelSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
-        "player2_Group": [ "MS02", "MS02", "MS02" ],
+        "player2_Group": [
+          "MS02",
+          "MS02",
+          "MS02"
+        ],
         "spawnObjects": []
       }
     ],
@@ -218,7 +218,11 @@
         "StartATK": 100,
         "Player2Skin": "WindmillSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
-        "player2_Group": [ "MS03", "MS03", "MS03" ],
+        "player2_Group": [
+          "MS03",
+          "MS03",
+          "MS03"
+        ],
         "spawnObjects": []
       },
       {
@@ -237,7 +241,11 @@
         "StartATK": 100,
         "Player2Skin": "WindmillSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
-        "player2_Group": [ "MS03", "MS03", "MS03" ],
+        "player2_Group": [
+          "MS03",
+          "MS03",
+          "MS03"
+        ],
         "spawnObjects": []
       }
     ]
@@ -260,7 +268,11 @@
         "StartATK": 150,
         "Player2Skin": "PoisonFlowerSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [ "MS04", "MS04", "MS04" ],
+        "player2_Group": [
+          "MS04",
+          "MS04",
+          "MS04"
+        ],
         "spawnObjects": [
           {
             "prefabName": "WaterFlowZoneObj",
@@ -295,7 +307,11 @@
         "StartATK": 150,
         "Player2Skin": "VineSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [ "MS05", "MS05", "MS05" ],
+        "player2_Group": [
+          "MS05",
+          "MS05",
+          "MS05"
+        ],
         "spawnObjects": [
           {
             "prefabName": "WaterFlowZoneObj",
@@ -330,7 +346,11 @@
         "StartATK": 150,
         "Player2Skin": "FairySlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [ "MS06", "MS06", "MS06" ],
+        "player2_Group": [
+          "MS06",
+          "MS06",
+          "MS06"
+        ],
         "spawnObjects": [
           {
             "prefabName": "WaterFlowZoneObj",
@@ -356,18 +376,22 @@
         "DeadFrameBackGroundImage": "Chapter3BackGround",
         "BackGroundImage": "Lava Volcano(Background)",
         "FieldImage": "Lava Volcano(Field)",
-        "FieldHSBackGroundImage": "Chapter2HSBackGround",
+        "FieldHSBackGroundImage": "Chapter3HSBackGround",
         "BGM": "CH2 Combat music",
         "AI_level": 1.5,
         "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
+          "x": 5.0,
+          "y": 7.0
         },
         "StartHP": 1200,
         "StartATK": 150,
         "Player2Skin": "PoisonFlowerSlime",
-        "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [ "MS04", "MS04", "MS04" ],
+        "Player2PuckSkin": "Chapter3SlimePuck",
+        "player2_Group": [
+          "MS04",
+          "MS04",
+          "MS04"
+        ],
         "spawnObjects": [
           {
             "prefabName": "WaterFlowZoneObj",
