@@ -10,26 +10,19 @@
         "BGM": "battle_theme_1",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
+          "x": 5.0,
+          "y": 7.0
         },
         "StartHP": 1000,
         "StartATK": 100,
         "Player2Skin": "OriginSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
-        "player2_Group": [ "MS00", "MS00", "MS00" ],
-        "spawnObjects": [
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
-          //},
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 180 }
-          //}
-        ]
+        "player2_Group": [
+          "MS00",
+          "MS00",
+          "MS00"
+        ],
+        "spawnObjects": []
       },
       {
         "StageNumber": "2",
@@ -40,26 +33,20 @@
         "BGM": "battle_theme_1",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
+          "x": 5.0,
+          "y": 7.0
         },
         "StartHP": 300,
         "StartATK": 100,
         "Player2Skin": "GrassSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
-        "player2_Group": [ "MS01", "MS01", "MS01" ],
-        "spawnObjects": [
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
-          //},
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 180 }
-          //}
-        ]
+        "player2_Group": [
+          "MS01",
+          "MS01",
+          "MS01",
+          "MS00"
+        ],
+        "spawnObjects": []
       },
       {
         "StageNumber": "3",
@@ -70,26 +57,19 @@
         "BGM": "battle_theme_1",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
+          "x": 5.0,
+          "y": 7.0
         },
         "StartHP": 300,
         "StartATK": 100,
         "Player2Skin": "WoodBarrelSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
-        "player2_Group": [ "MS02", "MS02", "MS02" ],
-        "spawnObjects": [
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
-          //},
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 180 }
-          //}
-        ]
+        "player2_Group": [
+          "MS02",
+          "MS02",
+          "MS02"
+        ],
+        "spawnObjects": []
       }
     ],
     "Level_2": [
@@ -102,26 +82,19 @@
         "BGM": "battle_theme_1",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
+          "x": 5.0,
+          "y": 7.0
         },
         "StartHP": 1000,
         "StartATK": 100,
         "Player2Skin": "WindmillSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
-        "player2_Group": [ "MS03", "MS03", "MS03" ],
-        "spawnObjects": [
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
-          //},
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 180 }
-          //}
-        ]
+        "player2_Group": [
+          "MS03",
+          "MS03",
+          "MS03"
+        ],
+        "spawnObjects": []
       }
     ]
   },
@@ -136,26 +109,38 @@
         "BGM": "battle_theme_1",
         "AI_level": 1.5,
         "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
+          "x": 5.0,
+          "y": 7.0
         },
         "StartHP": 1000,
         "StartATK": 100,
         "Player2Skin": "PoisonFlowerSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [ "MS04", "MS04", "MS04" ],
-        "spawnObjects": [
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
-          //},
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 180 }
-          //}
-        ]
+        "player2_Group": [
+          "MS04",
+          "MS04",
+          "MS04"
+        ],
+        "spawnObjects": []
+      },
+      {
+        "StageNumber": "4",
+        "DeadFrameBackGroundImage": "",
+        "BackGroundImage": "",
+        "FieldImage": "",
+        "FieldHSBackGroundImage": "",
+        "BGM": "",
+        "AI_level": 1.0,
+        "AI_AttackFrequency": {
+          "x": 5.0,
+          "y": 7.0
+        },
+        "StartHP": 100,
+        "StartATK": 50,
+        "Player2Skin": "",
+        "Player2PuckSkin": "",
+        "player2_Group": [],
+        "spawnObjects": []
       }
     ],
     "Level_2": [
@@ -168,26 +153,19 @@
         "BGM": "battle_theme_1",
         "AI_level": 1.5,
         "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
+          "x": 5.0,
+          "y": 7.0
         },
         "StartHP": 1000,
         "StartATK": 100,
         "Player2Skin": "VineSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [ "MS05", "MS05", "MS05" ],
-        "spawnObjects": [
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
-          //},
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 180 }
-          //}
-        ]
+        "player2_Group": [
+          "MS05",
+          "MS05",
+          "MS05"
+        ],
+        "spawnObjects": []
       }
     ],
     "Level_3": [
@@ -200,26 +178,42 @@
         "BGM": "battle_theme_1",
         "AI_level": 2.0,
         "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
+          "x": 5.0,
+          "y": 7.0
         },
         "StartHP": 1000,
         "StartATK": 100,
         "Player2Skin": "FairySlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [ "MS06", "MS06", "MS06" ],
-        "spawnObjects": [
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": 1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 0 }W
-          //},
-          //{
-          //  "prefabName": "GrassSlimeObj",
-          //  "position": { "x": -1.5, "y": 1.5, "z": 0 },
-          //  "rotation": { "x": 0, "y": 0, "z": 180 }
-          //}
-        ]
+        "player2_Group": [
+          "MS06",
+          "MS06",
+          "MS06"
+        ],
+        "spawnObjects": []
+      }
+    ]
+  },
+  "Chapter_4": {
+    "Level_1": [
+      {
+        "StageNumber": "1",
+        "DeadFrameBackGroundImage": "",
+        "BackGroundImage": "",
+        "FieldImage": "",
+        "FieldHSBackGroundImage": "",
+        "BGM": "",
+        "AI_level": 1.0,
+        "AI_AttackFrequency": {
+          "x": 5.0,
+          "y": 7.0
+        },
+        "StartHP": 100,
+        "StartATK": 50,
+        "Player2Skin": "",
+        "Player2PuckSkin": "",
+        "player2_Group": [],
+        "spawnObjects": []
       }
     ]
   }
