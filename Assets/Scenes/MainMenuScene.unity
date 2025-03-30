@@ -6737,6 +6737,8 @@ MonoBehaviour:
   controlSkillDurationIncrease: 0
   totalSkillBubbleCooldownReduction: 0
   setEffect: 
+  skill_1: 
+  skill_2: 
 --- !u!1 &753314459
 GameObject:
   m_ObjectHideFlags: 0

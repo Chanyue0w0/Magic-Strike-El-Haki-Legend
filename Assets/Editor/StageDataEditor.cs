@@ -1,11 +1,10 @@
-﻿// JsonDataEditor.cs
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
-public class JsonDataEditor : EditorWindow
+public class StageDataEditor : EditorWindow
 {
 	private string jsonFilePath = "Assets/Resources/jsonData/StageData.json";
 	private JObject stageData;
@@ -24,7 +23,7 @@ public class JsonDataEditor : EditorWindow
 	[MenuItem("JsonEditor/StageData")]
 	public static void ShowWindow()
 	{
-		GetWindow<JsonDataEditor>("Stage Data Editor");
+		GetWindow<StageDataEditor>("Stage Data Editor");
 	}
 
 	private void OnEnable() => LoadJson();
@@ -49,14 +48,24 @@ public class JsonDataEditor : EditorWindow
 
 	private void OnGUI()
 	{
+		// File path and refresh
+		EditorGUILayout.BeginHorizontal();
+		jsonFilePath = EditorGUILayout.TextField("JSON Path", jsonFilePath);
+		if (GUILayout.Button("Refresh", GUILayout.Width(80))) LoadJson();
+		EditorGUILayout.EndHorizontal();
+		GUILayout.Space(10);
 		if (stageData == null) return;
-		scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
+		scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Height(position.height - 60));
 		DrawSearchSection();
 		DrawStageEditor();
 		DrawAddStageSection();
-		GUILayout.Space(10);
-		if (GUILayout.Button("💾 Save JSON")) SaveJson();
+
 		EditorGUILayout.EndScrollView();
+
+		// Footer Save Button
+		EditorGUILayout.BeginHorizontal();
+		if (GUILayout.Button("💾 Save JSON")) SaveJson();
+		EditorGUILayout.EndHorizontal();
 	}
 
 	private void DrawSearchSection()
