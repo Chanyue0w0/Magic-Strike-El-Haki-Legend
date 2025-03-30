@@ -12,6 +12,8 @@ public class BattleDataCalculator : MonoBehaviour
 	[SerializeField] public float controlSkillDurationIncrease;
 	[SerializeField] public float totalSkillBubbleCooldownReduction;
 	[SerializeField] public string setEffect;
+	[SerializeField] public string skill_1;
+	[SerializeField] public string skill_2;
 
 	void Start()
 	{
@@ -28,6 +30,8 @@ public class BattleDataCalculator : MonoBehaviour
 		playerName = hero.name;
 		int baseHP = hero.baseHP;
 		int baseATK = hero.baseATK;
+		skill_1 = hero.equippedItems[3];
+		skill_2 = hero.equippedItems[4];
 
 		int equipmentTotalHP = 0;
 		int equipmentTotalATK = 0;
@@ -114,6 +118,8 @@ public class BattleDataCalculator : MonoBehaviour
 		FightPlayer1Config.CC_SkillTimeIncrease = controlSkillDurationIncrease;
 		FightPlayer1Config.SkillBubbleTimeDecrease = totalSkillBubbleCooldownReduction;
 		FightPlayer1Config.EquipSet = setEffect;
+		FightPlayer1Config.Group[1] = skill_1;
+		FightPlayer1Config.Group[2] = skill_2;
 	}
 
 	private float ParseBuffValue(string buff)
