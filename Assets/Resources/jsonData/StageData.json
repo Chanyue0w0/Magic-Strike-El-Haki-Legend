@@ -140,7 +140,7 @@
           }
         ]
       }
-      
+
       //{
       //  "StageNumber": "3",
       //  "DeadFrameBackGroundImage": "Chapter1BackGround",
@@ -331,6 +331,43 @@
         "Player2Skin": "FairySlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [ "MS06", "MS06", "MS06" ],
+        "spawnObjects": [
+          {
+            "prefabName": "WaterFlowZoneObj",
+            "position": {
+              "x": -4.3,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 90
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "Chapter_3": {
+    "Level_1": [
+      {
+        "StageNumber": "1",
+        "DeadFrameBackGroundImage": "Chapter3BackGround",
+        "BackGroundImage": "Lava Volcano(Background)",
+        "FieldImage": "Lava Volcano(Field)",
+        "FieldHSBackGroundImage": "Chapter2HSBackGround",
+        "BGM": "CH2 Combat music",
+        "AI_level": 1.5,
+        "AI_AttackFrequency": {
+          "x": 5,
+          "y": 7
+        },
+        "StartHP": 1200,
+        "StartATK": 150,
+        "Player2Skin": "PoisonFlowerSlime",
+        "Player2PuckSkin": "Chapter2SlimePuck",
+        "player2_Group": [ "MS04", "MS04", "MS04" ],
         "spawnObjects": [
           {
             "prefabName": "WaterFlowZoneObj",
