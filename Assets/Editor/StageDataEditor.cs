@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
 
-public class StageDataEditor_Expanded : EditorWindow
+public class StageDataEditor : EditorWindow
 {
 	private string jsonFilePath = "Assets/Resources/jsonData/StageData.json";
 	private JObject stageData;
@@ -18,10 +18,10 @@ public class StageDataEditor_Expanded : EditorWindow
 	private Dictionary<string, Dictionary<string, bool>> levelFoldouts = new Dictionary<string, Dictionary<string, bool>>();
 	private Dictionary<string, List<bool>> stageFoldouts = new Dictionary<string, List<bool>>();
 
-	[MenuItem("JsonEditor/Stage Data (Expanded)")]
+	[MenuItem("JsonEditor/Stage Data")]
 	public static void ShowWindow()
 	{
-		GetWindow<StageDataEditor_Expanded>("Stage Data Editor");
+		GetWindow<StageDataEditor>("Stage Data Editor");
 	}
 
 	private void OnEnable() => LoadJson();

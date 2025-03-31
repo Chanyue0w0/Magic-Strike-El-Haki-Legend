@@ -8,6 +8,7 @@ public class StageButtonController : MonoBehaviour
 	[SerializeField] private Transform stageButtonContainer;
 	[SerializeField] private GameObject stagePanel;
 	[SerializeField] private Text chapterText;
+	[SerializeField] private Image chapterBackgroundImage;
 
 	[SerializeField] MainMenuButtonController mainMenuButtonController;
 
@@ -119,6 +120,7 @@ public class StageButtonController : MonoBehaviour
 
 		// 更新介面文字顯示
 		chapterText.text = $"{selectedChapter} - {selectedLevel}";
+		chapterBackgroundImage.sprite = Resources.Load<Sprite>("");
 
 		ApplySelectedStageToConfig();
 		stagePanel.SetActive(false);
