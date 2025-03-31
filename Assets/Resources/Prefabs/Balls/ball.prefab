@@ -14891,9 +14891,11 @@ MonoBehaviour:
   decelerationRate: 1
   clampPositionX: {x: -1.6, y: 1.6}
   clampPositionY: {x: -3.5, y: 3.5}
+  ballSpriteAnimator: {fileID: 3352081133846036618}
   ballOnFieldWarningEffect: {fileID: 1641163068052187020, guid: 287e3c40b03ad6e44bc52c7b98c2e0a8, type: 3}
   player1ResetPosition: {x: 0, y: -1}
   player2ResetPosition: {x: 0, y: 1}
+  circleCollider: {fileID: 8824572585741761402}
 --- !u!1 &8164997936026203635
 GameObject:
   m_ObjectHideFlags: 0
@@ -14904,6 +14906,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9211651274275944141}
   - component: {fileID: 4867973557763681671}
+  - component: {fileID: 3352081133846036618}
   m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
@@ -14978,6 +14981,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3352081133846036618
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164997936026203635}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f436eee4917cb744fa4d95edb8a1beb3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8481834921624443751
 GameObject:
   m_ObjectHideFlags: 0

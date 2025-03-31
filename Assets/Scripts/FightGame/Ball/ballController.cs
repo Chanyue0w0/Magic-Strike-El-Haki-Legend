@@ -20,9 +20,13 @@ public class BallController : MonoBehaviour
 
     [Header("----------------- BallReset ------------------")]
     // 設定特效 prefab 與球權重設點與方法
+    [SerializeField] private AIController aIController;
+    [SerializeField] private Animator ballSpriteAnimator;
     [SerializeField] private GameObject ballOnFieldWarningEffect;
     [SerializeField] private Vector2 player1ResetPosition = new Vector2(0f, -1f);
     [SerializeField] private Vector2 player2ResetPosition = new Vector2(0f, 1f);
+    [SerializeField] private CircleCollider2D circleCollider;
+
     //[SerializeField] private BallPossessionManager ballPossessionManager; // 需要掛你控制球權的腳本
 
     void Start()
@@ -116,14 +120,14 @@ public class BallController : MonoBehaviour
             if (timeOnCurrentField > 8f)
             {
                 if (gameObject.transform.position.y < 0)
-                    ResetBallPossession(1);
+                    ResetBallPosition(1);
                 else
-                    ResetBallPossession(2);
+                    ResetBallPosition(2);
             }
         }
     }
 
-    public void ResetBallPossession(int pNumber)
+    public void ResetBallPosition(int pNumber)
     {
         // 根據 pNumber 設定位置與狀態
         if (pNumber == 1)
@@ -137,6 +141,8 @@ public class BallController : MonoBehaviour
             transform.position = player2ResetPosition;
         }
 
+        ballSpriteAnimator.SetTrigger("ResetBall");
+
         // 停止球的移動
         rb.velocity = Vector2.zero;
 
@@ -147,8 +153,26 @@ public class BallController : MonoBehaviour
             warningEffectInstance = null;
         }
 
+        // 關閉碰撞並延遲重新啟用
+        if (circleCollider != null)
+        {
+            aIController.SetStopMoving(true);
+            circleCollider.enabled = false;
+            StartCoroutine(ReEnableColliderAfterDelay(1f));
+        }
+
         // 重設時間
         timeOnCurrentField = 0f;
+    }
+
+    private IEnumerator ReEnableColliderAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (circleCollider != null)
+        {
+            aIController.SetStopMoving(false);
+            circleCollider.enabled = true;
+        }
     }
 
 

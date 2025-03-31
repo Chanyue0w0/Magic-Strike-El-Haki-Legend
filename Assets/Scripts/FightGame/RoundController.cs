@@ -98,15 +98,15 @@ public class RoundController : MonoBehaviour
 		this.totalStagesPerLevel = stagesPerLevel;
 
 		// Debug Log 記錄數據
-		Debug.Log($"總章節數: {totalChapters}");
-		foreach (var levelCount in totalLevelsPerChapter)
-		{
-			Debug.Log($"Chapter {levelCount.Key} 共有 {levelCount.Value} 個 Level");
-		}
-		foreach (var stageCount in totalStagesPerLevel)
-		{
-			Debug.Log($"Chapter {stageCount.Key.Item1}, Level {stageCount.Key.Item2} 共有 {stageCount.Value} 個 Stage");
-		}
+		//Debug.Log($"總章節數: {totalChapters}");
+		//foreach (var levelCount in totalLevelsPerChapter)
+		//{
+		//	Debug.Log($"Chapter {levelCount.Key} 共有 {levelCount.Value} 個 Level");
+		//}
+		//foreach (var stageCount in totalStagesPerLevel)
+		//{
+		//	Debug.Log($"Chapter {stageCount.Key.Item1}, Level {stageCount.Key.Item2} 共有 {stageCount.Value} 個 Stage");
+		//}
 
 		//// 組合 Key 為 "Chapter_X_Level_Y"
 		//string levelKey = $"Chapter_{currentChapterIndex}_Level_{currentLevelIndex}";

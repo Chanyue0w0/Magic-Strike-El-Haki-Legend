@@ -380,32 +380,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24223733}
   m_CullTransparentMesh: 1
---- !u!1 &61291110 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8164997936026203635, guid: f167040b27f725f45b7466070cd23987, type: 3}
-  m_PrefabInstance: {fileID: 2276570338171022705}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &61291113
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 61291110}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f436eee4917cb744fa4d95edb8a1beb3, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &81198709
 GameObject:
   m_ObjectHideFlags: 0
@@ -12805,6 +12779,11 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5235172023049094651, guid: f167040b27f725f45b7466070cd23987, type: 3}
   m_PrefabInstance: {fileID: 2276570338171022705}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &2092771458 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8824572585741761402, guid: f167040b27f725f45b7466070cd23987, type: 3}
+  m_PrefabInstance: {fileID: 2276570338171022705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2105154082
 GameObject:
   m_ObjectHideFlags: 0
@@ -13424,10 +13403,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4867973557763681671, guid: f167040b27f725f45b7466070cd23987, type: 3}
-      propertyPath: m_Sprite
+    - target: {fileID: 4958314868292373843, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: aIController
       value: 
-      objectReference: {fileID: 21300000, guid: cb6b1c63396a2a54a9ef434f61a560c4, type: 3}
+      objectReference: {fileID: 731934240}
+    - target: {fileID: 4958314868292373843, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: circleCollider
+      value: 
+      objectReference: {fileID: 2092771458}
     - target: {fileID: 7562544301210983039, guid: f167040b27f725f45b7466070cd23987, type: 3}
       propertyPath: m_Name
       value: ball
@@ -13435,10 +13418,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8164997936026203635, guid: f167040b27f725f45b7466070cd23987, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 61291113}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f167040b27f725f45b7466070cd23987, type: 3}
 --- !u!1001 &3340851331901099523
 PrefabInstance:
