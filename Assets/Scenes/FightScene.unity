@@ -13403,6 +13403,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3352081133846036618, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4958314868292373843, guid: f167040b27f725f45b7466070cd23987, type: 3}
       propertyPath: aIController
       value: 
