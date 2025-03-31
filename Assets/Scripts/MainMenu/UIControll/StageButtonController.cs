@@ -8,6 +8,7 @@ public class StageButtonController : MonoBehaviour
 	[SerializeField] private Transform stageButtonContainer;
 	[SerializeField] private GameObject stagePanel;
 	[SerializeField] private Text chapterText;
+	[SerializeField] private Image chapterBackgroundImage;
 
 	[SerializeField] MainMenuButtonController mainMenuButtonController;
 
@@ -115,11 +116,13 @@ public class StageButtonController : MonoBehaviour
 		{
 			Debug.LogError("無法解析關卡數: " + match.Groups[2].Value);
 			return;
-		}
+		}	
 
 		// 更新介面文字顯示
 		chapterText.text = $"{selectedChapter} - {selectedLevel}";
-
+		chapterBackgroundImage.sprite = Resources.Load<Sprite>($"Arts/MainScenes/BackgroundImage/Chapter{selectedChapter}BackGround");
+		if (chapterBackgroundImage.sprite == null)
+			chapterBackgroundImage.sprite = Resources.Load<Sprite>("Arts/MainScenes/BackgroundImage/Chapter1BackGround");
 		ApplySelectedStageToConfig();
 		stagePanel.SetActive(false);
 	}

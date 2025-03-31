@@ -190,6 +190,39 @@ public class PlayerDataManager : MonoBehaviour
 		PlayerPrefs.Save();
 	}
 
+	// 增加金幣
+	public void AddPlayerCoin(int amount)
+	{
+		int current = GetPlayerCoin();
+		SetPlayerCoin(current + amount);
+	}
+
+	// 增加進化石（四種）
+	public void AddCommonEvoStone(int amount)
+	{
+		int current = GetCommonEvoStone();
+		SetCommonEvoStone(current + amount);
+	}
+
+	public void AddRareEvoStone(int amount)
+	{
+		int current = GetRareEvoStone();
+		SetRareEvoStone(current + amount);
+	}
+
+	public void AddSpecialEvoStone(int amount)
+	{
+		int current = GetSpecialEvoStone();
+		SetSpecialEvoStone(current + amount);
+	}
+
+	public void AddLegendaryEvoStone(int amount)
+	{
+		int current = GetLegendaryEvoStone();
+		SetLegendaryEvoStone(current + amount);
+	}
+
+
 	// 清除玩家資料（用於測試）
 	public void ResetPlayerData()
 	{

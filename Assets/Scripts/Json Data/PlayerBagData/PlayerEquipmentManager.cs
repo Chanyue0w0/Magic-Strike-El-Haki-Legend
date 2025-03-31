@@ -93,8 +93,8 @@ public class PlayerEquipmentManager : MonoBehaviour
 	private Dictionary<string, string> GenerateRandomBuffs(int numberOfBuffs)
 	{
 		Dictionary<string, string> selectedBuffs = new Dictionary<string, string>();
-		List<string> keys = new List<string>(buffOptions.Keys);
-		System.Random random = new System.Random();
+		List<string> keys = new(buffOptions.Keys);
+		System.Random random = new();
 
 		while (selectedBuffs.Count < numberOfBuffs && keys.Count > 0)
 		{
@@ -108,19 +108,19 @@ public class PlayerEquipmentManager : MonoBehaviour
 		return selectedBuffs;
 	}
 
-	public void CreateEquipmentFromData(string id)
+	public PlayerEquipment CreateEquipmentFromData(string id)
 	{
 		if (EquipmentData.Instance == null)
 		{
 			Debug.LogError("EquipmentData Instance is not initialized!");
-			return;
+			return null;
 		}
 
 		EquipmentData.Equipment data = EquipmentData.Instance.GetEquipment(id);
 		if (data == null)
 		{
 			Debug.LogError("Equipment data not found for ID: " + id);
-			return;
+			return null;
 		}
 
 		// 創建 PlayerEquipment
@@ -142,6 +142,8 @@ public class PlayerEquipmentManager : MonoBehaviour
 		// 添加設備到列表並存檔
 		AddEquipment(newEquipment, isReloadData);
 		Debug.Log("New equipment created and added: " + newEquipment.name);
+
+		return newEquipment;
 	}
 
 
