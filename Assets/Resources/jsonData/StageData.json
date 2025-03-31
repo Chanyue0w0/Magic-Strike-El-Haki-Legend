@@ -7,11 +7,11 @@
         "BackGroundImage": "Wilderness village(Background)",
         "FieldImage": "Wilderness village(Field)",
         "FieldHSBackGroundImage": "Chapter1HSBackGround",
-        "BGM": "battle_theme_1",
+        "BGM": "CH1 Combat music",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
+          "x": 5.0,
+          "y": 7.0
         },
         "StartHP": 500,
         "StartATK": 100,
@@ -32,11 +32,11 @@
         "BackGroundImage": "Wilderness village(Background)",
         "FieldImage": "Wilderness village(Field)",
         "FieldHSBackGroundImage": "Chapter1HSBackGround",
-        "BGM": "battle_theme_1",
+        "BGM": "CH1 Combat music",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 8,
-          "y": 10
+          "x": 8.0,
+          "y": 10.0
         },
         "StartHP": 500,
         "StartATK": 100,
@@ -82,11 +82,11 @@
         "BackGroundImage": "Wilderness village(Background)",
         "FieldImage": "Wilderness village(Field)",
         "FieldHSBackGroundImage": "Chapter1HSBackGround",
-        "BGM": "battle_theme_1",
+        "BGM": "CH1 Combat music",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 8,
-          "y": 10
+          "x": 8.0,
+          "y": 10.0
         },
         "StartHP": 800,
         "StartATK": 100,
@@ -160,11 +160,11 @@
         "BackGroundImage": "Wilderness village(Background)",
         "FieldImage": "Wilderness village(Field)",
         "FieldHSBackGroundImage": "Chapter1HSBackGround",
-        "BGM": "battle_theme_1",
+        "BGM": "CH1 Combat music",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
+          "x": 5.0,
+          "y": 7.0
         },
         "StartHP": 500,
         "StartATK": 100,
@@ -183,11 +183,11 @@
         "BackGroundImage": "Wilderness village(Background)",
         "FieldImage": "Wilderness village(Field)",
         "FieldHSBackGroundImage": "Chapter1HSBackGround",
-        "BGM": "battle_theme_1",
+        "BGM": "CH1 Combat music",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
+          "x": 5.0,
+          "y": 7.0
         },
         "StartHP": 1000,
         "StartATK": 100,
@@ -208,11 +208,11 @@
         "BackGroundImage": "Wilderness village(Background)",
         "FieldImage": "Wilderness village(Field)",
         "FieldHSBackGroundImage": "Chapter1HSBackGround",
-        "BGM": "battle_theme_1",
+        "BGM": "CH1 Combat music",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
+          "x": 8.0,
+          "y": 10.0
         },
         "StartHP": 500,
         "StartATK": 100,
@@ -231,11 +231,11 @@
         "BackGroundImage": "Wilderness village(Background)",
         "FieldImage": "Wilderness village(Field)",
         "FieldHSBackGroundImage": "Chapter1HSBackGround",
-        "BGM": "battle_theme_1",
+        "BGM": "CH1 Combat music",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 5,
-          "y": 7
+          "x": 8.0,
+          "y": 10.0
         },
         "StartHP": 1000,
         "StartATK": 100,

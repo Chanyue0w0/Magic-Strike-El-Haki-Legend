@@ -120,9 +120,9 @@ public class BallController : MonoBehaviour
             if (timeOnCurrentField > 8f)
             {
                 if (gameObject.transform.position.y < 0)
-                    ResetBallPosition(1);
-                else
                     ResetBallPosition(2);
+                else
+                    ResetBallPosition(1);
             }
         }
     }
@@ -158,7 +158,7 @@ public class BallController : MonoBehaviour
         {
             aIController.SetStopMoving(true);
             circleCollider.enabled = false;
-            StartCoroutine(ReEnableColliderAfterDelay(1f));
+            StartCoroutine(ReEnableColliderAfterDelay(1.5f));
         }
 
         // 重設時間

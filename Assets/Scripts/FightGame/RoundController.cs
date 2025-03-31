@@ -343,6 +343,11 @@ public class RoundController : MonoBehaviour
 		{
 			AudioManager.Instance.PlayBGM(MusicAudioClips.Instance.BasicBattleBGM);
 		}
+		else if (FightPlayer2Config.BGM == "CH1 Combat music")
+		{
+			AudioManager.Instance.PlayBGM(MusicAudioClips.Instance.Ch1BGM);
+
+		}
 		else if (FightPlayer2Config.BGM == "CH2 Combat music")
 		{
 			AudioManager.Instance.PlayBGM(MusicAudioClips.Instance.Ch2BGM);
