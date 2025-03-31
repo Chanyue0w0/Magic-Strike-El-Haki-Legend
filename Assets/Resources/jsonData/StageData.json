@@ -385,12 +385,12 @@
         },
         "StartHP": 1200,
         "StartATK": 150,
-        "Player2Skin": "PoisonFlowerSlime",
+        "Player2Skin": "LavaSlime",
         "Player2PuckSkin": "Chapter3SlimePuck",
         "player2_Group": [
-          "MS04",
-          "MS04",
-          "MS04"
+          "MS07",
+          "MS07",
+          "MS07"
         ],
         "spawnObjects": [
           {
