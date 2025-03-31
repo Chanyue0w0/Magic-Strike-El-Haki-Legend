@@ -115,18 +115,27 @@ public class BallController : MonoBehaviour
             // 超過8秒重置球權
             if (timeOnCurrentField > 8f)
             {
-                ResetBallPossession();
+                if (gameObject.transform.position.y < 0)
+                    ResetBallPossession(1);
+                else
+                    ResetBallPossession(2);
             }
         }
     }
 
-    public void ResetBallPossession()
+    public void ResetBallPossession(int pNumber)
     {
-        // 切換到對方場地
-        isOnPlayer2Field = !isOnPlayer2Field;
-
-        // 設定新位置
-        transform.position = isOnPlayer2Field ? player2ResetPosition : player1ResetPosition;
+        // 根據 pNumber 設定位置與狀態
+        if (pNumber == 1)
+        {
+            isOnPlayer2Field = false;
+            transform.position = player1ResetPosition;
+        }
+        else if (pNumber == 2)
+        {
+            isOnPlayer2Field = true;
+            transform.position = player2ResetPosition;
+        }
 
         // 停止球的移動
         rb.velocity = Vector2.zero;
@@ -141,6 +150,7 @@ public class BallController : MonoBehaviour
         // 重設時間
         timeOnCurrentField = 0f;
     }
+
 
     public void ResetTimeOnField()
     {
