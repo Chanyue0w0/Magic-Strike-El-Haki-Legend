@@ -68,6 +68,10 @@ public class RoundController : MonoBehaviour
 	[SerializeField] private GameObject LosePanel;
 	[SerializeField] private Text totalTimeText;
 
+
+	[Header("----------------- BallSprite ------------------")]
+	[SerializeField] private SpriteRenderer ballSprite;
+
 	private void Awake()
 	{
 		if (Instance == null)
@@ -321,6 +325,8 @@ public class RoundController : MonoBehaviour
 		BackGroundSprite.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/" + FightPlayer2Config.BackGroundImage);
 		PlayerHeadSticker.sprite = Resources.Load<Sprite>("Arts/FightScene/HeadStickers/" + FightPlayer1Config.PlayerSkin);
 		SlimeHeadSticker.sprite = Resources.Load<Sprite>("Arts/FightScene/HeadStickers/" + FightPlayer2Config.PlayerSkin);
+
+		ballSprite.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/FieldObjects/Chapter" + FightPlayer1Config.CurrentChapter + "BallSprite");
 
 		P1HSBackGround.sprite = Resources.Load<Sprite>("Arts/FightScene/UI/Magic Panel ver2/" + FightPlayer2Config.HSBackGroundImage);
 		P2HSBackGround.sprite = Resources.Load<Sprite>("Arts/FightScene/UI/Magic Panel ver2/" + FightPlayer2Config.HSBackGroundImage);

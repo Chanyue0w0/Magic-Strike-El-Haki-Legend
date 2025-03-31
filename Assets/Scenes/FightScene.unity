@@ -4811,6 +4811,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1492323270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &906663789 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4867973557763681671, guid: f167040b27f725f45b7466070cd23987, type: 3}
+  m_PrefabInstance: {fileID: 2276570338171022705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &910766452 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1437732519194436546, guid: b446afdc7d1c74d4e9d85d5a62a114ee, type: 3}
@@ -6500,6 +6505,7 @@ MonoBehaviour:
   WinPanel: {fileID: 844113601}
   LosePanel: {fileID: 2115127885}
   totalTimeText: {fileID: 0}
+  ballSprite: {fileID: 906663789}
 --- !u!114 &1082590086
 MonoBehaviour:
   m_ObjectHideFlags: 0
