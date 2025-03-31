@@ -93,8 +93,8 @@ public class PlayerEquipmentManager : MonoBehaviour
 	private Dictionary<string, string> GenerateRandomBuffs(int numberOfBuffs)
 	{
 		Dictionary<string, string> selectedBuffs = new Dictionary<string, string>();
-		List<string> keys = new List<string>(buffOptions.Keys);
-		System.Random random = new System.Random();
+		List<string> keys = new(buffOptions.Keys);
+		System.Random random = new();
 
 		while (selectedBuffs.Count < numberOfBuffs && keys.Count > 0)
 		{
