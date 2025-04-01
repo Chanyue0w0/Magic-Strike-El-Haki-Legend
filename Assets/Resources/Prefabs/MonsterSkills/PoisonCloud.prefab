@@ -14216,7 +14216,7 @@ MonoBehaviour:
   aimingType: 3
   playerNumber: 2
   targetNumber: 1
-  skillDamage: 1
+  skillDamage: 0
   skillMoveSpeed: 1
   waveringAmount: 1
   explosion: {fileID: 0}
