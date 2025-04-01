@@ -78,7 +78,7 @@ public class PlayerControllerRelative : MonoBehaviour
                 initialTouchWorldPos = worldPoint;
                 initialPlayerPosition = rb.position;
                 dragStartTime = Time.time;
-                //dragStartTime = Time.unscaledTime; 
+                //dragStartTime = Time.unscaledTime;
             }
         }
         else if (Input.GetMouseButton(0) && isDragging)

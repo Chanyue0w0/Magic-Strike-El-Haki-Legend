@@ -41,6 +41,8 @@ public class AIController : MonoBehaviour
     [SerializeField] private bool isStuned = false;
     [SerializeField] private GameObject stunEffect;
 
+    [SerializeField] private bool isPause = false;//暫停AI移動
+
     private void Start()
     {
        
@@ -80,30 +82,34 @@ public class AIController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isStuned)
+        if(!isPause)
         {
-            if(!stopMoving)
+            if (!isStuned)
             {
-                AIMoving();
-            }
+                if (!stopMoving)
+                {
+                    AIMoving();
+                }
 
-            if (!attackTimeChosen) // 只在尚未選擇攻擊時間時執行
+                if (!attackTimeChosen) // 只在尚未選擇攻擊時間時執行
+                {
+                    nowAttackTime = Random.Range(maxAttackFrequency, attackFrequency);
+                    attackTimeChosen = true;
+                    attackCoroutine = StartCoroutine(DelayedAttack(nowAttackTime));
+                }
+            }
+            else
             {
-                nowAttackTime = Random.Range(maxAttackFrequency, attackFrequency);
-                attackTimeChosen = true;
-                attackCoroutine = StartCoroutine(DelayedAttack(nowAttackTime));
+                // 若 AI 被暈眩，取消當前的 Attack 計時並重新選擇攻擊時間
+                if (attackCoroutine != null)
+                {
+                    StopCoroutine(attackCoroutine);
+                    attackCoroutine = null;
+                }
+                attackTimeChosen = false; // 重置選擇狀態，暈眩結束後可以重新選擇
             }
         }
-        else
-        {
-            // 若 AI 被暈眩，取消當前的 Attack 計時並重新選擇攻擊時間
-            if (attackCoroutine != null)
-            {
-                StopCoroutine(attackCoroutine);
-                attackCoroutine = null;
-            }
-            attackTimeChosen = false; // 重置選擇狀態，暈眩結束後可以重新選擇
-        }
+        
     }
 
     private IEnumerator DelayedAttack(float delay)
@@ -116,6 +122,11 @@ public class AIController : MonoBehaviour
     {
         int skillIndex = Random.Range(1, 3);
         SkillManager.Instance.ActiveSkill(2,skillIndex);
+    }
+
+    public void SetPause(bool pause)
+    {
+        isPause = pause;
     }
 
     public void SetStopMoving(bool setting)

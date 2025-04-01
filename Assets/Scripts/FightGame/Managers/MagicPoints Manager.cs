@@ -220,8 +220,9 @@ public class MagicPointsManager : MonoBehaviour
         mainCamera.transform.position = originalCameraPosition;
 
         // Resume the game
-        //Time.timeScale = 1;
-        StartCoroutine(DelayResumeTime(0f));
+        Time.timeScale = 1;
+        RoundController.Instance.PauseMainObjects();
+        //StartCoroutine(DelayResumeMainObject(3f));
 
         if (pNumber == 1)
         {
@@ -235,10 +236,10 @@ public class MagicPointsManager : MonoBehaviour
         }
     }
 
-    // 協程函式，延遲0.5秒後再設定 timeScale 為1
-    private IEnumerator DelayResumeTime(float delayTime)
-    {
-        yield return new WaitForSecondsRealtime(delayTime); // 不受 timeScale 影響的延遲
-        Time.timeScale = 1;
-    }
+    // 協程函式，延遲0.5秒後再設定 球&AI可以移動
+    //private IEnumerator DelayResumeMainObject(float delayTime)
+    //{
+    //    yield return new WaitForSecondsRealtime(delayTime); // 不受 timeScale 影響的延遲
+    //    RoundController.Instance.continueMainObjects();
+    //}
 }

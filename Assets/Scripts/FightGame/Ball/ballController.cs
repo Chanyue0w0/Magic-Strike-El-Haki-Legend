@@ -15,6 +15,9 @@ public class BallController : MonoBehaviour
 
 
     [SerializeField] private bool pauseBallMoving = false; //暫停球移動
+    [SerializeField] private Vector2 storedVelocity; // 用來儲存暫停前的速度
+    //[SerializeField] private Vector2 storedPosition;
+
 
     [Header("----------------- OnFieldTime ------------------")]
     private float timeOnCurrentField = 0f;
@@ -40,12 +43,39 @@ public class BallController : MonoBehaviour
     // 使用 FixedUpdate 處理物理運算
     void FixedUpdate()
     {
-        if(!pauseBallMoving)
+        if (pauseBallMoving)
         {
+            // 第一次進入 pause 時儲存速度與位置，然後鎖定
+            if (rb.velocity != Vector2.zero)
+            {
+                storedVelocity = rb.velocity;
+                //storedPosition = rb.position; // rb.position 是 Rigidbody2D 的位置
+                rb.velocity = Vector2.zero;
+            }
+
+            // 強制維持在儲存的位置（防止因浮點誤差微幅移動）
+            //rb.MovePosition(storedPosition);
+        }
+        else
+        {
+            // 從暫停恢復
+            if (rb.velocity == Vector2.zero && storedVelocity != Vector2.zero)
+            {
+                rb.velocity = storedVelocity;
+                storedVelocity = Vector2.zero;
+            }
+
             MoveOnMaster();
-            ClampPosition(); // 新增：確保球體不會超出設定邊界
+            ClampPosition();
             CheckFieldStayTime();
         }
+
+        velocityNow = rb.velocity;
+    }
+
+    public void SetPauseBallMoving(bool pause)
+    {
+        pauseBallMoving = pause;
     }
 
     private void MoveOnMaster()

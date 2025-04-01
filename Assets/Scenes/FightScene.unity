@@ -161,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -88.700195}
+  m_AnchoredPosition: {x: 0, y: -88.70018}
   m_SizeDelta: {x: -127.18, y: -718.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8612942
@@ -3916,6 +3916,7 @@ MonoBehaviour:
   upBoardY: 3
   isStuned: 0
   stunEffect: {fileID: 5204472331134397424, guid: 6e7d743396a2bc146855e5fceee0f0a1, type: 3}
+  isPause: 0
 --- !u!1 &758003976
 GameObject:
   m_ObjectHideFlags: 0
@@ -6506,6 +6507,7 @@ MonoBehaviour:
   WinPanel: {fileID: 844113601}
   LosePanel: {fileID: 2115127885}
   totalTimeText: {fileID: 0}
+  ballController: {fileID: 2092771456}
   ballSprite: {fileID: 906663789}
 --- !u!114 &1082590086
 MonoBehaviour:

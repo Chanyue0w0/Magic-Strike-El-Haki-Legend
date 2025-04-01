@@ -69,7 +69,8 @@ public class RoundController : MonoBehaviour
 	[SerializeField] private Text totalTimeText;
 
 
-	[Header("----------------- BallSprite ------------------")]
+	[Header("----------------- Ball ------------------")]
+	[SerializeField] private BallController ballController;
 	[SerializeField] private SpriteRenderer ballSprite;
 
 	private void Awake()
@@ -135,6 +136,17 @@ public class RoundController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (Input.GetKey(KeyCode.T))
+        {
+			//Debug.Log("T");
+			PauseGame();
+		}
+		else if(Input.GetKeyUp(KeyCode.T))
+        {
+			SetTimeScale(1);
+
+        }
+
 		nowTime -= Time.deltaTime;
 		timeText.text = "" + ((int)nowTime);
 		// p1 or p2 hp == 0 end game
@@ -154,9 +166,11 @@ public class RoundController : MonoBehaviour
 			Instantiate(coinFountain, player2.transform.position, Quaternion.Euler(-90,0,0));
 			canInstFountain = false;
 			StartCoroutine(ReloadSceneDelayed(3f));
-            //SetTimeScale(0.5f);
-            PauseGame();
-            StartCoroutine(ContinueGameDelayed(3f));
+			//SetTimeScale(0.5f);
+			//PauseGame();
+			PauseMainObjects();
+
+			StartCoroutine(ContinueGameDelayed(3f));
 		}
 	}
 
@@ -168,7 +182,6 @@ public class RoundController : MonoBehaviour
 		NextStage();
 		//SceneManager.LoadScene("FightScene"); //¦bNextStage¸Ì­±loadScene
 	}
-
 
 	public void OpenStagePanel()
 	{
@@ -240,7 +253,6 @@ public class RoundController : MonoBehaviour
 
 	public void LevelFinished()
     {
-
 		WinPanel.SetActive(true);
 	}
 	public void NextLevel()
@@ -368,6 +380,18 @@ public class RoundController : MonoBehaviour
     {
 		Time.timeScale = tScale;
     }
+
+	public void PauseMainObjects()
+    {
+		ballController.SetPauseBallMoving(true);
+		ai_controller.SetPause(true);
+	}
+
+	public void continueMainObjects()
+	{
+		ballController.SetPauseBallMoving(false);
+		ai_controller.SetPause(false);
+	}
 
 	public void PauseGame()
     {
