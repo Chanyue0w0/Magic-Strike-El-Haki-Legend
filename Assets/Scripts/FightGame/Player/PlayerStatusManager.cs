@@ -269,7 +269,10 @@ public class PlayerStatusManager : MonoBehaviour
             //Debug.Log("Final Damage 2 :" + finalDamage);
         }
         healthBar.SetHealth(healthPoint); // §ó·s¦å±ø
-        DisplayDamage(finalDamage);
+        if(finalDamage > 0)
+        {
+            DisplayDamage(finalDamage);
+        }
         Debug.Log(player + " Get Damage "+ finalDamage);
     }
 

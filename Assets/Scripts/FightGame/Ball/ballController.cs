@@ -76,6 +76,7 @@ public class BallController : MonoBehaviour
     public void SetPauseBallMoving(bool pause)
     {
         pauseBallMoving = pause;
+        circleCollider.enabled = !pause;
     }
 
     private void MoveOnMaster()

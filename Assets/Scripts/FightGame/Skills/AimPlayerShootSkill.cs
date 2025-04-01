@@ -156,15 +156,12 @@ public class AimPlayerShootSkill : MonoBehaviour
                 Instantiate(explosion, collision.transform.position, Quaternion.identity);
 
             //doorScore.DoorTracingAttackOnHit();
-            if(skillDamage > 0)
+            // 嘗試獲取 IDamageable 介面（目標可受傷）
+            IDamageable damageable = collision.GetComponent<IDamageable>();
+            if (damageable != null)
             {
-                // 嘗試獲取 IDamageable 介面（目標可受傷）
-                IDamageable damageable = collision.GetComponent<IDamageable>();
-                if (damageable != null)
-                {
-                    damageable.TakeDamage(skillDamage);
-                    //Debug.Log($"{collision.gameObject.name} 受到 {NormalAttackDamage} 傷害！");
-                }
+                damageable.TakeDamage(skillDamage);
+                //Debug.Log($"{collision.gameObject.name} 受到 {NormalAttackDamage} 傷害！");
             }
 
             // 嘗試獲取 IStatusEffectReceiver 介面（目標可受 Buff/Debuff）
