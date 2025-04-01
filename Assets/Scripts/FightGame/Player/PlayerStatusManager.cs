@@ -72,6 +72,7 @@ public class PlayerStatusManager : MonoBehaviour
         // 先確保取消舊的訂閱，避免多次觸發
         UnregisterPlayerNotification();
 
+        FightPlayer1Config.ShieldPercentage = 0;//重製護盾狀態
         isAlive = true;
         if (player == UserPosition.player1)
         {
