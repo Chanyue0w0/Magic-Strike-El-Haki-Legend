@@ -78,6 +78,7 @@ public class PlayerControllerRelative : MonoBehaviour
                 initialTouchWorldPos = worldPoint;
                 initialPlayerPosition = rb.position;
                 dragStartTime = Time.time;
+                //dragStartTime = Time.unscaledTime; 
             }
         }
         else if (Input.GetMouseButton(0) && isDragging)
@@ -97,6 +98,7 @@ public class PlayerControllerRelative : MonoBehaviour
         {
             Vector2 worldPoint = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             float dragDuration = Time.time - dragStartTime;
+            //float dragDuration = Time.unscaledTime - dragStartTime;
 
             // 手指的總位移與平均速度
             Vector2 gestureDistanceVec = worldPoint - initialTouchWorldPos;
@@ -127,6 +129,7 @@ public class PlayerControllerRelative : MonoBehaviour
                     initialTouchWorldPos = worldPoint;
                     initialPlayerPosition = rb.position;
                     dragStartTime = Time.time;
+                    //dragStartTime = Time.unscaledTime; 
                 }
                 else if (touch.phase == TouchPhase.Moved && isDragging)
                 {
@@ -141,6 +144,7 @@ public class PlayerControllerRelative : MonoBehaviour
                 else if ((touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled) && isDragging)
                 {
                     float dragDuration = Time.time - dragStartTime;
+                    //float dragDuration = Time.unscaledTime - dragStartTime;
 
                     Vector2 gestureDistanceVec = worldPoint - initialTouchWorldPos;
                     float gestureDistance = gestureDistanceVec.magnitude;

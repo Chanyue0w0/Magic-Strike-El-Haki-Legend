@@ -6,12 +6,15 @@ public class BallController : MonoBehaviour
 {
     [SerializeField] private Vector2 velocityNow;
     [SerializeField] private float moveSpeed = 1f;
-    [SerializeField] private float maxSpeed = 10f;          // 球的最大速度
+    [SerializeField] private float maxSpeed = 10f;// 球的最大速度
     [SerializeField] private float towardMiddleSpeed = 0.5f; // 置中速度
     [SerializeField] private float decelerationRate = 1f;    // 每秒減速的速度
     [SerializeField] private Vector2 clampPositionX = new Vector2(-1.6f, 1.6f);    // X軸邊界
     [SerializeField] private Vector2 clampPositionY = new Vector2(-3.5f, 3.5f);    // Y軸邊界
     private Rigidbody2D rb;
+
+
+    [SerializeField] private bool pauseBallMoving = false; //暫停球移動
 
     [Header("----------------- OnFieldTime ------------------")]
     private float timeOnCurrentField = 0f;
@@ -37,10 +40,12 @@ public class BallController : MonoBehaviour
     // 使用 FixedUpdate 處理物理運算
     void FixedUpdate()
     {
-        MoveOnMaster();
-        ClampPosition(); // 新增：確保球體不會超出設定邊界
-        CheckFieldStayTime();
-
+        if(!pauseBallMoving)
+        {
+            MoveOnMaster();
+            ClampPosition(); // 新增：確保球體不會超出設定邊界
+            CheckFieldStayTime();
+        }
     }
 
     private void MoveOnMaster()

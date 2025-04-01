@@ -531,7 +531,8 @@ namespace CartoonFX
 		void Update()
 		{
 #if !DISABLE_LIGHTS || !DISABLE_CAMERA_SHAKE
-			time += Time.deltaTime;
+			//time += Time.deltaTime;
+			time += Time.unscaledDeltaTime;
 
 			Animate(time);
 
