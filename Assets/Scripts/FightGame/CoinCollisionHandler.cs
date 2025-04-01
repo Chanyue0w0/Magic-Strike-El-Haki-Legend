@@ -21,9 +21,11 @@ public class CoinCollisionHandler : MonoBehaviour
         {
             // 在碰撞位置生成硬幣
             GameObject obj = Instantiate(coinPrefab, collisionEvents[i].intersection, Quaternion.identity);
+            coinPrefab.GetComponent<AimPlayerShootSkill>().SetPlayerNumber(2);
+            coinPrefab.GetComponent<AimPlayerShootSkill>().SetTargetNumber(1);
             //obj.GetComponent<moveToPositionSkill>().SetStartPosition(player2.transform.position);
-            obj.GetComponent<moveToPositionSkill>().SetTargetPosition(player1.transform.position);
-            obj.GetComponent<moveToPositionSkill>().SetDelayTime(2f);
+            //obj.GetComponent<moveToPositionSkill>().SetTargetPosition(player1.transform.position);
+            //obj.GetComponent<moveToPositionSkill>().SetDelayTime(2f);
         }
     }
 }

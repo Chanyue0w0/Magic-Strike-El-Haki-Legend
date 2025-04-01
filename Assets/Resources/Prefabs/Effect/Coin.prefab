@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7777796775343691068}
   - component: {fileID: 5031842149951976419}
   - component: {fileID: 8997026940228470286}
+  - component: {fileID: 874476282910658247}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -131,7 +132,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.1023809, y: 0}
@@ -171,7 +172,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5857668128943162589}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61f9d7f638f0062409b46bc42ef40ce8, type: 3}
   m_Name: 
@@ -179,7 +180,31 @@ MonoBehaviour:
   playerNumber: 1
   arriveTime: 1
   delayTime: 0
-  explosion: {fileID: 1558236833115346133, guid: 01e665a9bc19d694190058f500be225f, type: 3}
+  explosion: {fileID: 7976570651502986103, guid: 6716d46e68912eb46a248bde65a6635a, type: 3}
   targetPosition: {x: 0, y: 0}
   onTargetDestroyed: 1
   movingUnscaledTime: 1
+--- !u!114 &874476282910658247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5857668128943162589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f1b00674b7cf748ab1f938260175ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimingType: 2
+  playerNumber: 2
+  targetNumber: 1
+  skillDamage: 0
+  skillMoveSpeed: 10
+  waveringAmount: 1
+  explosion: {fileID: 7976570651502986103, guid: 6716d46e68912eb46a248bde65a6635a, type: 3}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
+  moveDirection: {x: 0, y: 0, z: 0}
+  EffectToApply: 0

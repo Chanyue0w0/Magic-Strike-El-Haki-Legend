@@ -170,7 +170,9 @@ public class RoundController : MonoBehaviour
 			//PauseGame();
 			PauseMainObjects();
 
-			StartCoroutine(ContinueGameDelayed(3f));
+			StartCoroutine(PauseGameDelayed(3f));
+
+			//StartCoroutine(ContinueGameDelayed(3.5f));
 		}
 	}
 
@@ -391,6 +393,12 @@ public class RoundController : MonoBehaviour
 	{
 		ballController.SetPauseBallMoving(false);
 		ai_controller.SetPause(false);
+	}
+
+	private IEnumerator PauseGameDelayed(float delay)
+	{
+		yield return new WaitForSecondsRealtime(delay);
+		PauseGame();
 	}
 
 	public void PauseGame()

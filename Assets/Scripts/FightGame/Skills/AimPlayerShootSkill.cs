@@ -46,6 +46,10 @@ public class AimPlayerShootSkill : MonoBehaviour
         {
             MoveStraightWaveringly();
         }
+        else if (aimingType == AimingType.trackingPlayer)
+        {
+            MoveTrackingPlayer(targetNumber);
+        }
 
 
     }
@@ -53,6 +57,31 @@ public class AimPlayerShootSkill : MonoBehaviour
     {
         skillMoveSpeed = 0;
     }
+
+    private void MoveTrackingPlayer(int targetNumber)
+    {
+        GameObject target = null;
+
+        if (targetNumber == 1)
+        {
+            target = player1;
+        }
+        else if (targetNumber == 2)
+        {
+            target = player2;
+        }
+
+        if (target != null)
+        {
+            Vector3 direction = (target.transform.position - transform.position).normalized;
+            transform.position += direction * skillMoveSpeed * Time.deltaTime;
+
+            // 旋轉面向目標方向（可選）
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
+    }
+
 
     private void MoveStraightWaveringly()
     {
