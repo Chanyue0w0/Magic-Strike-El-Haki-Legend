@@ -5,6 +5,8 @@ using UnityEngine;
 public class LavaSlime : MonoBehaviour
 {
     [SerializeField] private int playerNumber = 2;
+    [SerializeField] private float instSkillArriveTime = 2;
+    [SerializeField] private GameObject instSmoke;//魔法煙霧(移動至生成定點再產生史萊姆)
     [SerializeField] private GameObject lavaPondObject;
 
     [SerializeField] private GameObject player1;
@@ -29,7 +31,7 @@ public class LavaSlime : MonoBehaviour
         player2 = GameObject.FindGameObjectWithTag("Player2");
         player2_controller = GameObject.Find("Player 2 Manager").GetComponent<AIController>();
         player2_animator = GameObject.Find("Player2Sprite").GetComponent<Animator>();
-        //instSmoke = Resources.Load<GameObject>("Prefabs/MonsterSkills/MagicPowerGain_Yellow");
+        instSmoke = Resources.Load<GameObject>("Prefabs/MonsterSkills/MagicPowerGain_Red");
         lavaPondObject = Resources.Load<GameObject>("Prefabs/MonsterSkills/LavaPond");//FlashAttack
     }
 
@@ -41,7 +43,13 @@ public class LavaSlime : MonoBehaviour
 
         targetPosition = player1.transform.position;
 
-        StartCoroutine(DelayedInstLava(1f));
+        GameObject CFS = Instantiate(instSmoke, player2.transform.position, Quaternion.identity);
+        moveToPositionSkill moveScript = CFS.GetComponent<moveToPositionSkill>();
+        moveScript.SetStartPosition(player2.transform.position);
+        moveScript.SetTargetPosition(targetPosition);
+        moveScript.SetArriveTime(instSkillArriveTime);
+
+        StartCoroutine(DelayedInstLava(2f));
 
         StartCoroutine(DelayedStartMoving(3f));
 
@@ -51,7 +59,7 @@ public class LavaSlime : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         GameObject obj = Instantiate(lavaPondObject, targetPosition, Quaternion.Euler(0, 0, 0));
-        obj.GetComponent<AimPlayerShootSkill>().SetTargetNumber(1);
+        //obj.GetComponent<AimPlayerShootSkill>().SetTargetNumber(1);
     }
 
     private IEnumerator DelayedStartMoving(float delay)
