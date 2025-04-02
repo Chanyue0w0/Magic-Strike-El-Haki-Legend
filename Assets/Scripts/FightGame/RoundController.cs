@@ -68,6 +68,10 @@ public class RoundController : MonoBehaviour
 	[SerializeField] private GameObject LosePanel;
 	[SerializeField] private Text totalTimeText;
 
+
+	[Header("----------------- BallSprite ------------------")]
+	[SerializeField] private SpriteRenderer ballSprite;
+
 	private void Awake()
 	{
 		if (Instance == null)
@@ -98,15 +102,15 @@ public class RoundController : MonoBehaviour
 		this.totalStagesPerLevel = stagesPerLevel;
 
 		// Debug Log 記錄數據
-		Debug.Log($"總章節數: {totalChapters}");
-		foreach (var levelCount in totalLevelsPerChapter)
-		{
-			Debug.Log($"Chapter {levelCount.Key} 共有 {levelCount.Value} 個 Level");
-		}
-		foreach (var stageCount in totalStagesPerLevel)
-		{
-			Debug.Log($"Chapter {stageCount.Key.Item1}, Level {stageCount.Key.Item2} 共有 {stageCount.Value} 個 Stage");
-		}
+		//Debug.Log($"總章節數: {totalChapters}");
+		//foreach (var levelCount in totalLevelsPerChapter)
+		//{
+		//	Debug.Log($"Chapter {levelCount.Key} 共有 {levelCount.Value} 個 Level");
+		//}
+		//foreach (var stageCount in totalStagesPerLevel)
+		//{
+		//	Debug.Log($"Chapter {stageCount.Key.Item1}, Level {stageCount.Key.Item2} 共有 {stageCount.Value} 個 Stage");
+		//}
 
 		//// 組合 Key 為 "Chapter_X_Level_Y"
 		//string levelKey = $"Chapter_{currentChapterIndex}_Level_{currentLevelIndex}";
@@ -322,6 +326,8 @@ public class RoundController : MonoBehaviour
 		PlayerHeadSticker.sprite = Resources.Load<Sprite>("Arts/FightScene/HeadStickers/" + FightPlayer1Config.PlayerSkin);
 		SlimeHeadSticker.sprite = Resources.Load<Sprite>("Arts/FightScene/HeadStickers/" + FightPlayer2Config.PlayerSkin);
 
+		ballSprite.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/FieldObjects/Chapter" + FightPlayer1Config.CurrentChapter + "BallSprite");
+
 		P1HSBackGround.sprite = Resources.Load<Sprite>("Arts/FightScene/UI/Magic Panel ver2/" + FightPlayer2Config.HSBackGroundImage);
 		P2HSBackGround.sprite = Resources.Load<Sprite>("Arts/FightScene/UI/Magic Panel ver2/" + FightPlayer2Config.HSBackGroundImage);
 
@@ -342,6 +348,11 @@ public class RoundController : MonoBehaviour
 		if (FightPlayer2Config.BGM == "battle_theme_1")
 		{
 			AudioManager.Instance.PlayBGM(MusicAudioClips.Instance.BasicBattleBGM);
+		}
+		else if (FightPlayer2Config.BGM == "CH1 Combat music")
+		{
+			AudioManager.Instance.PlayBGM(MusicAudioClips.Instance.Ch1BGM);
+
 		}
 		else if (FightPlayer2Config.BGM == "CH2 Combat music")
 		{

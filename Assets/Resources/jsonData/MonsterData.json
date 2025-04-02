@@ -26,5 +26,13 @@
   "MS06": {
     "Name": "FairySlime",
     "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
+  },
+  "MS07": {
+    "Name": "LavaSlime",
+    "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
+  },
+  "MS08": {
+    "Name": "QuartzSlime",
+    "ScriptPath": "Asset/Scripts/FightGame/MonsterSkills/"
   }
 }
