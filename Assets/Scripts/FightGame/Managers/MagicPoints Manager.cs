@@ -221,7 +221,7 @@ public class MagicPointsManager : MonoBehaviour
 
         // Resume the game
         Time.timeScale = 1;
-        RoundController.Instance.PauseMainObjects();
+        //RoundController.Instance.PauseMainObjects();
         //StartCoroutine(DelayResumeMainObject(3f));
 
         if (pNumber == 1)

@@ -8804,7 +8804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c412be9c0ab52d14ea644d9f27f2a303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetJsonFile: 1
+  resetJsonFile: 0
 --- !u!1 &957126351
 GameObject:
   m_ObjectHideFlags: 0
