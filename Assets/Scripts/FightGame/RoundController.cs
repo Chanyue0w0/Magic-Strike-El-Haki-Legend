@@ -167,7 +167,7 @@ public class RoundController : MonoBehaviour
 			// win
 			//NextStage();
 			//Instantiate(coinFountain, player2.transform.position, Quaternion.Euler(-90,0,0));
-			StartCoroutine(DelayInstCoinFountain(2f));
+			StartCoroutine(DelayInstCoinFountain(1f));
 
 			canInstFountain = false;
 			StartCoroutine(ReloadSceneDelayed(5f));
