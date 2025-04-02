@@ -330,7 +330,7 @@ public class StageDataEditor : EditorWindow
 		JObject freq = stage["AI_AttackFrequency"] as JObject ?? new JObject();
 		EditorGUILayout.LabelField("    AI Attack Frequency");
 		EditorGUILayout.BeginHorizontal();
-		freq["x"] = EditorGUILayout.FloatField("X", (float)(freq["x"] ?? 0));
+		freq["x"] = EditorGUILayout.FloatField("    X", (float)(freq["x"] ?? 0));
 		freq["y"] = EditorGUILayout.FloatField("Y", (float)(freq["y"] ?? 0));
 		EditorGUILayout.EndHorizontal();
 		stage["AI_AttackFrequency"] = freq;
@@ -368,10 +368,13 @@ public class StageDataEditor : EditorWindow
 	{
 		EditorGUILayout.Space();
 		EditorGUILayout.LabelField("    Spawn Objects:");
-		var spawnObjects = stage["spawnObjects"] as JArray ?? new JArray();
-		stage["spawnObjects"] = spawnObjects;
 
+		if (stage["spawnObjects"] == null || stage["spawnObjects"].Type != JTokenType.Array)
+			stage["spawnObjects"] = new JArray();
+
+		var spawnObjects = (JArray)stage["spawnObjects"];
 		int removeIndex = -1;
+
 		for (int j = 0; j < spawnObjects.Count; j++)
 		{
 			var obj = spawnObjects[j] as JObject;
@@ -389,8 +392,7 @@ public class StageDataEditor : EditorWindow
 			rot = EditorGUILayout.Vector3Field("", rot);
 			obj["rotation"] = Vector3ToJObject(rot);
 
-			if (GUILayout.Button("      Remove Object"))
-				removeIndex = j;
+			if (GUILayout.Button("      Remove Object")) removeIndex = j;
 
 			EditorGUILayout.EndVertical();
 			EditorGUILayout.Space();
@@ -410,6 +412,7 @@ public class StageDataEditor : EditorWindow
 			spawnObjects.Add(newObj);
 		}
 	}
+
 
 	private Vector3 JObjectToVector3(JObject obj)
 	{
