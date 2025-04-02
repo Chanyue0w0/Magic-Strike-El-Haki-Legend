@@ -29,6 +29,7 @@ public class RoundController : MonoBehaviour
 	[SerializeField] private GameObject gameOverPanel;
 	[SerializeField] private GameObject player1;
 	[SerializeField] private GameObject player2;
+	[SerializeField] private GameObject dieEffect;
 
 	[SerializeField] private AIController ai_controller;
 
@@ -152,6 +153,7 @@ public class RoundController : MonoBehaviour
 		// p1 or p2 hp == 0 end game
 		if (player1Status.GetHP() <= 0 || nowTime <= 0)
 		{
+			Instantiate(dieEffect, player1.transform.position, Quaternion.Euler(-90,0,0));
 			LosePanel.SetActive(true);
 			GameOver();
 			// defeat
@@ -161,19 +163,28 @@ public class RoundController : MonoBehaviour
 			//GameOver();
 			//GameStart();
 
+			Instantiate(dieEffect, player2.transform.position, Quaternion.Euler(-90, 0, 0));
 			// win
 			//NextStage();
-			Instantiate(coinFountain, player2.transform.position, Quaternion.Euler(-90,0,0));
+			//Instantiate(coinFountain, player2.transform.position, Quaternion.Euler(-90,0,0));
+			StartCoroutine(DelayInstCoinFountain(2f));
+
 			canInstFountain = false;
-			StartCoroutine(ReloadSceneDelayed(3f));
+			StartCoroutine(ReloadSceneDelayed(5f));
 			//SetTimeScale(0.5f);
 			//PauseGame();
 			PauseMainObjects();
 
-			StartCoroutine(PauseGameDelayed(3f));
+			StartCoroutine(PauseGameDelayed(5f));
 
 			//StartCoroutine(ContinueGameDelayed(3.5f));
 		}
+	}
+
+	private IEnumerator DelayInstCoinFountain(float delay)
+	{
+		yield return new WaitForSecondsRealtime(delay);
+		Instantiate(coinFountain, player2.transform.position, Quaternion.Euler(-90, 0, 0));
 	}
 
 	private IEnumerator ReloadSceneDelayed(float delay)

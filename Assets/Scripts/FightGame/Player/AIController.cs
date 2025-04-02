@@ -82,7 +82,18 @@ public class AIController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!isPause)
+        if (isPause)
+        {
+            // 若暫停時有正在進行的攻擊 Coroutine，就停止它
+            if (attackCoroutine != null)
+            {
+                StopCoroutine(attackCoroutine);
+                attackCoroutine = null;
+            }
+            return; // 直接跳出，不做後續邏輯
+        }
+
+        if (!isPause)
         {
             if (!isStuned)
             {
