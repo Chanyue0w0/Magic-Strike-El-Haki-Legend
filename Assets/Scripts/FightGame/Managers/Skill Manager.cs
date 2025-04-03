@@ -134,6 +134,12 @@ public class SkillManager : MonoBehaviour
             {
                 setPlayerNumber.Invoke(skillComponent, new object[] { playerNumber });
                 method.Invoke(skillComponent, null);
+
+                if(skillComponent.GetType().Name == "FlamingStar")
+                {
+                    Debug.Log("Use FlamingStar");
+                    AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.FireBall, new Vector3(0, 0.65f, -20));
+                }
             }
             else if(method == null)
             {
