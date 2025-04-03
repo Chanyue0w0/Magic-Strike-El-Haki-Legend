@@ -11,6 +11,7 @@ TagManager:
   - Ball
   - DamageSkill
   - CloneBall
+  - Field
   layers:
   - Default
   - TransparentFX

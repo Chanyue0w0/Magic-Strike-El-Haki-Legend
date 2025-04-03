@@ -8,6 +8,12 @@ public class SFXAudioClips : MonoBehaviour
 	[field: Header("Card Sound")]
 	[field: SerializeField] public AudioClip ClickButton { get; private set; }
 	[field: SerializeField] public AudioClip FilpCard { get; private set; }
+	[field: SerializeField] public AudioClip BallHit { get; private set; }
+	[field: SerializeField] public AudioClip BallBounce { get; private set; }
+	[field: SerializeField] public AudioClip SheildNormalAttack { get; private set; }
+	[field: SerializeField] public AudioClip SlimeNormalAttack { get; private set; }
+	[field: SerializeField] public AudioClip FireBall { get; private set; }
+	[field: SerializeField] public AudioClip StunEffect { get; private set; }
 	public static SFXAudioClips Instance { get; private set; }
 	void Awake()
 	{

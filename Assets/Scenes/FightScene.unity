@@ -1470,7 +1470,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.72, y: -33.39}
+  m_AnchoredPosition: {x: 2.7200317, y: -33.390015}
   m_SizeDelta: {x: 78.28, y: 115.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &225728869
@@ -5895,7 +5895,7 @@ GameObject:
   - component: {fileID: 1026530577}
   m_Layer: 6
   m_Name: Field
-  m_TagString: Untagged
+  m_TagString: Field
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10582,7 +10582,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -199, y: -158}
+  m_AnchoredPosition: {x: -199.00006, y: -158}
   m_SizeDelta: {x: -90.35, y: 337.21997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701202708
@@ -13038,7 +13038,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 744}
+  m_AnchoredPosition: {x: 0, y: 744}
   m_SizeDelta: {x: 1419, y: 432}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1979680440
@@ -14400,6 +14400,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1117303078}
     m_Modifications:
+    - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
+      propertyPath: <BallHit>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 79f2b6469bca59d46a3e02e452fb1008, type: 3}
+    - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
+      propertyPath: <FireBall>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 6f116aed520a3914bae785e1974f4105, type: 3}
+    - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
+      propertyPath: <BallBounce>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: cfd48cedc20658d4aacd49c086939214, type: 3}
+    - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
+      propertyPath: <StunEffect>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e3e08c0fb765bb46925346187c0892f, type: 3}
+    - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
+      propertyPath: <SlimeNormalAttack>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: f374b410d9a03e74780772a279020bc7, type: 3}
+    - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
+      propertyPath: <SheildNormalAttack>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: fa5c027d8d6bc424c9580c4c4ceb39c6, type: 3}
     - target: {fileID: 8105821547432535743, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: m_Name
       value: Audio Manager

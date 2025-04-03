@@ -180,6 +180,7 @@ public class PlayerControllerRelative : MonoBehaviour
         {
             isStuned = true;
             StartCoroutine(StunEffect()); // 在這裡觸發暈眩效果
+            AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.StunEffect, new Vector3(0, 0.65f, -20));
         }
 
         if (effect == StatusEffect.Grasp && !isGrasp)//不可疊加

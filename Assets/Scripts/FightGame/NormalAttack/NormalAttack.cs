@@ -114,6 +114,16 @@ public class NormalAttack : MonoBehaviour
                 //obj.GetComponent<moveToPositionSkill>().SetArriveTime(0.5f);
             }
 
+            //if(playerNumber == 1)
+            //{
+            //    AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SheildNormalAttack, new Vector3(0, 0.65f, -20));
+            //}
+            //else if (playerNumber == 2)
+            //{
+            //    AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SlimeNormalAttack, new Vector3(0, 0.65f, -20));
+            //}
+
+
             Destroy(gameObject);
 
 

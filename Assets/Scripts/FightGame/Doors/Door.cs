@@ -39,7 +39,8 @@ public class Door : MonoBehaviour
                 collision.GetComponent<BallController>().ResetBallPosition(1);
                 collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
-                NormalAttackManager.Instance.InstNormalAttack(2, 1);
+                NormalAttackManager.Instance.InstNormalAttack(2, 1); 
+                AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SlimeNormalAttack, new Vector3(0, 0.65f, -20));
             }
             else if (playerNumber == UserPosition.player2)//進玩家2球門，玩家1攻擊
             {
@@ -49,7 +50,9 @@ public class Door : MonoBehaviour
                 collision.GetComponent<BallController>().ResetBallPosition(2);
                 collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
-                NormalAttackManager.Instance.InstNormalAttack(1, 2);
+                NormalAttackManager.Instance.InstNormalAttack(1, 2); 
+                AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SheildNormalAttack, new Vector3(0, 0.65f, -20));
+
             }
         }
         else if (collision.CompareTag("CloneBall"))

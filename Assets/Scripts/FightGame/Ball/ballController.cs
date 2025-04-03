@@ -217,5 +217,19 @@ public class BallController : MonoBehaviour
         timeOnCurrentField = 0f;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Field"))
+        {
+            AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.BallBounce,new Vector3(0,0.65f,-20));
+            //AudioManager.Instance.PlaySFX(SFXAudioClips.Instance.BallBounce);
+        }
+
+        if (collision.gameObject.CompareTag("Player1") || collision.gameObject.CompareTag("Player2"))
+        {
+            AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.BallHit, new Vector3(0, 0.65f, -20));
+            //AudioManager.Instance.PlaySFX(SFXAudioClips.Instance.BallHit);
+        }
+    }
 
 }
