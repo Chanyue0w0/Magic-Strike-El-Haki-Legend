@@ -161,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -88.700195}
+  m_AnchoredPosition: {x: 0, y: -88.70018}
   m_SizeDelta: {x: -127.18, y: -718.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8612942
@@ -1470,7 +1470,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.7200317, y: -33.390015}
+  m_AnchoredPosition: {x: 2.7200317, y: -33.39}
   m_SizeDelta: {x: 78.28, y: 115.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &225728869
@@ -4695,7 +4695,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 07c59923a8f47c24abbc106dce2c59db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 127b86002807c37408e7c06c7e9ff13c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4716,7 +4716,7 @@ Animator:
   m_GameObject: {fileID: 865603841}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3f6ad82cea66fc1429db0eacdee0c0c4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 083c317c420fd34419eac005199c14b1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -14403,7 +14403,7 @@ PrefabInstance:
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <BallHit>k__BackingField
       value: 
-      objectReference: {fileID: 8300000, guid: 79f2b6469bca59d46a3e02e452fb1008, type: 3}
+      objectReference: {fileID: 8300000, guid: 3e50b9cc9a0d1be4d9754ca43ba20e5d, type: 3}
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <FireBall>k__BackingField
       value: 
@@ -14411,7 +14411,7 @@ PrefabInstance:
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <BallBounce>k__BackingField
       value: 
-      objectReference: {fileID: 8300000, guid: cfd48cedc20658d4aacd49c086939214, type: 3}
+      objectReference: {fileID: 8300000, guid: 4b9a906ef53f69b428b23eb57a09c230, type: 3}
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <StunEffect>k__BackingField
       value: 
@@ -14423,7 +14423,7 @@ PrefabInstance:
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <SheildNormalAttack>k__BackingField
       value: 
-      objectReference: {fileID: 8300000, guid: fa5c027d8d6bc424c9580c4c4ceb39c6, type: 3}
+      objectReference: {fileID: 8300000, guid: a6808e222f3dcb74fa7bfc90d27f3ed5, type: 3}
     - target: {fileID: 8105821547432535743, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: m_Name
       value: Audio Manager

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LavaSlimeIdle
+  m_Name: QuartzSlimeDie
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 20a401cdd2937884280542db36f183c7, type: 3}
-    - time: 0.23333333
-      value: {fileID: 21300000, guid: 86b5c5131df7cc149841a6b2e40b9c35, type: 3}
-    - time: 0.48333332
-      value: {fileID: 21300000, guid: 1dc7802ed12e50d4cad4421a8a45cd70, type: 3}
-    - time: 0.73333335
-      value: {fileID: 21300000, guid: 2a1a337061471f74ebb5e4f1c511caa9, type: 3}
+      value: {fileID: 21300000, guid: 681a7583846c1c8478fe186bb6b501df, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,16 +44,13 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 20a401cdd2937884280542db36f183c7, type: 3}
-    - {fileID: 21300000, guid: 86b5c5131df7cc149841a6b2e40b9c35, type: 3}
-    - {fileID: 21300000, guid: 1dc7802ed12e50d4cad4421a8a45cd70, type: 3}
-    - {fileID: 21300000, guid: 2a1a337061471f74ebb5e4f1c511caa9, type: 3}
+    - {fileID: 21300000, guid: 681a7583846c1c8478fe186bb6b501df, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.75
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

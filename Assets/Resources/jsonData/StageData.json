@@ -383,14 +383,39 @@
           "x": 5.0,
           "y": 7.0
         },
-        "StartHP": 1200,
-        "StartATK": 150,
+        "StartHP": 2000,
+        "StartATK": 200,
         "Player2Skin": "LavaSlime",
         "Player2PuckSkin": "Chapter3SlimePuck",
         "player2_Group": [
           "MS07",
           "MS07",
           "MS07"
+        ],
+        "spawnObjects": []
+      }
+    ],
+    "Level_2": [
+      {
+        "StageNumber": "1",
+        "DeadFrameBackGroundImage": "Chapter3BackGround",
+        "BackGroundImage": "Lava Volcano(Background)",
+        "FieldImage": "Lava Volcano(Field)",
+        "FieldHSBackGroundImage": "Chapter3HSBackGround",
+        "BGM": "CH2 Combat music",
+        "AI_level": 1.5,
+        "AI_AttackFrequency": {
+          "x": 5.0,
+          "y": 7.0
+        },
+        "StartHP": 2000,
+        "StartATK": 200,
+        "Player2Skin": "QuartzSlime",
+        "Player2PuckSkin": "Chapter3SlimePuck",
+        "player2_Group": [
+          "MS08",
+          "MS08",
+          "MS08"
         ],
         "spawnObjects": []
       }

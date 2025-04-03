@@ -40,7 +40,7 @@ public class Door : MonoBehaviour
                 collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
                 NormalAttackManager.Instance.InstNormalAttack(2, 1); 
-                AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SlimeNormalAttack, new Vector3(0, 0.65f, -20));
+                //AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SlimeNormalAttack, new Vector3(0, 0.65f, -20));
             }
             else if (playerNumber == UserPosition.player2)//進玩家2球門，玩家1攻擊
             {
@@ -51,7 +51,7 @@ public class Door : MonoBehaviour
                 collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
                 NormalAttackManager.Instance.InstNormalAttack(1, 2); 
-                AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SheildNormalAttack, new Vector3(0, 0.65f, -20));
+                //AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SheildNormalAttack, new Vector3(0, 0.65f, -20));
 
             }
         }

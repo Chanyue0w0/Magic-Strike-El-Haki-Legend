@@ -51,7 +51,7 @@ public class LavaSlime : MonoBehaviour
 
         StartCoroutine(DelayedInstLava(2f));
 
-        StartCoroutine(DelayedStartMoving(3f));
+        StartCoroutine(DelayedStartMoving(2f));
 
     }
 
