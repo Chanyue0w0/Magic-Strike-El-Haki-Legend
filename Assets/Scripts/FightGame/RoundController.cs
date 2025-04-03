@@ -153,7 +153,7 @@ public class RoundController : MonoBehaviour
 		// p1 or p2 hp == 0 end game
 		if (player1Status.GetHP() <= 0 || nowTime <= 0)
 		{
-			Instantiate(dieEffect, player1.transform.position, Quaternion.Euler(-90,0,0));
+			//Instantiate(dieEffect, player1.transform.position, Quaternion.Euler(-90,0,0));
 			LosePanel.SetActive(true);
 			GameOver();
 			// defeat

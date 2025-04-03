@@ -19274,6 +19274,7 @@ GameObject:
   - component: {fileID: 9152291073445211932}
   - component: {fileID: 1989575110120006399}
   - component: {fileID: 5273939823863928827}
+  - component: {fileID: 6285880803881698041}
   m_Layer: 0
   m_Name: FlashAttack
   m_TagString: Untagged
@@ -24248,6 +24249,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.4309939
+--- !u!114 &6285880803881698041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5835507679377599502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420587d50df050348b0b3341b63742c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dTime: 0.3
+  unscaleDestroy: 0
 --- !u!1 &6112598255131685635
 GameObject:
   m_ObjectHideFlags: 0
