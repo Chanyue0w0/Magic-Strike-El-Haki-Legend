@@ -60,6 +60,7 @@ public class PickUpSkill : MonoBehaviour
             //cardSkillSetScript.Active();
             Instantiate(pickUpExplosionEffect, gameObject.transform.position, Quaternion.identity);
             SkillManager.Instance.ActiveSkill(playerNumber, cardSkillSetNumber);
+            AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SkillPickUp, new Vector3(0, 0.65f, -20));
             Destroy(gameObject);
         }
     }

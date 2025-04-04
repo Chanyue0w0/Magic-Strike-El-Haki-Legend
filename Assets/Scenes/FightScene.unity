@@ -4716,7 +4716,7 @@ Animator:
   m_GameObject: {fileID: 865603841}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 083c317c420fd34419eac005199c14b1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9b7bcce447e840144a4dcdf0f72f3023, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -14403,19 +14403,27 @@ PrefabInstance:
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <BallHit>k__BackingField
       value: 
-      objectReference: {fileID: 8300000, guid: 3e50b9cc9a0d1be4d9754ca43ba20e5d, type: 3}
+      objectReference: {fileID: 8300000, guid: 34a299cb077cc6a41885fa30f893a42f, type: 3}
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <FireBall>k__BackingField
       value: 
       objectReference: {fileID: 8300000, guid: 6f116aed520a3914bae785e1974f4105, type: 3}
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
+      propertyPath: <GetMoney>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 2d4a9e0532c023440b2b641345424473, type: 3}
+    - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <BallBounce>k__BackingField
       value: 
-      objectReference: {fileID: 8300000, guid: 4b9a906ef53f69b428b23eb57a09c230, type: 3}
+      objectReference: {fileID: 8300000, guid: 13a888fc2759b6443b0acb28d4f8307a, type: 3}
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <StunEffect>k__BackingField
       value: 
       objectReference: {fileID: 8300000, guid: 2e3e08c0fb765bb46925346187c0892f, type: 3}
+    - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
+      propertyPath: <SkillPickUp>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 512ef8b35ebfe5343835cc154a7bb03c, type: 3}
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <SlimeNormalAttack>k__BackingField
       value: 

@@ -14,6 +14,8 @@ public class SFXAudioClips : MonoBehaviour
 	[field: SerializeField] public AudioClip SlimeNormalAttack { get; private set; }
 	[field: SerializeField] public AudioClip FireBall { get; private set; }
 	[field: SerializeField] public AudioClip StunEffect { get; private set; }
+	[field: SerializeField] public AudioClip SkillPickUp { get; private set; }
+	[field: SerializeField] public AudioClip GetMoney { get; private set; }
 	public static SFXAudioClips Instance { get; private set; }
 	void Awake()
 	{

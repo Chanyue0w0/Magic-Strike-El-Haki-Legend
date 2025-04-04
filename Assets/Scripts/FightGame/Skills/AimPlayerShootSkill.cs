@@ -14,6 +14,7 @@ public class AimPlayerShootSkill : MonoBehaviour
     [SerializeField] private int skillDamage = 100;
     [SerializeField] private int skillMoveSpeed = 10;
     [SerializeField] private float waveringAmount = 1f; // 控制晃動程度
+    [SerializeField] private string soundEffect = null; // 控制晃動程度
 
     [SerializeField] private GameObject explosion;
 
@@ -171,6 +172,12 @@ public class AimPlayerShootSkill : MonoBehaviour
                 statusReceiver.ApplyStatusEffect(EffectToApply);
                 //Debug.Log($"{collision.gameObject.name} 受到狀態影響：{EffectToApply}");
             }
+
+            if(soundEffect == "GetMoney")
+            {
+                AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.GetMoney, new Vector3(0, 0.65f, -20));
+            }
+
             Destroy(gameObject);
 
         }
