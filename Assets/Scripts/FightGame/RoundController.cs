@@ -273,6 +273,7 @@ public class RoundController : MonoBehaviour
 		AudioManager.Instance.StopBGM();
 		AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.WinSoundEffect, new Vector3(0, 0.65f, -20));
 		WinPanel.SetActive(true);
+		RewardManager.Instance.GenerateReward();
 	}
 	public void NextLevel()
 	{
