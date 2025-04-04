@@ -161,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -88.700195}
+  m_AnchoredPosition: {x: 0, y: -88.70018}
   m_SizeDelta: {x: -127.18, y: -718.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8612942
@@ -1470,7 +1470,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.7200317, y: -33.390015}
+  m_AnchoredPosition: {x: 2.7200317, y: -33.39}
   m_SizeDelta: {x: 78.28, y: 115.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &225728869
@@ -6717,6 +6717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f4300c785358f74793bb06d2f57d6b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStatus: Continue
   nowTime: 0
   maxTime: 180
   timeText: {fileID: 1256130288}
@@ -10583,7 +10584,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -199.00008, y: -158}
+  m_AnchoredPosition: {x: -199.00006, y: -158}
   m_SizeDelta: {x: -90.35, y: 337.21997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701202708
@@ -14428,11 +14429,11 @@ PrefabInstance:
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <WinSoundEffect>k__BackingField
       value: 
-      objectReference: {fileID: 8300000, guid: 9b989f1b77be7c64abac602caa0d0316, type: 3}
+      objectReference: {fileID: 8300000, guid: 7c94a5be3d19a1447b3eb0aba60d258a, type: 3}
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <LoseSoundEffect>k__BackingField
       value: 
-      objectReference: {fileID: 8300000, guid: 291a7a74a7a9eb048864b920041bc963, type: 3}
+      objectReference: {fileID: 8300000, guid: c53bc63cf4249214abe02e612f7b3bd5, type: 3}
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <SlimeNormalAttack>k__BackingField
       value: 
