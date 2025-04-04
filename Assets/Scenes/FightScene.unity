@@ -4078,6 +4078,7 @@ MonoBehaviour:
   isStuned: 0
   stunEffect: {fileID: 5204472331134397424, guid: 6e7d743396a2bc146855e5fceee0f0a1, type: 3}
   isPause: 0
+  moveToAIStartPosition: 0
 --- !u!1 &758003976
 GameObject:
   m_ObjectHideFlags: 0
@@ -14424,6 +14425,14 @@ PrefabInstance:
       propertyPath: <SkillPickUp>k__BackingField
       value: 
       objectReference: {fileID: 8300000, guid: 512ef8b35ebfe5343835cc154a7bb03c, type: 3}
+    - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
+      propertyPath: <WinSoundEffect>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 9b989f1b77be7c64abac602caa0d0316, type: 3}
+    - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
+      propertyPath: <LoseSoundEffect>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 291a7a74a7a9eb048864b920041bc963, type: 3}
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <SlimeNormalAttack>k__BackingField
       value: 

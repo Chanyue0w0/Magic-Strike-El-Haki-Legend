@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class FightPlayer1Config
 {
-	public static int CurrentChapter = 2;
+	public static int CurrentChapter = 3;
 	public static int CurrentLevel = 2;
 	public static int CurrentStage = 1;
 

@@ -12,11 +12,11 @@ public class RoundController : MonoBehaviour
 	public static RoundController Instance { get; private set; }
 
 	[Header("----------------- Value ------------------")]
-	//[SerializeField] private float timeScale = 1f;
-	//[SerializeField] private string gameStatus = "Continue";
+    //[SerializeField] private float timeScale = 1f;
+    [SerializeField] private string gameStatus = "Continue";
 
 
-	[Header("----------------- Time Counting Down------------------")]
+    [Header("----------------- Time Counting Down------------------")]
 	[SerializeField] public float nowTime = 180;
 	[SerializeField] private float maxTime = 180;
 	[SerializeField] private Text timeText;
@@ -151,34 +151,38 @@ public class RoundController : MonoBehaviour
 		nowTime -= Time.deltaTime;
 		timeText.text = "" + ((int)nowTime);
 		// p1 or p2 hp == 0 end game
-		if (player1Status.GetHP() <= 0 || nowTime <= 0)
-		{
-			//Instantiate(dieEffect, player1.transform.position, Quaternion.Euler(-90,0,0));
-			LosePanel.SetActive(true);
-			GameOver();
-			// defeat
+		if(gameStatus == "Continue")
+        {
+			if (player1Status.GetHP() <= 0 || nowTime <= 0)
+			{
+				//Instantiate(dieEffect, player1.transform.position, Quaternion.Euler(-90,0,0));
+				LosePanel.SetActive(true);
+				GameOver();
+				// defeat
+			}
+			else if (player2Status.GetHP() <= 0 && canInstFountain)
+			{
+				//GameOver();
+				//GameStart();
+
+				Instantiate(dieEffect, player2.transform.position, Quaternion.Euler(-90, 0, 0));
+				// win
+				//NextStage();
+				//Instantiate(coinFountain, player2.transform.position, Quaternion.Euler(-90,0,0));
+				StartCoroutine(DelayInstCoinFountain(1f));
+
+				canInstFountain = false;
+				StartCoroutine(ReloadSceneDelayed(5f));
+				//SetTimeScale(0.5f);
+				//PauseGame();
+				PauseMainObjects();
+
+				StartCoroutine(PauseGameDelayed(5f));
+
+				//StartCoroutine(ContinueGameDelayed(3.5f));
+			}
 		}
-		else if (player2Status.GetHP() <= 0 && canInstFountain)
-		{
-			//GameOver();
-			//GameStart();
-
-			Instantiate(dieEffect, player2.transform.position, Quaternion.Euler(-90, 0, 0));
-			// win
-			//NextStage();
-			//Instantiate(coinFountain, player2.transform.position, Quaternion.Euler(-90,0,0));
-			StartCoroutine(DelayInstCoinFountain(1f));
-
-			canInstFountain = false;
-			StartCoroutine(ReloadSceneDelayed(5f));
-			//SetTimeScale(0.5f);
-			//PauseGame();
-			PauseMainObjects();
-
-			StartCoroutine(PauseGameDelayed(5f));
-
-			//StartCoroutine(ContinueGameDelayed(3.5f));
-		}
+		
 	}
 
 	private IEnumerator DelayInstCoinFountain(float delay)
@@ -265,7 +269,9 @@ public class RoundController : MonoBehaviour
 	}
 
 	public void LevelFinished()
-    {
+	{
+		AudioManager.Instance.StopBGM();
+		AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.WinSoundEffect, new Vector3(0, 0.65f, -20));
 		WinPanel.SetActive(true);
 	}
 	public void NextLevel()
@@ -416,7 +422,7 @@ public class RoundController : MonoBehaviour
     {
 		SetTimeScale(0);
 
-		//gameStatus = "Pause Game";
+		gameStatus = "Pause";
 	}
 	private IEnumerator ContinueGameDelayed(float delay)
 	{
@@ -428,7 +434,7 @@ public class RoundController : MonoBehaviour
     {
 		SetTimeScale(1);
 
-        //gameStatus = "Continue";
+        gameStatus = "Continue";
     }
 
 	private void GameOver()
@@ -436,9 +442,11 @@ public class RoundController : MonoBehaviour
 		FightPlayer1Config.NowHP = player1Status.GetHP();
 		//PauseGame();
 		//gameOverPanel.SetActive(true);
+		AudioManager.Instance.StopBGM();
+		AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.LoseSoundEffect, new Vector3(0, 0.65f, -20));
 		LosePanel.SetActive(true);
 
 		PauseGame();
-		//gameStatus = "gameover";
+		gameStatus = "gameover";
 	}
 }
