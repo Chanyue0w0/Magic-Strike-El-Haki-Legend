@@ -6,7 +6,8 @@ public class FlamingStar : MonoBehaviour
 {
     [SerializeField] private int playerNumber = 1;
     //[SerializeField] private float OriginalShieldPercentage = 0.0f;
-    [SerializeField] private int skillDamage = 100;
+    [SerializeField] private int baseSkillDamage = 100;
+    private int skillDamage = 100;
     //[SerializeField] private int skillMoveSpeed = 10;
     [SerializeField] private GameObject chargeFireShield;
     [SerializeField] private GameObject flamingStarObj;
@@ -26,11 +27,11 @@ public class FlamingStar : MonoBehaviour
         float skillDamageTMP = 0;
         if (playerNumber == 1)
         {
-            skillDamageTMP = skillDamage * (1 + FightPlayer1Config.SkillDamageIncrease);
+            skillDamageTMP = baseSkillDamage * (1 + FightPlayer1Config.SkillDamageIncrease);
         }
         else
         {
-            skillDamageTMP = skillDamage * (1 + FightPlayer2Config.SkillDamageIncrease);
+            skillDamageTMP = baseSkillDamage * (1 + FightPlayer2Config.SkillDamageIncrease);
         }
         skillDamage = Mathf.RoundToInt(skillDamageTMP);
         flamingStarObj = Resources.Load<GameObject>("Prefabs/Skills/FlamingStar");

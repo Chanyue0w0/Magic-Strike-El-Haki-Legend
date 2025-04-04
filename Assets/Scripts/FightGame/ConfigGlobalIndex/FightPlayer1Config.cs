@@ -8,7 +8,7 @@ public static class FightPlayer1Config
 	public static int CurrentLevel = 1;
 	public static int CurrentStage = 1;
 
-	public static string[] Group = { "HR00", "SK00", "SK00" };
+	public static string[] Group = { "HR00", "SK03", "SK03" };
 	public static string NormalAttack = "HammerNormalAttack";
 	public static string Ult = "HammerUlt";
 	public static string PlayerSkin = "HR00";
@@ -20,7 +20,7 @@ public static class FightPlayer1Config
 	public static int NowATK = 100;
 	public static int NowMagicPoint = 0;
 	public static float CriticalPercentage = 0.0f;
-	public static float SkillDamageIncrease = 0.0f;
+	public static float SkillDamageIncrease = 0.1f;
 	public static float PoisonDamageIncrease = 0.0f;
 	public static float BurnDamageIncrease = 0.0f;
 	public static float CC_SkillTimeIncrease = 0.0f;

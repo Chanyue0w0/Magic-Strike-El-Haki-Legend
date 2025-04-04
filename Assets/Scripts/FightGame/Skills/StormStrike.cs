@@ -6,7 +6,8 @@ public class StormStrike : MonoBehaviour
 {
     [SerializeField] private int playerNumber = 1;
     //[SerializeField] private float OriginalShieldPercentage = 0.0f;
-    [SerializeField] private int skillDamage = 30;
+    [SerializeField] private int baseSkillDamage = 30;
+    private int skillDamage = 30;
     [SerializeField] private int skillAmount = 5;
     [SerializeField] private float skillInstTimeGap = 0.1f;//每次雷擊生成時間差
     [SerializeField] private float skillWarningTime = 1f;//警告持續
@@ -36,11 +37,11 @@ public class StormStrike : MonoBehaviour
         float skillDamageTMP = 0;
         if (playerNumber == 1)
         {
-            skillDamageTMP = skillDamage * (1 + FightPlayer1Config.SkillDamageIncrease);
+            skillDamageTMP = baseSkillDamage * (1 + FightPlayer1Config.SkillDamageIncrease);
         }
         else
         {
-            skillDamageTMP = skillDamage * (1 + FightPlayer2Config.SkillDamageIncrease);
+            skillDamageTMP = baseSkillDamage * (1 + FightPlayer2Config.SkillDamageIncrease);
         }
         skillDamage = Mathf.RoundToInt(skillDamageTMP);
         lightningStrikeObj = Resources.Load<GameObject>("Prefabs/Skills/LightningStrike");
