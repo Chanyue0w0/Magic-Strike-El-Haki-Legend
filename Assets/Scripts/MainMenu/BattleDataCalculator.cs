@@ -103,6 +103,10 @@ public class BattleDataCalculator : MonoBehaviour
 		totalHP = (int)((baseHP + equipmentTotalHP) * totalHPBuff);
 		totalATK = (int)((baseATK + equipmentTotalATK) * totalATKBuff);
 		setEffect = DetermineSetEffect(setTypeCount);
+
+
+		skill_1 = (skill_1 == null) ? skill_2 : skill_1;
+		skill_2 = (skill_2 == null) ? skill_1 : skill_2;
 	}
 
 
@@ -118,8 +122,8 @@ public class BattleDataCalculator : MonoBehaviour
 		FightPlayer1Config.CC_SkillTimeIncrease = controlSkillDurationIncrease;
 		FightPlayer1Config.SkillBubbleTimeDecrease = totalSkillBubbleCooldownReduction;
 		FightPlayer1Config.EquipSet = setEffect;
-		FightPlayer1Config.Group[1] = (skill_1 == null) ? skill_2 : skill_1;
-		FightPlayer1Config.Group[2] = (skill_2 == null) ? skill_1 : skill_2;
+		FightPlayer1Config.Group[1] = skill_1;
+		FightPlayer1Config.Group[2] = skill_2;
 		if (FightPlayer1Config.Group[1] == null && FightPlayer1Config.Group[2] == null)
 		{
 			FightPlayer1Config.Group[1] = "SK00";
