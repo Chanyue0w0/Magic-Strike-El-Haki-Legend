@@ -273,6 +273,8 @@ public class RoundController : MonoBehaviour
 		AudioManager.Instance.StopBGM();
 		AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.WinSoundEffect, new Vector3(0, 0.65f, -20));
 		WinPanel.SetActive(true);
+
+		FightPlayer1Config.CurrentStage = 1; // 強制重製
 		RewardManager.Instance.GenerateReward();
 	}
 	public void NextLevel()
@@ -441,6 +443,7 @@ public class RoundController : MonoBehaviour
 	private void GameOver()
 	{
 		FightPlayer1Config.NowHP = player1Status.GetHP();
+		FightPlayer1Config.CurrentStage = 1; // 強制重製
 		//PauseGame();
 		//gameOverPanel.SetActive(true);
 		AudioManager.Instance.StopBGM();
