@@ -14431,6 +14431,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 512ef8b35ebfe5343835cc154a7bb03c, type: 3}
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
+      propertyPath: <UltAnimation>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: c28dc1c008cad7345980374540996bb6, type: 3}
+    - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <MaxMagicPoint>k__BackingField
       value: 
       objectReference: {fileID: 8300000, guid: 0e172df03b863664c98d0e29866ce696, type: 3}

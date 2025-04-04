@@ -174,6 +174,7 @@ public class MagicPointsManager : MonoBehaviour
     {
         if (pNumber == 1 && p1CurrentMagicPoint == p1MaxMagicPoint)
         {
+            AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.UltAnimation, new Vector3(0, 0.65f, -20));
             Instantiate(p1UltEffect, player1.transform.position, Quaternion.identity);
             StartCoroutine(ActivateUltCoroutine(player1.transform.position, pNumber));
             SetMagicPoint(1, 0);
