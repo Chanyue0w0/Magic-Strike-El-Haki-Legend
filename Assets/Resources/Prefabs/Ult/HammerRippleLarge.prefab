@@ -5105,6 +5105,7 @@ MonoBehaviour:
   playerNumber: 0
   targetNumber: 0
   attackDamage: 0
+  soundEffect: HammerUlt
   EffectToApply: 1
   explosion: {fileID: 0}
 --- !u!50 &-7427563737187409688

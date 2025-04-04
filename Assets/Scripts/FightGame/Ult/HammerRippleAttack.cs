@@ -11,6 +11,7 @@ public class HammerRippleAttack : MonoBehaviour
     [SerializeField] private int playerNumber;
     [SerializeField] private int targetNumber;
     [SerializeField] private int attackDamage = 0; // 傷害值
+    [SerializeField] private string soundEffect;
     [SerializeField] private StatusEffect EffectToApply = StatusEffect.Stun; // 要套用的狀態
 
     [Header("----------------- GameObjects ------------------")]
@@ -63,6 +64,11 @@ public class HammerRippleAttack : MonoBehaviour
             {
                 statusReceiver.ApplyStatusEffect(EffectToApply);
                 //Debug.Log($"{collision.gameObject.name} 受到狀態影響：{EffectToApply}");
+            }
+
+            if (soundEffect == "HammerUlt")
+            {
+                AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.HammerUlt, new Vector3(0, 0.65f, -20));
             }
             //Destroy(gameObject);
         }

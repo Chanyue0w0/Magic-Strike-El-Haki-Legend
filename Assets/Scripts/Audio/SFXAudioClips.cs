@@ -15,6 +15,8 @@ public class SFXAudioClips : MonoBehaviour
 	[field: SerializeField] public AudioClip FireBall { get; private set; }
 	[field: SerializeField] public AudioClip StunEffect { get; private set; }
 	[field: SerializeField] public AudioClip SkillPickUp { get; private set; }
+	[field: SerializeField] public AudioClip HammerUlt { get; private set; }
+	[field: SerializeField] public AudioClip MaxMagicPoint { get; private set; }
 	[field: SerializeField] public AudioClip GetMoney { get; private set; }
 	[field: SerializeField] public AudioClip WinSoundEffect { get; private set; }
 	[field: SerializeField] public AudioClip LoseSoundEffect { get; private set; }
