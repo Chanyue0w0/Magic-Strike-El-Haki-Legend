@@ -447,6 +447,6 @@ public class RoundController : MonoBehaviour
 		LosePanel.SetActive(true);
 
 		PauseGame();
-		gameStatus = "gameover";
+		gameStatus = "Gameover";
 	}
 }
