@@ -12,6 +12,8 @@ public class RewardManager : MonoBehaviour
     private GameObject coinPrefab;
     private GameObject diamondPrefab;
     private GameObject helmetPrefab;
+    private GameObject armorPrefab;
+    private GameObject shoesPrefab;
 
     void Awake()
     {
@@ -29,6 +31,8 @@ public class RewardManager : MonoBehaviour
         coinPrefab = Resources.Load<GameObject>("Prefabs/RewardIcon/CoinRewardIcon");
         diamondPrefab = Resources.Load<GameObject>("Prefabs/RewardIcon/DiamondRewardIcon");
         helmetPrefab = Resources.Load<GameObject>("Prefabs/RewardIcon/HelmetRewardIcon");
+        armorPrefab = Resources.Load<GameObject>("Prefabs/RewardIcon/ArmorRewardIcon");
+        shoesPrefab = Resources.Load<GameObject>("Prefabs/RewardIcon/ShoesRewardIcon");
 
         if (coinPrefab == null || diamondPrefab == null || helmetPrefab == null)
         {
@@ -45,6 +49,12 @@ public class RewardManager : MonoBehaviour
         
         RewardCoins(chapter,level);
 
+        RewardEquipment(chapter, level);
+
+    }
+
+    private void RewardEquipment(int chapter, int level)
+    {
 
     }
 
