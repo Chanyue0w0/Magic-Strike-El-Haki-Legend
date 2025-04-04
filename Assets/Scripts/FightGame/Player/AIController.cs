@@ -42,6 +42,8 @@ public class AIController : MonoBehaviour
     [SerializeField] private GameObject stunEffect;
 
     [SerializeField] private bool isPause = false;//暫停AI移動
+    [SerializeField] private bool moveToAIStartPosition = false;//AI復位
+    
 
     private void Start()
     {
@@ -95,6 +97,12 @@ public class AIController : MonoBehaviour
 
         if (!isPause)
         {
+            //if(moveToAIStartPosition)
+            //{
+            //    player2.transform.position = startingPosition;
+            //    moveToAIStartPosition = false;
+            //}
+
             if (!isStuned)
             {
                 if (!stopMoving)
@@ -121,6 +129,12 @@ public class AIController : MonoBehaviour
             }
         }
         
+    }
+
+    public void SetMoveToAIStartPosition(bool setting)
+    {
+        moveToAIStartPosition = setting;
+        //player2.transform.position = startingPosition;
     }
 
     private IEnumerator DelayedAttack(float delay)
@@ -150,7 +164,7 @@ public class AIController : MonoBehaviour
         float movementSpeed;
         //AI移動，非暈眩狀態
         if (Ball.position.y < 0 || Ball.position.y > upBoardY 
-            || (Mathf.Abs(Ball.position.x) > 1.4f && Ball.position.y > 2.8f))//球在P1場
+            || (Mathf.Abs(Ball.position.x) > 1.4f && Ball.position.y > 2.8f) || moveToAIStartPosition)//球在P1場
         {
             if (isFirstTimeInOpponentsHalf)
             {

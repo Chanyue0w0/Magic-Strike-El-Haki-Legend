@@ -192,7 +192,8 @@ public class BallController : MonoBehaviour
         // 關閉碰撞並延遲重新啟用
         if (circleCollider != null)
         {
-            aIController.SetStopMoving(true);
+            aIController.SetMoveToAIStartPosition(true);
+            //aIController.SetStopMoving(true);
             circleCollider.enabled = false;
             StartCoroutine(ReEnableColliderAfterDelay(1.5f));
         }
@@ -206,7 +207,8 @@ public class BallController : MonoBehaviour
         yield return new WaitForSeconds(delay);
         if (circleCollider != null)
         {
-            aIController.SetStopMoving(false);
+            aIController.SetMoveToAIStartPosition(false);
+            //aIController.SetStopMoving(false);
             circleCollider.enabled = true;
         }
     }

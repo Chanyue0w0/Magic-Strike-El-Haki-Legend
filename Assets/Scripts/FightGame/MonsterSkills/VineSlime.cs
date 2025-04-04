@@ -15,6 +15,9 @@ public class VineSlime : MonoBehaviour
 
     [SerializeField] private Animator player2_animator;
 
+    // 儲存目前的 Coroutine
+    private Coroutine graspingVineCoroutine;
+    private Coroutine startMovingCoroutine;
 
     public void SetPlayerNumber(int pNumber) // initial
     {
@@ -38,9 +41,19 @@ public class VineSlime : MonoBehaviour
 
         player2_controller.SetStopMoving(true);
 
-        StartCoroutine(DelayedInstGraspingVine(1f));
+        // 停止上一輪的 coroutine（如果還在執行）
+        if (graspingVineCoroutine != null)
+        {
+            StopCoroutine(graspingVineCoroutine);
+        }
+        if (startMovingCoroutine != null)
+        {
+            StopCoroutine(startMovingCoroutine);
+        }
 
-        StartCoroutine(DelayedStartMoving(3f));
+        // 啟動新的 coroutine，並儲存引用
+        graspingVineCoroutine = StartCoroutine(DelayedInstGraspingVine(1f));
+        startMovingCoroutine = StartCoroutine(DelayedStartMoving(3.5f));
 
     }
     private IEnumerator DelayedInstGraspingVine(float delay)
@@ -66,5 +79,19 @@ public class VineSlime : MonoBehaviour
     {
         player2_animator.SetTrigger("GraspGot");
     }
+
+    //public void StopAllCoroutine()
+    //{
+    //    player2_animator.SetTrigger("GraspGot");
+    //    // 停止上一輪的 coroutine（如果還在執行）
+    //    if (graspingVineCoroutine != null)
+    //    {
+    //        StopCoroutine(graspingVineCoroutine);
+    //    }
+    //    if (startMovingCoroutine != null)
+    //    {
+    //        StopCoroutine(startMovingCoroutine);
+    //    }
+    //}
 
 }
