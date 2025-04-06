@@ -51,6 +51,7 @@ public class RewardManager : MonoBehaviour
 
         RewardEquipment(chapter, level);
 
+        //PlayerDataManager.Instance.SetPlayerChapter();
     }
 
     private void RewardEquipment(int chapter, int level)
