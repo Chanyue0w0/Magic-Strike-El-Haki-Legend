@@ -381,19 +381,27 @@ public class EquipmentBag : MonoBehaviour
 
 	private void GetEquipmentSpriteData(List<string> equippedItems, int slotIndex, GameObject obj)
 	{
-		obj.GetComponent<Image>().sprite = null;
-		obj.GetComponent<Button>().onClick.RemoveAllListeners();
-		obj.GetComponent<Button>().onClick.AddListener(() => GetComponent<MainMenuButtonController>().SoundClick());
+		Image frameImage = obj.GetComponent<Image>();
+		Image image = obj.transform.GetChild(0).GetComponent<Image>();
+		Button btn = obj.GetComponent<Button>();
 
-		
+		frameImage.sprite = null;
+		btn.onClick.RemoveAllListeners();
+		btn.onClick.AddListener(() => GetComponent<MainMenuButtonController>().SoundClick());
+		image.sprite = null;
+		image.color = Color.clear;
+
 		obj.GetComponent<Image>().sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + slotIndex.ToString());
+
 		if (slotIndex >= 0 && slotIndex < equippedItems.Count && !string.IsNullOrEmpty(equippedItems[slotIndex]))
 		{
 			var equipment = PlayerEquipmentManager.Instance.GetEquipmentByID(equippedItems[slotIndex]);
 			if (equipment != null)
 			{
-				obj.GetComponent<Image>().sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + equipment.name);
-				obj.GetComponent<Button>().onClick.AddListener(() => OnClickOpenEquipmentPanel(equipment.id));
+				frameImage.sprite = Resources.Load<Sprite>($"Arts/EquipmentImgaes/{equipment.rarity}_{equipment.equipmentType}");
+				image.color = Color.white;
+				image.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + equipment.name);
+				btn.onClick.AddListener(() => OnClickOpenEquipmentPanel(equipment.id));
 				return;
 			}
 		}
