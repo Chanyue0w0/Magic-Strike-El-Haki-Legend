@@ -76,18 +76,9 @@ public class PlayerEquipmentManager : MonoBehaviour
 		if (resetJsonFile)
 		{
 			File.Delete(FinePath());
-			CreateEquipmentFromData("HT00");
-			CreateEquipmentFromData("HT00");
-			CreateEquipmentFromData("HT00");
-			CreateEquipmentFromData("BD00");
-			CreateEquipmentFromData("BD00");
-			CreateEquipmentFromData("BD00");
-			CreateEquipmentFromData("SH00");
-			CreateEquipmentFromData("SH00");
-			CreateEquipmentFromData("SH00");
 		}
 
-
+		LoadEquipment();
 	}
 
 	private Dictionary<string, string> GenerateRandomBuffs(int numberOfBuffs)
@@ -178,7 +169,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 		if (!File.Exists(FinePath()))
 		{
 			equipmentList = new List<PlayerEquipment>();
-			Debug.LogWarning("Equipment save file not found!");
+			Debug.LogWarning("Creat new Equipment List!");
 			SaveEquipment();
 			CreateEquipmentFromData("HT00");
 			CreateEquipmentFromData("HT00");
@@ -200,19 +191,8 @@ public class PlayerEquipmentManager : MonoBehaviour
 			else
 			{
 				equipmentList = JsonConvert.DeserializeObject<List<PlayerEquipment>>(json);
-				if (equipmentList.Count < 1)
-				{
-					CreateEquipmentFromData("HT00");
-					CreateEquipmentFromData("HT00");
-					CreateEquipmentFromData("HT00");
-					CreateEquipmentFromData("BD00");
-					CreateEquipmentFromData("BD00");
-					CreateEquipmentFromData("SH00");
-					CreateEquipmentFromData("SH00");
-					SaveEquipment();
-				}
-				//Debug.Log("Equipment data loaded!");
 			}
+			SaveEquipment();
 		}
 	}
 

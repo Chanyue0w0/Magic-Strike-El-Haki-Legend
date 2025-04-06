@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,8 +14,9 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private int upgradeATKIncrement = 100;
 	[SerializeField] private const int maxLevel = 30;
 	[SerializeField] int requiredEvoStones = 10; // 預設消耗量
-	
+
 	[Header("UI Panels and Containers")]
+	[SerializeField] private GameObject SkillBagPanel;
 	[SerializeField] private GameObject equipmentInfoPanel;
 	[SerializeField] private GameObject evolutionPanel;
 	[SerializeField] private GameObject equipmentSlotPrefab;
@@ -44,8 +44,10 @@ public class EquipmentBag : MonoBehaviour
 
 	[SerializeField] private Image evolutionButtonImage;
 	[SerializeField] private Button evolutionButton;
-	[SerializeField] private Image frame;
-	[SerializeField] private Image nextFrame;
+	[SerializeField] private Image evoFrame;
+	[SerializeField] private Image evoNextFrame;
+	[SerializeField] private Image evoStone;
+	[SerializeField] private List<Sprite> evoStoneSprite;
 
 	[Header("-------------------- Current Hero GUI -------------------- ")]
 	[SerializeField] private Image heroImage;
@@ -77,9 +79,11 @@ public class EquipmentBag : MonoBehaviour
 		OnClickChangeCurrentHero(1);
 		OnClickChangeCurrentHero(-1);
 		RefreshCurrentHeroInfoUI();
+		OnClickSwitchBagType("All");
 		RefreshBagUI();
 
 		evolutionPanel.SetActive(false);
+		SkillBagPanel.SetActive(false);
 	}
 
 	public void InitEquipmentBag()
@@ -114,7 +118,7 @@ public class EquipmentBag : MonoBehaviour
 			slot.name = i.ToString();
 
 			// 透過資源路徑載入裝備圖片
-			Image slotImage = slot.GetComponent<Image>();
+			Image slotImage = slot.transform.Find("EquipmentImage")?.GetComponent<Image>();
 			slotImage.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + equipment.name);
 
 			// 設定按鈕點擊事件，利用捕捉到的 index 傳入 OnClickOpenEquipmentPanel
@@ -125,11 +129,11 @@ public class EquipmentBag : MonoBehaviour
 			TextMeshProUGUI slotLevelText = slot.transform.Find("LevelText")?.GetComponent<TextMeshProUGUI>();
 			if (slotLevelText != null)
 			{
-				slotLevelText.text = "Lv. " + equipment.currentLevel;
+				slotLevelText.text = "Lv." + equipment.currentLevel;
 			}
 
 			Image frame = slot.transform.Find("FrameImage")?.GetComponent<Image>();
-			if (frame != null) frame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + equipment.rarity);
+			if (frame != null) frame.sprite = Resources.Load<Sprite>($"Arts/EquipmentImgaes/{equipment.rarity}_{equipment.equipmentType}");
 		}
 	}
 
@@ -377,19 +381,26 @@ public class EquipmentBag : MonoBehaviour
 
 	private void GetEquipmentSpriteData(List<string> equippedItems, int slotIndex, GameObject obj)
 	{
-		obj.GetComponent<Image>().sprite = null;
-		obj.GetComponent<Button>().onClick.RemoveAllListeners();
-		obj.GetComponent<Button>().onClick.AddListener(() => GetComponent<MainMenuButtonController>().SoundClick());
+		Image frameImage = obj.GetComponent<Image>();
+		Image image = obj.transform.GetChild(0).GetComponent<Image>();
+		Button btn = obj.GetComponent<Button>();
 
-		
-		obj.GetComponent<Image>().sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + slotIndex.ToString());
+		btn.onClick.RemoveAllListeners();
+		frameImage.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + slotIndex.ToString());
+		btn.onClick.AddListener(() => GetComponent<MainMenuButtonController>().SoundClick());
+		image.sprite = null;
+		image.color = Color.clear;
+
+
 		if (slotIndex >= 0 && slotIndex < equippedItems.Count && !string.IsNullOrEmpty(equippedItems[slotIndex]))
 		{
 			var equipment = PlayerEquipmentManager.Instance.GetEquipmentByID(equippedItems[slotIndex]);
 			if (equipment != null)
 			{
-				obj.GetComponent<Image>().sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + equipment.name);
-				obj.GetComponent<Button>().onClick.AddListener(() => OnClickOpenEquipmentPanel(equipment.id));
+				frameImage.sprite = Resources.Load<Sprite>($"Arts/EquipmentImgaes/{equipment.rarity}_{equipment.equipmentType}");
+				image.color = Color.white;
+				image.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + equipment.name);
+				btn.onClick.AddListener(() => OnClickOpenEquipmentPanel(equipment.id));
 				return;
 			}
 		}
@@ -404,8 +415,41 @@ public class EquipmentBag : MonoBehaviour
 			return;
 		}
 
-		frame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + currentEquipment.rarity);
+		evoFrame.sprite = Resources.Load<Sprite>($"Arts/EquipmentImgaes/{currentEquipment.rarity}_{currentEquipment.equipmentType}");
+		int playerEvoStones = 0;
+		switch (currentEquipment.rarity)
+		{
+			case "Normal":
+				playerEvoStones = PlayerDataManager.Instance.GetCommonEvoStone();
+				evoNextFrame.sprite = Resources.Load<Sprite>($"Arts/EquipmentImgaes/Common_{currentEquipment.equipmentType}");
+				evoStone.sprite = evoStoneSprite[0];
+				break;
+			case "Common":
+				playerEvoStones = PlayerDataManager.Instance.GetRareEvoStone();
+				evoNextFrame.sprite = Resources.Load<Sprite>($"Arts/EquipmentImgaes/Rare_{currentEquipment.equipmentType}");
+				evoStone.sprite = evoStoneSprite[1];
+				break;
+			case "Rare":
+				playerEvoStones = PlayerDataManager.Instance.GetSpecialEvoStone();
+				evoNextFrame.sprite = Resources.Load<Sprite>($"Arts/EquipmentImgaes/Special_{currentEquipment.equipmentType}");
+				evoStone.sprite = evoStoneSprite[2];
+				break;
+			case "Special":
+				playerEvoStones = PlayerDataManager.Instance.GetLegendaryEvoStone();
+				evoNextFrame.sprite = Resources.Load<Sprite>($"Arts/EquipmentImgaes/Legendary_{currentEquipment.equipmentType}");
+				evoStone.sprite = evoStoneSprite[3];
+				break;
+			case "Legendary":
+				evoNextFrame.sprite = Resources.Load<Sprite>($"Arts/EquipmentImgaes/Legendary_{currentEquipment.equipmentType}");
+				evoStone.sprite = evoStoneSprite[3];
+				Debug.Log("該裝備已達最高稀有度，無法進化。");
+				return;
+			default:
+				Debug.LogWarning("裝備稀有度無法進化。");
+				return;
+		}
 
+		// 啟用介面
 		evolutionPanel.SetActive(true);
 		// 如果裝備等級未達上限，則禁用進化按鈕並更新提示文字
 		if (currentEquipment.currentLevel < maxLevel)
@@ -415,39 +459,6 @@ public class EquipmentBag : MonoBehaviour
 			evolutionCostText.text = (currentEquipment.rarity == "Legendary") ? "MAX" : "Not Max LV";
 			evolutionCostText.color = Color.red;
 			return;
-		}
-
-		//if (currentEquipment.currentLevel == maxLevel)
-		// 當等級達上限時，檢查進化石數量並更新進化介面
-		int playerEvoStones = 0;
-
-
-
-		switch (currentEquipment.rarity)
-		{
-			case "Normal":
-				playerEvoStones = PlayerDataManager.Instance.GetCommonEvoStone();
-				nextFrame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/Common");
-				break;
-			case "Common":
-				playerEvoStones = PlayerDataManager.Instance.GetRareEvoStone();
-				nextFrame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/Rare");
-				break;
-			case "Rare":
-				playerEvoStones = PlayerDataManager.Instance.GetSpecialEvoStone();
-				nextFrame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/Special");
-				break;
-			case "Special":
-				playerEvoStones = PlayerDataManager.Instance.GetLegendaryEvoStone();
-				nextFrame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/Legendary");
-				break;
-			case "Legendary":
-				nextFrame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/Legendary");
-				Debug.Log("該裝備已達最高稀有度，無法進化。");
-				return;
-			default:
-				Debug.LogWarning("裝備稀有度無法進化。");
-				return;
 		}
 
 		// 更新 UI 顯示進化石數量，若不足則文字變紅

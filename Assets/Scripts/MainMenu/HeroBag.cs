@@ -23,7 +23,8 @@ public class HeroBag : MonoBehaviour
 	[Header("Other")]
 	// 英雄槽容器（例如 ScrollView 的 Content）
 	[SerializeField] private Transform heroSlotContainer;
-	
+
+	[SerializeField] private BattleDataCalculator battleDataCalculator;
 	private PlayerHeroManager.PlayerHero currentHero;
 
 	void Start()
@@ -32,6 +33,7 @@ public class HeroBag : MonoBehaviour
 		Debug.Log("current hero:" + currentHero.id);
 		selectedHeroID = currentHero.id;
 		OnClickSelectHero();
+		battleDataCalculator.CalculateBattleData(selectedHeroID);
 	}
 
 	

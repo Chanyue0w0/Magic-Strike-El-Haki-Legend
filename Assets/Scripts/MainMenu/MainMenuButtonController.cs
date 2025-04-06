@@ -12,6 +12,7 @@ public class MainMenuButtonController : MonoBehaviour
 	[SerializeField] private GameObject equipmentPanel;
 	[SerializeField] private GameObject adventurePanel;
 	[SerializeField] private GameObject rankPanel;
+	[SerializeField] private GameObject firstPanel;
 
 	[SerializeField] private GameObject chapterPanel;
 	[SerializeField] private GameObject[] infoPanels;
@@ -32,6 +33,7 @@ public class MainMenuButtonController : MonoBehaviour
 		shopPanel.SetActive(false);
 		equipmentPanel.SetActive(false);
 		chapterPanel.SetActive(false);
+		rankPanel.SetActive(false);
 
 		adventurePanel.SetActive(true);
 
@@ -42,6 +44,12 @@ public class MainMenuButtonController : MonoBehaviour
 		panels[4] = adventurePanel;
 		panels[5] = rankPanel;
 		OnClickCloseInfoPanel();
+
+		if(PlayerDataManager.Instance.GetPlayerCurrentLevel() == 1 && PlayerDataManager.Instance.GetPlayerChapter() == 1)
+		{
+			firstPanel.SetActive(true);
+		}
+		else firstPanel.SetActive(false);
 	}
 
     // Update is called once per frame
@@ -110,4 +118,5 @@ public class MainMenuButtonController : MonoBehaviour
 		battleDataCalculator.ApplyToFightPlayerConfig();
 		loadingSceneController.LoadStage("FightScene");
 	}
+
 }
