@@ -385,13 +385,12 @@ public class EquipmentBag : MonoBehaviour
 		Image image = obj.transform.GetChild(0).GetComponent<Image>();
 		Button btn = obj.GetComponent<Button>();
 
-		frameImage.sprite = null;
 		btn.onClick.RemoveAllListeners();
+		frameImage.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + slotIndex.ToString());
 		btn.onClick.AddListener(() => GetComponent<MainMenuButtonController>().SoundClick());
 		image.sprite = null;
 		image.color = Color.clear;
 
-		obj.GetComponent<Image>().sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + slotIndex.ToString());
 
 		if (slotIndex >= 0 && slotIndex < equippedItems.Count && !string.IsNullOrEmpty(equippedItems[slotIndex]))
 		{
