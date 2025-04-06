@@ -6705,6 +6705,13 @@ MonoBehaviour:
   evolutionButton: {fileID: 1465848351}
   evoFrame: {fileID: 1884728532}
   evoNextFrame: {fileID: 2069448871}
+  evoStone: {fileID: 1311445091}
+  evoStoneSprite:
+  - {fileID: 21300000, guid: d0b37005d23c8624aa291145337db94d, type: 3}
+  - {fileID: 21300000, guid: 719ca3235146b33409eceaf13aa79c78, type: 3}
+  - {fileID: 21300000, guid: f9fb314dbe360144c9479f717471b53b, type: 3}
+  - {fileID: 21300000, guid: f9fb314dbe360144c9479f717471b53b, type: 3}
+  - {fileID: 21300000, guid: f9fb314dbe360144c9479f717471b53b, type: 3}
   heroImage: {fileID: 729469827}
   heroNameText: {fileID: 1452755898}
   skill1Icon: {fileID: 684064424}
