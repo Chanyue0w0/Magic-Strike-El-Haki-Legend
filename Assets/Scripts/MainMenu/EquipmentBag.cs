@@ -44,8 +44,8 @@ public class EquipmentBag : MonoBehaviour
 
 	[SerializeField] private Image evolutionButtonImage;
 	[SerializeField] private Button evolutionButton;
-	[SerializeField] private Image frame;
-	[SerializeField] private Image nextFrame;
+	[SerializeField] private Image evoFrame;
+	[SerializeField] private Image evoNextFrame;
 
 	[Header("-------------------- Current Hero GUI -------------------- ")]
 	[SerializeField] private Image heroImage;
@@ -407,7 +407,34 @@ public class EquipmentBag : MonoBehaviour
 			return;
 		}
 
-		frame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + currentEquipment.rarity);
+		evoFrame.sprite = Resources.Load<Sprite>($"Arts/EquipmentImgaes/{currentEquipment.rarity}_{currentEquipment.equipmentType}");
+		int playerEvoStones = 0;
+		switch (currentEquipment.rarity)
+		{
+			case "Normal":
+				playerEvoStones = PlayerDataManager.Instance.GetCommonEvoStone();
+				evoNextFrame.sprite = Resources.Load<Sprite>($"Arts/EquipmentImgaes/Common_{currentEquipment.equipmentType}");
+				break;
+			case "Common":
+				playerEvoStones = PlayerDataManager.Instance.GetRareEvoStone();
+				evoNextFrame.sprite = Resources.Load<Sprite>($"Arts/EquipmentImgaes/Rare_{currentEquipment.equipmentType}");
+				break;
+			case "Rare":
+				playerEvoStones = PlayerDataManager.Instance.GetSpecialEvoStone();
+				evoNextFrame.sprite = Resources.Load<Sprite>($"Arts/EquipmentImgaes/Special_{currentEquipment.equipmentType}");
+				break;
+			case "Special":
+				playerEvoStones = PlayerDataManager.Instance.GetLegendaryEvoStone();
+				evoNextFrame.sprite = Resources.Load<Sprite>($"Arts/EquipmentImgaes/Legendary_{currentEquipment.equipmentType}");
+				break;
+			case "Legendary":
+				evoNextFrame.sprite = Resources.Load<Sprite>($"Arts/EquipmentImgaes/Legendary_{currentEquipment.equipmentType}");
+				Debug.Log("該裝備已達最高稀有度，無法進化。");
+				return;
+			default:
+				Debug.LogWarning("裝備稀有度無法進化。");
+				return;
+		}
 
 		evolutionPanel.SetActive(true);
 		// 如果裝備等級未達上限，則禁用進化按鈕並更新提示文字
@@ -418,39 +445,6 @@ public class EquipmentBag : MonoBehaviour
 			evolutionCostText.text = (currentEquipment.rarity == "Legendary") ? "MAX" : "Not Max LV";
 			evolutionCostText.color = Color.red;
 			return;
-		}
-
-		//if (currentEquipment.currentLevel == maxLevel)
-		// 當等級達上限時，檢查進化石數量並更新進化介面
-		int playerEvoStones = 0;
-
-
-
-		switch (currentEquipment.rarity)
-		{
-			case "Normal":
-				playerEvoStones = PlayerDataManager.Instance.GetCommonEvoStone();
-				nextFrame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/Common");
-				break;
-			case "Common":
-				playerEvoStones = PlayerDataManager.Instance.GetRareEvoStone();
-				nextFrame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/Rare");
-				break;
-			case "Rare":
-				playerEvoStones = PlayerDataManager.Instance.GetSpecialEvoStone();
-				nextFrame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/Special");
-				break;
-			case "Special":
-				playerEvoStones = PlayerDataManager.Instance.GetLegendaryEvoStone();
-				nextFrame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/Legendary");
-				break;
-			case "Legendary":
-				nextFrame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/Legendary");
-				Debug.Log("該裝備已達最高稀有度，無法進化。");
-				return;
-			default:
-				Debug.LogWarning("裝備稀有度無法進化。");
-				return;
 		}
 
 		// 更新 UI 顯示進化石數量，若不足則文字變紅
