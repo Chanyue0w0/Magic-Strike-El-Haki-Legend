@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,8 +14,9 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private int upgradeATKIncrement = 100;
 	[SerializeField] private const int maxLevel = 30;
 	[SerializeField] int requiredEvoStones = 10; // 預設消耗量
-	
+
 	[Header("UI Panels and Containers")]
+	[SerializeField] private GameObject SkillBagPanel;
 	[SerializeField] private GameObject equipmentInfoPanel;
 	[SerializeField] private GameObject evolutionPanel;
 	[SerializeField] private GameObject equipmentSlotPrefab;
@@ -77,9 +77,11 @@ public class EquipmentBag : MonoBehaviour
 		OnClickChangeCurrentHero(1);
 		OnClickChangeCurrentHero(-1);
 		RefreshCurrentHeroInfoUI();
+		OnClickSwitchBagType("All");
 		RefreshBagUI();
 
 		evolutionPanel.SetActive(false);
+		SkillBagPanel.SetActive(false);
 	}
 
 	public void InitEquipmentBag()
@@ -114,7 +116,7 @@ public class EquipmentBag : MonoBehaviour
 			slot.name = i.ToString();
 
 			// 透過資源路徑載入裝備圖片
-			Image slotImage = slot.GetComponent<Image>();
+			Image slotImage = slot.transform.Find("EquipmentImage")?.GetComponent<Image>();
 			slotImage.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + equipment.name);
 
 			// 設定按鈕點擊事件，利用捕捉到的 index 傳入 OnClickOpenEquipmentPanel
@@ -125,11 +127,12 @@ public class EquipmentBag : MonoBehaviour
 			TextMeshProUGUI slotLevelText = slot.transform.Find("LevelText")?.GetComponent<TextMeshProUGUI>();
 			if (slotLevelText != null)
 			{
-				slotLevelText.text = "Lv. " + equipment.currentLevel;
+				slotLevelText.text = "Lv." + equipment.currentLevel;
 			}
 
 			Image frame = slot.transform.Find("FrameImage")?.GetComponent<Image>();
-			if (frame != null) frame.sprite = Resources.Load<Sprite>("Arts/EquipmentImgaes/" + equipment.rarity);
+			if (frame != null) frame.sprite = Resources.Load<Sprite>($"Arts/EquipmentImgaes/{equipment.rarity}_{equipment.equipmentType}");
+			Debug.Log($"Arts/EquipmentImgaes/{equipment.rarity}_{equipment.equipmentType}");
 		}
 	}
 
