@@ -12,7 +12,9 @@ public class MainMenuButtonController : MonoBehaviour
 	[SerializeField] private GameObject equipmentPanel;
 	[SerializeField] private GameObject adventurePanel;
 	[SerializeField] private GameObject rankPanel;
+
 	[SerializeField] private GameObject firstPanel;
+	[SerializeField] private GameObject endPanel;
 
 	[SerializeField] private GameObject chapterPanel;
 	[SerializeField] private GameObject[] infoPanels;
@@ -45,11 +47,17 @@ public class MainMenuButtonController : MonoBehaviour
 		panels[5] = rankPanel;
 		OnClickCloseInfoPanel();
 
-		if(PlayerDataManager.Instance.GetPlayerCurrentLevel() == 1 && PlayerDataManager.Instance.GetPlayerChapter() == 1)
+		if(PlayerDataManager.Instance.GetCurrentLevel() == 1 && PlayerDataManager.Instance.GetCurrentChapter() == 1)
 		{
 			firstPanel.SetActive(true);
 		}
 		else firstPanel.SetActive(false);
+
+		if (PlayerDataManager.Instance.GetCurrentLevel() >= 2 && PlayerDataManager.Instance.GetCurrentChapter() >= 3)
+		{
+			endPanel.SetActive(true);
+		}
+		else endPanel.SetActive(false);
 	}
 
     // Update is called once per frame

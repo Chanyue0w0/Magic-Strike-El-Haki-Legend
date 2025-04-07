@@ -36,6 +36,8 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private Image bgRarity;
 
 	[Header("Level up and Evolution GUI -------------------- ")]
+	[SerializeField] private Transform levelUpEffectPoistion;
+	[SerializeField] private GameObject levelUpEffectPrefab;
 	// 顯示升級所需花費與目前玩家金幣資訊
 	[SerializeField] private TextMeshProUGUI costCoin;
 	// 新增升級按鈕參考，用來在達上限或金錢不足時更新狀態
@@ -249,6 +251,8 @@ public class EquipmentBag : MonoBehaviour
 			Debug.LogWarning("沒有選擇要升級的裝備。");
 			return;
 		}
+		// 特效動畫
+		Instantiate(levelUpEffectPrefab, levelUpEffectPoistion);
 
 		// 檢查裝備是否已達最高等級 (maxLevel)
 		if (currentEquipment.currentLevel >= maxLevel)

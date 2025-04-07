@@ -18,17 +18,14 @@ public class StageButtonController : MonoBehaviour
 	private void Start()
 	{
 		GenerateStageButtons();
-
-		// 自動選擇當前關卡
-		
 	}
 
-	private void GenerateStageButtons()
+	public void GenerateStageButtons()
 	{
 		var (totalChapters, levelsPerChapter, _) = StageData.Instance.GetStageCounts();
 
-		int currentChapter = PlayerDataManager.Instance.GetPlayerChapter();
-		int currentLevel = PlayerDataManager.Instance.GetPlayerCurrentLevel();
+		int currentChapter = PlayerDataManager.Instance.GetCurrentChapter();
+		int currentLevel = PlayerDataManager.Instance.GetCurrentLevel();
 		// 如果 chapter 或 level 小於1，則預設為1
 		if (currentChapter < 1) currentChapter = 1;
 		if (currentLevel < 1) currentLevel = 1;
@@ -53,7 +50,7 @@ public class StageButtonController : MonoBehaviour
 
 				bool isPassed = false;
 				if (currentChapter > chapter) isPassed = true;
-				else if (currentLevel == chapter && currentLevel > level) isPassed = true;
+				else if (currentChapter == chapter && currentLevel > level) isPassed = true;
 				bool isUnLocked = (currentLevel == level) && (currentChapter == chapter);
 
 				// **設定背景圖片**

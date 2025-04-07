@@ -140,20 +140,20 @@ public class PlayerDataManager : MonoBehaviour
 	}
 
 	// 取得玩家目前的 Chapter
-	public int GetPlayerChapter() => PlayerPrefs.GetInt(PLAYER_CHAPTER_KEY);
+	public int GetCurrentChapter() => PlayerPrefs.GetInt(PLAYER_CHAPTER_KEY);
 
 	// 設定玩家目前的 Chapter
-	public void SetPlayerChapter(int chapter)
+	public void SetCurrentChapter(int chapter)
 	{
 		PlayerPrefs.SetInt(PLAYER_CHAPTER_KEY, chapter);
 		PlayerPrefs.Save();
 	}
 
 	// 取得玩家目前的 Level (遊戲中的關卡等級)
-	public int GetPlayerCurrentLevel() => PlayerPrefs.GetInt(PLAYER_CURRENT_LEVEL_KEY);
+	public int GetCurrentLevel() => PlayerPrefs.GetInt(PLAYER_CURRENT_LEVEL_KEY);
 
 	// 設定玩家目前的 Level
-	public void SetPlayerCurrentLevel(int level)
+	public void SetCurrentLevel(int level)
 	{
 		PlayerPrefs.SetInt(PLAYER_CURRENT_LEVEL_KEY, level);
 		PlayerPrefs.Save();
