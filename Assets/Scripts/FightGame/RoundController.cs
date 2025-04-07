@@ -296,8 +296,8 @@ public class RoundController : MonoBehaviour
 			FightPlayer1Config.CurrentChapter = currentChapterIndex;
 
 
-			PlayerDataManager.Instance.SetPlayerChapter(currentChapterIndex); //紀錄最高章節
-			PlayerDataManager.Instance.SetPlayerLevel(currentLevelIndex); //紀錄最高關卡
+			PlayerDataManager.Instance.SetCurrentChapter(currentChapterIndex); //紀錄最高章節
+			PlayerDataManager.Instance.SetCurrentLevel(currentLevelIndex); //紀錄最高關卡
 
 			SceneManager.LoadScene("FightScene");
 		}
@@ -308,8 +308,8 @@ public class RoundController : MonoBehaviour
 			FightPlayer1Config.CurrentLevel = currentLevelIndex;
 			FightPlayer1Config.CurrentChapter = currentChapterIndex;
 
-			PlayerDataManager.Instance.SetPlayerChapter(currentChapterIndex); //紀錄最高章節
-			PlayerDataManager.Instance.SetPlayerLevel(currentLevelIndex); //紀錄最高關卡
+			PlayerDataManager.Instance.SetCurrentChapter(currentChapterIndex); //紀錄最高章節
+			PlayerDataManager.Instance.SetCurrentLevel(currentLevelIndex); //紀錄最高關卡
 
 			SceneManager.LoadScene("FightScene");
 		}
