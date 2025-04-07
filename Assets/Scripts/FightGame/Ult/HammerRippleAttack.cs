@@ -51,6 +51,12 @@ public class HammerRippleAttack : MonoBehaviour
             if(explosion != null)
                 Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
             //doorScore.DoorTracingAttackOnHit();
+
+            //int takeDamage = attackDamage;
+
+            //if (playerNumber == 1)
+            //    takeDamage = (int)(attackDamage * (1 + FightPlayer1Config.SkillDamageIncrease));
+
             // 嘗試獲取 IDamageable 介面（目標可受傷）
             IDamageable damageable = collision.GetComponent<IDamageable>();
             if (damageable != null)

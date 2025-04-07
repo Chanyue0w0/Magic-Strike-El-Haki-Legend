@@ -240,16 +240,6 @@ public class RoundController : MonoBehaviour
 			// 如果找不到下一關，可能需要提升 Level 或 Chapter
 			// 顯示結算畫面
 
-			//currentStageIndex = 1; // 重置 Stage
-			//currentLevelIndex++;
-
-			//nextStage = StageData.Instance.FindStage(currentChapterIndex, currentLevelIndex, currentStageIndex);
-			//if (nextStage == null)
-			//{
-			//	// 如果 Level 也找不到，則提升 Chapter
-			//	currentLevelIndex = 1;
-			//	currentChapterIndex++;
-			//}
 		}
 		else
         {
@@ -257,6 +247,10 @@ public class RoundController : MonoBehaviour
 			FightPlayer1Config.CurrentStage = currentStageIndex;
 			FightPlayer1Config.CurrentLevel = currentLevelIndex;
 			FightPlayer1Config.CurrentChapter = currentChapterIndex;
+
+			//PlayerDataManager.Instance.SetPlayerChapter(currentChapterIndex);
+			//PlayerDataManager.Instance.SetPlayerLevel(currentLevelIndex);
+
 			SceneManager.LoadScene("FightScene");
 		}
 		//if (currentLevelIndex != FightPlayer1Config.CurrentLevel 
@@ -273,7 +267,13 @@ public class RoundController : MonoBehaviour
 		AudioManager.Instance.StopBGM();
 		AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.WinSoundEffect, new Vector3(0, 0.65f, -20));
 		WinPanel.SetActive(true);
+
+		FightPlayer1Config.CurrentStage = 1; // 強制重製
 		RewardManager.Instance.GenerateReward();
+
+
+		//PlayerDataManager.Instance.SetPlayerChapter(currentChapterIndex);
+		//PlayerDataManager.Instance.SetPlayerLevel(currentLevelIndex + 1);
 	}
 	public void NextLevel()
 	{
@@ -294,6 +294,11 @@ public class RoundController : MonoBehaviour
 			FightPlayer1Config.CurrentStage = currentStageIndex;
 			FightPlayer1Config.CurrentLevel = currentLevelIndex;
 			FightPlayer1Config.CurrentChapter = currentChapterIndex;
+
+
+			PlayerDataManager.Instance.SetPlayerChapter(currentChapterIndex); //紀錄最高章節
+			PlayerDataManager.Instance.SetPlayerLevel(currentLevelIndex); //紀錄最高關卡
+
 			SceneManager.LoadScene("FightScene");
 		}
 		else
@@ -302,6 +307,10 @@ public class RoundController : MonoBehaviour
 			FightPlayer1Config.CurrentStage = currentStageIndex;
 			FightPlayer1Config.CurrentLevel = currentLevelIndex;
 			FightPlayer1Config.CurrentChapter = currentChapterIndex;
+
+			PlayerDataManager.Instance.SetPlayerChapter(currentChapterIndex); //紀錄最高章節
+			PlayerDataManager.Instance.SetPlayerLevel(currentLevelIndex); //紀錄最高關卡
+
 			SceneManager.LoadScene("FightScene");
 		}
 	}
@@ -441,6 +450,7 @@ public class RoundController : MonoBehaviour
 	private void GameOver()
 	{
 		FightPlayer1Config.NowHP = player1Status.GetHP();
+		FightPlayer1Config.CurrentStage = 1; // 強制重製
 		//PauseGame();
 		//gameOverPanel.SetActive(true);
 		AudioManager.Instance.StopBGM();

@@ -12,6 +12,8 @@ public class RewardManager : MonoBehaviour
     private GameObject coinPrefab;
     private GameObject diamondPrefab;
     private GameObject helmetPrefab;
+    private GameObject armorPrefab;
+    private GameObject shoesPrefab;
 
     void Awake()
     {
@@ -29,6 +31,8 @@ public class RewardManager : MonoBehaviour
         coinPrefab = Resources.Load<GameObject>("Prefabs/RewardIcon/CoinRewardIcon");
         diamondPrefab = Resources.Load<GameObject>("Prefabs/RewardIcon/DiamondRewardIcon");
         helmetPrefab = Resources.Load<GameObject>("Prefabs/RewardIcon/HelmetRewardIcon");
+        armorPrefab = Resources.Load<GameObject>("Prefabs/RewardIcon/ArmorRewardIcon");
+        shoesPrefab = Resources.Load<GameObject>("Prefabs/RewardIcon/ShoesRewardIcon");
 
         if (coinPrefab == null || diamondPrefab == null || helmetPrefab == null)
         {
@@ -45,8 +49,63 @@ public class RewardManager : MonoBehaviour
         
         RewardCoins(chapter,level);
 
+        RewardEquipment(chapter, level);
 
+        //PlayerDataManager.Instance.SetPlayerChapter();
     }
+
+    private void RewardEquipment(int chapter, int level)
+    {
+        // 1/3 機率判斷
+        if (Random.Range(0, 0) != 0)
+        {
+            Debug.Log("未獲得裝備");
+            return;
+        }
+
+        // 隨機選裝備類型
+        int type = Random.Range(0, 3); // 0 = helmet, 1 = armor, 2 = shoes
+        GameObject prefabToUse = null;
+        string equipmentID = "HT00";
+
+        switch (type)
+        {
+            case 0:
+                prefabToUse = helmetPrefab;
+                equipmentID = "HT00";
+                break;
+            case 1:
+                prefabToUse = armorPrefab;
+                equipmentID = "BD00";
+                break;
+            case 2:
+                prefabToUse = shoesPrefab;
+                equipmentID = "SH00";
+                break;
+        }
+
+        if (prefabToUse == null)
+        {
+            Debug.LogWarning("裝備 prefab 尚未設定！");
+            return;
+        }
+
+        GameObject rewardObj = Instantiate(prefabToUse, rewardContainer);
+
+        Text amountText = rewardObj.transform.Find("AmountText")?.GetComponent<Text>();
+        if (amountText != null)
+        {
+            amountText.text = "1";
+        }
+        else
+        {
+            Debug.LogWarning("AmountText not found in CoinRewardIcon prefab.");
+        }
+
+        // 儲存給玩家（假設你有這個方法）
+        PlayerEquipmentManager.Instance.CreateEquipmentFromData(equipmentID);
+    }
+
 
     private void RewardCoins(int chapter,int level)
     {
