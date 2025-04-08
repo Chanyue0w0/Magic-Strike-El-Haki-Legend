@@ -93,6 +93,8 @@ public class RoundController : MonoBehaviour
 	//// Start is called before the first frame update
 	void Start()
 	{
+		
+
 		nowTime = maxTime;
 		Application.targetFrameRate = 60;
 
@@ -124,14 +126,18 @@ public class RoundController : MonoBehaviour
 
 
 		GameStart();
-
+		
 		OpenStagePanel();
 		StartCoroutine(CloseStagePanelDelayed(1.5f));
 
 		PauseGame();
 		StartCoroutine(ContinueGameDelayed(1.5f));
 
-		
+		if (currentChapterIndex == 1 && currentLevelIndex == 1)
+		{
+			//TutorialManager.Instance.OpenTutorial();
+			StartCoroutine(OpenTutorialDelayed(1.6f));
+		}
 	}
 
 	// Update is called once per frame
@@ -476,6 +482,13 @@ public class RoundController : MonoBehaviour
 		yield return new WaitForSecondsRealtime(delay);
 		ContinueGame();
 	}
+
+	private IEnumerator OpenTutorialDelayed(float delay)
+    {
+		yield return new WaitForSecondsRealtime(delay);
+        TutorialManager.Instance.OpenTutorial();
+
+    }
 
 	public void ContinueGame()
     {
