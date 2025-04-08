@@ -7275,7 +7275,7 @@ MonoBehaviour:
   useButtonImage: {fileID: 432602641}
   bgRarity: {fileID: 1349010798}
   levelUpEffectPoistion: {fileID: 867576994}
-  levelUpEffectPrefab: {fileID: 2582792060470421537, guid: eaa6c4435eba3c74a8195c1886fa2373, type: 3}
+  levelUpEffectPrefab: {fileID: 7345391402646875717, guid: 0ba55ced103e5be418b7121b6dadcdc3, type: 3}
   costCoin: {fileID: 1673594968}
   levelUpButton: {fileID: 1969059029}
   evolutionCostText: {fileID: 1895750172}
