@@ -12,6 +12,7 @@ public class MusicAudioClips : MonoBehaviour
 	[field: SerializeField] public AudioClip BasicBattleBGM { get; private set; }
 	[field: SerializeField] public AudioClip Ch1BGM { get; private set; }
 	[field: SerializeField] public AudioClip Ch2BGM { get; private set; }
+	[field: SerializeField] public AudioClip Ch3BGM { get; private set; }
 
 	public static MusicAudioClips Instance { get; private set; }
 	void Awake()

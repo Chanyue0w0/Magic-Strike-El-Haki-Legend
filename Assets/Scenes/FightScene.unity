@@ -14777,7 +14777,11 @@ PrefabInstance:
     - target: {fileID: 8975513480756269654, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <Ch2BGM>k__BackingField
       value: 
-      objectReference: {fileID: 8300000, guid: 29fc2fd24c162b04388b0edb0120411d, type: 3}
+      objectReference: {fileID: 8300000, guid: 0ec61b8706291be43897a03ef00a6c8d, type: 3}
+    - target: {fileID: 8975513480756269654, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
+      propertyPath: <Ch3BGM>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 68ff30faaaf3f58498677523de6582b2, type: 3}
     - target: {fileID: 8975513480756269654, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <BasicBattleBGM>k__BackingField
       value: 

@@ -377,7 +377,7 @@
         "BackGroundImage": "Lava Volcano(Background)",
         "FieldImage": "Lava Volcano(Field)",
         "FieldHSBackGroundImage": "Chapter3HSBackGround",
-        "BGM": "CH2 Combat music",
+        "BGM": "CH3 Combat music",
         "AI_level": 1.5,
         "AI_AttackFrequency": {
           "x": 5.0,
