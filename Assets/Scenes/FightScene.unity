@@ -16276,6 +16276,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 2d4a9e0532c023440b2b641345424473, type: 3}
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
+      propertyPath: <SlimeDie>k__BackingField
+      value: 
+      objectReference: {fileID: 8300000, guid: 39dbfa14d6395094e968eae727a092a0, type: 3}
+    - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <HammerUlt>k__BackingField
       value: 
       objectReference: {fileID: 8300000, guid: 71b8038e2cfecc14bbdc83d76c392a06, type: 3}
