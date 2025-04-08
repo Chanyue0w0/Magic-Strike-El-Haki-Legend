@@ -271,10 +271,37 @@ public class RoundController : MonoBehaviour
 		FightPlayer1Config.CurrentStage = 1; // 強制重製
 		RewardManager.Instance.GenerateReward();
 
+		// 當前關卡資訊
+		int currentChapter = FightPlayer1Config.CurrentChapter;
+		int currentLevel = FightPlayer1Config.CurrentLevel;
 
-		//PlayerDataManager.Instance.SetPlayerChapter(currentChapterIndex);
-		//PlayerDataManager.Instance.SetPlayerLevel(currentLevelIndex + 1);
+		// 嘗試找下一個 Level 的第一個 Stage
+		int nextChapter = currentChapter;
+		int nextLevel = currentLevel + 1;
+		int nextStage = 1;
+
+		StageDataEntry nextStageEntry = StageData.Instance.FindStage(nextChapter, nextLevel, nextStage);
+
+		if (nextStageEntry == null)
+		{
+			// 若找不到，嘗試下一個章節的 Level 1
+			nextChapter = currentChapter + 1;
+			nextLevel = 1;
+			nextStageEntry = StageData.Instance.FindStage(nextChapter, nextLevel, nextStage);
+		}
+
+		// 更新最高紀錄
+		if (nextStageEntry != null)
+		{
+			PlayerDataManager.Instance.SetCurrentChapter(nextChapter); // 紀錄最高章節
+			PlayerDataManager.Instance.SetCurrentLevel(nextLevel);     // 紀錄最高關卡
+		}
+		else
+		{
+			Debug.Log("已達最後關卡，無更多關卡可以解鎖。");
+		}
 	}
+
 	public void NextLevel()
 	{
 		currentStageIndex = 1;
@@ -296,8 +323,8 @@ public class RoundController : MonoBehaviour
 			FightPlayer1Config.CurrentChapter = currentChapterIndex;
 
 
-			PlayerDataManager.Instance.SetCurrentChapter(currentChapterIndex); //紀錄最高章節
-			PlayerDataManager.Instance.SetCurrentLevel(currentLevelIndex); //紀錄最高關卡
+			//PlayerDataManager.Instance.SetCurrentChapter(currentChapterIndex); //紀錄最高章節
+			//PlayerDataManager.Instance.SetCurrentLevel(currentLevelIndex); //紀錄最高關卡
 
 			SceneManager.LoadScene("FightScene");
 		}
@@ -308,8 +335,8 @@ public class RoundController : MonoBehaviour
 			FightPlayer1Config.CurrentLevel = currentLevelIndex;
 			FightPlayer1Config.CurrentChapter = currentChapterIndex;
 
-			PlayerDataManager.Instance.SetCurrentChapter(currentChapterIndex); //紀錄最高章節
-			PlayerDataManager.Instance.SetCurrentLevel(currentLevelIndex); //紀錄最高關卡
+			//PlayerDataManager.Instance.SetCurrentChapter(currentChapterIndex); //紀錄最高章節
+			//PlayerDataManager.Instance.SetCurrentLevel(currentLevelIndex); //紀錄最高關卡
 
 			SceneManager.LoadScene("FightScene");
 		}
