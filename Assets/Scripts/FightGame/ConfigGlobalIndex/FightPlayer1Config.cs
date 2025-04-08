@@ -20,7 +20,7 @@ public static class FightPlayer1Config
 	public static int NowATK = 100;
 	public static int NowMagicPoint = 0;
 	public static float CriticalPercentage = 0.0f;
-	public static float SkillDamageIncrease = 0.1f;
+	public static float SkillDamageIncrease = 0.0f;
 	public static float PoisonDamageIncrease = 0.0f;
 	public static float BurnDamageIncrease = 0.0f;
 	public static float CC_SkillTimeIncrease = 0.0f;

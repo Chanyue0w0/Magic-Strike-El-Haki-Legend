@@ -171,6 +171,8 @@ public class RoundController : MonoBehaviour
 				//GameOver();
 				//GameStart();
 
+				AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SlimeDie, new Vector3(0, 0.65f, -20));
+
 				Instantiate(dieEffect, player2.transform.position, Quaternion.Euler(-90, 0, 0));
 				// win
 				//NextStage();

@@ -19,6 +19,7 @@ public class SFXAudioClips : MonoBehaviour
 	[field: SerializeField] public AudioClip MaxMagicPoint { get; private set; }
 	[field: SerializeField] public AudioClip UltAnimation { get; private set; }
 	[field: SerializeField] public AudioClip GetMoney { get; private set; }
+	[field: SerializeField] public AudioClip SlimeDie { get; private set; }
 	[field: SerializeField] public AudioClip WinSoundEffect { get; private set; }
 	[field: SerializeField] public AudioClip LoseSoundEffect { get; private set; }
 	public static SFXAudioClips Instance { get; private set; }
