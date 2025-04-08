@@ -241,6 +241,9 @@ public class RoundController : MonoBehaviour
 		// 需要檢查是否到了新關卡或新章節
 		StageDataEntry nextStage = StageData.Instance.FindStage(currentChapterIndex, currentLevelIndex, currentStageIndex);
 
+		
+
+
 		if (nextStage == null)
 		{
 			//NextLevel();
@@ -289,6 +292,11 @@ public class RoundController : MonoBehaviour
 		int nextStage = 1;
 
 		StageDataEntry nextStageEntry = StageData.Instance.FindStage(nextChapter, nextLevel, nextStage);
+
+		if (nextChapter == 3 && nextLevel == 3)
+        {
+			SceneManager.LoadSceneAsync("MainMenuScene");
+		}
 
 		if (nextStageEntry == null)
 		{
