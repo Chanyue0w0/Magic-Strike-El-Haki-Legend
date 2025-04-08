@@ -293,8 +293,13 @@ public class RoundController : MonoBehaviour
 		// 更新最高紀錄
 		if (nextStageEntry != null)
 		{
-			PlayerDataManager.Instance.SetCurrentChapter(nextChapter); // 紀錄最高章節
-			PlayerDataManager.Instance.SetCurrentLevel(nextLevel);     // 紀錄最高關卡
+			if((PlayerDataManager.Instance.GetCurrentChapter() == nextChapter
+				&& PlayerDataManager.Instance.GetCurrentLevel() < nextLevel)
+				|| (PlayerDataManager.Instance.GetCurrentChapter() < nextChapter)) //最高紀錄同Chapter且當前Level更大 or 最高紀錄Chapter比當前小
+			{
+				PlayerDataManager.Instance.SetCurrentChapter(nextChapter); // 紀錄最高章節
+				PlayerDataManager.Instance.SetCurrentLevel(nextLevel);     // 紀錄最高關卡
+			}
 		}
 		else
 		{
