@@ -108,7 +108,7 @@ public class SkillManager : MonoBehaviour
         }
         else//玩家1為英雄角色
         {
-            string skillName = SkillData.Instance.GetScriptName(cardCode);
+            string skillName = SkillData.Instance.GetSkillName(cardCode);
             System.Type skillScriptType = System.Type.GetType(skillName + ",Assembly-CSharp");
             if (skillScriptType != null)
             {
