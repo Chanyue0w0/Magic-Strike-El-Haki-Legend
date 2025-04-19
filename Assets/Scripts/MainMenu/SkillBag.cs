@@ -16,10 +16,12 @@ public class SkillBag : MonoBehaviour
 	[SerializeField] private Image skillIconImage;
 	[SerializeField] private TextMeshProUGUI skillNameText;
 	[SerializeField] private TextMeshProUGUI skillDescriptionText;
-
+	[SerializeField] private Image useButtonImage;
+	[SerializeField] private List<Sprite> useButtonSprite;
 	// 遊戲開始時自動生成技能槽
 	private void Start()
 	{
+		skillInfoPanel.SetActive(false);
 		GenerateSkillSlots();
 	}
 
@@ -87,5 +89,10 @@ public class SkillBag : MonoBehaviour
 		// 設定名稱與描述
 		skillNameText.text = SkillData.Instance.GetSkillName(skillID);
 		skillDescriptionText.text = SkillData.Instance.GetSkillDescribe(skillID);
+
+		if (equipmentBag.currentHero.equippedItems[3] == skillID || equipmentBag.currentHero.equippedItems[4] == skillID)
+			useButtonImage.sprite = useButtonSprite[0];
+		else
+			useButtonImage.sprite = useButtonSprite[1];
 	}
 }

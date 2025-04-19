@@ -23,6 +23,8 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private Transform equipmentSlotContainer;
 	[SerializeField] private List<Sprite> useButtonSprite;
 
+	[Header("-------------------- Skill Info GUI -------------------- ")]
+	[SerializeField] private Image skillUseButtonImage;
 	[Header("-------------------- Equipment Info GUI -------------------- ")]
 	[SerializeField] private TextMeshProUGUI equipmentNameText;
 	[SerializeField] private List<Image> equipmentImages;
@@ -69,7 +71,7 @@ public class EquipmentBag : MonoBehaviour
 
 	// 當前選中的裝備與英雄
 	private PlayerEquipmentManager.PlayerEquipment currentEquipment;
-	private PlayerHeroManager.PlayerHero currentHero;
+	[HideInInspector] public PlayerHeroManager.PlayerHero currentHero;
 	private int currentHeroIndex;
 	private EquipmentType bagEquipmentType = EquipmentType.All;
 
@@ -541,15 +543,28 @@ public class EquipmentBag : MonoBehaviour
 
 	public void OnClickSelectSkill(Image image)
 	{
-		if (currentHero.equippedItems[3] == "")
+		string skillID = image.sprite.name;
+
+		// on gear (cancle)
+		if (currentHero.equippedItems[3] == skillID)
 		{
-			currentHero.equippedItems[3] = image.transform.name;
-			FightPlayer1Config.Group[1] = image.transform.name;// 暫時加上
+			skillUseButtonImage.sprite = useButtonSprite[1];
+			currentHero.equippedItems[3] = "";
+		}
+		else if (currentHero.equippedItems[4] == skillID)
+		{
+			skillUseButtonImage.sprite = useButtonSprite[1];
+			currentHero.equippedItems[4] = "";
+		}
+		else if (currentHero.equippedItems[4] == "")
+		{
+			skillUseButtonImage.sprite = useButtonSprite[0];
+			currentHero.equippedItems[4] = skillID;
 		}
 		else
 		{
-			currentHero.equippedItems[4] = image.transform.name;
-			FightPlayer1Config.Group[2] = image.transform.name;// 暫時加上
+			skillUseButtonImage.sprite = useButtonSprite[0];
+			currentHero.equippedItems[3] = skillID;
 		}
 
 		PlayerHeroManager.Instance.UpdateHero(currentHero);

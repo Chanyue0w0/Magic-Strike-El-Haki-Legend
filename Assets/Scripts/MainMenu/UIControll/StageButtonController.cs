@@ -9,6 +9,7 @@ public class StageButtonController : MonoBehaviour
 	[SerializeField] private GameObject stagePanel;
 	[SerializeField] private Text chapterText;
 	[SerializeField] private Image chapterBackgroundImage;
+	[SerializeField] private Transform viewportCenter;
 
 	[SerializeField] MainMenuButtonController mainMenuButtonController;
 
@@ -89,8 +90,9 @@ public class StageButtonController : MonoBehaviour
 					statusImage.sprite = Resources.Load<Sprite>(statusImagePath);
 				}
 
-            }
+			}
 		}
+		OnClickFixCenterStage();
 	}
 
 
@@ -113,7 +115,7 @@ public class StageButtonController : MonoBehaviour
 		{
 			Debug.LogError("無法解析關卡數: " + match.Groups[2].Value);
 			return;
-		}	
+		}
 
 		// 更新介面文字顯示
 		chapterText.text = $"{selectedChapter} - {selectedLevel}";
@@ -130,5 +132,17 @@ public class StageButtonController : MonoBehaviour
 		FightPlayer1Config.CurrentChapter = selectedChapter;
 		FightPlayer1Config.CurrentLevel = selectedLevel;
 		FightPlayer1Config.isFirstTimeEnter = true;
+	}
+
+	public void OnClickFixCenterStage()
+	{
+		// current chapter level to center
+		int cha = PlayerDataManager.Instance.GetCurrentChapter();
+		int lv = PlayerDataManager.Instance.GetCurrentLevel();
+		Transform centerStage = stageButtonContainer.Find($"Chapter_{cha}_Level_{lv}");
+		Debug.Log(centerStage.name);
+		float posY = centerStage.position.y - viewportCenter.position.y;
+		Debug.Log("fix y : " + posY);
+		stageButtonContainer.position = stageButtonContainer.position - new Vector3(0, posY, 0);
 	}
 }
