@@ -92,7 +92,6 @@ public class StageButtonController : MonoBehaviour
 
 			}
 		}
-		OnClickFixCenterStage();
 	}
 
 
@@ -141,8 +140,8 @@ public class StageButtonController : MonoBehaviour
 		int lv = PlayerDataManager.Instance.GetCurrentLevel();
 		Transform centerStage = stageButtonContainer.Find($"Chapter_{cha}_Level_{lv}");
 		Debug.Log(centerStage.name);
-		float posY = centerStage.position.y - viewportCenter.position.y;
+		float posY = viewportCenter.position.y - centerStage.position.y;
 		Debug.Log("fix y : " + posY);
-		stageButtonContainer.position = stageButtonContainer.position - new Vector3(0, posY, 0);
+		stageButtonContainer.position = new Vector3(stageButtonContainer.position.x, stageButtonContainer.position.y - posY, stageButtonContainer.position.z);
 	}
 }
