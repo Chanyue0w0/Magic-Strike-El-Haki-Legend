@@ -9,9 +9,6 @@ public class EquipmentBag : MonoBehaviour
 	public enum EquipmentType { Head, Armor, Shose, All , NULL};
 
 	// 升級所需消耗的金幣、以及每次升級增加的 HP 與 ATK 數值（預設為 100）, 等級上限(30)
-	[SerializeField] private int upgradeCost = 1;
-	[SerializeField] private int upgradeHPIncrement = 100;
-	[SerializeField] private int upgradeATKIncrement = 100;
 	[SerializeField] private const int maxLevel = 30;
 	[SerializeField] int requiredEvoStones = 10; // 預設消耗量
 
@@ -68,6 +65,7 @@ public class EquipmentBag : MonoBehaviour
 	[Header("Scripts")]
 	[SerializeField] private BattleDataCalculator battleDataCalculator;
 	[SerializeField] private HeroBag heroBag;
+	[SerializeField] private EquipmentLevelData equipmentLevelData;
 
 	// 當前選中的裝備與英雄
 	private PlayerEquipmentManager.PlayerEquipment currentEquipment;
@@ -179,6 +177,7 @@ public class EquipmentBag : MonoBehaviour
 		bgRarity.sprite = Resources.Load<Sprite>("Arts/MainScenes/EqipmentInfoBackground/" + currentEquipment.rarity);
 
 		// 升級金幣部分：若金錢不足則文字變紅
+		int upgradeCost = equipmentLevelData.GetCostMoney(currentEquipment.typeID, currentEquipment.currentLevel);
 		int playerCoin = PlayerDataManager.Instance.GetPlayerCoin();
 		costCoin.text = $"{upgradeCost} / {playerCoin}";
 		if (playerCoin < upgradeCost)
@@ -268,6 +267,7 @@ public class EquipmentBag : MonoBehaviour
 
 		// 檢查玩家金幣是否足夠
 		int playerCoin = PlayerDataManager.Instance.GetPlayerCoin();
+		int upgradeCost = equipmentLevelData.GetCostMoney(currentEquipment.typeID, currentEquipment.currentLevel);
 		if (playerCoin < upgradeCost)
 		{
 			Debug.Log("玩家金幣不足，無法升級裝備。");
@@ -277,8 +277,8 @@ public class EquipmentBag : MonoBehaviour
 		// 扣除金幣並升級裝備（等級 +1，HP 與 ATK 分別增加預設數值）
 		PlayerDataManager.Instance.SetPlayerCoin(playerCoin - upgradeCost);
 		currentEquipment.currentLevel += 1;
-		currentEquipment.healthPoints += upgradeHPIncrement;
-		currentEquipment.attackPower += upgradeATKIncrement;
+		currentEquipment.healthPoints = equipmentLevelData.GetHealthPoints(currentEquipment.typeID, currentEquipment.currentLevel);
+		currentEquipment.attackPower += equipmentLevelData.GetAttackPower(currentEquipment.typeID, currentEquipment.currentLevel);
 
 		// 更新裝備資料與介面
 		PlayerEquipmentManager.Instance.UpdateEquipment(currentEquipment);

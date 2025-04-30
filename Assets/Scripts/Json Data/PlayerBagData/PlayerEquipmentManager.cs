@@ -29,6 +29,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 	{
 		public string name;
 		public string id;
+		public string typeID;
 		public string equipmentType;
 		public string rarity;
 		public string setType;
@@ -39,13 +40,14 @@ public class PlayerEquipmentManager : MonoBehaviour
 		public Dictionary<string, string> buffs;
 		public string equippedByHero;
 
-		public PlayerEquipment(string name, string id, string equipmentType, string rarity, string setType,
+		public PlayerEquipment(string name, string id, string typeID, string equipmentType, string rarity, string setType,
 			int currentLevel, int attackPower, int healthPoints, string description,
 			Dictionary<string, string> buffs, string equippedByHero)
 		{
 			this.name = name;
 			this.id = id;
 			this.equipmentType = equipmentType;
+			this.typeID = typeID;
 			this.rarity = rarity;
 			this.setType = setType;
 			this.currentLevel = currentLevel;
@@ -118,6 +120,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 		PlayerEquipment newEquipment = new PlayerEquipment(
 			data.Name,
 			System.Guid.NewGuid().ToString(),
+			data.ID,
 			data.Type,
 			data.Rarity,
 			data.SetType,
