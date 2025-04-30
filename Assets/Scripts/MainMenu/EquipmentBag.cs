@@ -8,6 +8,16 @@ public class EquipmentBag : MonoBehaviour
 {
 	public enum EquipmentType { Head, Armor, Shose, All , NULL};
 
+	private static readonly Dictionary<string, string> buffLanguage = new()
+	{
+		{ "Total Attack Increase%", "總 HP 增加"},
+		{ "Total Health Increase%", "總 ATK 增加"},
+		{ "Critical Rate Increase%", "爆擊率增加"},
+		{ "Skill Damage Increase%", "技能傷害增加"},
+		{ "Poison Damage Increase%", "中毒傷害增加"},
+		{ "Control Duration Increase%",  "控場技能增加時間"},
+		{ "Reduce Skill Bubble Generation Time",  "縮短技能泡泡生成時間"}
+	};
 	// 升級所需消耗的金幣、以及每次升級增加的 HP 與 ATK 數值（預設為 100）, 等級上限(30)
 	[SerializeField] private const int maxLevel = 30;
 	[SerializeField] int requiredEvoStones = 10; // 預設消耗量
@@ -34,7 +44,7 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private Image useButtonImage;
 	[SerializeField] private Image bgRarity;
 
-	[Header("Level up and Evolution GUI -------------------- ")]
+	[Header("------------------ Level up and Evolution GUI -------------------- ")]
 	[SerializeField] private Transform levelUpEffectPoistion;
 	[SerializeField] private GameObject levelUpEffectPrefab;
 	// 顯示升級所需花費與目前玩家金幣資訊
@@ -62,7 +72,7 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI totalATKText;
 	[SerializeField] private TextMeshProUGUI totalHPText;
 
-	[Header("Scripts")]
+	[Header("------------- Scripts -----------------")]
 	[SerializeField] private BattleDataCalculator battleDataCalculator;
 	[SerializeField] private HeroBag heroBag;
 	[SerializeField] private EquipmentLevelData equipmentLevelData;
@@ -162,7 +172,7 @@ public class EquipmentBag : MonoBehaviour
 		List<string> buffKeys = new List<string>(currentEquipment.buffs.Keys);
 		for (int i = 0; i < buffTexts.Count; i++)
 		{
-			buffTexts[i].text = i < buffKeys.Count ? buffKeys[i] + ": " + currentEquipment.buffs[buffKeys[i]] : "";
+			buffTexts[i].text = i < buffKeys.Count ? buffLanguage[buffKeys[i]] + ": " + currentEquipment.buffs[buffKeys[i]] : "";
 		}
 
 		// 使用 buffLockIcons 來設定 buff 鎖定狀態
