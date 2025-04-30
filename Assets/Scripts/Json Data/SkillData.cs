@@ -26,13 +26,20 @@ public class SkillData : MonoBehaviour
 		return jsonData[id];
 	}
 
-	public string GetScriptPath(string id)
+	public string GetSkillPath(string id)
 	{
 		if (jsonData[id] == null)
 			Debug.Log("id: " + id + " is not found in json data!");
 		return jsonData[id]["ScriptPath"].ToString();
 	}
-	public string GetScriptName(string id)
+	public string GetSkillName(string id)
+	{
+		if (jsonData[id] == null)
+			Debug.Log("id: " + id + " is not found in json data!");
+		return jsonData[id]["Name"].ToString();
+	}
+
+	public string GetSkillDescribe(string id)
 	{
 		if (jsonData[id] == null)
 			Debug.Log("id: " + id + " is not found in json data!");

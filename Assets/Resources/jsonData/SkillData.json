@@ -1,18 +1,22 @@
 {
     "SK00": {
         "Name": "FlamingStar",
+        "Describe": "asdsada",
         "ScriptPath": "Asset/Scripts/FightGame/Skills/FlamingStar"
     },
     "SK01": {
         "Name": "ShieldUp",
+        "Describe": "asdsada",
         "ScriptPath": "Asset/Scripts/FightGame/Skills/ShieldUp"
     },
     "SK02" : {
         "Name": "MultiBall",
+        "Describe": "asdsada",
         "ScriptPath": "Asset/Scripts/FightGame/Skills/MultiBall"
     },
     "SK03" : {
         "Name": "StormStrike",
+        "Describe": "asdsada",
         "ScriptPath": "Asset/Scripts/FightGame/Skills/StormStrike"
     }
 }

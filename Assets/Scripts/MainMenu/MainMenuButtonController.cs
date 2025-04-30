@@ -16,7 +16,6 @@ public class MainMenuButtonController : MonoBehaviour
 	[SerializeField] private GameObject firstPanel;
 	[SerializeField] private GameObject endPanel;
 
-	[SerializeField] private GameObject chapterPanel;
 	[SerializeField] private GameObject[] infoPanels;
 
 
@@ -34,7 +33,6 @@ public class MainMenuButtonController : MonoBehaviour
 		heroPanel.SetActive(false);
 		shopPanel.SetActive(false);
 		equipmentPanel.SetActive(false);
-		chapterPanel.SetActive(false);
 		rankPanel.SetActive(false);
 
 		adventurePanel.SetActive(true);
@@ -105,11 +103,6 @@ public class MainMenuButtonController : MonoBehaviour
 	{
 		panel.SetActive(true);
 	}
-	public void OnClickChapterPanel(bool isOpen)
-	{
-		chapterPanel.SetActive(isOpen);
-	}
-
 	public void OnClickButtomButton(Sprite sprite)
 	{
 		buttomBarImage.sprite = sprite;
