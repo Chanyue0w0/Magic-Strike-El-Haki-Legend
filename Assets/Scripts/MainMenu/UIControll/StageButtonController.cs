@@ -26,7 +26,9 @@ public class StageButtonController : MonoBehaviour
 		var (totalChapters, levelsPerChapter, _) = StageData.Instance.GetStageCounts();
 
 		int currentChapter = PlayerDataManager.Instance.GetCurrentChapter();
+		selectedChapter = currentChapter;
 		int currentLevel = PlayerDataManager.Instance.GetCurrentLevel();
+		selectedLevel = currentLevel;
 		// 如果 chapter 或 level 小於1，則預設為1
 		if (currentChapter < 1) currentChapter = 1;
 		if (currentLevel < 1) currentLevel = 1;
@@ -39,8 +41,8 @@ public class StageButtonController : MonoBehaviour
 		}
 
 		// 隱形按鈕，調整Contain大小用
-		CreatTempButton();
-		CreatTempButton();
+		//CreatTempButton();
+		//CreatTempButton();
 
 		// 倒著加入
 		for (int chapter = totalChapters; chapter >= 1; chapter--)
@@ -99,22 +101,22 @@ public class StageButtonController : MonoBehaviour
 		}
 
 		// 隱形按鈕，調整Contain大小用
-		CreatTempButton();
-		CreatTempButton();
+		//CreatTempButton();
+		//CreatTempButton();
 
 	}
 
 
-	private void CreatTempButton()
-	{
-		GameObject tempButton = Instantiate(stageButtonPrefab, stageButtonContainer);
-		tempButton.GetComponent<Image>().enabled = false;
+	//private void CreatTempButton()
+	//{
+	//	GameObject tempButton = Instantiate(stageButtonPrefab, stageButtonContainer);
+	//	tempButton.GetComponent<Image>().enabled = false;
 
-		foreach (Transform child in tempButton.transform)
-		{
-			Destroy(child.gameObject);
-		}
-	}
+	//	foreach (Transform child in tempButton.transform)
+	//	{
+	//		Destroy(child.gameObject);
+	//	}
+	//}
 	public void SelectStage(string chapterLevelName)
 	{
 		Match match = Regex.Match(chapterLevelName, @"Chapter_(\d+)_Level_(\d+)");
@@ -157,8 +159,8 @@ public class StageButtonController : MonoBehaviour
 	public void OnClickFixCenterStage()
 	{
 		// 1. 先找出目前進度的關卡物件 --------------------------
-		int cha = PlayerDataManager.Instance.GetCurrentChapter();
-		int lv = PlayerDataManager.Instance.GetCurrentLevel();
+		int cha = selectedChapter;
+		int lv = selectedLevel;
 
 		Transform target = stageButtonContainer.Find($"Chapter_{cha}_Level_{lv}");
 		if (target == null)
