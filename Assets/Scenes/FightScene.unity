@@ -5276,7 +5276,6 @@ MonoBehaviour:
   player2_card2_cardCode: B03
   xAxisRange: {x: -1.6, y: 1.6}
   yAxisRange: {x: -2.8, y: 2.8}
-  instPickUpSkill: {fileID: 8644516757882168708, guid: 0204cf8d64f764d4f9c1ca5126343fa1, type: 3}
   instPickUpSkillG: {fileID: 7649000507303426057, guid: 1a2ba3ead2f00044e970bf0aafa5a4e9, type: 3}
   instPickUpSkillR: {fileID: 3181872216940625394, guid: 7c08c5cce409b3c43baed6cdd9f71d78, type: 3}
 --- !u!1 &865603841
@@ -5374,7 +5373,7 @@ Animator:
   m_GameObject: {fileID: 865603841}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3f6ad82cea66fc1429db0eacdee0c0c4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9b7bcce447e840144a4dcdf0f72f3023, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

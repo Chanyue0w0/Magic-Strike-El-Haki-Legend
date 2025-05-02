@@ -45,11 +45,14 @@ public class QuartzSlime : MonoBehaviour
         //targetPosition = player1.transform.position;
         targetPosition = new Vector2(player2.transform.position.x, -3.57f);
 
-        GameObject CFS = Instantiate(instSmoke, player2.transform.position, Quaternion.identity);
-        moveToPositionSkill moveScript = CFS.GetComponent<moveToPositionSkill>();
-        moveScript.SetStartPosition(player2.transform.position);
-        moveScript.SetTargetPosition(targetPosition);
-        moveScript.SetArriveTime(instSkillArriveTime);
+
+        // 延遲後啟動攻擊特效生成
+        StartCoroutine(DelayedSpawnSmoke(0.5f));
+        //GameObject CFS = Instantiate(instSmoke, player2.transform.position, Quaternion.identity);
+        //moveToPositionSkill moveScript = CFS.GetComponent<moveToPositionSkill>();
+        //moveScript.SetStartPosition(player2.transform.position);
+        //moveScript.SetTargetPosition(targetPosition);
+        //moveScript.SetArriveTime(instSkillArriveTime);
 
         //StartCoroutine(DelayedInstFlash(1f));
 
@@ -62,6 +65,15 @@ public class QuartzSlime : MonoBehaviour
 
         StartCoroutine(DelayedStartMoving(2f));
 
+    }
+    private IEnumerator DelayedSpawnSmoke(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        GameObject CFS = Instantiate(instSmoke, player2.transform.position, Quaternion.identity);
+        moveToPositionSkill moveScript = CFS.GetComponent<moveToPositionSkill>();
+        moveScript.SetStartPosition(player2.transform.position);
+        moveScript.SetTargetPosition(targetPosition);
+        moveScript.SetArriveTime(instSkillArriveTime);
     }
 
     private IEnumerator DelayedSpawnFlashes(float delay)
