@@ -43,7 +43,7 @@ public class EquipmentLevelData : MonoBehaviour
 			int level, attack, hp, cost;
 			if (!int.TryParse(tokens[2], out level) || !int.TryParse(tokens[3], out attack) || !int.TryParse(tokens[4], out hp) || !int.TryParse(tokens[5], out cost))
 			{
-				Debug.Log($"資料格式錯誤，跳過第 {i + 1} 行: {lines[i]}");
+				//Debug.Log($"資料格式錯誤，跳過第 {i + 1} 行: {lines[i]}");
 				continue;
 			}
 

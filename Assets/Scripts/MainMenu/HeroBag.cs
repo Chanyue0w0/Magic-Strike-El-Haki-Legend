@@ -140,8 +140,6 @@ public class HeroBag : MonoBehaviour
 	{
 		selectedHeroID = currentHero.id;
 		advanturePanelHeroImage.sprite = Resources.Load<Sprite>("Arts/HeroImages/HeroIllustrations/" + currentHero.id);
-		Debug.Log(advanturePanelHeroImage.sprite);
-
 
 		GetComponent<BattleDataCalculator>().CalculateBattleData(selectedHeroID);
 		GetComponent<BattleDataCalculator>().ApplyToFightPlayerConfig();

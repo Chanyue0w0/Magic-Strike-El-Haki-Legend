@@ -2,22 +2,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static EquipmentData;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.Settings;
 
 public class EquipmentBag : MonoBehaviour
 {
 	public enum EquipmentType { Head, Armor, Shose, All , NULL};
 
-	private static readonly Dictionary<string, string> buffLanguage = new()
-	{
-		{ "Total Attack Increase%", "總 HP 增加"},
-		{ "Total Health Increase%", "總 ATK 增加"},
-		{ "Critical Rate Increase%", "爆擊率增加"},
-		{ "Skill Damage Increase%", "技能傷害增加"},
-		{ "Poison Damage Increase%", "中毒傷害增加"},
-		{ "Control Duration Increase%",  "控場技能增加時間"},
-		{ "Reduce Skill Bubble Generation Time",  "縮短技能泡泡生成時間"}
-	};
 	// 升級所需消耗的金幣、以及每次升級增加的 HP 與 ATK 數值（預設為 100）, 等級上限(30)
 	[SerializeField] private const int maxLevel = 30;
 	[SerializeField] int requiredEvoStones = 10; // 預設消耗量
@@ -154,7 +145,8 @@ public class EquipmentBag : MonoBehaviour
 		if (currentEquipment == null)
 			return;
 
-		equipmentNameText.text = currentEquipment.name;
+		equipmentNameText.text = GetLocalizedString(equipmentNameText, $"{currentEquipment.typeID}_Name");
+		Debug.Log($"{currentEquipment.typeID}_Name");
 		HPText.text = currentEquipment.healthPoints.ToString();
 		ATKText.text = currentEquipment.attackPower.ToString();
 		equipmentTypeText.text = currentEquipment.equipmentType;
@@ -172,7 +164,7 @@ public class EquipmentBag : MonoBehaviour
 		List<string> buffKeys = new List<string>(currentEquipment.buffs.Keys);
 		for (int i = 0; i < buffTexts.Count; i++)
 		{
-			buffTexts[i].text = i < buffKeys.Count ? buffLanguage[buffKeys[i]] + ": " + currentEquipment.buffs[buffKeys[i]] : "";
+			buffTexts[i].text = i < buffKeys.Count ? GetLocalizedString(buffTexts[i], buffKeys[i]) + ": " + currentEquipment.buffs[buffKeys[i]] : "";
 		}
 
 		// 使用 buffLockIcons 來設定 buff 鎖定狀態
@@ -624,4 +616,14 @@ public class EquipmentBag : MonoBehaviour
 				return EquipmentType.NULL;
 		}
 	}
+
+	static string GetLocalizedString(TextMeshProUGUI targetText, string key)
+	{
+		LocalizeStringEvent localizedEvent = targetText.GetComponent<LocalizeStringEvent>();
+		if (localizedEvent == null) return "";
+		var loadingResult = LocalizationSettings.StringDatabase.GetTableEntry(localizedEvent.StringReference.TableReference, key);
+		targetText.text = loadingResult.Entry.GetLocalizedString();
+		return targetText.text;
+	}
+
 }

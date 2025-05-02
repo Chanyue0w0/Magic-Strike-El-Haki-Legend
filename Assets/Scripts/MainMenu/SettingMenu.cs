@@ -4,13 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using TMPro;
+using UnityEngine.Localization.Settings;
 
 public class SettingsMenu : MonoBehaviour
 {
-	[SerializeField] private int targetFPS = 60;
 	[SerializeField] private float currentFPS;
+	[SerializeField] private int targetFPS = 60;
 	[SerializeField] private float musicVolume;
 	[SerializeField] private float sfxVolume;
+	[SerializeField] private string language = "Chinese (Traditional) (zh-TW)";
 
 	[Header("------------- Other ------------------")]
 	[SerializeField] private Slider musicSlider;
@@ -28,20 +30,12 @@ public class SettingsMenu : MonoBehaviour
 	[SerializeField] private GameObject staffPanel;
 	[SerializeField] private GameObject graphicsPanel;
 	[SerializeField] private GameObject fpsList;
-
-
-	private bool isOpenFPSList = false;
+	[SerializeField] private GameObject languageList;
 
 	// Start is called before the first frame update
 	void Start()
 	{
-		volumePanel.SetActive(true);
-		staffPanel.SetActive(false);
-		graphicsPanel.SetActive(false);
-		fpsList.SetActive(false);
-		isOpenFPSList = false;
-
-		initSetting();
+		InitSetting();
 	}
 
 	// Update is called once per frame
@@ -51,8 +45,12 @@ public class SettingsMenu : MonoBehaviour
 		currentFPS = 1.0f / Time.deltaTime;
 	}
 
-	private void initSetting()
+	private void InitSetting()
 	{
+		staffPanel.SetActive(false);
+		fpsList.SetActive(false);
+		languageList.SetActive(false);
+
 		if (PlayerPrefs.HasKey("MusicVolume"))
 		{
 			LoadMusicVolume();
@@ -79,11 +77,21 @@ public class SettingsMenu : MonoBehaviour
 		{
 			SetTargetFPS(targetFPS);
 		}
+
+		if (PlayerPrefs.HasKey("Language"))
+		{
+			LoadTargetFPS();
+		}
+		else
+		{
+			SetTargetFPS(targetFPS);
+		}
 	}
 
 	public void SetMusicVolume()
 	{
 		float volume = musicSlider.value;
+		musicVolume = volume;
 		musicVolumeText.text = ((int)(volume * 100f)).ToString();
 		PlayerPrefs.SetFloat("MusicVolume", volume);
 		AudioManager.Instance.musicVolume = volume;
@@ -100,6 +108,7 @@ public class SettingsMenu : MonoBehaviour
 	public void SetSFXVolume()
 	{
 		float volume = sfxSlider.value;
+		sfxVolume = volume;
 		sfxVolumeText.text = ((int)(volume * 100f)).ToString();
 		PlayerPrefs.SetFloat("SFXVolume", volume);
 		AudioManager.Instance.sfxVolume = volume;
@@ -120,7 +129,6 @@ public class SettingsMenu : MonoBehaviour
 		PlayerPrefs.SetInt("FPS", fps);
 		targetFPS = fps;
 
-		isOpenFPSList = false;
 		fpsList.SetActive(false);
 	}
 
@@ -130,12 +138,27 @@ public class SettingsMenu : MonoBehaviour
 	}
 
 
-
-	public void OpenFPSList()
+	public void SetLanguage(string language)
 	{
-		isOpenFPSList = !isOpenFPSList;
-		fpsList.SetActive(isOpenFPSList);
+		//var loc = LocalizationSettings.AvailableLocales.Locales.Find(local => local.LocaleName == language);
+		//LocalizationSettings.Instance.SetSelectedLocale(loc);
+		LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales.Find(local => local.LocaleName == language);
+
+
+		PlayerPrefs.SetString("Language", language);
+		languageList.SetActive(false);
 	}
+
+	private void LoadLanguage()
+	{
+		SetLanguage(PlayerPrefs.GetString("Language"));
+	}
+
+	public void OpenList(GameObject list)
+	{
+		list.SetActive(!list.activeSelf);
+	}
+
 
 	public void OnClickVolumePanel()
 	{

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: NotoSansTC-Medium SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -1103872061
   material: {fileID: 4686353156339692956}
-  materialHashCode: 0
+  materialHashCode: 314809603
   m_Version: 1.1.0
   m_SourceFontFileGUID: 416b7cfac8886014281d203412abeddd
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 416b7cfac8886014281d203412abeddd, type: 3}

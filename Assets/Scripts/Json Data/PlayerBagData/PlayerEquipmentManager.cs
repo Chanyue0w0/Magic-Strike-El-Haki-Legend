@@ -15,13 +15,13 @@ public class PlayerEquipmentManager : MonoBehaviour
 
 	private static readonly Dictionary<string, List<string>> buffOptions = new()
 	{
-		{ "Total Attack Increase%", new List<string> { "3%", "5%", "10%" } },
-		{ "Total Health Increase%", new List<string> { "3%", "5%", "10%" } },
-		{ "Critical Rate Increase%", new List<string> { "3%", "5%", "10%" } },
-		{ "Skill Damage Increase%", new List<string> { "3%", "5%", "10%" } },
-		{ "Poison Damage Increase%", new List<string> { "3%", "5%", "10%" } },
-		{ "Control Duration Increase%", new List<string> { "3%", "5%", "10%" } },
-		{ "Reduce Skill Bubble Generation Time", new List<string> { "1s", "2s", "3s" } }
+		{ "TotalAttackIncrease%", new List<string> { "3%", "5%", "10%" } },
+		{ "TotalHealthIncrease%", new List<string> { "3%", "5%", "10%" } },
+		{ "CriticalRateIncrease%", new List<string> { "3%", "5%", "10%" } },
+		{ "SkillDamageIncrease%", new List<string> { "3%", "5%", "10%" } },
+		{ "PoisonDamageIncrease%", new List<string> { "3%", "5%", "10%" } },
+		{ "ControlDurationIncrease%", new List<string> { "3%", "5%", "10%" } },
+		{ "ReduceSkillBubbleGeneration Time", new List<string> { "1s", "2s", "3s" } }
 	};
 
 	[System.Serializable]
