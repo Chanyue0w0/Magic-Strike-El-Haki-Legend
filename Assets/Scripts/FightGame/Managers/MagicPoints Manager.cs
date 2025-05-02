@@ -20,6 +20,7 @@ public class MagicPointsManager : MonoBehaviour
 
     [Header("----------------- Magic Blue Sparkling ------------------")]
     [SerializeField] private GameObject p1MagicSparkling;// 玩家1 魔法可使用動畫
+    [SerializeField] private GameObject p1SparklingRing;
     //[SerializeField] private GameObject p2MagicBlueSparkling;// 玩家2 魔法可使用動畫
 
     [Header("----------------- Player Ult Prefab ------------------")]
@@ -154,6 +155,7 @@ public class MagicPointsManager : MonoBehaviour
 
             if (p1CurrentMagicPoint == p1MaxMagicPoint)
             {
+                p1SparklingRing.SetActive(true);
                 p1MagicSparkling.SetActive(true);
                 AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.MaxMagicPoint, new Vector3(0, 0.65f, -20));
             }
@@ -176,8 +178,10 @@ public class MagicPointsManager : MonoBehaviour
         {
             AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.UltAnimation, new Vector3(0, 0.65f, -20));
             Instantiate(p1UltEffect, player1.transform.position, Quaternion.identity);
+            p1SparklingRing.SetActive(false);
             StartCoroutine(ActivateUltCoroutine(player1.transform.position, pNumber));
             SetMagicPoint(1, 0);
+
         }
         else if (pNumber == 2 && p2CurrentMagicPoint == p2MaxMagicPoint)
         {
@@ -231,6 +235,7 @@ public class MagicPointsManager : MonoBehaviour
         if (pNumber == 1)
         {
             SetMagicPoint(1, 0);
+
             p1MagicSparkling.SetActive(false);
         }
         else if (pNumber == 2)
