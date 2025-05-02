@@ -55,7 +55,7 @@ public class PickUpSkill : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ball"))
+        if (collision.CompareTag("Ball") || collision.CompareTag("CloneBall"))
         {
             //cardSkillSetScript.Active();
             Instantiate(pickUpExplosionEffect, gameObject.transform.position, Quaternion.identity);

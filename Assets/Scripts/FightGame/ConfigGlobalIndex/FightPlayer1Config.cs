@@ -4,11 +4,11 @@ using UnityEngine;
 
 public static class FightPlayer1Config
 {
-	public static int CurrentChapter = 3;
+	public static int CurrentChapter = 1;
 	public static int CurrentLevel = 2;
 	public static int CurrentStage = 2;
 
-	public static string[] Group = { "HR00", "SK00", "SK00" };
+	public static string[] Group = { "HR00", "SK02", "SK03" };
 	public static string NormalAttack = "HammerNormalAttack";
 	public static string Ult = "HammerUlt";
 	public static string PlayerSkin = "HR00";
