@@ -158,8 +158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 1
   cardSkillSetNumber: 0
-  destroyOriginTime: 3
-  destroyTime: 3
+  destroyOriginTime: 4
+  destroyTime: 4
   animator: {fileID: 0}
   pickUpExplosionEffect: {fileID: 0}
 --- !u!1 &4263111784290569099
