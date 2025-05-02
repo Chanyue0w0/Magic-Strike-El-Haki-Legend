@@ -31,7 +31,7 @@ public class SkillManager : MonoBehaviour
     [SerializeField] private Vector2 xAxisRange;
     [SerializeField] private Vector2 yAxisRange;
 
-    [SerializeField] private GameObject instPickUpSkill;//Card 6 cardCode
+    //[SerializeField] private GameObject instPickUpSkill;//Card 6 cardCode
     [SerializeField] private GameObject instPickUpSkillG;//Card 6 cardCode
     [SerializeField] private GameObject instPickUpSkillR;//Card 6 cardCode
 
@@ -62,7 +62,7 @@ public class SkillManager : MonoBehaviour
         player2_card1_cardCode = FightPlayer2Config.Group[1];
         player2_card2_cardCode = FightPlayer2Config.Group[2];
 
-        instPickUpSkill = Resources.Load<GameObject>("Prefabs/PickUpSkill/InstPickUpSkill");
+        //instPickUpSkill = Resources.Load<GameObject>("Prefabs/PickUpSkill/InstPickUpSkill");
         instPickUpSkillG = Resources.Load<GameObject>("Prefabs/PickUpSkill/InstPickUpSkill(G)");
         instPickUpSkillR = Resources.Load<GameObject>("Prefabs/PickUpSkill/InstPickUpSkill(R)");
 
