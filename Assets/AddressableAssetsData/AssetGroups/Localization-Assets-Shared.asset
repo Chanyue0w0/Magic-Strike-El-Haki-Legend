@@ -27,6 +27,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eee840fec44605f47b8d5a5528668d18
+    m_Address: Assets/LocalizationSetting/Hero/HeroTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 241a3701a7604df43bf1d631cbc17ef8, type: 2}
   m_SchemaSet:

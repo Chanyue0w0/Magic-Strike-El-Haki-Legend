@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.Settings;
 
 public class HeroBag : MonoBehaviour
 {
@@ -128,7 +130,7 @@ public class HeroBag : MonoBehaviour
 
 		foreach (var tmp in heroNameTexts)
 		{
-			tmp.text = currentHero.name;
+			GetLocalizedText(tmp, $"{currentHero.id}_Name");
 		}
 		foreach (var image in heroImages)
 		{
@@ -148,4 +150,19 @@ public class HeroBag : MonoBehaviour
 		GetComponent<EquipmentBag>().InitEquipmentBag();
 	}
 
+	private string GetLocalizedText(TextMeshProUGUI targetText, string key)
+	{
+		LocalizeStringEvent localizedEvent = targetText.GetComponent<LocalizeStringEvent>();
+		if (localizedEvent == null) return "";
+		var loadingResult = LocalizationSettings.StringDatabase.GetTableEntry(localizedEvent.StringReference.TableReference, key);
+		//targetText.text = loadingResult.Entry.GetLocalizedString();
+		if (loadingResult.Entry == null)
+		{
+			Debug.LogWarning($"String table \"{localizedEvent.StringReference.TableReference}\" not found key: {key}");
+			return "";
+		}
+
+		targetText.text = loadingResult.Entry.GetLocalizedString();
+		return targetText.text;
+	}
 }

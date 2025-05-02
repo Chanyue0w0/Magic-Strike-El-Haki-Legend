@@ -31,31 +31,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20659302400
-    m_Localized: "\u7E3D ATK \u589E\u52A0"
+    m_Localized: Total ATK Increase%
     m_Metadata:
       m_Items: []
   - m_Id: 1258956255232
-    m_Localized: "\u7206\u64CA\u7387\u589E\u52A0"
+    m_Localized: Critical Rate Increase%
     m_Metadata:
       m_Items: []
   - m_Id: 1659667476480
-    m_Localized: "\u7E3D HP \u589E\u52A0"
+    m_Localized: Total HP Increase%
     m_Metadata:
       m_Items: []
   - m_Id: 1742710501376
-    m_Localized: "\u4E2D\u6BD2\u50B7\u5BB3\u589E\u52A0"
+    m_Localized: Poison Damage Increase%
     m_Metadata:
       m_Items: []
   - m_Id: 1843067613184
-    m_Localized: "\u6280\u80FD\u50B7\u5BB3\u589E\u52A0"
+    m_Localized: Skill Damage Increase%
     m_Metadata:
       m_Items: []
   - m_Id: 1934138535936
-    m_Localized: "\u63A7\u5834\u6280\u80FD\u589E\u52A0\u6642\u9593"
+    m_Localized: Control Duration Increase%
     m_Metadata:
       m_Items: []
   - m_Id: 1999167025152
-    m_Localized: "\u7E2E\u77ED\u6280\u80FD\u6CE1\u6CE1\u751F\u6210\u6642\u9593"
+    m_Localized: Reduce Skill Bubble Generation Time
     m_Metadata:
       m_Items: []
   references:

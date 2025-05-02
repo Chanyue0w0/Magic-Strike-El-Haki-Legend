@@ -48,6 +48,7 @@ public class PlayerDataManager : MonoBehaviour
 			PlayerPrefs.SetInt(PLAYER_COIN_KEY, 5000);
 			PlayerPrefs.SetInt(PLAYER_ENERGY_KEY, 35);
 			PlayerPrefs.SetInt(PLAYER_MAX_ENERGY_KEY, 35);
+			PlayerPrefs.SetString("Language", "Chinese (Traditional) (zh-TW)");
 			// ³¹¸`
 			PlayerPrefs.SetInt(PLAYER_CHAPTER_KEY, 3);
 			PlayerPrefs.SetInt(PLAYER_CURRENT_LEVEL_KEY, 2);
@@ -56,6 +57,7 @@ public class PlayerDataManager : MonoBehaviour
 			PlayerPrefs.SetInt(RARE_EVOSTONE_KEY, 1000);
 			PlayerPrefs.SetInt(SPECIAL_EVOSTONE_KEY, 10);
 			PlayerPrefs.SetInt(LEGENDARY_EVOSTONE_KEY, 10);
+
 			PlayerPrefs.Save();
 		}
 	}

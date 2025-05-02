@@ -80,11 +80,11 @@ public class SettingsMenu : MonoBehaviour
 
 		if (PlayerPrefs.HasKey("Language"))
 		{
-			LoadTargetFPS();
+			LoadLanguage();
 		}
 		else
 		{
-			SetTargetFPS(targetFPS);
+			SetLanguage(language);
 		}
 	}
 

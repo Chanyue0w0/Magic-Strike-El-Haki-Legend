@@ -28,15 +28,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1843067613184
-    m_Key: SkillDamageIncrease%
+    m_Key: SkillDamageIncrease
     m_Metadata:
       m_Items: []
   - m_Id: 1742710501376
-    m_Key: PoisonDamageIncrease%
+    m_Key: PoisonDamageIncrease
     m_Metadata:
       m_Items: []
   - m_Id: 1934138535936
-    m_Key: ControlDurationIncrease%
+    m_Key: ControlDurationIncrease
     m_Metadata:
       m_Items: []
   - m_Id: 1999167025152

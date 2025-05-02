@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 4317ddec48bf67c4d96d14e3fa2138b3
   m_SerializeEntries:
+  - m_GUID: 1b4b9f06defcabf4394f5c9227fc0966
+    m_Address: HeroTable_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 593c3498f37dc644f895582cd54b828c
     m_Address: UITable_en
     m_ReadOnly: 1

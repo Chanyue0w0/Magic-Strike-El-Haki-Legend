@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-zh-TW
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88890b537f504e24f85515fd4c323340
+    m_Address: HeroTable_zh-TW
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-TW
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f4c822a2edd96414d8507d9fe2866d05
     m_Address: EquipmentTable_zh-TW
     m_ReadOnly: 1

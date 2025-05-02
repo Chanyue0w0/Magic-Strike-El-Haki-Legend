@@ -29,7 +29,6 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private List<TextMeshProUGUI> levelTexts;
 	[SerializeField] private TextMeshProUGUI HPText;
 	[SerializeField] private TextMeshProUGUI ATKText;
-	[SerializeField] private TextMeshProUGUI equipmentTypeText;
 	[SerializeField] private List<TextMeshProUGUI> buffTexts;
 	[SerializeField] private List<Image> buffLockIcons;
 	[SerializeField] private Image useButtonImage;
@@ -145,11 +144,10 @@ public class EquipmentBag : MonoBehaviour
 		if (currentEquipment == null)
 			return;
 
-		equipmentNameText.text = GetLocalizedString(equipmentNameText, $"{currentEquipment.typeID}_Name");
+		GetLocalizedText(equipmentNameText, $"{currentEquipment.typeID}_Name");
 		Debug.Log($"{currentEquipment.typeID}_Name");
 		HPText.text = currentEquipment.healthPoints.ToString();
 		ATKText.text = currentEquipment.attackPower.ToString();
-		equipmentTypeText.text = currentEquipment.equipmentType;
 
 		foreach (var image in equipmentImages)
 		{
@@ -164,7 +162,7 @@ public class EquipmentBag : MonoBehaviour
 		List<string> buffKeys = new List<string>(currentEquipment.buffs.Keys);
 		for (int i = 0; i < buffTexts.Count; i++)
 		{
-			buffTexts[i].text = i < buffKeys.Count ? GetLocalizedString(buffTexts[i], buffKeys[i]) + ": " + currentEquipment.buffs[buffKeys[i]] : "";
+			buffTexts[i].text = i < buffKeys.Count ? GetLocalizedText(buffTexts[i], buffKeys[i]) + ": " + currentEquipment.buffs[buffKeys[i]] : "";
 		}
 
 		// 使用 buffLockIcons 來設定 buff 鎖定狀態
@@ -208,7 +206,7 @@ public class EquipmentBag : MonoBehaviour
 			return;
 		}
 
-		heroNameText.text = currentHero.name;
+		GetLocalizedText(heroNameText, $"{currentHero.id}_Name");
 		heroImage.sprite = Resources.Load<Sprite>("Arts/HeroImages/HeroIllustrations/" + currentHero.id);
 		//ultimateSkillIcon.sprite = Resources.Load<Sprite>("SkillIcons/Ultimate/" + currentHero.id);
 		if (currentHero.equippedItems[3] == "") skill1Icon.color = Color.clear;
@@ -617,11 +615,18 @@ public class EquipmentBag : MonoBehaviour
 		}
 	}
 
-	static string GetLocalizedString(TextMeshProUGUI targetText, string key)
+	private string GetLocalizedText(TextMeshProUGUI targetText, string key)
 	{
 		LocalizeStringEvent localizedEvent = targetText.GetComponent<LocalizeStringEvent>();
 		if (localizedEvent == null) return "";
 		var loadingResult = LocalizationSettings.StringDatabase.GetTableEntry(localizedEvent.StringReference.TableReference, key);
+		//targetText.text = loadingResult.Entry.GetLocalizedString();
+		if (loadingResult.Entry == null)
+		{
+			Debug.LogWarning($"String table \"{localizedEvent.StringReference.TableReference}\" not found key: {key}");
+			return "";
+		}
+
 		targetText.text = loadingResult.Entry.GetLocalizedString();
 		return targetText.text;
 	}
