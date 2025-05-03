@@ -145,7 +145,6 @@ public class EquipmentBag : MonoBehaviour
 			return;
 
 		GetLocalizedText(equipmentNameText, $"{currentEquipment.typeID}_Name");
-		Debug.Log($"{currentEquipment.typeID}_Name");
 		HPText.text = currentEquipment.healthPoints.ToString();
 		ATKText.text = currentEquipment.attackPower.ToString();
 

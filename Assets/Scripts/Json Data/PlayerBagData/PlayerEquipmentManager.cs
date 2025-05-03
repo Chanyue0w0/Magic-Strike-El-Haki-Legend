@@ -77,10 +77,24 @@ public class PlayerEquipmentManager : MonoBehaviour
 		//AddEquipment(newEquipment);
 		if (resetJsonFile)
 		{
-			File.Delete(FinePath());
+			File.Delete(FilePath());
 		}
 
 		LoadEquipment();
+	}
+	private void InitEquipmentFile()
+	{
+		equipmentList = new List<PlayerEquipment>();
+		Debug.LogWarning("Creat new Equipment List!");
+		SaveEquipment();
+		CreateEquipmentFromData("HT00");
+		CreateEquipmentFromData("HT00");
+		CreateEquipmentFromData("HT00");
+		CreateEquipmentFromData("BD00");
+		CreateEquipmentFromData("BD00");
+		CreateEquipmentFromData("SH00");
+		CreateEquipmentFromData("SH00");
+		SaveEquipment();
 	}
 
 	private Dictionary<string, string> GenerateRandomBuffs(int numberOfBuffs)
@@ -151,7 +165,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 			{
 				equipmentList[i] = updatedEquipment;
 				SaveEquipment(); // Save the updated data
-				Debug.Log("Equipment updated: " + updatedEquipment.name);
+				Debug.Log($"Equipment updated: {updatedEquipment.name}, {updatedEquipment.typeID}, id: {updatedEquipment.id}");
 				return;
 			}
 		}
@@ -169,41 +183,32 @@ public class PlayerEquipmentManager : MonoBehaviour
 
 	public void LoadEquipment()
 	{
-		if (!File.Exists(FinePath()))
+		// 初始化
+		if (!File.Exists(FilePath()))
+		{
+			InitEquipmentFile();
+			return;
+		}
+
+		// 讀取檔案
+		string json = File.ReadAllText(FilePath());
+		if (string.IsNullOrEmpty(json))
 		{
 			equipmentList = new List<PlayerEquipment>();
-			Debug.LogWarning("Creat new Equipment List!");
-			SaveEquipment();
-			CreateEquipmentFromData("HT00");
-			CreateEquipmentFromData("HT00");
-			CreateEquipmentFromData("HT00");
-			CreateEquipmentFromData("BD00");
-			CreateEquipmentFromData("BD00");
-			CreateEquipmentFromData("SH00");
-			CreateEquipmentFromData("SH00");
-			SaveEquipment();
+			Debug.LogWarning("Save file is empty, creating new equipment list!");
 		}
 		else
 		{
-			string json = File.ReadAllText(FinePath());
-			if (string.IsNullOrEmpty(json))
-			{
-				equipmentList = new List<PlayerEquipment>();
-				Debug.LogWarning("Save file is empty, creating new equipment list!");
-			}
-			else
-			{
-				equipmentList = JsonConvert.DeserializeObject<List<PlayerEquipment>>(json);
-			}
-			SaveEquipment();
+			equipmentList = JsonConvert.DeserializeObject<List<PlayerEquipment>>(json);
 		}
+		SaveEquipment();
 	}
 
 	public void SaveEquipment()
 	{
 		JArray json = JArray.FromObject(equipmentList);
 		string jsonTxt = json.ToString();
-		File.WriteAllText(FinePath(), jsonTxt);
+		File.WriteAllText(FilePath(), jsonTxt);
 		//Debug.Log("Equipment data saved: " + FinePath());	
 	}
 	public PlayerEquipment GetEquipmentByIndex(int index)
@@ -230,8 +235,16 @@ public class PlayerEquipmentManager : MonoBehaviour
 		return equipmentList;
 	}
 
-	private string FinePath()
+	private string FilePath()
 	{
 		return Application.persistentDataPath + savePath;
+	}
+
+	public bool IsFileEixt()
+	{
+		if (File.Exists(FilePath())) return true;
+		
+		LoadEquipment();
+		return false;
 	}
 }
