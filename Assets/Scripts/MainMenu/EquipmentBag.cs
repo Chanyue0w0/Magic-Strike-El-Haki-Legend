@@ -80,6 +80,12 @@ public class EquipmentBag : MonoBehaviour
 		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(0);
 		OnClickChangeCurrentHero(1);
 		OnClickChangeCurrentHero(-1);
+
+		InitPanel();
+	}
+
+	public void InitPanel()
+	{
 		RefreshCurrentHeroInfoUI();
 		OnClickSwitchBagType("All");
 		RefreshBagUI();

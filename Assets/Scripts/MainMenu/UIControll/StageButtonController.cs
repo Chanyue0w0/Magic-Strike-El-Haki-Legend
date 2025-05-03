@@ -173,7 +173,7 @@ public class StageButtonController : MonoBehaviour
 		ScrollRect sr = stageButtonContainer.GetComponentInParent<ScrollRect>();
 		if (sr == null)
 		{
-			Debug.LogWarning("OnClickFixCenterStage 需要 ScrollRect，但在父物件中找不到。");
+			Debug.Log("OnClickFixCenterStage 需要 ScrollRect，但在父物件中找不到。");
 			return;
 		}
 
@@ -209,4 +209,12 @@ public class StageButtonController : MonoBehaviour
 		sr.normalizedPosition = new Vector2(hNorm, vNorm);
 	}
 
+	public void OnClickStagePanel()
+	{
+		stagePanel.SetActive(true);
+
+		Animator animator = stagePanel.GetComponent<Animator>();
+		Debug.Log(animator.GetBool("Entry"));
+		animator.SetBool("Entry", !animator.GetBool("Entry"));
+	}
 }

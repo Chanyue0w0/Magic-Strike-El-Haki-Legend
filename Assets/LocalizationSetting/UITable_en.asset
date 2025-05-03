@@ -38,6 +38,14 @@ MonoBehaviour:
     m_Localized: Setting
     m_Metadata:
       m_Items: []
+  - m_Id: 400939628621824
+    m_Localized: Upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 403695160520704
+    m_Localized: Chapter
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

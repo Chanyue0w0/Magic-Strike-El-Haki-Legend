@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 1750860447735715056}
   - component: {fileID: 3473523949667065174}
   - component: {fileID: 5490901344626128317}
+  - component: {fileID: -602617987820986635}
   m_Layer: 5
   m_Name: Equipment item UI
   m_TagString: Untagged
@@ -332,6 +333,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &-602617987820986635
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6064740652328507991}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &9152022483389450654
 GameObject:
   m_ObjectHideFlags: 0
