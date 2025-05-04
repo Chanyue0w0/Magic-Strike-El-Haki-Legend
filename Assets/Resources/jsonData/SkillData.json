@@ -1,22 +1,27 @@
 {
     "SK00": {
-        "Name": "FlamingStar",
-        "Describe": "asdsada",
-        "ScriptPath": "Asset/Scripts/FightGame/Skills/FlamingStar"
+    "Name": "NoneSkill",
+    "Describe": "none",
+    "ScriptPath": "Asset/Scripts/FightGame/Skills/NoneSkill"
     },
     "SK01": {
+        "Name": "FlamingStar",
+        "Describe": "none",
+        "ScriptPath": "Asset/Scripts/FightGame/Skills/FlamingStar"
+    },
+    "SK02": {
         "Name": "ShieldUp",
-        "Describe": "asdsada",
+        "Describe": "none",
         "ScriptPath": "Asset/Scripts/FightGame/Skills/ShieldUp"
     },
-    "SK02" : {
+    "SK03" : {
         "Name": "MultiBall",
-        "Describe": "asdsada",
+        "Describe": "none",
         "ScriptPath": "Asset/Scripts/FightGame/Skills/MultiBall"
     },
-    "SK03" : {
+    "SK04" : {
         "Name": "StormStrike",
-        "Describe": "asdsada",
+        "Describe": "none",
         "ScriptPath": "Asset/Scripts/FightGame/Skills/StormStrike"
     }
 }

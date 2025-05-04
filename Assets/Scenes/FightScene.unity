@@ -4613,6 +4613,7 @@ MonoBehaviour:
   isAlive: 1
   player: 1
   userIsEnemy: 1
+  playerNumber: 0
   skills: []
   healthBar: {fileID: 1955596554}
   player1: {fileID: 193765608}
@@ -5771,6 +5772,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d2c53a166f4184dbc62163c03f9838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1_HeadIcon: {fileID: 204187545}
+  player1_HealthBar: {fileID: 731639834}
+  player2_HeadIcon: {fileID: 1877095630}
+  player2_HealthBar: {fileID: 1955596551}
+  shakeDuration: 1
+  shakeMagnitude: 20
 --- !u!1 &924204483
 GameObject:
   m_ObjectHideFlags: 0
@@ -10214,6 +10221,7 @@ MonoBehaviour:
   isAlive: 1
   player: 0
   userIsEnemy: 0
+  playerNumber: 0
   skills: []
   healthBar: {fileID: 731639837}
   player1: {fileID: 193765608}
