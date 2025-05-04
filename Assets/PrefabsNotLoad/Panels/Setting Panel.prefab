@@ -642,6 +642,7 @@ GameObject:
   - component: {fileID: 7300361939425713455}
   - component: {fileID: 405146740900967465}
   - component: {fileID: 1170581936907100188}
+  - component: {fileID: 3590420818424705711}
   m_Layer: 5
   m_Name: Panels
   m_TagString: Untagged
@@ -712,6 +713,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &3590420818424705711
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813385741961054848}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 23fea2126e51a854ea32f6bab45604d7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &942172019165545010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2547,7 +2569,7 @@ GameObject:
   - component: {fileID: 4354642610286930725}
   - component: {fileID: 6496395217969168920}
   m_Layer: 5
-  m_Name: Language Box (1)
+  m_Name: Language Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
