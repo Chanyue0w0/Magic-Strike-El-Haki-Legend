@@ -41,7 +41,7 @@ public class LavaSlime : MonoBehaviour
 
         player2_controller.SetStopMoving(true);
 
-        targetPosition = player1.transform.position;
+        targetPosition = new Vector2(player1.transform.position.x , -0.8f);
 
         GameObject CFS = Instantiate(instSmoke, player2.transform.position, Quaternion.identity);
         moveToPositionSkill moveScript = CFS.GetComponent<moveToPositionSkill>();

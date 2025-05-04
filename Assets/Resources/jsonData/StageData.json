@@ -261,8 +261,8 @@
         "BGM": "CH2 Combat music",
         "AI_level": 1.5,
         "AI_AttackFrequency": {
-          "x": 5.0,
-          "y": 7.0
+          "x": 7.0,
+          "y": 10.0
         },
         "StartHP": 1200,
         "StartATK": 150,
@@ -298,8 +298,8 @@
         "BGM": "CH2 Combat music",
         "AI_level": 1.5,
         "AI_AttackFrequency": {
-          "x": 5.0,
-          "y": 7.0
+          "x": 7.0,
+          "y": 10.0
         },
         "StartHP": 1500,
         "StartATK": 150,

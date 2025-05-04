@@ -58,15 +58,37 @@ public class MultiBall : MonoBehaviour
         {
             GameObject obj = Instantiate(cloneBallObj, ball.transform.position, Quaternion.identity);
 
+            // 找到名為 "Sprite" 的子物件
+            Transform spriteTransform = obj.transform.Find("Sprite");
+            if (spriteTransform != null)
+            {
+                SpriteRenderer sr = spriteTransform.GetComponent<SpriteRenderer>();
+                if (sr != null)
+                {
+                    // 根據路徑載入 Sprite 資源（假設你要載入 Resources/Sprites/Balls/ChapterXBallSprite）
+                    string path = "Arts/FightScene/Field/FieldObjects/Chapter" + FightPlayer1Config.CurrentChapter + "BallSprite";
+                    Sprite newSprite = Resources.Load<Sprite>(path);
+                    if (newSprite != null)
+                    {
+                        sr.sprite = newSprite;
+                    }
+                    else
+                    {
+                        Debug.LogWarning("找不到指定的 Sprite：" + path);
+                    }
+                }
+            }
+
             // 給予速度
             Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
                 Vector2 dir = directions[i % directions.Length];
-                float force = 5f; // 可自行調整的初速度大小
+                float force = 5f;
                 rb.velocity = dir * force;
             }
         }
+
     }
 
 }

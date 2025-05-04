@@ -19,8 +19,9 @@ public class PlayerStatusManager : MonoBehaviour
     [Header("----------------- Config Setting ------------------")]
     [SerializeField] private UserPosition player;
     [SerializeField] private bool userIsEnemy;
+    [SerializeField] private int playerNumber;
 
-	[Header("----------------- Variable Observe ------------------")]
+    [Header("----------------- Variable Observe ------------------")]
     [SerializeField] private string[] skills;
     //[Header("----------------- Script Reference ------------------")]
 
@@ -76,6 +77,7 @@ public class PlayerStatusManager : MonoBehaviour
         isAlive = true;
         if (player == UserPosition.player1)
         {
+            playerNumber = 1;
             skills = FightPlayer1Config.Group;
             SetHP(FightPlayer1Config.NowHP);
             SetATK(FightPlayer1Config.StartATK);
@@ -91,6 +93,7 @@ public class PlayerStatusManager : MonoBehaviour
         }
         else if (player == UserPosition.player2)
         {
+            playerNumber = 2;
             skills = FightPlayer2Config.Group;
             SetHP(FightPlayer2Config.StartHP);
             SetATK(FightPlayer2Config.StartATK);
@@ -271,9 +274,11 @@ public class PlayerStatusManager : MonoBehaviour
         healthBar.SetHealth(healthPoint); // §ó·s¦å±ø
         if(finalDamage > 0)
         {
+            UIShakingManager.Instance.ShakePlayerUI(playerNumber);
             DisplayDamage(finalDamage);
         }
         Debug.Log(player + " Get Damage "+ finalDamage);
+
     }
 
     public void GetRecoverHP(int recoverHp)

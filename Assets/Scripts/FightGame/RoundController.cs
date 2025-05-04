@@ -465,7 +465,7 @@ public class RoundController : MonoBehaviour
 
 	public void PauseMainObjects()
     {
-		ballController.SetPauseBallMoving(true);
+		//ballController.SetPauseBallMoving(true);
 		ai_controller.SetPause(true);
 	}
 

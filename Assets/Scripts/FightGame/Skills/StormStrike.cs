@@ -8,7 +8,7 @@ public class StormStrike : MonoBehaviour
     //[SerializeField] private float OriginalShieldPercentage = 0.0f;
     [SerializeField] private int baseSkillDamage = 30;
     private int skillDamage = 30;
-    [SerializeField] private int skillAmount = 5;
+    [SerializeField] private int skillAmount = 10;
     [SerializeField] private float skillInstTimeGap = 0.1f;//每次雷擊生成時間差
     [SerializeField] private float skillWarningTime = 1f;//警告持續
     [SerializeField] private float skillGap = 0.5f; // 每個雷擊之間最小距離
