@@ -20,6 +20,8 @@ public class PlayerDataManager : MonoBehaviour
 	private const string SPECIAL_EVOSTONE_KEY = "SpecialEvoStone";
 	private const string LEGENDARY_EVOSTONE_KEY = "LegendaryEvoStone";
 
+	// other
+	private const string LANGUAGE_KEY = "Language";
 	public static PlayerDataManager Instance { get; private set; }
 
 	private void Awake()
@@ -39,25 +41,26 @@ public class PlayerDataManager : MonoBehaviour
 	// 讀取玩家資料，若無則設定預設值
 	private void LoadPlayerData()
 	{
-		if (!PlayerPrefs.HasKey(PLAYER_NAME_KEY))
-		{
-			PlayerPrefs.SetString(PLAYER_NAME_KEY, "chenyue");
-			PlayerPrefs.SetInt(PLAYER_LEVEL_KEY, 1);
-			PlayerPrefs.SetInt(PLAYER_EXP_KEY, 0);
-			PlayerPrefs.SetInt(PLAYER_GEM_KEY, 1000);
-			PlayerPrefs.SetInt(PLAYER_COIN_KEY, 5000);
-			PlayerPrefs.SetInt(PLAYER_ENERGY_KEY, 35);
-			PlayerPrefs.SetInt(PLAYER_MAX_ENERGY_KEY, 35);
-			// 章節
-			PlayerPrefs.SetInt(PLAYER_CHAPTER_KEY, 2);
-			PlayerPrefs.SetInt(PLAYER_CURRENT_LEVEL_KEY, 1);
-			// 石頭
-			PlayerPrefs.SetInt(COMMON_EVOSTONE_KEY, 100);
-			PlayerPrefs.SetInt(RARE_EVOSTONE_KEY, 1000);
-			PlayerPrefs.SetInt(SPECIAL_EVOSTONE_KEY, 10);
-			PlayerPrefs.SetInt(LEGENDARY_EVOSTONE_KEY, 10);
-			PlayerPrefs.Save();
-		}
+		PlayerPrefs.SetString(PLAYER_NAME_KEY, "chenyue");
+		PlayerPrefs.SetInt(PLAYER_LEVEL_KEY, 1);
+		PlayerPrefs.SetInt(PLAYER_EXP_KEY, 0);
+		PlayerPrefs.SetInt(PLAYER_GEM_KEY, 1000);
+		PlayerPrefs.SetInt(PLAYER_COIN_KEY, 5000);
+		PlayerPrefs.SetInt(PLAYER_ENERGY_KEY, 35);
+		PlayerPrefs.SetInt(PLAYER_MAX_ENERGY_KEY, 35);
+		// 章節
+		PlayerPrefs.SetInt(PLAYER_CHAPTER_KEY, 3);
+		PlayerPrefs.SetInt(PLAYER_CURRENT_LEVEL_KEY, 2);
+		// 石頭
+		PlayerPrefs.SetInt(COMMON_EVOSTONE_KEY, 100);
+		PlayerPrefs.SetInt(RARE_EVOSTONE_KEY, 1000);
+		PlayerPrefs.SetInt(SPECIAL_EVOSTONE_KEY, 10);
+		PlayerPrefs.SetInt(LEGENDARY_EVOSTONE_KEY, 10);
+
+		// other
+		PlayerPrefs.SetString(LANGUAGE_KEY, "Chinese (Traditional) (zh-TW)");
+			
+		PlayerPrefs.Save();
 	}
 
 	// 取得玩家名稱
@@ -226,7 +229,15 @@ public class PlayerDataManager : MonoBehaviour
 	// 清除玩家資料（用於測試）
 	public void ResetPlayerData()
 	{
-		PlayerPrefs.DeleteAll();
 		LoadPlayerData();
+	}
+
+	public bool IsPlayerDataInitlized()
+	{
+		if (PlayerPrefs.HasKey(LANGUAGE_KEY))
+			return true;
+
+		LoadPlayerData();
+		return false;
 	}
 }

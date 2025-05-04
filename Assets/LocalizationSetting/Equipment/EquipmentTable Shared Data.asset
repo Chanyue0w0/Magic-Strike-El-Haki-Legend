@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: EquipmentTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: EquipmentTable
+  m_TableCollectionNameGuidString: 20e03490f597ddc47b6871039a0e87b4
+  m_Entries:
+  - m_Id: 20659302400
+    m_Key: TotalAttackIncrease
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1659667476480
+    m_Key: TotalHealthIncrease
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1258956255232
+    m_Key: CriticalRateIncrease
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1843067613184
+    m_Key: SkillDamageIncrease
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1742710501376
+    m_Key: PoisonDamageIncrease
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1934138535936
+    m_Key: ControlDurationIncrease
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1999167025152
+    m_Key: ReduceSkillBubbleGenerationTime
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13289910272
+    m_Key: HT00_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18553761792
+    m_Key: SH00_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16301420544
+    m_Key: BD00_Name
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7949872643301703751
+  references:
+    version: 2
+    RefIds:
+    - rid: 7949872643301703751
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1746186827657

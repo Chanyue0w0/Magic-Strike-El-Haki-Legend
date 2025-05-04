@@ -9,7 +9,7 @@ public class StageButtonController : MonoBehaviour
 	[SerializeField] private GameObject stagePanel;
 	[SerializeField] private Text chapterText;
 	[SerializeField] private Image chapterBackgroundImage;
-	[SerializeField] private Transform viewportCenter;
+	[SerializeField] private GameObject viewport;
 
 	[SerializeField] MainMenuButtonController mainMenuButtonController;
 
@@ -26,7 +26,9 @@ public class StageButtonController : MonoBehaviour
 		var (totalChapters, levelsPerChapter, _) = StageData.Instance.GetStageCounts();
 
 		int currentChapter = PlayerDataManager.Instance.GetCurrentChapter();
+		selectedChapter = currentChapter;
 		int currentLevel = PlayerDataManager.Instance.GetCurrentLevel();
+		selectedLevel = currentLevel;
 		// 如果 chapter 或 level 小於1，則預設為1
 		if (currentChapter < 1) currentChapter = 1;
 		if (currentLevel < 1) currentLevel = 1;
@@ -38,12 +40,17 @@ public class StageButtonController : MonoBehaviour
 			Destroy(child.gameObject);
 		}
 
-		for (int chapter = 1; chapter <= totalChapters; chapter++)
+		// 隱形按鈕，調整Contain大小用
+		//CreatTempButton();
+		//CreatTempButton();
+
+		// 倒著加入
+		for (int chapter = totalChapters; chapter >= 1; chapter--)
 		{
 			if (!levelsPerChapter.ContainsKey(chapter))
 				continue;
 
-			for (int level = 1; level <= levelsPerChapter[chapter]; level++)
+			for (int level = levelsPerChapter[chapter]; level >= 1; level--)
 			{
 				GameObject newButton = Instantiate(stageButtonPrefab, stageButtonContainer);
 				string chapterLevelName = $"Chapter_{chapter}_Level_{level}";
@@ -92,9 +99,24 @@ public class StageButtonController : MonoBehaviour
 
 			}
 		}
+
+		// 隱形按鈕，調整Contain大小用
+		//CreatTempButton();
+		//CreatTempButton();
+
 	}
 
 
+	//private void CreatTempButton()
+	//{
+	//	GameObject tempButton = Instantiate(stageButtonPrefab, stageButtonContainer);
+	//	tempButton.GetComponent<Image>().enabled = false;
+
+	//	foreach (Transform child in tempButton.transform)
+	//	{
+	//		Destroy(child.gameObject);
+	//	}
+	//}
 	public void SelectStage(string chapterLevelName)
 	{
 		Match match = Regex.Match(chapterLevelName, @"Chapter_(\d+)_Level_(\d+)");
@@ -133,15 +155,66 @@ public class StageButtonController : MonoBehaviour
 		FightPlayer1Config.isFirstTimeEnter = true;
 	}
 
+	// 放在 StageButtonController.cs
 	public void OnClickFixCenterStage()
 	{
-		// current chapter level to center
-		int cha = PlayerDataManager.Instance.GetCurrentChapter();
-		int lv = PlayerDataManager.Instance.GetCurrentLevel();
-		Transform centerStage = stageButtonContainer.Find($"Chapter_{cha}_Level_{lv}");
-		Debug.Log(centerStage.name);
-		float posY = viewportCenter.position.y - centerStage.position.y;
-		Debug.Log("fix y : " + posY);
-		stageButtonContainer.position = new Vector3(stageButtonContainer.position.x, stageButtonContainer.position.y - posY, stageButtonContainer.position.z);
+		// 1. 先找出目前進度的關卡物件 --------------------------
+		int cha = selectedChapter;
+		int lv = selectedLevel;
+
+		Transform target = stageButtonContainer.Find($"Chapter_{cha}_Level_{lv}");
+		if (target == null)
+		{
+			Debug.LogWarning($"OnClickFixCenterStage : 找不到 Chapter_{cha}_Level_{lv}。");
+			return;
+		}
+
+		// 2. 抓到 ScrollRect（通常跟 viewport 同一層） ----------
+		ScrollRect sr = stageButtonContainer.GetComponentInParent<ScrollRect>();
+		if (sr == null)
+		{
+			Debug.Log("OnClickFixCenterStage 需要 ScrollRect，但在父物件中找不到。");
+			return;
+		}
+
+		// 3. 確保 Layout 已更新，避免尺寸還沒算完 ---------------
+		Canvas.ForceUpdateCanvases();
+
+		RectTransform content = sr.content;    // = stageButtonContainer
+		RectTransform viewport = sr.viewport;   // Inspector 指到的 Viewport
+		RectTransform trgRT = target.GetComponent<RectTransform>();
+
+		// ─────  垂直方向 (verticalNormalizedPosition)  ─────
+		float contentH = content.rect.height;
+		float viewH = viewport.rect.height;
+
+		// anchoredPosition.y < 0 代表距離頂端的正值
+		float distTop = -trgRT.anchoredPosition.y + trgRT.rect.height * (1f - trgRT.pivot.y);
+		float wantedTop = distTop - viewH * 0.5f;                        // 讓按鈕中心 = 視窗中心
+		float vNorm = 1f;                                                // 預設頂端
+		if (contentH > viewH)
+			vNorm = 1f - Mathf.Clamp01(wantedTop / (contentH - viewH));  // 轉換成 0~1
+
+		// ─────  水平方向 (horizontalNormalizedPosition)  ─────
+		float contentW = content.rect.width;
+		float viewW = viewport.rect.width;
+
+		float distLeft = trgRT.anchoredPosition.x + trgRT.rect.width * trgRT.pivot.x + trgRT.rect.width * 0.5f;
+		float wantedLeft = distLeft - viewW * 0.5f;
+		float hNorm = 0f;
+		if (contentW > viewW)
+			hNorm = Mathf.Clamp01(wantedLeft / (contentW - viewW));
+
+		// 4. 套用 -------------------------------------------------
+		sr.normalizedPosition = new Vector2(hNorm, vNorm);
+	}
+
+	public void OnClickStagePanel()
+	{
+		stagePanel.SetActive(true);
+
+		Animator animator = stagePanel.GetComponent<Animator>();
+		Debug.Log(animator.GetBool("Entry"));
+		animator.SetBool("Entry", !animator.GetBool("Entry"));
 	}
 }

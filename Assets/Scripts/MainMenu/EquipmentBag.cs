@@ -2,16 +2,14 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static EquipmentData;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.Settings;
 
 public class EquipmentBag : MonoBehaviour
 {
 	public enum EquipmentType { Head, Armor, Shose, All , NULL};
 
 	// 升級所需消耗的金幣、以及每次升級增加的 HP 與 ATK 數值（預設為 100）, 等級上限(30)
-	[SerializeField] private int upgradeCost = 1;
-	[SerializeField] private int upgradeHPIncrement = 100;
-	[SerializeField] private int upgradeATKIncrement = 100;
 	[SerializeField] private const int maxLevel = 30;
 	[SerializeField] int requiredEvoStones = 10; // 預設消耗量
 
@@ -31,13 +29,12 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private List<TextMeshProUGUI> levelTexts;
 	[SerializeField] private TextMeshProUGUI HPText;
 	[SerializeField] private TextMeshProUGUI ATKText;
-	[SerializeField] private TextMeshProUGUI equipmentTypeText;
 	[SerializeField] private List<TextMeshProUGUI> buffTexts;
 	[SerializeField] private List<Image> buffLockIcons;
 	[SerializeField] private Image useButtonImage;
 	[SerializeField] private Image bgRarity;
 
-	[Header("Level up and Evolution GUI -------------------- ")]
+	[Header("------------------ Level up and Evolution GUI -------------------- ")]
 	[SerializeField] private Transform levelUpEffectPoistion;
 	[SerializeField] private GameObject levelUpEffectPrefab;
 	// 顯示升級所需花費與目前玩家金幣資訊
@@ -65,9 +62,10 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI totalATKText;
 	[SerializeField] private TextMeshProUGUI totalHPText;
 
-	[Header("Scripts")]
+	[Header("------------- Scripts -----------------")]
 	[SerializeField] private BattleDataCalculator battleDataCalculator;
 	[SerializeField] private HeroBag heroBag;
+	[SerializeField] private EquipmentLevelData equipmentLevelData;
 
 	// 當前選中的裝備與英雄
 	private PlayerEquipmentManager.PlayerEquipment currentEquipment;
@@ -82,6 +80,12 @@ public class EquipmentBag : MonoBehaviour
 		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(0);
 		OnClickChangeCurrentHero(1);
 		OnClickChangeCurrentHero(-1);
+
+		InitPanel();
+	}
+
+	public void InitPanel()
+	{
 		RefreshCurrentHeroInfoUI();
 		OnClickSwitchBagType("All");
 		RefreshBagUI();
@@ -146,10 +150,9 @@ public class EquipmentBag : MonoBehaviour
 		if (currentEquipment == null)
 			return;
 
-		equipmentNameText.text = currentEquipment.name;
+		GetLocalizedText(equipmentNameText, $"{currentEquipment.typeID}_Name");
 		HPText.text = currentEquipment.healthPoints.ToString();
 		ATKText.text = currentEquipment.attackPower.ToString();
-		equipmentTypeText.text = currentEquipment.equipmentType;
 
 		foreach (var image in equipmentImages)
 		{
@@ -164,7 +167,7 @@ public class EquipmentBag : MonoBehaviour
 		List<string> buffKeys = new List<string>(currentEquipment.buffs.Keys);
 		for (int i = 0; i < buffTexts.Count; i++)
 		{
-			buffTexts[i].text = i < buffKeys.Count ? buffKeys[i] + ": " + currentEquipment.buffs[buffKeys[i]] : "";
+			buffTexts[i].text = i < buffKeys.Count ? GetLocalizedText(buffTexts[i], buffKeys[i]) + ": " + currentEquipment.buffs[buffKeys[i]] : "";
 		}
 
 		// 使用 buffLockIcons 來設定 buff 鎖定狀態
@@ -179,6 +182,7 @@ public class EquipmentBag : MonoBehaviour
 		bgRarity.sprite = Resources.Load<Sprite>("Arts/MainScenes/EqipmentInfoBackground/" + currentEquipment.rarity);
 
 		// 升級金幣部分：若金錢不足則文字變紅
+		int upgradeCost = equipmentLevelData.GetCostMoney(currentEquipment.typeID, currentEquipment.currentLevel);
 		int playerCoin = PlayerDataManager.Instance.GetPlayerCoin();
 		costCoin.text = $"{upgradeCost} / {playerCoin}";
 		if (playerCoin < upgradeCost)
@@ -207,7 +211,7 @@ public class EquipmentBag : MonoBehaviour
 			return;
 		}
 
-		heroNameText.text = currentHero.name;
+		GetLocalizedText(heroNameText, $"{currentHero.id}_Name");
 		heroImage.sprite = Resources.Load<Sprite>("Arts/HeroImages/HeroIllustrations/" + currentHero.id);
 		//ultimateSkillIcon.sprite = Resources.Load<Sprite>("SkillIcons/Ultimate/" + currentHero.id);
 		if (currentHero.equippedItems[3] == "") skill1Icon.color = Color.clear;
@@ -268,6 +272,7 @@ public class EquipmentBag : MonoBehaviour
 
 		// 檢查玩家金幣是否足夠
 		int playerCoin = PlayerDataManager.Instance.GetPlayerCoin();
+		int upgradeCost = equipmentLevelData.GetCostMoney(currentEquipment.typeID, currentEquipment.currentLevel);
 		if (playerCoin < upgradeCost)
 		{
 			Debug.Log("玩家金幣不足，無法升級裝備。");
@@ -277,8 +282,8 @@ public class EquipmentBag : MonoBehaviour
 		// 扣除金幣並升級裝備（等級 +1，HP 與 ATK 分別增加預設數值）
 		PlayerDataManager.Instance.SetPlayerCoin(playerCoin - upgradeCost);
 		currentEquipment.currentLevel += 1;
-		currentEquipment.healthPoints += upgradeHPIncrement;
-		currentEquipment.attackPower += upgradeATKIncrement;
+		currentEquipment.healthPoints = equipmentLevelData.GetHealthPoints(currentEquipment.typeID, currentEquipment.currentLevel);
+		currentEquipment.attackPower += equipmentLevelData.GetAttackPower(currentEquipment.typeID, currentEquipment.currentLevel);
 
 		// 更新裝備資料與介面
 		PlayerEquipmentManager.Instance.UpdateEquipment(currentEquipment);
@@ -462,7 +467,10 @@ public class EquipmentBag : MonoBehaviour
 		{
 			evolutionButton.interactable = false;
 			evolutionButtonImage.color = Color.gray;
-			evolutionCostText.text = (currentEquipment.rarity == "Legendary") ? "MAX" : "Not Max LV";
+			if (currentEquipment.rarity == "Legendary")
+				evolutionCostText.text = "MAX";
+			else
+				GetLocalizedText(evolutionCostText, "equipmentBag_notMaxLv");
 			evolutionCostText.color = Color.red;
 			return;
 		}
@@ -614,4 +622,21 @@ public class EquipmentBag : MonoBehaviour
 				return EquipmentType.NULL;
 		}
 	}
+
+	private string GetLocalizedText(TextMeshProUGUI targetText, string key)
+	{
+		LocalizeStringEvent localizedEvent = targetText.GetComponent<LocalizeStringEvent>();
+		if (localizedEvent == null) return "";
+		var loadingResult = LocalizationSettings.StringDatabase.GetTableEntry(localizedEvent.StringReference.TableReference, key);
+		//targetText.text = loadingResult.Entry.GetLocalizedString();
+		if (loadingResult.Entry == null)
+		{
+			Debug.LogWarning($"String table \"{localizedEvent.StringReference.TableReference}\" not found key: {key}");
+			return "";
+		}
+
+		targetText.text = loadingResult.Entry.GetLocalizedString();
+		return targetText.text;
+	}
+
 }

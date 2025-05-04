@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerHeroManager : MonoBehaviour
 {
+	[SerializeField] private bool resetJsonFile = false;
+
 	private string savePath = "/playerHero.json";
 	private List<PlayerHero> heroList = new();
 
@@ -51,10 +53,12 @@ public class PlayerHeroManager : MonoBehaviour
 	}
 	void Start()
 	{
-		if (!File.Exists(FilePath()))
+		if (resetJsonFile)
 		{
-			InitJsonFile();
+			File.Delete(FilePath());
 		}
+
+		LoadHeroes();
 		// Add a new test hero on start
 		//PlayerHero newHero = new PlayerHero("Test Hero", "HR99", "Legendary", 1, 300, 2000, 1500, false, 50, "A powerful test hero", new List<string> { "", "", "" });
 		//AddHero(newHero);
@@ -115,6 +119,7 @@ public class PlayerHeroManager : MonoBehaviour
 		if (!File.Exists(FilePath()))
 		{
 			Debug.LogWarning("Hero save file not found!");
+			InitJsonFile();
 			return;
 		}
 
@@ -184,4 +189,11 @@ public class PlayerHeroManager : MonoBehaviour
 		heroList.Sort((a, b) => a.owned.CompareTo(b.owned));
 	}
 
+	public bool IsFileEixt()
+	{
+		if (File.Exists(FilePath())) return true;
+		
+		LoadHeroes();
+		return false;
+	}
 }

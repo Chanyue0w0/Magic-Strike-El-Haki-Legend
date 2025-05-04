@@ -15,13 +15,13 @@ public class PlayerEquipmentManager : MonoBehaviour
 
 	private static readonly Dictionary<string, List<string>> buffOptions = new()
 	{
-		{ "Total Attack Increase%", new List<string> { "3%", "5%", "10%" } },
-		{ "Total Health Increase%", new List<string> { "3%", "5%", "10%" } },
-		{ "Critical Rate Increase%", new List<string> { "3%", "5%", "10%" } },
-		{ "Skill Damage Increase%", new List<string> { "3%", "5%", "10%" } },
-		{ "Poison Damage Increase%", new List<string> { "3%", "5%", "10%" } },
-		{ "Control Duration Increase%", new List<string> { "3%", "5%", "10%" } },
-		{ "Reduce Skill Bubble Generation Time", new List<string> { "1s", "2s", "3s" } }
+		{ "TotalAttackIncrease", new List<string> { "3%", "5%", "10%" } },
+		{ "TotalHealthIncrease", new List<string> { "3%", "5%", "10%" } },
+		{ "CriticalRateIncrease", new List<string> { "3%", "5%", "10%" } },
+		{ "SkillDamageIncrease", new List<string> { "3%", "5%", "10%" } },
+		{ "PoisonDamageIncrease", new List<string> { "3%", "5%", "10%" } },
+		{ "ControlDurationIncrease", new List<string> { "3%", "5%", "10%" } },
+		{ "ReduceSkillBubbleGenerationTime", new List<string> { "1s", "2s", "3s" } }
 	};
 
 	[System.Serializable]
@@ -29,6 +29,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 	{
 		public string name;
 		public string id;
+		public string typeID;
 		public string equipmentType;
 		public string rarity;
 		public string setType;
@@ -39,13 +40,14 @@ public class PlayerEquipmentManager : MonoBehaviour
 		public Dictionary<string, string> buffs;
 		public string equippedByHero;
 
-		public PlayerEquipment(string name, string id, string equipmentType, string rarity, string setType,
+		public PlayerEquipment(string name, string id, string typeID, string equipmentType, string rarity, string setType,
 			int currentLevel, int attackPower, int healthPoints, string description,
 			Dictionary<string, string> buffs, string equippedByHero)
 		{
 			this.name = name;
 			this.id = id;
 			this.equipmentType = equipmentType;
+			this.typeID = typeID;
 			this.rarity = rarity;
 			this.setType = setType;
 			this.currentLevel = currentLevel;
@@ -75,10 +77,24 @@ public class PlayerEquipmentManager : MonoBehaviour
 		//AddEquipment(newEquipment);
 		if (resetJsonFile)
 		{
-			File.Delete(FinePath());
+			File.Delete(FilePath());
 		}
 
 		LoadEquipment();
+	}
+	private void InitEquipmentFile()
+	{
+		equipmentList = new List<PlayerEquipment>();
+		Debug.LogWarning("Creat new Equipment List!");
+		SaveEquipment();
+		CreateEquipmentFromData("HT00");
+		CreateEquipmentFromData("HT00");
+		CreateEquipmentFromData("HT00");
+		CreateEquipmentFromData("BD00");
+		CreateEquipmentFromData("BD00");
+		CreateEquipmentFromData("SH00");
+		CreateEquipmentFromData("SH00");
+		SaveEquipment();
 	}
 
 	private Dictionary<string, string> GenerateRandomBuffs(int numberOfBuffs)
@@ -118,6 +134,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 		PlayerEquipment newEquipment = new PlayerEquipment(
 			data.Name,
 			System.Guid.NewGuid().ToString(),
+			data.ID,
 			data.Type,
 			data.Rarity,
 			data.SetType,
@@ -148,7 +165,7 @@ public class PlayerEquipmentManager : MonoBehaviour
 			{
 				equipmentList[i] = updatedEquipment;
 				SaveEquipment(); // Save the updated data
-				Debug.Log("Equipment updated: " + updatedEquipment.name);
+				Debug.Log($"Equipment updated: {updatedEquipment.name}, {updatedEquipment.typeID}, id: {updatedEquipment.id}");
 				return;
 			}
 		}
@@ -166,41 +183,32 @@ public class PlayerEquipmentManager : MonoBehaviour
 
 	public void LoadEquipment()
 	{
-		if (!File.Exists(FinePath()))
+		// 初始化
+		if (!File.Exists(FilePath()))
+		{
+			InitEquipmentFile();
+			return;
+		}
+
+		// 讀取檔案
+		string json = File.ReadAllText(FilePath());
+		if (string.IsNullOrEmpty(json))
 		{
 			equipmentList = new List<PlayerEquipment>();
-			Debug.LogWarning("Creat new Equipment List!");
-			SaveEquipment();
-			CreateEquipmentFromData("HT00");
-			CreateEquipmentFromData("HT00");
-			CreateEquipmentFromData("HT00");
-			CreateEquipmentFromData("BD00");
-			CreateEquipmentFromData("BD00");
-			CreateEquipmentFromData("SH00");
-			CreateEquipmentFromData("SH00");
-			SaveEquipment();
+			Debug.LogWarning("Save file is empty, creating new equipment list!");
 		}
 		else
 		{
-			string json = File.ReadAllText(FinePath());
-			if (string.IsNullOrEmpty(json))
-			{
-				equipmentList = new List<PlayerEquipment>();
-				Debug.LogWarning("Save file is empty, creating new equipment list!");
-			}
-			else
-			{
-				equipmentList = JsonConvert.DeserializeObject<List<PlayerEquipment>>(json);
-			}
-			SaveEquipment();
+			equipmentList = JsonConvert.DeserializeObject<List<PlayerEquipment>>(json);
 		}
+		SaveEquipment();
 	}
 
 	public void SaveEquipment()
 	{
 		JArray json = JArray.FromObject(equipmentList);
 		string jsonTxt = json.ToString();
-		File.WriteAllText(FinePath(), jsonTxt);
+		File.WriteAllText(FilePath(), jsonTxt);
 		//Debug.Log("Equipment data saved: " + FinePath());	
 	}
 	public PlayerEquipment GetEquipmentByIndex(int index)
@@ -227,8 +235,16 @@ public class PlayerEquipmentManager : MonoBehaviour
 		return equipmentList;
 	}
 
-	private string FinePath()
+	private string FilePath()
 	{
 		return Application.persistentDataPath + savePath;
+	}
+
+	public bool IsFileEixt()
+	{
+		if (File.Exists(FilePath())) return true;
+		
+		LoadEquipment();
+		return false;
 	}
 }

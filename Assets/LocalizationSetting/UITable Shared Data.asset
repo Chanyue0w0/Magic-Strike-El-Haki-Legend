@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UITable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UITable
+  m_TableCollectionNameGuidString: 5e17ec6bd1ac111498d22bd5bca210ce
+  m_Entries:
+  - m_Id: 2552886456320
+    m_Key: setting_Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5961236606976
+    m_Key: setting_SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24046236594176
+    m_Key: setting_language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38965174595584
+    m_Key: setting_local
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39613081317376
+    m_Key: setting_setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 400939628621824
+    m_Key: heroBag_upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 403695160520704
+    m_Key: adventure_Chapter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 704712758521856
+    m_Key: equipmentBag_notMaxLv
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7949872643301703704
+  references:
+    version: 2
+    RefIds:
+    - rid: 7949872643301703704
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1746176419220

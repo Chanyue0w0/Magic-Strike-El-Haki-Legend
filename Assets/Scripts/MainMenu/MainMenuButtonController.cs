@@ -19,7 +19,7 @@ public class MainMenuButtonController : MonoBehaviour
 	[SerializeField] private GameObject[] infoPanels;
 
 
-	private GameObject[] panels = new GameObject[6];
+	private GameObject[] panels = new GameObject[5];
 	[Header("Other")]
 	[SerializeField] private Image buttomBarImage;
 	[SerializeField] private LoadingSceneController loadingSceneController;
@@ -41,8 +41,7 @@ public class MainMenuButtonController : MonoBehaviour
 		panels[1] = heroPanel;
 		panels[2] = shopPanel;
 		panels[3] = equipmentPanel;
-		panels[4] = adventurePanel;
-		panels[5] = rankPanel;
+		panels[4] = rankPanel;
 		OnClickCloseInfoPanel();
 
 		if(PlayerDataManager.Instance.GetCurrentLevel() == 1 && PlayerDataManager.Instance.GetCurrentChapter() == 1)

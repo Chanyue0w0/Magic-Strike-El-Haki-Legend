@@ -18,8 +18,17 @@ public class StartSceneManager : MonoBehaviour
     {
         if(Input.anyKeyDown || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) )
         {
-            loadingSceneController.LoadStage("MainMenuScene");
+            if (IsDataInitializeFinished())
+                loadingSceneController.LoadStage("MainMenuScene");
         }
 
 	}
+
+    private bool IsDataInitializeFinished()
+    {
+        bool pass =  PlayerEquipmentManager.Instance.IsFileEixt()
+            & PlayerHeroManager.Instance.IsFileEixt()
+            & PlayerDataManager.Instance.IsPlayerDataInitlized();
+        return pass;
+    }
 }

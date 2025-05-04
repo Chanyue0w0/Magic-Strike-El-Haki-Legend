@@ -7,6 +7,8 @@ public class PlayerSkillManager : MonoBehaviour
 {
 	private string savePath = "/PlayerSkillBag.json";
 	private List<string> skillList = new();
+	
+	public bool resetJsonFile;
 
 	public static PlayerSkillManager Instance { get; private set; }
 
@@ -19,6 +21,12 @@ public class PlayerSkillManager : MonoBehaviour
 		Instance = this;
 
 		string path = Application.persistentDataPath + savePath;
+
+		if (resetJsonFile)
+		{
+			File.Delete(path);
+		}
+
 		if (!File.Exists(path))
 		{
 			InitJsonFile();
@@ -30,7 +38,7 @@ public class PlayerSkillManager : MonoBehaviour
 	/// 初始化預設技能資料
 	public void InitJsonFile()
 	{
-		skillList = new List<string> { "SK00", "SK01" };
+		skillList = new List<string> { };
 		SaveSkills();
 		Debug.Log("已初始化預設技能清單: " + string.Join(", ", skillList));
 	}
