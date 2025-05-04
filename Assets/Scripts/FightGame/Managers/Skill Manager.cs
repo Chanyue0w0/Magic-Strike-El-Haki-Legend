@@ -195,27 +195,53 @@ public class SkillManager : MonoBehaviour
 
         if (FightPlayer1Config.instSkillP1)
         {
+            // 若兩張都是 SK00，不生成技能
+            if (player1_card1_cardCode == "SK00" && player1_card2_cardCode == "SK00")
+                return;
+
             float randomP1positionX = Random.Range(xAxisRange.x, xAxisRange.y);
             float randomP1positionY = Random.Range(0, yAxisRange.y);
-            if (randomP1 <= 5)//P1 left skill & left side (On Top Left Field)
-            {
-                GameObject obj = Instantiate(instPickUpSkillG, new Vector2(randomP1positionX, randomP1positionY), Quaternion.identity);
-                obj.GetComponent<InstPickUpSkill>().SetCardCode(player1_card1_cardCode);
-                obj.GetComponent<InstPickUpSkill>().SetPlayerNumber(1);
-                obj.GetComponent<InstPickUpSkill>().SetCardSkillSetNumber(1);
-                //Set cardCode & cardSkillSetNumber
-            }
-            else//P1 right skill & right size  (On Top Right Field)
-            {
-                GameObject obj = Instantiate(instPickUpSkillG, new Vector2(randomP1positionX, randomP1positionY), Quaternion.identity);
-                obj.GetComponent<InstPickUpSkill>().SetCardCode(player1_card2_cardCode);
-                obj.GetComponent<InstPickUpSkill>().SetPlayerNumber(1);
-                obj.GetComponent<InstPickUpSkill>().SetCardSkillSetNumber(2);
-                //obj.GetComponent<InstPickUpSkill>().SetCardSkillSetNumber(0);
 
-                //Set cardCode & cardSkillSetNumber
+            string cardCodeToUse;
+            int skillSetNumber;
+
+            if (randomP1 <= 5) // P1 left skill
+            {
+                cardCodeToUse = player1_card1_cardCode;
+                skillSetNumber = 1;
             }
+            else // P1 right skill
+            {
+                cardCodeToUse = player1_card2_cardCode;
+                skillSetNumber = 2;
+            }
+
+            // SK00 替代邏輯
+            if (cardCodeToUse == "SK00")
+            {
+                // 若另一張不是 SK00，就改用那張
+                if (skillSetNumber == 1 && player1_card2_cardCode != "SK00")
+                {
+                    cardCodeToUse = player1_card2_cardCode;
+                    skillSetNumber = 2;
+                }
+                else if (skillSetNumber == 2 && player1_card1_cardCode != "SK00")
+                {
+                    cardCodeToUse = player1_card1_cardCode;
+                    skillSetNumber = 1;
+                }
+                else
+                {
+                    return; // 萬一 fallback 還是 SK00，則不生成
+                }
+            }
+
+            GameObject obj = Instantiate(instPickUpSkillG, new Vector2(randomP1positionX, randomP1positionY), Quaternion.identity);
+            obj.GetComponent<InstPickUpSkill>().SetCardCode(cardCodeToUse);
+            obj.GetComponent<InstPickUpSkill>().SetPlayerNumber(1);
+            obj.GetComponent<InstPickUpSkill>().SetCardSkillSetNumber(skillSetNumber);
         }
+
 
         if (FightPlayer2Config.instSkillP2)
         {

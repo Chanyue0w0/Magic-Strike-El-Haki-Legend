@@ -36,7 +36,8 @@ public class Door : MonoBehaviour
                 //collision.transform.position = ballResetPositionBottom.transform.position;
                 //collision.GetComponent<BallController>().ResetBallPossession();
                 collision.GetComponent<BallController>().ResetTimeOnField();
-                collision.GetComponent<BallController>().ResetBallPosition(1);
+                //collision.GetComponent<BallController>().ResetBallPosition(1);
+                collision.GetComponent<BallController>().DelayResetBallPosition(1);
                 collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
                 NormalAttackManager.Instance.InstNormalAttack(2, 1); 
@@ -47,7 +48,8 @@ public class Door : MonoBehaviour
                 collision.transform.position = ballResetPositionUp.transform.position;
                 //collision.GetComponent<BallController>().ResetBallPossession();
                 collision.GetComponent<BallController>().ResetTimeOnField();
-                collision.GetComponent<BallController>().ResetBallPosition(2);
+                //collision.GetComponent<BallController>().ResetBallPosition(2);
+                collision.GetComponent<BallController>().DelayResetBallPosition(2);
                 collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
                 NormalAttackManager.Instance.InstNormalAttack(1, 2); 

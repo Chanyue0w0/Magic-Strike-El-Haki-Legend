@@ -29,8 +29,9 @@ public class BallController : MonoBehaviour
     [SerializeField] private AIController aIController;
     [SerializeField] private Animator ballSpriteAnimator;
     [SerializeField] private GameObject ballOnFieldWarningEffect;
-    [SerializeField] private Vector2 player1ResetPosition = new Vector2(0f, -1f);
-    [SerializeField] private Vector2 player2ResetPosition = new Vector2(0f, 1f);
+    [SerializeField] private GameObject instBallEffect;
+    [SerializeField] private Vector2 player1ResetPosition = new Vector2(-1.8f, -0.4f);
+    [SerializeField] private Vector2 player2ResetPosition = new Vector2(-1.8f, 0.4f);
     [SerializeField] private CircleCollider2D circleCollider;
 
     //[SerializeField] private BallPossessionManager ballPossessionManager; // 需要掛你控制球權的腳本
@@ -156,13 +157,44 @@ public class BallController : MonoBehaviour
             if (timeOnCurrentField > 8f)
             {
                 if (gameObject.transform.position.y < 0)
-                    ResetBallPosition(2);
+                {
+                    DelayResetBallPosition(2);
+                    //StartCoroutine(DelayResetBallPosition(2f, 2));
+                    //ResetBallPosition(2);
+                }
                 else
-                    ResetBallPosition(1);
+                {
+                    DelayResetBallPosition(1);
+                    //StartCoroutine(DelayResetBallPosition(2f, 1));
+                    //ResetBallPosition(1);
+                }    
             }
         }
     }
 
+    public void DelayResetBallPosition(int pNumber)//提供其他函式呼叫
+    {
+        SetPauseBallMoving(true);
+        transform.position = new Vector2(0, -5f);
+        if(pNumber == 1)
+        {
+            //Instantiate(instBallEffect, new Vector2(-0.01f, 0.01f), Quaternion.identity);
+            Instantiate(instBallEffect, new Vector2(3.48f, 0.08f), Quaternion.identity);
+        }
+        else
+        {
+            //Instantiate(instBallEffect, new Vector2(-0.01f, 0.875f), Quaternion.identity);
+            Instantiate(instBallEffect, new Vector2(3.48f, 0.9f), Quaternion.identity);
+        }
+        StartCoroutine(DelayResetBallPosition(1.5f, pNumber));
+    }
+
+    private IEnumerator DelayResetBallPosition(float delay,int pNumber)
+    {
+        yield return new WaitForSeconds(delay);
+        ResetBallPosition(pNumber);
+        SetPauseBallMoving(false);
+    }
     public void ResetBallPosition(int pNumber)
     {
         // 根據 pNumber 設定位置與狀態
@@ -177,10 +209,12 @@ public class BallController : MonoBehaviour
             transform.position = player2ResetPosition;
         }
 
-        ballSpriteAnimator.SetTrigger("ResetBall");
+        //ballSpriteAnimator.SetTrigger("ResetBall");
 
         // 停止球的移動
         rb.velocity = Vector2.zero;
+
+        rb.velocity = new Vector2(-2f,0f);
 
         // 清除警告特效
         if (warningEffectInstance != null)
@@ -190,19 +224,19 @@ public class BallController : MonoBehaviour
         }
 
         // 關閉碰撞並延遲重新啟用
-        if (circleCollider != null)
-        {
-            if(aIController != null) aIController.SetMoveToAIStartPosition(true);
-            //aIController.SetStopMoving(true);
-            circleCollider.enabled = false;
-            StartCoroutine(ReEnableColliderAfterDelay(1.5f));
-        }
+        //if (circleCollider != null)
+        //{
+        //    if(aIController != null) aIController.SetMoveToAIStartPosition(true);
+        //    //aIController.SetStopMoving(true);
+        //    circleCollider.enabled = false;
+        //    StartCoroutine(ReEnableColliderAfterDelay(1.5f));
+        //}
 
         // 重設時間
         timeOnCurrentField = 0f;
     }
 
-    private IEnumerator ReEnableColliderAfterDelay(float delay)
+    private IEnumerator ReEnableColliderAfterDelay(float delay)//重啟球碰撞
     {
         yield return new WaitForSeconds(delay);
         if (circleCollider != null)

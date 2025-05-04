@@ -16276,7 +16276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2865262047312361683, guid: ddf3d86d8ea6a3744b115233e804d7a6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.4
+      value: -0.62
       objectReference: {fileID: 0}
     - target: {fileID: 2865262047312361683, guid: ddf3d86d8ea6a3744b115233e804d7a6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16383,6 +16383,26 @@ PrefabInstance:
       propertyPath: circleCollider
       value: 
       objectReference: {fileID: 2092771458}
+    - target: {fileID: 4958314868292373843, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: instBallEffect
+      value: 
+      objectReference: {fileID: 3283276811489076891, guid: e8477bd4db4bcc641a2d8215559cc6f9, type: 3}
+    - target: {fileID: 4958314868292373843, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: player1ResetPosition.x
+      value: 1.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958314868292373843, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: player1ResetPosition.y
+      value: -0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958314868292373843, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: player2ResetPosition.x
+      value: 1.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958314868292373843, guid: f167040b27f725f45b7466070cd23987, type: 3}
+      propertyPath: player2ResetPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
     - target: {fileID: 7562544301210983039, guid: f167040b27f725f45b7466070cd23987, type: 3}
       propertyPath: m_Name
       value: ball
