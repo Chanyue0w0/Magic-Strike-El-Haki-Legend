@@ -38,7 +38,7 @@ public class PlayerSkillManager : MonoBehaviour
 	/// 初始化預設技能資料
 	public void InitJsonFile()
 	{
-		skillList = new List<string> { "SK00", "SK01", "SK02", "SK03" };
+		skillList = new List<string> { };
 		SaveSkills();
 		Debug.Log("已初始化預設技能清單: " + string.Join(", ", skillList));
 	}
