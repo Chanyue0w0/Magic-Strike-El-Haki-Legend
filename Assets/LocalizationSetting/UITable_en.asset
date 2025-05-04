@@ -46,6 +46,10 @@ MonoBehaviour:
     m_Localized: Chapter
     m_Metadata:
       m_Items: []
+  - m_Id: 704712758521856
+    m_Localized: Not max level
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

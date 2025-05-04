@@ -467,7 +467,10 @@ public class EquipmentBag : MonoBehaviour
 		{
 			evolutionButton.interactable = false;
 			evolutionButtonImage.color = Color.gray;
-			evolutionCostText.text = (currentEquipment.rarity == "Legendary") ? "MAX" : "Not Max LV";
+			if (currentEquipment.rarity == "Legendary")
+				evolutionCostText.text = "MAX";
+			else
+				GetLocalizedText(evolutionCostText, "equipmentBag_notMaxLv");
 			evolutionCostText.color = Color.red;
 			return;
 		}

@@ -44,7 +44,7 @@ public class HeroBag : MonoBehaviour
 	/// </summary>
 	public void RefreshBagUI()
 	{
-		SwitchCurrentHero("HR00");
+		SwitchCurrentHero(currentHero.id);
 		// 清除容器中的舊項目
 		foreach (Transform child in heroSlotContainer)
 		{

@@ -43,6 +43,10 @@ MonoBehaviour:
     m_Key: adventure_Chapter
     m_Metadata:
       m_Items: []
+  - m_Id: 704712758521856
+    m_Key: equipmentBag_notMaxLv
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
