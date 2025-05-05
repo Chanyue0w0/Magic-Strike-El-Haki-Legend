@@ -1,0 +1,27 @@
+{
+    "PS00": {
+        "Name": "NonePassiveSkill",
+        "Describe": "none",
+        "ScriptPath": ""
+    },
+    "PS01": {
+        "Name": "IceBall",
+        "Describe": "none",
+        "ScriptPath": ""
+    },
+    "PS02": {
+        "Name": "BurningBall",
+        "Describe": "none",
+        "ScriptPath": ""
+    },
+    "PS03" : {
+        "Name": "IceVulnerable",
+        "Describe": "none",
+        "ScriptPath": ""
+    },
+    "PS04" : {
+        "Name": "BurnStrengthen",
+        "Describe": "none",
+        "ScriptPath": ""
+    }
+}

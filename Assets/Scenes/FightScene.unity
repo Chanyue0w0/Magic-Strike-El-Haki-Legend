@@ -4728,7 +4728,6 @@ MonoBehaviour:
   isBurning: 0
   isPoisoning: 0
   isAlive: 1
-  burnEffect: {fileID: 7681286244751695356, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
   player: 1
   userIsEnemy: 1
   playerNumber: 0
@@ -4743,6 +4742,7 @@ MonoBehaviour:
   damageSpacing: 0.5
   positionOffset: {x: 0, y: 0.7}
   player_animator: {fileID: 865603844}
+  burnEffect: {fileID: 7681286244751695356, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
 --- !u!114 &731934240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10543,7 +10543,6 @@ MonoBehaviour:
   isBurning: 0
   isPoisoning: 0
   isAlive: 1
-  burnEffect: {fileID: 7681286244751695356, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
   player: 0
   userIsEnemy: 0
   playerNumber: 0
@@ -10558,6 +10557,7 @@ MonoBehaviour:
   damageSpacing: 0.5
   positionOffset: {x: 0, y: 0.7}
   player_animator: {fileID: 0}
+  burnEffect: {fileID: 7681286244751695356, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
 --- !u!114 &1492323272
 MonoBehaviour:
   m_ObjectHideFlags: 0
