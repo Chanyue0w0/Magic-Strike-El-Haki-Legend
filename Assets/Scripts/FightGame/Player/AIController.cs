@@ -43,7 +43,13 @@ public class AIController : MonoBehaviour
 
     [Header("----------------- Freeze Effect ------------------")]
     [SerializeField] private bool isFrozen = false;
+    [SerializeField] private float freezeDuration = 5f;//持續時間
+    [SerializeField] private float freezeMoveSpeedDecresePersent = 0.7f;//降低速度為幾%
+
+
     private Coroutine freezeCoroutine;
+    [SerializeField] private GameObject IceLightEffect;
+    [SerializeField] private SpriteRenderer ai_SpriteRenderer;
 
 
     [SerializeField] private bool isPause = false;//暫停AI移動
@@ -229,6 +235,11 @@ public class AIController : MonoBehaviour
             {
                 StopCoroutine(freezeCoroutine); // 重新凍結
             }
+            else
+            {
+                GameObject obj = Instantiate(IceLightEffect, player2.transform.position, Quaternion.identity);
+                obj.transform.SetParent(player2.transform);
+            }
             freezeCoroutine = StartCoroutine(FreezeEffect());
         }
 
@@ -237,21 +248,35 @@ public class AIController : MonoBehaviour
     private IEnumerator FreezeEffect()
     {
         isFrozen = true;
-        SetMaxMoveSpeed(MaxMovementSpeed * 0.5f);
+        SetMaxMoveSpeed(MaxMovementSpeed * freezeMoveSpeedDecresePersent);
 
-        float freezeDuration = 5f;
+        //float freezeDuration = 3f;
         float timer = 0f;
+        float blinkInterval = 0.5f;
+        bool useDarkBlue = true;
+
+        // 使用 Color(r, g, b)，值域為 0~1
+        Color darkBlue = new Color(0.6f, 0.8f, 1f);   // 較淡的深藍色
+        Color lightBlue = new Color(0.56f, 1f, 1f);    // 淺藍色
+        Color white = new Color(1f, 1f, 1f);            // 白色
 
         while (timer < freezeDuration)
         {
-            timer += Time.deltaTime;
-            yield return null;
+            ai_SpriteRenderer.color = useDarkBlue ? darkBlue : lightBlue;
+            useDarkBlue = !useDarkBlue;
+
+            yield return new WaitForSeconds(blinkInterval);
+            timer += blinkInterval;
         }
 
+        ai_SpriteRenderer.color = white;
         ResetMaxMoveSpeed();
         isFrozen = false;
         freezeCoroutine = null;
     }
+
+
+
 
 
     private IEnumerator StunEffect()//暈眩效果
