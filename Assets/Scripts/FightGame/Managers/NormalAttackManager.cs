@@ -44,9 +44,22 @@ public class NormalAttackManager : MonoBehaviour
             //GameObject obj = Instantiate(player1_NormalAttack, player1.transform.position, Quaternion.identity);
             GameObject obj = Instantiate(player1_NormalAttack, player2.transform.position, Quaternion.identity);
             //Set Normal Attack targetPlayerNumber
-            obj.GetComponent<NormalAttack>().SetPlayerNumber(instPlayerNumber);
-            obj.GetComponent<NormalAttack>().SetTargetNumber(targetPlayerNumber);
-            obj.GetComponent<NormalAttack>().SetDamage(FightPlayer1Config.NowATK);
+            NormalAttack normalAttack = obj.GetComponent<NormalAttack>();
+
+            normalAttack.SetPlayerNumber(instPlayerNumber);
+            normalAttack.SetTargetNumber(targetPlayerNumber);
+            normalAttack.SetDamage(FightPlayer1Config.NowATK);
+            
+            if(PassiveSkillManager.Instance.HasIceBall())
+            {
+                normalAttack.AddStatusEffect(StatusEffect.Freeze);
+            }
+
+            if (PassiveSkillManager.Instance.HasBurningBall())
+            {
+                normalAttack.AddStatusEffect(StatusEffect.Burn);
+            }
+
         }
         else
         {
