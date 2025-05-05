@@ -51,7 +51,7 @@ public class NormalAttackManager : MonoBehaviour
         else
         {
             //GameObject obj = Instantiate(player2_NormalAttack, player2.transform.position, Quaternion.identity);
-            GameObject obj = Instantiate(player1_NormalAttack, player1.transform.position, Quaternion.identity); //暫時都改為P1特效
+            GameObject obj = Instantiate(player2_NormalAttack, player1.transform.position, Quaternion.identity); //暫時都改為P1特效
             //Set Normal Attack targetPlayerNumber
             obj.GetComponent<NormalAttack>().SetPlayerNumber(instPlayerNumber);
             obj.GetComponent<NormalAttack>().SetTargetNumber(targetPlayerNumber);

@@ -80,6 +80,9 @@ public class RoundController : MonoBehaviour
 	[SerializeField] private float cameraFadeInSpeed = 5f;
 	[SerializeField] private float cameraFadeOutSpeed = 7f;
 	[SerializeField] private float cameraZoomDuration = 1.5f;
+	[Header("----------------- Slime Death Panel ------------------")]
+	[SerializeField] private GameObject slimeDeathPanel;
+	[SerializeField] private Image slimeDeathImage;
 
 	private float originalCameraSize;
 	private Vector3 originalCameraPosition;
@@ -182,12 +185,12 @@ public class RoundController : MonoBehaviour
 			}
 			else if (player2Status.GetHP() <= 0 && canInstFountain)
 			{
-				//GameOver();
-				//GameStart();
-				//PlayDeathAnimation();
+                //GameOver();
+                //GameStart();
+                PlayDeathAnimation();
 
 
-				AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SlimeDie, new Vector3(0, 0.65f, -20));
+                AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SlimeDie, new Vector3(0, 0.65f, -20));
 
 				Instantiate(dieEffect, player2.transform.position, Quaternion.Euler(-90, 0, 0));
 				// win
@@ -196,12 +199,12 @@ public class RoundController : MonoBehaviour
 				StartCoroutine(DelayInstCoinFountain(1f));
 
 				canInstFountain = false;
-				StartCoroutine(ReloadSceneDelayed(5f));
+				StartCoroutine(ReloadSceneDelayed(3f)); //5f
 				//SetTimeScale(0.5f);
 				//PauseGame();
 				PauseMainObjects();
 
-				StartCoroutine(PauseGameDelayed(5f));
+				StartCoroutine(PauseGameDelayed(3f)); //5f
 
 				//StartCoroutine(ContinueGameDelayed(3.5f));
 			}
@@ -476,8 +479,36 @@ public class RoundController : MonoBehaviour
 
 	public void PlayDeathAnimation()
 	{
-		StartCoroutine(DeathCameraZoomCoroutine());
+		StartCoroutine(SlimeDeathAnimationCoroutine());
 	}
+
+	private IEnumerator SlimeDeathAnimationCoroutine()
+	{
+		// 載入圖片資源
+		string resourcePath = "Arts/FightScene/SlimeDeath/" + FightPlayer2Config.PlayerSkin + "Death";
+		Debug.Log("嘗試讀取圖片路徑：" + resourcePath);
+		Sprite deathSprite = Resources.Load<Sprite>(resourcePath);
+
+		// 顯示面板
+		slimeDeathPanel.SetActive(true);
+
+		if (deathSprite != null)
+		{
+			slimeDeathImage.sprite = deathSprite;
+		}
+		else
+		{
+			Debug.LogWarning("找不到死亡圖片資源：" + resourcePath);
+		}
+
+
+		// 等待 1 秒（非受 Time.timeScale 影響）
+		yield return new WaitForSecondsRealtime(1f);
+
+		// 關閉面板
+		slimeDeathPanel.SetActive(false);
+	}
+
 
 	private IEnumerator DeathCameraZoomCoroutine()
 	{

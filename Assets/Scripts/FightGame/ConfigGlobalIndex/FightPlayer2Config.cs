@@ -5,7 +5,7 @@ using UnityEngine;
 public static class FightPlayer2Config
 {
 	public static string[] Group = { "MS01", "MS04", "MS04" };
-	public static string NormalAttack = "OriginSlimeNormalAttack";
+	public static string NormalAttack = "SlimeNormalAttack";
 	public static string Ult = "HammerUlt";
 	public static bool isMonster = true;
 	public static float AI_level = 1.0f;
