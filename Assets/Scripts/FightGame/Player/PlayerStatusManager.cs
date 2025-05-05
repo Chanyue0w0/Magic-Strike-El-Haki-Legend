@@ -15,7 +15,6 @@ public class PlayerStatusManager : MonoBehaviour
     [SerializeField] private bool isBurning = false; // 是否正在燃燒
     [SerializeField] private bool isPoisoning = false; // 是否正在中毒
     [SerializeField] private bool isAlive = true; // 是否活著
-    [SerializeField] private GameObject burnEffect; // 是否正在燃燒
 
     [Header("----------------- Config Setting ------------------")]
     [SerializeField] private UserPosition player;
@@ -48,6 +47,12 @@ public class PlayerStatusManager : MonoBehaviour
 
     [Header("----------------- Animator ------------------")] //Only for Player2
     [SerializeField] private Animator player_animator;
+
+
+    [Header("----------------- Burn Effect ------------------")] //Only for Player2
+    private Coroutine burnCoroutine;
+    [SerializeField] private GameObject burnEffect; // 是否正在燃燒
+
 
     // private variable
     private JToken characterData;
@@ -192,12 +197,12 @@ public class PlayerStatusManager : MonoBehaviour
     // 接收 `PlayerNotification` 的受到效果通知
     private void HandleStatusEffectApplied(StatusEffect effect, GameObject player)
     {
-        
+
         //Debug.Log($"{gameObject.name} 觸發狀態效果：{effect}");
 
-        if (effect == StatusEffect.Burn && !isBurning)
+        if (effect == StatusEffect.Burn)
         {
-            if(playerNumber == 1)
+            if (playerNumber == 1)
             {
                 GameObject obj = Instantiate(burnEffect, player1.transform.position, Quaternion.identity);
                 obj.transform.SetParent(player1.transform);
@@ -206,18 +211,21 @@ public class PlayerStatusManager : MonoBehaviour
             {
                 GameObject obj = Instantiate(burnEffect, player2.transform.position, Quaternion.identity);
                 obj.transform.SetParent(player2.transform);
-            }    
+            }
 
-            StartCoroutine(BurnEffect()); // 在這裡觸發燃燒效果
+            // 若已有燒傷效果正在進行，先停止協程再重啟
+            if (burnCoroutine != null)
+            {
+                StopCoroutine(burnCoroutine);
+            }
+
+            burnCoroutine = StartCoroutine(BurnEffect()); // 重新啟動燃燒效果
         }
-        else if (effect == StatusEffect.Poison && !isPoisoning)
-        {
-            StartCoroutine(PoisonEffect()); // 在這裡觸發燃燒效果
-        }
-        
+
+
 
     }
-    
+
 
     private IEnumerator PoisonEffect() // 中毒效果
     {

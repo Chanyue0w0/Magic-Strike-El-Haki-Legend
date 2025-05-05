@@ -45,8 +45,6 @@ public class AIController : MonoBehaviour
     [SerializeField] private bool isFrozen = false;
     [SerializeField] private float freezeDuration = 5f;//持續時間
     [SerializeField] private float freezeMoveSpeedDecresePersent = 0.7f;//降低速度為幾%
-
-
     private Coroutine freezeCoroutine;
     [SerializeField] private GameObject IceLightEffect;
     [SerializeField] private SpriteRenderer ai_SpriteRenderer;
@@ -231,14 +229,11 @@ public class AIController : MonoBehaviour
         }
         else if (effect == StatusEffect.Freeze)
         {
+            GameObject obj = Instantiate(IceLightEffect, player2.transform.position, Quaternion.identity);
+            obj.transform.SetParent(player2.transform);
             if (freezeCoroutine != null)
             {
                 StopCoroutine(freezeCoroutine); // 重新凍結
-            }
-            else
-            {
-                GameObject obj = Instantiate(IceLightEffect, player2.transform.position, Quaternion.identity);
-                obj.transform.SetParent(player2.transform);
             }
             freezeCoroutine = StartCoroutine(FreezeEffect());
         }
