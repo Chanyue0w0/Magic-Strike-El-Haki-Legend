@@ -202,8 +202,10 @@ public class PlayerStatusManager : MonoBehaviour
         {
             StartCoroutine(PoisonEffect()); // 在這裡觸發燃燒效果
         }
+        
 
     }
+    
 
     private IEnumerator PoisonEffect() // 中毒效果
     {

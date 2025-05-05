@@ -41,6 +41,11 @@ public class AIController : MonoBehaviour
     [SerializeField] private bool isStuned = false;
     [SerializeField] private GameObject stunEffect;
 
+    [Header("----------------- Freeze Effect ------------------")]
+    [SerializeField] private bool isFrozen = false;
+    private Coroutine freezeCoroutine;
+
+
     [SerializeField] private bool isPause = false;//暫停AI移動
     [SerializeField] private bool moveToAIStartPosition = false;//AI復位
     
@@ -217,9 +222,37 @@ public class AIController : MonoBehaviour
             isStuned = true;
             StartCoroutine(StunEffect()); // 在這裡觸發暈眩效果
             AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.StunEffect, new Vector3(0, 0.65f, -20));
-
         }
+        else if (effect == StatusEffect.Freeze)
+        {
+            if (freezeCoroutine != null)
+            {
+                StopCoroutine(freezeCoroutine); // 重新凍結
+            }
+            freezeCoroutine = StartCoroutine(FreezeEffect());
+        }
+
     }
+
+    private IEnumerator FreezeEffect()
+    {
+        isFrozen = true;
+        SetMaxMoveSpeed(MaxMovementSpeed * 0.5f);
+
+        float freezeDuration = 5f;
+        float timer = 0f;
+
+        while (timer < freezeDuration)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        ResetMaxMoveSpeed();
+        isFrozen = false;
+        freezeCoroutine = null;
+    }
+
 
     private IEnumerator StunEffect()//暈眩效果
     {

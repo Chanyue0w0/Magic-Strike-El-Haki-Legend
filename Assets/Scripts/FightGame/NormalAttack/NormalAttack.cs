@@ -83,6 +83,32 @@ public class NormalAttack : MonoBehaviour
         targetNumber = tNumber;
     }
 
+    public void AddStatusEffect(StatusEffect effect)
+    {
+        if (!EffectsToApply.Contains(effect))
+        {
+            EffectsToApply.Add(effect);
+            Debug.Log($"已加入狀態效果：{effect}");
+        }
+    }
+
+    public void RemoveStatusEffect(StatusEffect effect)
+    {
+        if (EffectsToApply.Contains(effect))
+        {
+            EffectsToApply.Remove(effect);
+            Debug.Log($"已移除狀態效果：{effect}");
+        }
+    }
+
+    public void ClearAllStatusEffects()
+    {
+        EffectsToApply.Clear();
+        Debug.Log("已清空所有狀態效果");
+    }
+
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (targetNumber == 1 && collision.CompareTag("Player1") 
