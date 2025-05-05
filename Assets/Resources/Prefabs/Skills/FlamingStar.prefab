@@ -9734,12 +9734,14 @@ MonoBehaviour:
   targetNumber: 2
   skillDamage: 100
   skillMoveSpeed: 5
+  waveringAmount: 1
+  soundEffect: 
   explosion: {fileID: 7475341096261497801, guid: 24ed5a9773f7d434486f3495dc0624f0, type: 3}
   player1: {fileID: 0}
   player2: {fileID: 0}
   targetPosition: {x: 0, y: 0, z: 0}
   moveDirection: {x: 0, y: 0, z: 0}
-  EffectToApply: 0
+  EffectToApply: 5
 --- !u!114 &4594404823281874241
 MonoBehaviour:
   m_ObjectHideFlags: 0
