@@ -59,6 +59,9 @@ public class HealingMagic : MonoBehaviour
             GameObject CFS2 = Instantiate(healingUIEffect);
             CFS2.transform.SetParent(player1MagicPointPanel.transform, false); // 保持 localPosition、scale
             CFS2.GetComponent<RectTransform>().anchoredPosition = Vector2.zero; // 設定在面板中心或指定位置
+            //Vector3 panelWorldPos = player1MagicPointPanel.transform.position; // UI 世界位置
+            //GameObject CFS2 = Instantiate(healingUIEffect, panelWorldPos, Quaternion.identity);
+
 
         }
         //else
