@@ -74,6 +74,18 @@ public class RoundController : MonoBehaviour
 	[SerializeField] private BallController ballController;
 	[SerializeField] private SpriteRenderer ballSprite;
 
+	[Header("----------------- Camera Focus for Death ------------------")]
+	[SerializeField] private Camera mainCamera;
+	[SerializeField] private float zoomedCameraSize = 2.5f;
+	[SerializeField] private float cameraFadeInSpeed = 5f;
+	[SerializeField] private float cameraFadeOutSpeed = 7f;
+	[SerializeField] private float cameraZoomDuration = 1.5f;
+
+	private float originalCameraSize;
+	private Vector3 originalCameraPosition;
+
+
+
 	private void Awake()
 	{
 		if (Instance == null)
@@ -93,7 +105,9 @@ public class RoundController : MonoBehaviour
 	//// Start is called before the first frame update
 	void Start()
 	{
-		
+		originalCameraSize = mainCamera.orthographicSize;
+		originalCameraPosition = mainCamera.transform.position;
+
 
 		nowTime = maxTime;
 		Application.targetFrameRate = 60;
@@ -170,6 +184,8 @@ public class RoundController : MonoBehaviour
 			{
 				//GameOver();
 				//GameStart();
+				//PlayDeathAnimation();
+
 
 				AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SlimeDie, new Vector3(0, 0.65f, -20));
 
@@ -457,6 +473,49 @@ public class RoundController : MonoBehaviour
 		SkillManager.Instance.InitialSkillManager();
 		MagicPointsManager.Instance.InitialMagicPointsManager();
 	}
+
+	public void PlayDeathAnimation()
+	{
+		StartCoroutine(DeathCameraZoomCoroutine());
+	}
+
+	private IEnumerator DeathCameraZoomCoroutine()
+	{
+		//Time.timeScale = 0;
+		float elapsedTime = 0f;
+		Vector3 targetPosition = new Vector3(player2.transform.position.x, player2.transform.position.y, originalCameraPosition.z);
+
+		// Zoom in and move camera
+		while (mainCamera.orthographicSize > zoomedCameraSize)
+		{
+			mainCamera.orthographicSize -= cameraFadeInSpeed * Time.unscaledDeltaTime;
+			mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetPosition, cameraFadeInSpeed * Time.unscaledDeltaTime);
+			yield return null;
+		}
+
+		mainCamera.orthographicSize = zoomedCameraSize;
+		mainCamera.transform.position = targetPosition;
+
+		// Hold for a moment
+		while (elapsedTime < cameraZoomDuration)
+		{
+			elapsedTime += Time.unscaledDeltaTime;
+			yield return null;
+		}
+
+		// Zoom out and reset position
+		while (mainCamera.orthographicSize < originalCameraSize)
+		{
+			mainCamera.orthographicSize += cameraFadeOutSpeed * Time.unscaledDeltaTime;
+			mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, originalCameraPosition, cameraFadeOutSpeed * Time.unscaledDeltaTime);
+			yield return null;
+		}
+
+		mainCamera.orthographicSize = originalCameraSize;
+		mainCamera.transform.position = originalCameraPosition;
+		//Time.timeScale = 1;
+	}
+
 
 	public void SetTimeScale(float tScale)
     {
