@@ -248,21 +248,21 @@ public class AIController : MonoBehaviour
         float blinkInterval = 0.5f;
         int blinkCount = Mathf.FloorToInt(freezeDuration / blinkInterval); // 確保總切換次數
 
-        bool useDarkBlue = true;
+        //bool useDarkBlue = true;
 
-        Color darkBlue = new Color(0.6f, 0.8f, 1f);    // 較淡的深藍色
-        Color lightBlue = new Color(0.56f, 1f, 1f);    // 淺藍色
-        Color white = new Color(1f, 1f, 1f);           // 白色
+        //Color darkBlue = new Color(0.6f, 0.8f, 1f);    // 較淡的深藍色
+        //Color lightBlue = new Color(0.56f, 1f, 1f);    // 淺藍色
+        //Color white = new Color(1f, 1f, 1f);           // 白色
 
         for (int i = 0; i < blinkCount; i++)
         {
-            ai_SpriteRenderer.color = useDarkBlue ? darkBlue : lightBlue;
-            useDarkBlue = !useDarkBlue;
+            //ai_SpriteRenderer.color = useDarkBlue ? darkBlue : lightBlue;
+            //useDarkBlue = !useDarkBlue;
 
             yield return new WaitForSeconds(blinkInterval);
         }
 
-        ai_SpriteRenderer.color = white;
+        //ai_SpriteRenderer.color = white;
         ResetMaxMoveSpeed();
         isFrozen = false;
         freezeCoroutine = null;
