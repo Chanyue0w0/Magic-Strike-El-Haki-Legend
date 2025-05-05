@@ -250,23 +250,21 @@ public class AIController : MonoBehaviour
         isFrozen = true;
         SetMaxMoveSpeed(MaxMovementSpeed * freezeMoveSpeedDecresePersent);
 
-        //float freezeDuration = 3f;
-        float timer = 0f;
         float blinkInterval = 0.5f;
+        int blinkCount = Mathf.FloorToInt(freezeDuration / blinkInterval); // 確保總切換次數
+
         bool useDarkBlue = true;
 
-        // 使用 Color(r, g, b)，值域為 0~1
-        Color darkBlue = new Color(0.6f, 0.8f, 1f);   // 較淡的深藍色
+        Color darkBlue = new Color(0.6f, 0.8f, 1f);    // 較淡的深藍色
         Color lightBlue = new Color(0.56f, 1f, 1f);    // 淺藍色
-        Color white = new Color(1f, 1f, 1f);            // 白色
+        Color white = new Color(1f, 1f, 1f);           // 白色
 
-        while (timer < freezeDuration)
+        for (int i = 0; i < blinkCount; i++)
         {
             ai_SpriteRenderer.color = useDarkBlue ? darkBlue : lightBlue;
             useDarkBlue = !useDarkBlue;
 
             yield return new WaitForSeconds(blinkInterval);
-            timer += blinkInterval;
         }
 
         ai_SpriteRenderer.color = white;
@@ -274,9 +272,6 @@ public class AIController : MonoBehaviour
         isFrozen = false;
         freezeCoroutine = null;
     }
-
-
-
 
 
     private IEnumerator StunEffect()//暈眩效果

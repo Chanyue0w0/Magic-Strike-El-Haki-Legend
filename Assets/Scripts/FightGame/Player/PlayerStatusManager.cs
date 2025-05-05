@@ -15,6 +15,7 @@ public class PlayerStatusManager : MonoBehaviour
     [SerializeField] private bool isBurning = false; // 是否正在燃燒
     [SerializeField] private bool isPoisoning = false; // 是否正在中毒
     [SerializeField] private bool isAlive = true; // 是否活著
+    [SerializeField] private GameObject burnEffect; // 是否正在燃燒
 
     [Header("----------------- Config Setting ------------------")]
     [SerializeField] private UserPosition player;
@@ -196,6 +197,17 @@ public class PlayerStatusManager : MonoBehaviour
 
         if (effect == StatusEffect.Burn && !isBurning)
         {
+            if(playerNumber == 1)
+            {
+                GameObject obj = Instantiate(burnEffect, player1.transform.position, Quaternion.identity);
+                obj.transform.SetParent(player1.transform);
+            }
+            else
+            {
+                GameObject obj = Instantiate(burnEffect, player2.transform.position, Quaternion.identity);
+                obj.transform.SetParent(player2.transform);
+            }    
+
             StartCoroutine(BurnEffect()); // 在這裡觸發燃燒效果
         }
         else if (effect == StatusEffect.Poison && !isPoisoning)
