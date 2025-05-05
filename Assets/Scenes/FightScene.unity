@@ -1525,6 +1525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 0
   nowDamage: 0
+  nowHealingAmount: 0
   nowStatusEffect: 0
 --- !u!1 &204187544
 GameObject:
@@ -4677,6 +4678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoint: 0
+  maxHealthPoint: 0
   attackDamage: 10
   isBurning: 0
   isPoisoning: 0
@@ -10493,6 +10495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoint: 0
+  maxHealthPoint: 0
   attackDamage: 10
   isBurning: 0
   isPoisoning: 0
@@ -10852,6 +10855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 0
   nowDamage: 0
+  nowHealingAmount: 0
   nowStatusEffect: 0
 --- !u!1 &1621662965
 GameObject:

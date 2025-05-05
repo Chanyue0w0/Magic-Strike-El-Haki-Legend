@@ -5,6 +5,7 @@ public interface IDamageable
 {
     void TakeDamage(int damage);
     void GetMagicPointNotify(int pNumber);
+    void GetRecoverHP(int recoverHp);
     //event Action<int, GameObject> OnDamageReceived; // 事件：通知 PlayerManager（傷害值、被攻擊的玩家）
 }
 

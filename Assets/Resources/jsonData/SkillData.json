@@ -1,27 +1,32 @@
 {
     "SK00": {
-    "Name": "NoneSkill",
-    "Describe": "none",
-    "ScriptPath": "Asset/Scripts/FightGame/Skills/NoneSkill"
+      "Name": "NoneSkill",
+      "Describe": "none",
+      "ScriptPath": "Asset/Scripts/FightGame/Skills/NoneSkill"
     },
     "SK01": {
-        "Name": "FlamingStar",
-        "Describe": "none",
-        "ScriptPath": "Asset/Scripts/FightGame/Skills/FlamingStar"
+      "Name": "FlamingStar",
+      "Describe": "none",
+      "ScriptPath": "Asset/Scripts/FightGame/Skills/FlamingStar"
     },
     "SK02": {
-        "Name": "ShieldUp",
-        "Describe": "none",
-        "ScriptPath": "Asset/Scripts/FightGame/Skills/ShieldUp"
+      "Name": "ShieldUp",
+      "Describe": "none",
+      "ScriptPath": "Asset/Scripts/FightGame/Skills/ShieldUp"
     },
-    "SK03" : {
-        "Name": "MultiBall",
-        "Describe": "none",
-        "ScriptPath": "Asset/Scripts/FightGame/Skills/MultiBall"
+    "SK03": {
+      "Name": "MultiBall",
+      "Describe": "none",
+      "ScriptPath": "Asset/Scripts/FightGame/Skills/MultiBall"
     },
-    "SK04" : {
-        "Name": "StormStrike",
-        "Describe": "none",
-        "ScriptPath": "Asset/Scripts/FightGame/Skills/StormStrike"
+    "SK04": {
+      "Name": "StormStrike",
+      "Describe": "none",
+      "ScriptPath": "Asset/Scripts/FightGame/Skills/StormStrike"
+    },
+    "SK05": {
+      "Name": "HealingMagic",
+      "Describe": "none",
+      "ScriptPath": "Asset/Scripts/FightGame/Skills/HealingMagic"
     }
 }

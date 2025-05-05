@@ -10,6 +10,7 @@ public class PlayerStatusManager : MonoBehaviour
 	private enum UserPosition { player1, player2 };
     [Header("----------------- Status Data ------------------")]
     [SerializeField] private int healthPoint;
+    [SerializeField] private int maxHealthPoint;
     [SerializeField] private int attackDamage;
     //[SerializeField] private int currentMagicPoint;
     [SerializeField] private bool isBurning = false; // 是否正在燃燒
@@ -60,7 +61,6 @@ public class PlayerStatusManager : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-        //InitStatus();
 
     }
 
@@ -85,6 +85,7 @@ public class PlayerStatusManager : MonoBehaviour
         {
             playerNumber = 1;
             skills = FightPlayer1Config.Group;
+            maxHealthPoint = FightPlayer1Config.StartHP;
             SetHP(FightPlayer1Config.NowHP);
             SetATK(FightPlayer1Config.StartATK);
             SetPlayerSkin(FightPlayer1Config.PlayerSkin);
@@ -101,6 +102,7 @@ public class PlayerStatusManager : MonoBehaviour
         {
             playerNumber = 2;
             skills = FightPlayer2Config.Group;
+            maxHealthPoint = FightPlayer2Config.StartHP;
             SetHP(FightPlayer2Config.StartHP);
             SetATK(FightPlayer2Config.StartATK);
             //SetPlayerSkin(FightPlayer2Config.PlayerSkin);  //史萊姆需要用更改生成Prefab
@@ -159,6 +161,7 @@ public class PlayerStatusManager : MonoBehaviour
             {
                 notification.OnDamageReceived -= HandleDamageNotification;
                 notification.OnStatusEffectApplied -= HandleStatusEffectApplied;
+                notification.OnHealingReceived -= HandleHealingNotification;
             }
         }
         else if (player == UserPosition.player2)
@@ -168,6 +171,7 @@ public class PlayerStatusManager : MonoBehaviour
             {
                 notification.OnDamageReceived -= HandleDamageNotification;
                 notification.OnStatusEffectApplied -= HandleStatusEffectApplied;
+                notification.OnHealingReceived -= HandleHealingNotification;
             }
         }
     }
@@ -181,6 +185,9 @@ public class PlayerStatusManager : MonoBehaviour
             playerNotification.OnDamageReceived -= HandleDamageNotification;
             playerNotification.OnDamageReceived += HandleDamageNotification;
 
+            playerNotification.OnHealingReceived -= HandleHealingNotification;
+            playerNotification.OnHealingReceived += HandleHealingNotification;
+
             playerNotification.OnStatusEffectApplied -= HandleStatusEffectApplied;
             playerNotification.OnStatusEffectApplied += HandleStatusEffectApplied;
         }
@@ -192,6 +199,13 @@ public class PlayerStatusManager : MonoBehaviour
     {
         //Debug.Log($"{gameObject.name} 受攻擊傷害：{damage}");
         GetDamage(damage);
+    }
+
+    // 接收 `PlayerNotification` 的受到治療通知
+    private void HandleHealingNotification(int healingAmount, GameObject player)
+    {
+        //Debug.Log($"{gameObject.name} 受攻擊傷害：{damage}");
+        GetRecoverHP(healingAmount);
     }
 
     // 接收 `PlayerNotification` 的受到效果通知
@@ -305,7 +319,22 @@ public class PlayerStatusManager : MonoBehaviour
 
     public void GetRecoverHP(int recoverHp)
     {
-        healthPoint += recoverHp;
+        int finalHealAmount = 0;
+        if (player == UserPosition.player1)
+        {
+            finalHealAmount = Mathf.RoundToInt(recoverHp);
+            healthPoint = Mathf.Min(healthPoint + recoverHp, maxHealthPoint);
+            //Debug.Log("FightPlayer1Config.ShieldPercentage" + FightPlayer1Config.ShieldPercentage);
+            //Debug.Log("Final Damage 1 :" + finalDamage);
+        }
+        else if (player == UserPosition.player2)
+        {
+            finalHealAmount = Mathf.RoundToInt(recoverHp);
+            healthPoint = Mathf.Min(healthPoint + recoverHp, maxHealthPoint);
+            //Debug.Log("FightPlayer2Config.ShieldPercentage" + FightPlayer2Config.ShieldPercentage);
+            //Debug.Log("Final Damage 2 :" + finalDamage);
+        }
+        healthBar.SetHealth(healthPoint); // 更新血條
     }
 
     public int GetHP()

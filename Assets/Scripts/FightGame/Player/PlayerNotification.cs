@@ -7,10 +7,12 @@ public class PlayerNotification : MonoBehaviour, IDamageable, IStatusEffectRecei
 {
     [SerializeField] private int playerNumber;
     [SerializeField] private int nowDamage;
+    [SerializeField] private int nowHealingAmount;
     [SerializeField] private StatusEffect nowStatusEffect;
 
     // 事件通知 PlayerManager
     public event Action<int, GameObject> OnDamageReceived;
+    public event Action<int, GameObject> OnHealingReceived;
     public event Action<StatusEffect, GameObject> OnStatusEffectApplied; // 新增事件，通知 PlayerStatusManager
     public event Action<int> OnGetMagicPointApplied; // 新增事件，通知 PlayerStatusManager 得到一點魔力
 
@@ -24,6 +26,11 @@ public class PlayerNotification : MonoBehaviour, IDamageable, IStatusEffectRecei
     public void ResetNowDamage()
     {
         nowDamage = 0;
+    }
+
+    public void ResetNowHealingAmount()
+    {
+        nowHealingAmount = 0;
     }
 
     public void ResetNowStatusEffect()
@@ -40,6 +47,17 @@ public class PlayerNotification : MonoBehaviour, IDamageable, IStatusEffectRecei
         OnDamageReceived?.Invoke(damage, gameObject);
 
         ResetNowDamage();
+    }
+
+    public void GetRecoverHP(int recoverHp)
+    {
+        nowHealingAmount += recoverHp;
+        Debug.Log($"{gameObject.name} 收到 {recoverHp} 治療");
+
+        // 觸發事件，通知 PlayerManager
+        OnHealingReceived?.Invoke(recoverHp, gameObject);
+
+        ResetNowHealingAmount();
     }
 
     public void ApplyStatusEffect(StatusEffect effect)
