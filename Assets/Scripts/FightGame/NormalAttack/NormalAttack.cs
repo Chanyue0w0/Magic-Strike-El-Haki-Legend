@@ -14,8 +14,11 @@ public class NormalAttack : MonoBehaviour
     [SerializeField] private float rotationDistanceThreshold = 1.0f; // 旋轉距離閾值
     [SerializeField] private bool canInstMagicPowerGain = false; // 生成獲得魔力效果
     [SerializeField] private int NormalAttackDamage = 0; // 傷害值
-    [SerializeField] private StatusEffect EffectToApply = StatusEffect.Stun; // 要套用的狀態
     [SerializeField] private Rigidbody2D rb;
+
+    //[SerializeField] private StatusEffect EffectToApply = StatusEffect.Stun; // 要套用的狀態
+    [Header("------ Multiple Status Effects ------")]
+    [SerializeField] private List<StatusEffect> EffectsToApply = new List<StatusEffect>();
 
     [Header("----------------- GameObjects ------------------")]
     [SerializeField] private GameObject explosion;
@@ -100,11 +103,25 @@ public class NormalAttack : MonoBehaviour
             IStatusEffectReceiver statusReceiver = collision.GetComponent<IStatusEffectReceiver>();
             if (statusReceiver != null)
             {
-                statusReceiver.ApplyStatusEffect(EffectToApply);
-                //Debug.Log($"{collision.gameObject.name} 受到狀態影響：{EffectToApply}");
+                foreach (var effect in EffectsToApply)
+                {
+                    statusReceiver.ApplyStatusEffect(effect);
+                    //Debug.Log($"{collision.gameObject.name} 受到狀態影響：{effect}");
+                }
             }
 
-            if(canInstMagicPowerGain)
+            //// 嘗試獲取 IStatusEffectReceiver 介面（目標可受 Buff/Debuff）
+            //IStatusEffectReceiver statusReceiver = collision.GetComponent<IStatusEffectReceiver>();
+            //if (statusReceiver != null)
+            //{
+            //    statusReceiver.ApplyStatusEffect(EffectToApply);
+            //    //Debug.Log($"{collision.gameObject.name} 受到狀態影響：{EffectToApply}");
+            //}
+
+
+
+
+            if (canInstMagicPowerGain)
             {
                 GameObject obj = Instantiate(magicPowerGain, player2.transform.position, Quaternion.identity);
 
