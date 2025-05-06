@@ -79,7 +79,7 @@ public class PassiveSkillManager : MonoBehaviour
         burningBall = false;
         iceGroundExplosion = false;
         burnStrengthen = false;
-        FightPlayer1Config.BurnDamageIncrease -= 1f;
+        FightPlayer1Config.BurnDamageIncrease = 0;
         FightPlayer1Config.PassiveEffectGroup = new string[] { "PS00", "PS00" };
     }
 

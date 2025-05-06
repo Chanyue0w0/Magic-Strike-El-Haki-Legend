@@ -260,8 +260,6 @@ public class RoundController : MonoBehaviour
 		// 需要檢查是否到了新關卡或新章節
 		StageDataEntry nextStage = StageData.Instance.FindStage(currentChapterIndex, currentLevelIndex, currentStageIndex);
 
-		
-
 
 		if (nextStage == null)
 		{
@@ -294,6 +292,7 @@ public class RoundController : MonoBehaviour
 
 	public void LevelFinished()
 	{
+		PassiveSkillManager.Instance.ResetAllEffect();
 		AudioManager.Instance.StopBGM();
 		AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.WinSoundEffect, new Vector3(0, 0.65f, -20));
 		WinPanel.SetActive(true);

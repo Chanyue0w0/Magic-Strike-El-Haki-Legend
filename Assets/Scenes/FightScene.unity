@@ -12925,7 +12925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -199.00014, y: -158}
+  m_AnchoredPosition: {x: -199.00012, y: -158}
   m_SizeDelta: {x: -90.35, y: 337.21997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701202708
@@ -17469,6 +17469,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4177581863249497969, guid: 5dd07ebd3d2b42d448e754c44af02d89, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 767a5a30111a2a246b8816833b29a7d2, type: 3}
     - target: {fileID: 8003788127885687381, guid: 5dd07ebd3d2b42d448e754c44af02d89, type: 3}
       propertyPath: m_Name
       value: InstantEffectButton
