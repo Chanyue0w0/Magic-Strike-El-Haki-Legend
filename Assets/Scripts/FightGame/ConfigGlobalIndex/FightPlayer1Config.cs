@@ -4,17 +4,20 @@ using UnityEngine;
 
 public static class FightPlayer1Config
 {
-	public static int CurrentChapter = 1;
+	public static int CurrentChapter = 2;
 	public static int CurrentLevel = 2;
 	public static int CurrentStage = 1;
 
 	public static string[] Group = { "HR00", "SK01", "SK05" };
-	public static string[] PassiveEffectGroup = { "PS00", "PS00" };
+	public static string[] PassiveEffectGroup = { "PS03", "PS01" };
 
 	public static string NormalAttack = "HammerNormalAttack";
 	public static string Ult = "HammerUlt";
 	public static string PlayerSkin = "HR00";
 	public static string EquipSet = "None";
+
+
+	public static float BurnDamageIncrease = 0.0f;
 
 	public static int StartHP = 1500;
 	public static int NowHP = 1500;
@@ -24,7 +27,6 @@ public static class FightPlayer1Config
 	public static float CriticalPercentage = 0.0f;
 	public static float SkillDamageIncrease = 0.0f;
 	public static float PoisonDamageIncrease = 0.0f;
-	public static float BurnDamageIncrease = 0.0f;
 	public static float CC_SkillTimeIncrease = 0.0f;
 	public static float SkillBubbleTimeDecrease = 0.0f;
 

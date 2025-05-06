@@ -47,6 +47,7 @@ public class AIController : MonoBehaviour
     [SerializeField] private float freezeMoveSpeedDecresePersent = 0.7f;//降低速度為幾%
     private Coroutine freezeCoroutine;
     [SerializeField] private GameObject IceLightEffect;
+    [SerializeField] private GameObject IceGround;
     [SerializeField] private SpriteRenderer ai_SpriteRenderer;
 
 
@@ -234,6 +235,8 @@ public class AIController : MonoBehaviour
             if (freezeCoroutine != null)
             {
                 StopCoroutine(freezeCoroutine); // 重新凍結
+                if(PassiveSkillManager.Instance.HasIceGroundExplosion())
+                    Instantiate(IceGround, player2.transform.position, Quaternion.identity);
             }
             freezeCoroutine = StartCoroutine(FreezeEffect());
         }

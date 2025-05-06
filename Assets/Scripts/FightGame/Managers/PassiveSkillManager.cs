@@ -12,6 +12,8 @@ public class PassiveSkillManager : MonoBehaviour
     private GameObject ball;
     private bool iceBall = false;
     private bool burningBall = false;
+    private bool iceGroundExplosion = false;
+    private bool burnStrengthen = false;
 
     void Awake()
     {
@@ -32,6 +34,7 @@ public class PassiveSkillManager : MonoBehaviour
 
         string[] passiveSkills = FightPlayer1Config.PassiveEffectGroup;
 
+        //IceBall
         if (System.Array.Exists(passiveSkills, s => s == "PS01"))
         {
             iceBall = true;
@@ -42,6 +45,7 @@ public class PassiveSkillManager : MonoBehaviour
             }
         }
 
+        //BurningBall
         if (System.Array.Exists(passiveSkills, s => s == "PS02"))
         {
             burningBall = true;
@@ -52,6 +56,30 @@ public class PassiveSkillManager : MonoBehaviour
             }
         }
 
+        //IceGroundExplosion
+        if (System.Array.Exists(passiveSkills, s => s == "PS03"))
+        {
+            Debug.Log("Has PS03");
+            iceGroundExplosion = true;
+        }
+
+        //BurnStrengthen
+        if (System.Array.Exists(passiveSkills, s => s == "PS04"))
+        {
+            Debug.Log("Has PS04");
+            burnStrengthen = true;
+            FightPlayer1Config.BurnDamageIncrease += 0.5f;
+        }
+    }
+
+    //重製RogueLike所有效果
+    public void ResetAllEffect()
+    {
+        iceBall = false;
+        burningBall = false;
+        iceGroundExplosion = false;
+        burnStrengthen = false;
+        FightPlayer1Config.BurnDamageIncrease -= 0.5f;
     }
 
     public bool HasIceBall()
@@ -62,5 +90,15 @@ public class PassiveSkillManager : MonoBehaviour
     public bool HasBurningBall()
     {
         return burningBall;
+    }
+    
+    public bool HasIceGroundExplosion()
+    {
+        return iceGroundExplosion;
+    }
+
+    public bool HasBurnStrengthen()
+    {
+        return burnStrengthen;
     }
 }

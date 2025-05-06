@@ -5003,6 +5003,7 @@ MonoBehaviour:
   positionOffset: {x: 0, y: 0.7}
   player_animator: {fileID: 865603844}
   burnEffect: {fileID: 7681286244751695356, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
+  burnEffect2: {fileID: 4728249886061266935, guid: da4eb64e0e62eca44adf3644f6cde201, type: 3}
 --- !u!114 &731934240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5041,6 +5042,7 @@ MonoBehaviour:
   freezeDuration: 5
   freezeMoveSpeedDecresePersent: 0.7
   IceLightEffect: {fileID: 7342489828350829095, guid: 10ed63436aa6c844fbcf270406b0c240, type: 3}
+  IceGround: {fileID: 8615590313452530619, guid: beb2278394703ee40ad0d9a6fa6435e4, type: 3}
   ai_SpriteRenderer: {fileID: 865603843}
   isPause: 0
   moveToAIStartPosition: 0
@@ -11064,6 +11066,7 @@ MonoBehaviour:
   positionOffset: {x: 0, y: 0.7}
   player_animator: {fileID: 0}
   burnEffect: {fileID: 7681286244751695356, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
+  burnEffect2: {fileID: 4728249886061266935, guid: da4eb64e0e62eca44adf3644f6cde201, type: 3}
 --- !u!114 &1492323272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16408,91 +16411,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roundController: {fileID: 1082590085}
   pausePanel: {fileID: 225728867}
---- !u!1001 &2048037715
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 761381916795181452, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.64733696
-      objectReference: {fileID: 0}
-    - target: {fileID: 761381916795181452, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.43325707
-      objectReference: {fileID: 0}
-    - target: {fileID: 761381916795181452, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5097142
-      objectReference: {fileID: 0}
-    - target: {fileID: 761381916795181452, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 761381916795181452, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 761381916795181452, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 761381916795181452, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 761381916795181452, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 761381916795181452, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 761381916795181452, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 761381916795181452, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 761381916795181452, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 761381916795181452, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 847706160910291972, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_Range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 847706160910291972, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_Intensity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415172833381232765, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_Range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415172833381232765, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_Intensity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7681286244751695356, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
-      propertyPath: m_Name
-      value: BurnEffect
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4576b45ed35935645ac8ad7bfb435141, type: 3}
 --- !u!1 &2063413926
 GameObject:
   m_ObjectHideFlags: 0
@@ -18233,4 +18151,3 @@ SceneRoots:
   - {fileID: 3579346474811105909}
   - {fileID: 7219511227422441975}
   - {fileID: 1668076090}
-  - {fileID: 2048037715}

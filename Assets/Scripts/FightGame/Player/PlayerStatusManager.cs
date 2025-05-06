@@ -52,7 +52,8 @@ public class PlayerStatusManager : MonoBehaviour
 
     [Header("----------------- Burn Effect ------------------")] //Only for Player2
     private Coroutine burnCoroutine;
-    [SerializeField] private GameObject burnEffect; // 是否正在燃燒
+    [SerializeField] private GameObject burnEffect; // 普通燃燒效果
+    [SerializeField] private GameObject burnEffect2; // 強化燃燒效果
 
 
     // private variable
@@ -214,16 +215,26 @@ public class PlayerStatusManager : MonoBehaviour
 
         //Debug.Log($"{gameObject.name} 觸發狀態效果：{effect}");
 
-        if (effect == StatusEffect.Burn)
+        if (effect == StatusEffect.Burn)//中毒效果
         {
             if (playerNumber == 1)
             {
-                GameObject obj = Instantiate(burnEffect, player1.transform.position, Quaternion.identity);
+                GameObject instBurnEffect = burnEffect;
+                //if (PassiveSkillManager.Instance.HasBurnStrengthen())//有強化燃燒
+                //{
+                //    instBurnEffect = burnEffect2;
+                //}
+                GameObject obj = Instantiate(instBurnEffect, player1.transform.position, Quaternion.identity);
                 obj.transform.SetParent(player1.transform);
             }
             else
             {
-                GameObject obj = Instantiate(burnEffect, player2.transform.position, Quaternion.identity);
+                GameObject instBurnEffect = burnEffect;
+                if (PassiveSkillManager.Instance.HasBurnStrengthen())//有強化燃燒
+                {
+                    instBurnEffect = burnEffect2;
+                }
+                GameObject obj = Instantiate(instBurnEffect, player2.transform.position, Quaternion.identity);
                 obj.transform.SetParent(player2.transform);
             }
 
@@ -235,7 +246,13 @@ public class PlayerStatusManager : MonoBehaviour
 
             burnCoroutine = StartCoroutine(BurnEffect()); // 重新啟動燃燒效果
         }
-
+        else if (effect == StatusEffect.Poison)//中毒效果
+        {
+            if (!isPoisoning)
+            {
+                StartCoroutine(PoisonEffect());
+            }
+        }
 
 
     }
@@ -280,7 +297,7 @@ public class PlayerStatusManager : MonoBehaviour
     private IEnumerator BurnEffect()//燃燒效果
     {
         isBurning = true;
-        for (int i = 0; i < 5; i++) // 燃燒 5 秒，每秒扣 5 點血
+        for (int i = 0; i < 5; i++) // 燃燒 5 秒，每秒扣 20 點血
         {
             int burnDamage = Mathf.RoundToInt(20 * (1 + FightPlayer1Config.BurnDamageIncrease));
             GetDamage(burnDamage);

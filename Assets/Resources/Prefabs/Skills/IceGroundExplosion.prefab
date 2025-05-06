@@ -83,7 +83,7 @@ MonoBehaviour:
   aimingType: 0
   playerNumber: 1
   targetNumber: 2
-  skillDamage: 100
+  skillDamage: 200
   skillMoveSpeed: 0
   waveringAmount: 0
   soundEffect: 
