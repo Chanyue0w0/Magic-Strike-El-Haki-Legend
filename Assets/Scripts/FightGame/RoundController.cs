@@ -198,6 +198,7 @@ public class RoundController : MonoBehaviour
 				//Instantiate(coinFountain, player2.transform.position, Quaternion.Euler(-90,0,0));
 				StartCoroutine(DelayInstCoinFountain(1f));
 
+
 				canInstFountain = false;
 				StartCoroutine(ReloadSceneDelayed(3f)); //5f
 				//SetTimeScale(0.5f);
@@ -222,7 +223,12 @@ public class RoundController : MonoBehaviour
 	{
 		yield return new WaitForSecondsRealtime(delay);
 
-		canInstFountain = true;
+  //      //在下一stage前RogueLike選擇
+  //      RogueLikePanelManager.Instance.SetPanelActive(true);
+  //      RogueLikePanelManager.Instance.DrawSkills(FightPlayer1Config.CurrentStage);
+		//PauseGame();
+
+        canInstFountain = true;
 		NextStage();
 		//SceneManager.LoadScene("FightScene"); //在NextStage裡面loadScene
 	}
@@ -271,6 +277,10 @@ public class RoundController : MonoBehaviour
 		}
 		else
         {
+			//在下一stage前RogueLike選擇
+			//RogueLikePanelManager.Instance.SetPanelActive(true);
+			//RogueLikePanelManager.Instance.DrawSkills(FightPlayer1Config.CurrentStage);
+			//SetTimeScale(0);
 
 			FightPlayer1Config.CurrentStage = currentStageIndex;
 			FightPlayer1Config.CurrentLevel = currentLevelIndex;

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class RogueLikePanelManager : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class RogueLikePanelManager : MonoBehaviour
         new Vector3(231.41f, -104f, 0f)
     };
 
-    [SerializeField] private int nowRound = 1;
+    //[SerializeField] private int nowRound = 1;
     private HashSet<string> ownedActiveSkills = new HashSet<string>();
     private HashSet<string> ownedPassiveSkills = new HashSet<string>();
 
@@ -37,7 +38,6 @@ public class RogueLikePanelManager : MonoBehaviour
 
     private void Start()
     {
-        nowRound = 1;
         LoadTemplatePrefabs();
         InitSkillData();
     }
@@ -47,12 +47,7 @@ public class RogueLikePanelManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             SetPanelActive(true);
-            DrawSkills(nowRound);
-            nowRound++;
-            if (nowRound > 4)
-            {
-                nowRound = 1;
-            }
+            DrawSkills(FightPlayer1Config.CurrentStage);
         }
     }
 
@@ -65,7 +60,7 @@ public class RogueLikePanelManager : MonoBehaviour
 
     private void InitSkillData()
     {
-        allSkillData["SK01"] = new SkillData("火球術", "投擲火球\n造成傷害與燃燒", "SK");//「技能泡泡」\n
+        allSkillData["SK01"] = new SkillData("火球術", "投擲火球\n造成傷害與燃燒", "SK");
         allSkillData["SK02"] = new SkillData(" 能量護盾", "減少50%承受傷害\n持續8秒", "SK");
         allSkillData["SK03"] = new SkillData(" 分身球", "生成3顆球\n持續5秒", "SK");
         allSkillData["SK04"] = new SkillData(" 閃電風暴", "大範圍閃電攻擊", "SK");
@@ -80,7 +75,6 @@ public class RogueLikePanelManager : MonoBehaviour
         allSkillData["IS02"] = new SkillData(" 立即回魔", "獲得全滿魔力值", "IS");
     }
 
-
     public void SetPanelActive(bool isActive)
     {
         rogueLikePanel.SetActive(isActive);
@@ -88,6 +82,44 @@ public class RogueLikePanelManager : MonoBehaviour
         {
             ShowOwnedSkillIcons();
         }
+    }
+
+    public void OnSkillButtonClicked(string skillID)
+    {
+        Debug.Log("技能被點擊: " + skillID);
+
+        if (!allSkillData.ContainsKey(skillID)) return;
+
+        string type = allSkillData[skillID].Type;
+
+        if (type == "SK")
+        {
+            if (FightPlayer1Config.Group[1] == "SK00")
+            {
+                FightPlayer1Config.Group[1] = skillID;
+            }
+            else if (FightPlayer1Config.Group[2] == "SK00")
+            {
+                FightPlayer1Config.Group[2] = skillID;
+            }
+        }
+        else if (type == "PS")
+        {
+            if (FightPlayer1Config.PassiveEffectGroup[0] == "PS00")
+            {
+                FightPlayer1Config.PassiveEffectGroup[0] = skillID;
+            }
+            else if (FightPlayer1Config.PassiveEffectGroup[1] == "PS00")
+            {
+                FightPlayer1Config.PassiveEffectGroup[1] = skillID;
+            }
+        }
+
+        //關閉Panel
+        SetPanelActive(false);
+
+        //RoundController.Instance.SetTimeScale(1);
+
     }
 
     public void DrawSkills(int round)
@@ -144,6 +176,13 @@ public class RogueLikePanelManager : MonoBehaviour
             GameObject instance = Instantiate(template, skillButtonPositions[i]);
             instance.transform.localPosition = buttonLocalPositions[i];
             instance.transform.localRotation = Quaternion.identity;
+
+            Button button = instance.GetComponent<Button>();
+            if (button != null)
+            {
+                string capturedID = skillID;
+                button.onClick.AddListener(() => OnSkillButtonClicked(capturedID));
+            }
 
             Transform title = instance.transform.Find("SkillTitle");
             if (title != null && title.TryGetComponent(out Text titleText))

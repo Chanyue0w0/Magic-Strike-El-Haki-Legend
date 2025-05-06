@@ -32,7 +32,7 @@ public class UIShakingManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         // 儲存原始位置
         CacheOriginalPosition(player1_HeadIcon);

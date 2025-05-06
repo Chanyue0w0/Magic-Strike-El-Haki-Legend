@@ -21,7 +21,7 @@ public class VideoPlayerController : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); // 可選：跨場景保留
+        //DontDestroyOnLoad(gameObject); // 可選：跨場景保留
 
         videoPlayer = GetComponent<VideoPlayer>();
         if (videoPlayer == null)
