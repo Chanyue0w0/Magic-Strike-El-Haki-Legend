@@ -4988,6 +4988,7 @@ MonoBehaviour:
   isBurning: 0
   isPoisoning: 0
   isAlive: 1
+  burnDamagePercent: 0.01
   player: 1
   userIsEnemy: 1
   playerNumber: 0
@@ -11051,6 +11052,7 @@ MonoBehaviour:
   isBurning: 0
   isPoisoning: 0
   isAlive: 1
+  burnDamagePercent: 0.01
   player: 0
   userIsEnemy: 0
   playerNumber: 0
@@ -12923,7 +12925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -199.00012, y: -158}
+  m_AnchoredPosition: {x: -199.00014, y: -158}
   m_SizeDelta: {x: -90.35, y: 337.21997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701202708
@@ -14851,18 +14853,6 @@ PrefabInstance:
     - target: {fileID: 4536797749321762240, guid: b0fb9e99c8c1e1d41aeaefc19d807c92, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8398709539780402432, guid: b0fb9e99c8c1e1d41aeaefc19d807c92, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.47843137
-      objectReference: {fileID: 0}
-    - target: {fileID: 8398709539780402432, guid: b0fb9e99c8c1e1d41aeaefc19d807c92, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.8862745
-      objectReference: {fileID: 0}
-    - target: {fileID: 8398709539780402432, guid: b0fb9e99c8c1e1d41aeaefc19d807c92, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.7645657
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

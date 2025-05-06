@@ -68,7 +68,7 @@ public class PassiveSkillManager : MonoBehaviour
         {
             Debug.Log("Has PS04");
             burnStrengthen = true;
-            FightPlayer1Config.BurnDamageIncrease += 0.5f;
+            FightPlayer1Config.BurnDamageIncrease += 1f;
         }
     }
 
@@ -79,7 +79,8 @@ public class PassiveSkillManager : MonoBehaviour
         burningBall = false;
         iceGroundExplosion = false;
         burnStrengthen = false;
-        FightPlayer1Config.BurnDamageIncrease -= 0.5f;
+        FightPlayer1Config.BurnDamageIncrease -= 1f;
+        FightPlayer1Config.PassiveEffectGroup = new string[] { "PS00", "PS00" };
     }
 
     public bool HasIceBall()

@@ -155,8 +155,8 @@ public class MagicPointsManager : MonoBehaviour
 
             if (p1CurrentMagicPoint == p1MaxMagicPoint)
             {
+                //p1MagicSparkling.SetActive(true);
                 p1SparklingRing.SetActive(true);
-                p1MagicSparkling.SetActive(true);
                 AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.MaxMagicPoint, new Vector3(0, 0.65f, -20));
             }
         }
@@ -236,7 +236,7 @@ public class MagicPointsManager : MonoBehaviour
         {
             SetMagicPoint(1, 0);
 
-            p1MagicSparkling.SetActive(false);
+            //p1MagicSparkling.SetActive(false);
         }
         else if (pNumber == 2)
         {

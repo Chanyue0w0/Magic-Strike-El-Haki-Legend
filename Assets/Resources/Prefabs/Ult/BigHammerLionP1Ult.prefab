@@ -5135,7 +5135,7 @@ MonoBehaviour:
   playerNumber: 1
   targetNumber: 2
   ultName: HammerUlt
-  ultDamage: 200
+  ultDamage: 400
   instTime: 0.7
   instPosition: {x: 0, y: 2}
   quaternion: {x: 0, y: 0, z: 0, w: 0}

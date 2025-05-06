@@ -123,7 +123,7 @@ MonoBehaviour:
   player2: {fileID: 0}
   playerNumber: 1
   targetNumber: 2
-  skillDamage: 200
+  skillDamage: 400
   canInstAttack: 0
   instAttackAmount: 1
   destroyGameObject: 0

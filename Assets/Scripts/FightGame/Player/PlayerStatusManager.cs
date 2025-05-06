@@ -16,6 +16,7 @@ public class PlayerStatusManager : MonoBehaviour
     [SerializeField] private bool isBurning = false; // 是否正在燃燒
     [SerializeField] private bool isPoisoning = false; // 是否正在中毒
     [SerializeField] private bool isAlive = true; // 是否活著
+    [SerializeField] private float burnDamagePercent = 0.01f;
 
     [Header("----------------- Config Setting ------------------")]
     [SerializeField] private UserPosition player;
@@ -299,7 +300,7 @@ public class PlayerStatusManager : MonoBehaviour
         isBurning = true;
         for (int i = 0; i < 5; i++) // 燃燒 5 秒，每秒扣 20 點血
         {
-            int burnDamage = Mathf.RoundToInt(20 * (1 + FightPlayer1Config.BurnDamageIncrease));
+            int burnDamage = Mathf.RoundToInt(maxHealthPoint * (burnDamagePercent * (1 + FightPlayer1Config.BurnDamageIncrease) ) );
             GetDamage(burnDamage);
             yield return new WaitForSeconds(1);
         }
