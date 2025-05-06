@@ -1,0 +1,283 @@
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class RogueLikePanelManager : MonoBehaviour
+{
+    public static RogueLikePanelManager Instance { get; private set; }
+
+    [Header("面板與生成點設定")]
+    [SerializeField] private GameObject rogueLikePanel;
+    [SerializeField] private Transform[] skillButtonPositions = new Transform[3];
+    [SerializeField] private Transform[] ownedSkillIconPositions = new Transform[4];
+
+    private Dictionary<string, SkillData> allSkillData = new Dictionary<string, SkillData>();
+    private Dictionary<string, GameObject> skillTemplatePrefabs = new Dictionary<string, GameObject>();
+
+    private readonly Vector3[] buttonLocalPositions = new Vector3[]
+    {
+        new Vector3(-231.41f, -104f, 0f),
+        new Vector3(0f, -104f, 0f),
+        new Vector3(231.41f, -104f, 0f)
+    };
+
+    [SerializeField] private int nowRound = 1;
+    private HashSet<string> ownedActiveSkills = new HashSet<string>();
+    private HashSet<string> ownedPassiveSkills = new HashSet<string>();
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        nowRound = 1;
+        LoadTemplatePrefabs();
+        InitSkillData();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SetPanelActive(true);
+            DrawSkills(nowRound);
+            nowRound++;
+            if (nowRound > 4)
+            {
+                nowRound = 1;
+            }
+        }
+    }
+
+    private void LoadTemplatePrefabs()
+    {
+        skillTemplatePrefabs["SK"] = Resources.Load<GameObject>("Prefabs/RogueLikePanel/template/ActiveSkillButton");
+        skillTemplatePrefabs["PS"] = Resources.Load<GameObject>("Prefabs/RogueLikePanel/template/PassiveSkillButton");
+        skillTemplatePrefabs["IS"] = Resources.Load<GameObject>("Prefabs/RogueLikePanel/template/InstantEffectButton");
+    }
+
+    private void InitSkillData()
+    {
+        allSkillData["SK01"] = new SkillData("火球術", "投擲火球\n造成傷害與燃燒", "SK");//「技能泡泡」\n
+        allSkillData["SK02"] = new SkillData(" 能量護盾", "減少50%承受傷害\n持續8秒", "SK");
+        allSkillData["SK03"] = new SkillData(" 分身球", "生成3顆球\n持續5秒", "SK");
+        allSkillData["SK04"] = new SkillData(" 閃電風暴", "大範圍閃電攻擊", "SK");
+        allSkillData["SK05"] = new SkillData(" 治療術", "恢復少量生命", "SK");
+
+        allSkillData["PS01"] = new SkillData(" 寒冰球", "「進球」\n造成寒冰效果\n緩速30%", "PS");
+        allSkillData["PS02"] = new SkillData(" 燃燒球", "「進球」\n造成燃燒效果\n每秒1%傷害", "PS");
+        allSkillData["PS03"] = new SkillData(" 寒冰增幅", "「進球」\n對寒冰狀態敵人\n召換冰面爆炸", "PS");
+        allSkillData["PS04"] = new SkillData(" 燃燒增幅", "燃燒傷害提升至2倍", "PS");
+
+        allSkillData["IS01"] = new SkillData(" 立即治癒", "恢復30%最大生命", "IS");
+        allSkillData["IS02"] = new SkillData(" 立即回魔", "獲得全滿魔力值", "IS");
+    }
+
+
+    public void SetPanelActive(bool isActive)
+    {
+        rogueLikePanel.SetActive(isActive);
+        if (isActive)
+        {
+            ShowOwnedSkillIcons();
+        }
+    }
+
+    public void DrawSkills(int round)
+    {
+        ClearSkillButtons();
+        UpdateOwnedSkillSets();
+
+        List<string> candidates = new List<string>();
+        bool hasSKSlot = HasEmptySKSlot();
+        bool hasPSSlot = HasEmptyPSSlot();
+
+        foreach (var pair in allSkillData)
+        {
+            if (pair.Value.Type == "SK" && !ownedActiveSkills.Contains(pair.Key))
+                candidates.Add(pair.Key);
+            else if (pair.Value.Type == "PS" && !ownedPassiveSkills.Contains(pair.Key))
+                candidates.Add(pair.Key);
+            else if (pair.Value.Type == "IS")
+                candidates.Add(pair.Key);
+        }
+
+        List<string> filtered = new List<string>();
+
+        switch (round)
+        {
+            case 1:
+                filtered = candidates.FindAll(id => allSkillData[id].Type == "SK");
+                break;
+            case 2:
+                filtered = candidates;
+                break;
+            case 3:
+                filtered = candidates.FindAll(id =>
+                    (hasSKSlot || allSkillData[id].Type != "SK")
+                );
+                break;
+            case 4:
+                filtered = candidates.FindAll(id =>
+                    (!hasSKSlot && !hasPSSlot && allSkillData[id].Type == "IS") ||
+                    (!hasSKSlot && allSkillData[id].Type != "SK") ||
+                    (!hasPSSlot && allSkillData[id].Type != "PS") ||
+                    (hasSKSlot && hasPSSlot)
+                );
+                break;
+        }
+
+        List<string> chosen = GetRandomSubset(filtered, 3);
+
+        for (int i = 0; i < chosen.Count; i++)
+        {
+            string skillID = chosen[i];
+            SkillData data = allSkillData[skillID];
+            GameObject template = skillTemplatePrefabs[data.Type];
+            GameObject instance = Instantiate(template, skillButtonPositions[i]);
+            instance.transform.localPosition = buttonLocalPositions[i];
+            instance.transform.localRotation = Quaternion.identity;
+
+            Transform title = instance.transform.Find("SkillTitle");
+            if (title != null && title.TryGetComponent(out Text titleText))
+                titleText.text = data.Title;
+
+            Transform info = instance.transform.Find("SkillInfo");
+            if (info != null && info.TryGetComponent(out Text infoText))
+                infoText.text = data.Info;
+
+            Transform icon = instance.transform.Find("SkillIcon");
+            if (icon != null && icon.TryGetComponent(out Image iconImage))
+            {
+                Sprite sprite = Resources.Load<Sprite>($"Arts/FightScene/RogueLikePanelIcons/icon/{skillID}");
+                if (sprite != null) iconImage.sprite = sprite;
+            }
+        }
+    }
+
+    private void UpdateOwnedSkillSets()
+    {
+        ownedActiveSkills.Clear();
+        ownedPassiveSkills.Clear();
+
+        string[] currentSK = {
+            FightPlayer1Config.Group[1],
+            FightPlayer1Config.Group[2]
+        };
+        string[] currentPS = {
+            FightPlayer1Config.PassiveEffectGroup[0],
+            FightPlayer1Config.PassiveEffectGroup[1]
+        };
+
+        foreach (var skill in currentSK)
+        {
+            if (skill != "SK00")
+                ownedActiveSkills.Add(skill);
+        }
+        foreach (var skill in currentPS)
+        {
+            if (skill != "PS00")
+                ownedPassiveSkills.Add(skill);
+        }
+    }
+
+    private void ShowOwnedSkillIcons()
+    {
+        ClearOwnedSkillIcons();
+
+        string[] currentSK = {
+            FightPlayer1Config.Group[1],
+            FightPlayer1Config.Group[2]
+        };
+        string[] currentPS = {
+            FightPlayer1Config.PassiveEffectGroup[0],
+            FightPlayer1Config.PassiveEffectGroup[1]
+        };
+
+        int idx = 0;
+        foreach (var skill in currentSK)
+        {
+            if (skill != "SK00")
+                CreateIconAt(ownedSkillIconPositions[idx++], skill);
+        }
+        foreach (var skill in currentPS)
+        {
+            if (skill != "PS00")
+                CreateIconAt(ownedSkillIconPositions[idx++], skill);
+        }
+    }
+
+    private void CreateIconAt(Transform target, string skillID)
+    {
+        Sprite sprite = Resources.Load<Sprite>($"Arts/FightScene/RogueLikePanelIcons/icon_with_backGround/{skillID}");
+        if (sprite == null) return;
+
+        GameObject iconObj = new GameObject(skillID);
+        iconObj.transform.SetParent(target, false);
+        Image img = iconObj.AddComponent<Image>();
+        img.sprite = sprite;
+        img.SetNativeSize();
+    }
+
+    private void ClearSkillButtons()
+    {
+        foreach (var t in skillButtonPositions)
+        {
+            foreach (Transform child in t)
+                Destroy(child.gameObject);
+        }
+    }
+
+    private void ClearOwnedSkillIcons()
+    {
+        foreach (var t in ownedSkillIconPositions)
+        {
+            foreach (Transform child in t)
+                Destroy(child.gameObject);
+        }
+    }
+
+    private bool HasEmptySKSlot()
+    {
+        return FightPlayer1Config.Group[1] == "SK00" || FightPlayer1Config.Group[2] == "SK00";
+    }
+
+    private bool HasEmptyPSSlot()
+    {
+        return FightPlayer1Config.PassiveEffectGroup[0] == "PS00" || FightPlayer1Config.PassiveEffectGroup[1] == "PS00";
+    }
+
+    private List<string> GetRandomSubset(List<string> source, int count)
+    {
+        List<string> copy = new List<string>(source);
+        List<string> result = new List<string>();
+        for (int i = 0; i < count && copy.Count > 0; i++)
+        {
+            int index = Random.Range(0, copy.Count);
+            result.Add(copy[index]);
+            copy.RemoveAt(index);
+        }
+        return result;
+    }
+
+    private class SkillData
+    {
+        public string Title;
+        public string Info;
+        public string Type;
+
+        public SkillData(string title, string info, string type)
+        {
+            Title = title;
+            Info = info;
+            Type = type;
+        }
+    }
+}

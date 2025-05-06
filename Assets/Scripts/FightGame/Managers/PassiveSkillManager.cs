@@ -59,14 +59,14 @@ public class PassiveSkillManager : MonoBehaviour
         //IceGroundExplosion
         if (System.Array.Exists(passiveSkills, s => s == "PS03"))
         {
-            Debug.Log("Has PS03");
+            //Debug.Log("Has PS03");
             iceGroundExplosion = true;
         }
 
         //BurnStrengthen
         if (System.Array.Exists(passiveSkills, s => s == "PS04"))
         {
-            Debug.Log("Has PS04");
+            //Debug.Log("Has PS04");
             burnStrengthen = true;
             FightPlayer1Config.BurnDamageIncrease += 1f;
         }
