@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AimPlayerShootSkill : MonoBehaviour
 {
-    private enum AimingType {noneMoving, targetDirection, targetPosition, trackingPlayer, straightDirection , straightWaveringly};
+    private enum AimingType {targetDirection, targetPosition, trackingPlayer, straightDirection , straightWaveringly};
     [Header("----------------- Config Setting ------------------")]
     [SerializeField] private AimingType aimingType;
 
