@@ -119,7 +119,7 @@ public class RogueLikePanelManager : MonoBehaviour
         SetPanelActive(false);
 
         //RoundController.Instance.SetTimeScale(1);
-
+        RoundController.Instance.OnRogueLikePanelFinished();
     }
 
     public void DrawSkills(int round)

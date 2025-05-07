@@ -42,6 +42,8 @@ public class RoundController : MonoBehaviour
 	[SerializeField] private int currentLevelIndex = 0; // 當前關卡索引
 	[SerializeField] private int currentStageIndex = 0; // 當前戰鬥索引
 	[SerializeField] private bool levelIsChanged = false;//是否是不同關卡 
+	[SerializeField] private bool isOpeningRogueLike = true;
+
 	//[SerializeField] private bool isFirstTimeEnter = true;// 第一次進入關卡預設為true
 
 	[Header("----------------- Stage Data Count ------------------")]
@@ -122,33 +124,15 @@ public class RoundController : MonoBehaviour
 		this.totalLevelsPerChapter = levelsPerChapter;
 		this.totalStagesPerLevel = stagesPerLevel;
 
-		// Debug Log 記錄數據
-		//Debug.Log($"總章節數: {totalChapters}");
-		//foreach (var levelCount in totalLevelsPerChapter)
-		//{
-		//	Debug.Log($"Chapter {levelCount.Key} 共有 {levelCount.Value} 個 Level");
-		//}
-		//foreach (var stageCount in totalStagesPerLevel)
-		//{
-		//	Debug.Log($"Chapter {stageCount.Key.Item1}, Level {stageCount.Key.Item2} 共有 {stageCount.Value} 個 Stage");
-		//}
-
-		//// 組合 Key 為 "Chapter_X_Level_Y"
-		//string levelKey = $"Chapter_{currentChapterIndex}_Level_{currentLevelIndex}";
-
-		//// 確保 Key 存在，避免 `KeyNotFoundException`
-		//int currentStageCount = totalStagesPerLevel.ContainsKey(levelKey) ? totalStagesPerLevel[levelKey] : 0;
-
-		//Debug.Log($"{currentStageCount} Now Stages");
-
-
 		GameStart();
 		
 		OpenStagePanel();
 		StartCoroutine(CloseStagePanelDelayed(1.5f));
 
-		PauseGame();
-		StartCoroutine(ContinueGameDelayed(1.5f));
+		//PauseGame();
+		//StartCoroutine(ContinueGameDelayed(1.5f));
+
+
 
 		if (currentChapterIndex == 1 && currentLevelIndex == 1)
 		{
@@ -185,33 +169,103 @@ public class RoundController : MonoBehaviour
 			}
 			else if (player2Status.GetHP() <= 0 && canInstFountain)
 			{
-                //GameOver();
-                //GameStart();
-                PlayDeathAnimation();
-
-
-                AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SlimeDie, new Vector3(0, 0.65f, -20));
-
+				PlayDeathAnimation();
+				AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SlimeDie, new Vector3(0, 0.65f, -20));
 				Instantiate(dieEffect, player2.transform.position, Quaternion.Euler(-90, 0, 0));
-				// win
-				//NextStage();
-				//Instantiate(coinFountain, player2.transform.position, Quaternion.Euler(-90,0,0));
 				StartCoroutine(DelayInstCoinFountain(1f));
 
-
 				canInstFountain = false;
-				StartCoroutine(ReloadSceneDelayed(3f)); //5f
-				//SetTimeScale(0.5f);
-				//PauseGame();
 				PauseMainObjects();
+				//PauseGame();
 
-				StartCoroutine(PauseGameDelayed(3f)); //5f
+				// 判斷是否是該 Level 的最後一關
+				int totalStagesInCurrentLevel = 0;
+				if (totalStagesPerLevel.ContainsKey((currentChapterIndex, currentLevelIndex)))
+				{
+					totalStagesInCurrentLevel = totalStagesPerLevel[(currentChapterIndex, currentLevelIndex)];
+				}
 
-				//StartCoroutine(ContinueGameDelayed(3.5f));
+				if (currentStageIndex < totalStagesInCurrentLevel)  // 尚未最後一關，顯示 RogueLike 面板
+				{
+					StartCoroutine(HandleStageClearRogueLikeFlow());
+				}
+				else
+				{
+					// 若已是最後一關，執行 LevelFinished 流程
+					StartCoroutine(DelayLevelFinished(2f)); // 可以稍微延遲一下讓動畫播完
+				}
 			}
+
 		}
-		
+
 	}
+
+	private IEnumerator DelayLevelFinished(float delay)
+	{
+		yield return new WaitForSecondsRealtime(delay);
+		LevelFinished();
+	}
+
+	private IEnumerator OpenInitialRogueLikePanelDelayed()
+	{
+		yield return new WaitForSecondsRealtime(0.1f);
+
+		PauseGame();
+		RogueLikePanelManager.Instance.SetPanelActive(true);
+		RogueLikePanelManager.Instance.DrawSkills(FightPlayer1Config.CurrentStage);
+
+		isOpeningRogueLike = true; // 開場觸發
+	}
+
+	public void OnRogueLikePanelFinished()
+	{
+		RogueLikePanelManager.Instance.SetPanelActive(false);
+
+		// 技能與魔力值重製
+		SkillManager.Instance.InitialSkillManager();
+		MagicPointsManager.Instance.InitialMagicPointsManager();
+		PassiveSkillManager.Instance.InitialPassiveSkillManager();
+
+		ContinueGame();
+
+		if (isOpeningRogueLike)
+		{
+			// 是開場第一次 RogueLike 選擇，不切換關卡，只是繼續遊戲
+			isOpeningRogueLike = false;
+		}
+		else
+		{
+			// 是戰鬥勝利後的 RogueLike 選擇，進入下一關
+			continueMainObjects();
+			NextStage();
+		}
+	}
+
+
+
+	private IEnumerator HandleStageClearRogueLikeFlow()
+	{
+		// Step 1：等待 3 秒
+		yield return new WaitForSecondsRealtime(3f);
+
+		// Step 2：生成金幣
+		//Instantiate(coinFountain, player2.transform.position, Quaternion.Euler(-90, 0, 0));
+
+		// Step 3：再等 3 秒撿金幣
+		//yield return new WaitForSecondsRealtime(1f);
+
+		// Step 4：此時再 Pause 遊戲並顯示 RogueLike 面板
+		//PauseGame();
+
+		//RogueLikePanelManager.Instance.SetPanelActive(true);
+		//RogueLikePanelManager.Instance.DrawSkills(FightPlayer1Config.CurrentStage + 1);
+
+		// 進入下一關
+		continueMainObjects();
+		NextStage();
+	}
+
+
 
 	private IEnumerator DelayInstCoinFountain(float delay)
 	{
@@ -222,11 +276,6 @@ public class RoundController : MonoBehaviour
 	private IEnumerator ReloadSceneDelayed(float delay)
 	{
 		yield return new WaitForSecondsRealtime(delay);
-
-  //      //在下一stage前RogueLike選擇
-  //      RogueLikePanelManager.Instance.SetPanelActive(true);
-  //      RogueLikePanelManager.Instance.DrawSkills(FightPlayer1Config.CurrentStage);
-		//PauseGame();
 
         canInstFountain = true;
 		NextStage();
@@ -266,38 +315,21 @@ public class RoundController : MonoBehaviour
 		// 需要檢查是否到了新關卡或新章節
 		StageDataEntry nextStage = StageData.Instance.FindStage(currentChapterIndex, currentLevelIndex, currentStageIndex);
 
-
 		if (nextStage == null)
 		{
 			//NextLevel();
 			LevelFinished();
 			// 如果找不到下一關，可能需要提升 Level 或 Chapter
 			// 顯示結算畫面
-
 		}
 		else
         {
-			//在下一stage前RogueLike選擇
-			//RogueLikePanelManager.Instance.SetPanelActive(true);
-			//RogueLikePanelManager.Instance.DrawSkills(FightPlayer1Config.CurrentStage);
-			//SetTimeScale(0);
-
 			FightPlayer1Config.CurrentStage = currentStageIndex;
 			FightPlayer1Config.CurrentLevel = currentLevelIndex;
 			FightPlayer1Config.CurrentChapter = currentChapterIndex;
 
-			//PlayerDataManager.Instance.SetPlayerChapter(currentChapterIndex);
-			//PlayerDataManager.Instance.SetPlayerLevel(currentLevelIndex);
-
 			SceneManager.LoadScene("FightScene");
 		}
-		//if (currentLevelIndex != FightPlayer1Config.CurrentLevel 
-		//	|| currentChapterIndex != FightPlayer1Config.CurrentChapter)//若換關卡了
-		//{
-		//	levelIsChanged = true;
-
-		//}
-
 	}
 
 	public void LevelFinished()
@@ -482,9 +514,20 @@ public class RoundController : MonoBehaviour
 
 		}
 
+		//開場RogueLike
+		StartCoroutine(OpenInitialRogueLikePanelDelayed());
+
+		//PauseGame();
+		//RogueLikePanelManager.Instance.SetPanelActive(true);
+		//RogueLikePanelManager.Instance.DrawSkills(FightPlayer1Config.CurrentStage);
+
+		//技能與魔力值重製
 		SkillManager.Instance.InitialSkillManager();
 		MagicPointsManager.Instance.InitialMagicPointsManager();
 	}
+
+
+
 
 	public void PlayDeathAnimation()
 	{

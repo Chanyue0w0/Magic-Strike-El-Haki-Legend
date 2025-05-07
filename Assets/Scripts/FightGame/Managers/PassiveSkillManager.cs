@@ -26,7 +26,7 @@ public class PassiveSkillManager : MonoBehaviour
         Instance = this;
     }
 
-    void Start()
+    public void InitialPassiveSkillManager()
     {
         ball = GameObject.FindGameObjectWithTag("Ball");
 
