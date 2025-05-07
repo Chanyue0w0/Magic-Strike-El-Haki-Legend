@@ -283,7 +283,7 @@ public class EquipmentBag : MonoBehaviour
 		PlayerDataManager.Instance.SetPlayerCoin(playerCoin - upgradeCost);
 		currentEquipment.currentLevel += 1;
 		currentEquipment.healthPoints = equipmentLevelData.GetHealthPoints(currentEquipment.typeID, currentEquipment.currentLevel);
-		currentEquipment.attackPower += equipmentLevelData.GetAttackPower(currentEquipment.typeID, currentEquipment.currentLevel);
+		currentEquipment.attackPower = equipmentLevelData.GetAttackPower(currentEquipment.typeID, currentEquipment.currentLevel);
 
 		// 更新裝備資料與介面
 		PlayerEquipmentManager.Instance.UpdateEquipment(currentEquipment);
