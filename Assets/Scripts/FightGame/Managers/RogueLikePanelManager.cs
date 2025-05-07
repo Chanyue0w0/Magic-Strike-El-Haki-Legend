@@ -232,26 +232,36 @@ public class RogueLikePanelManager : MonoBehaviour
         ClearOwnedSkillIcons();
 
         string[] currentSK = {
-            FightPlayer1Config.Group[1],
-            FightPlayer1Config.Group[2]
-        };
+        FightPlayer1Config.Group[1],
+        FightPlayer1Config.Group[2]
+    };
         string[] currentPS = {
-            FightPlayer1Config.PassiveEffectGroup[0],
-            FightPlayer1Config.PassiveEffectGroup[1]
-        };
+        FightPlayer1Config.PassiveEffectGroup[0],
+        FightPlayer1Config.PassiveEffectGroup[1]
+    };
 
-        int idx = 0;
+        int skIndex = 0;
+        int psIndex = 0;
+
         foreach (var skill in currentSK)
         {
-            if (skill != "SK00")
-                CreateIconAt(ownedSkillIconPositions[idx++], skill);
+            if (skill != "SK00" && skIndex < 2)
+            {
+                CreateIconAt(ownedSkillIconPositions[skIndex], skill);
+                skIndex++;
+            }
         }
+
         foreach (var skill in currentPS)
         {
-            if (skill != "PS00")
-                CreateIconAt(ownedSkillIconPositions[idx++], skill);
+            if (skill != "PS00" && psIndex < 2)
+            {
+                CreateIconAt(ownedSkillIconPositions[psIndex + 2], skill);
+                psIndex++;
+            }
         }
     }
+
 
     private void CreateIconAt(Transform target, string skillID)
     {
