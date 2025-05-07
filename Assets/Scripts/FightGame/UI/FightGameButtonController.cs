@@ -46,6 +46,13 @@ public class FightGameButtonController : MonoBehaviour
     public void OnClickExit()
     {
         roundController.SetTimeScale(1);
+
+        FightPlayer1Config.Group[1] = "SK00";
+        FightPlayer1Config.Group[2] = "SK00";
+
+        FightPlayer1Config.PassiveEffectGroup[0] = "PS00";
+        FightPlayer1Config.PassiveEffectGroup[1] = "PS00";
+
         Destroy(AudioManager.Instance.gameObject);
         SceneManager.LoadSceneAsync("MainMenuScene");
     }
@@ -55,6 +62,13 @@ public class FightGameButtonController : MonoBehaviour
         //SceneManager.LoadSceneAsync("FightScene");
         FightPlayer1Config.NowHP = FightPlayer1Config.StartHP;
         FightPlayer1Config.isFirstTimeEnter = true;
+
+        FightPlayer1Config.Group[1] = "SK00";
+        FightPlayer1Config.Group[2] = "SK00";
+
+        FightPlayer1Config.PassiveEffectGroup[0] = "PS00";
+        FightPlayer1Config.PassiveEffectGroup[1] = "PS00";
+
         SceneManager.LoadScene("FightScene");
         //Time.timeScale = 1;
     }
