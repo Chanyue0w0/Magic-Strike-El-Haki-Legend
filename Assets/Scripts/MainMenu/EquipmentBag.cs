@@ -182,7 +182,7 @@ public class EquipmentBag : MonoBehaviour
 		bgRarity.sprite = Resources.Load<Sprite>("Arts/MainScenes/EqipmentInfoBackground/" + currentEquipment.rarity);
 
 		// 升級金幣部分：若金錢不足則文字變紅
-		int upgradeCost = equipmentLevelData.GetCostMoney(currentEquipment.typeID, currentEquipment.currentLevel);
+		int upgradeCost = equipmentLevelData.GetCostMoney(currentEquipment.typeID, currentEquipment.rarity, currentEquipment.currentLevel);
 		int playerCoin = PlayerDataManager.Instance.GetPlayerCoin();
 		costCoin.text = $"{upgradeCost} / {playerCoin}";
 		if (playerCoin < upgradeCost)
@@ -272,7 +272,7 @@ public class EquipmentBag : MonoBehaviour
 
 		// 檢查玩家金幣是否足夠
 		int playerCoin = PlayerDataManager.Instance.GetPlayerCoin();
-		int upgradeCost = equipmentLevelData.GetCostMoney(currentEquipment.typeID, currentEquipment.currentLevel);
+		int upgradeCost = equipmentLevelData.GetCostMoney(currentEquipment.typeID, currentEquipment.rarity, currentEquipment.currentLevel);
 		if (playerCoin < upgradeCost)
 		{
 			Debug.Log("玩家金幣不足，無法升級裝備。");
@@ -282,8 +282,8 @@ public class EquipmentBag : MonoBehaviour
 		// 扣除金幣並升級裝備（等級 +1，HP 與 ATK 分別增加預設數值）
 		PlayerDataManager.Instance.SetPlayerCoin(playerCoin - upgradeCost);
 		currentEquipment.currentLevel += 1;
-		currentEquipment.healthPoints = equipmentLevelData.GetHealthPoints(currentEquipment.typeID, currentEquipment.currentLevel);
-		currentEquipment.attackPower = equipmentLevelData.GetAttackPower(currentEquipment.typeID, currentEquipment.currentLevel);
+		currentEquipment.healthPoints = equipmentLevelData.GetHealthPoints(currentEquipment.typeID, currentEquipment.rarity, currentEquipment.currentLevel);
+		currentEquipment.attackPower = equipmentLevelData.GetAttackPower(currentEquipment.typeID, currentEquipment.rarity, currentEquipment.currentLevel);
 
 		// 更新裝備資料與介面
 		PlayerEquipmentManager.Instance.UpdateEquipment(currentEquipment);
