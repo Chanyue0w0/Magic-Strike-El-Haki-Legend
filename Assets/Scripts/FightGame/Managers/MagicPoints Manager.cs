@@ -19,7 +19,7 @@ public class MagicPointsManager : MonoBehaviour
     [SerializeField] private Animator MagicStonesUI_animator;
 
     [Header("----------------- Magic Blue Sparkling ------------------")]
-    [SerializeField] private GameObject p1MagicSparkling;// 玩家1 魔法可使用動畫
+    //[SerializeField] private GameObject p1MagicSparkling;// 玩家1 魔法可使用動畫
     [SerializeField] private GameObject p1SparklingRing;
     //[SerializeField] private GameObject p2MagicBlueSparkling;// 玩家2 魔法可使用動畫
 
@@ -132,7 +132,7 @@ public class MagicPointsManager : MonoBehaviour
             MagicStonesUI_animator.SetInteger("MagicPoint", p1CurrentMagicPoint);
 
             if (p1CurrentMagicPoint == p1MaxMagicPoint)
-                p1MagicSparkling.SetActive(true);
+                p1SparklingRing.SetActive(true);
         }
         else
         {
