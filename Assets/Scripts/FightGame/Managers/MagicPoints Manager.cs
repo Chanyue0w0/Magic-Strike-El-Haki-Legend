@@ -84,7 +84,7 @@ public class MagicPointsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // °»´ú·Æ¹«¥ªÁäÂIÀ»
+        if (Input.GetMouseButtonDown(0) && RoundController.Instance.GetGameStatus() == "Continue") // °»´ú·Æ¹«¥ªÁäÂIÀ»
         {
             if (Time.time - lastClickTime < doubleClickThreshold)
             {
