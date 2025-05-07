@@ -24705,6 +24705,7 @@ MonoBehaviour:
   playerNumber: 1
   targetNumber: 2
   attackDamage: 70
+  soundEffect: 
   EffectToApply: 0
   explosion: {fileID: 1865955982302731780, guid: 819c15640b5cb044fae1e76d4e3b2d5f, type: 3}
 --- !u!114 &1194285066067967631
@@ -34362,9 +34363,9 @@ MonoBehaviour:
     useMainCamera: 1
     cameras: []
     delay: 0.1
-    duration: 1
+    duration: 0.3
     shakeSpace: 0
-    shakeStrength: {x: 0.1, y: 0.5, z: 0.1}
+    shakeStrength: {x: 0.1, y: 0.1, z: 0.1}
     shakeCurve:
       serializedVersion: 2
       m_Curve:

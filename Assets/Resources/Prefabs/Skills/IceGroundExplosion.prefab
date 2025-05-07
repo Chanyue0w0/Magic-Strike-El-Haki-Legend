@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 547771538886793961}
   - component: {fileID: 8751350814468598821}
   - component: {fileID: -4250835048374196132}
+  - component: {fileID: 5059411235067887116}
   m_Layer: 0
   m_Name: IceGroundExplosion
   m_TagString: DamageSkill
@@ -96,3 +97,17 @@ MonoBehaviour:
   soundEffect: 
   EffectToApply: 0
   explosion: {fileID: 6760317645925054904, guid: c26c553f0740c5043ad46298e5229d84, type: 3}
+--- !u!114 &5059411235067887116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7835418233170147710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420587d50df050348b0b3341b63742c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dTime: 1
+  unscaleDestroy: 0

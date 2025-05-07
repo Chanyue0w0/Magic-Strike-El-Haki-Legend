@@ -129,7 +129,7 @@ public class RoundController : MonoBehaviour
 		OpenStagePanel();
 		StartCoroutine(CloseStagePanelDelayed(1.5f));
 
-		//PauseGame();
+		PauseGame();
 		//StartCoroutine(ContinueGameDelayed(1.5f));
 
 
@@ -204,6 +204,7 @@ public class RoundController : MonoBehaviour
 	{
 		yield return new WaitForSecondsRealtime(delay);
 		LevelFinished();
+		PauseGame();
 	}
 
 	private IEnumerator OpenInitialRogueLikePanelDelayed()
@@ -340,6 +341,10 @@ public class RoundController : MonoBehaviour
 		WinPanel.SetActive(true);
 
 		FightPlayer1Config.CurrentStage = 1; // 強制重製
+
+		FightPlayer1Config.Group[1] = "SK00"; // 重製持有技能
+		FightPlayer1Config.Group[2] = "SK00"; // 重製持有技能
+
 		RewardManager.Instance.GenerateReward();
 
 		// 當前關卡資訊
