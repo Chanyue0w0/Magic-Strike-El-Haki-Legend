@@ -55,7 +55,7 @@ public class PlayerControllerRelative : MonoBehaviour
 
     void Update()
     {
-        if(!isStuned && !isGrasp)
+        if(!isStuned && !isGrasp && RoundController.Instance.GetGameStatus() == "Continue")
         {
             PlayerMoving();
         }

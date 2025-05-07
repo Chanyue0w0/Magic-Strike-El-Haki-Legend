@@ -229,6 +229,8 @@ public class RoundController : MonoBehaviour
 
 		ContinueGame();
 
+		//player1.transform.position = new Vector2(0, -2f);
+
 		if (isOpeningRogueLike)
 		{
 			// 是開場第一次 RogueLike 選擇，不切換關卡，只是繼續遊戲
@@ -604,6 +606,11 @@ public class RoundController : MonoBehaviour
 		//Time.timeScale = 1;
 	}
 
+	//回傳當前遊戲狀態
+	public string GetGameStatus()
+    {
+		return gameStatus;
+    }
 
 	public void SetTimeScale(float tScale)
     {
