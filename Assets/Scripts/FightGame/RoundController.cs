@@ -192,7 +192,7 @@ public class RoundController : MonoBehaviour
 				else
 				{
 					// 若已是最後一關，執行 LevelFinished 流程
-					StartCoroutine(DelayLevelFinished(2f)); // 可以稍微延遲一下讓動畫播完
+					StartCoroutine(DelayLevelFinished(3f)); // 可以稍微延遲一下讓動畫播完
 				}
 			}
 
