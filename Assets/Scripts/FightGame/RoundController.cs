@@ -529,8 +529,8 @@ public class RoundController : MonoBehaviour
 		//RogueLikePanelManager.Instance.DrawSkills(FightPlayer1Config.CurrentStage);
 
 		//技能與魔力值重製
-		SkillManager.Instance.InitialSkillManager();
-		MagicPointsManager.Instance.InitialMagicPointsManager();
+		//SkillManager.Instance.InitialSkillManager();
+		//MagicPointsManager.Instance.InitialMagicPointsManager();
 	}
 
 
