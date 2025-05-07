@@ -1,0 +1,1680 @@
+fileFormatVersion: 2
+guid: 71e1a35046f102743be0a91044cd6e7b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GainMagicPoint_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5121
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55c5aaaa59b040747bb19b376c70d03c
+      internalID: 163650465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 5121
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d6fe021a5a078c4d8c4268dc484d3b9
+      internalID: 1867790844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5121
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2fc9677dda6bd546bf32f8ae1348b81
+      internalID: -1887947617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5121
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 719805c3bfa39c74fa42cdf99305ae3e
+      internalID: -403586550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 5121
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 561cb22c6c290bd42b576374b1ddde66
+      internalID: 184574446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 5121
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ead00bae0de8d954888ea7077c8bdac9
+      internalID: 1049956553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_6
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5121
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e989dcdc161e47849864fdc5ba248def
+      internalID: -1426938847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4552
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7856cba1ca0b9c84ca01d5d989c0ecfd
+      internalID: -2056832157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_8
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4552
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b901f366bdaf28c47a63e78cb16bb133
+      internalID: 1664267116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4552
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2e1685d673f79d48aa562142f80ac9a
+      internalID: 75646352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_10
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4552
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6416278de73c24f4d95c3ce474ffebbe
+      internalID: 102452238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_11
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 4552
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 856b98cce75dde6418638d820dd77573
+      internalID: 1716060883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_12
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 4552
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 574565485fef7f14b9ff81b1ae244c39
+      internalID: 1033536009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_13
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 4552
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1baa0cca9005d68469f48b8879bc62dc
+      internalID: 359322461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3983
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 757496e8ef003724aa792e1f429e2e15
+      internalID: -1493695397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_15
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3983
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd26cc1df962dc7408fc4654e4fa32bc
+      internalID: 366266830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_16
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3983
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6b2a036a8e4b5e4c9256eaac18a73d4
+      internalID: 300318764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_17
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3983
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f87c9a679413834ba950e3ad45893bf
+      internalID: 1127697541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_18
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3983
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46d1d60a9fb8b564f9a9352737fb5cf0
+      internalID: 658498925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_19
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 3983
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d4c18fa03fc9a94eaf57bc06672d5f7
+      internalID: -779554774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_20
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3983
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3618787764369fa498bf9462461e14a5
+      internalID: 1458633616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3414
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 805ef8dc70cb167468e79c961341c624
+      internalID: -1981997360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_22
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3414
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbd25f11e7371b242a84a6bb282eaf10
+      internalID: -97526451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_23
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3414
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0aae10dc9815fd44a764406c9377e98
+      internalID: -1303296686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_24
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3414
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 037987481aa690e43b6a76eb11f3345f
+      internalID: 1219687879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_25
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3414
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3811be887259b4d4592a2c6d9bfdd723
+      internalID: -1083229784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_26
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 3414
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce9aaf0122381584e91b503821755e97
+      internalID: 677627370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_27
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3414
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e599af4b0d0e1094c9632cf48e21fa98
+      internalID: -1291537038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2845
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a84feef2ae743f4a975cb36654d98d5
+      internalID: -2128044597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_29
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2845
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38186e5c771a20249bb3f7cdc5ebdb28
+      internalID: -1623071159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_30
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2845
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46ba2351f0ab34d4d8ec520a5f4211f8
+      internalID: -1051914529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_31
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2845
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85b5ee1ecf0ea1348a671688178f5feb
+      internalID: 547287069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_32
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2845
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6e27988e3715444497cd7fd58db0a7c
+      internalID: 678024790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_33
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2845
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f831053d0deb7b449e3945a0af56985
+      internalID: -1656672808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_34
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2845
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3226882476ed74f4b89e121d4787b004
+      internalID: 1943822555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2276
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f7b62100065f1d4eb9404656842e05c
+      internalID: 461525463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_36
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2276
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca04cbddf94332343bcb6fa8f9f9661b
+      internalID: -1817606661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_37
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2276
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 700ac3579cc750842bf169e65eb3297a
+      internalID: 1136692637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_38
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2276
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 630c9969774e2eb4f851ddec9df7df80
+      internalID: 1461074731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_39
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2276
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1f2d660c9d115849bf08c5f72923f37
+      internalID: -1698477599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_40
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2276
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da00712fd1d04bd46bc9d5b63d432e2d
+      internalID: -1539155303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_41
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2276
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cb1a28474388dc41870eb84ef88f847
+      internalID: -1688129987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1707
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d98c591ff4316324d9f4f931ae1da49d
+      internalID: 592006061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_43
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1707
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d6df940317de1f47a4e14fa213b2010
+      internalID: -1163419420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_44
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1707
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a6de48da6b82654d9964deecbd1a391
+      internalID: 1090220271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_45
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1707
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb166724acc7fe04f85629dfdc168f47
+      internalID: -1074124181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_46
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1707
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb42b5de3b5a67e4190daa98769c53bb
+      internalID: -462746009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_47
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1707
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1efa2db619b175f4abb15552c29abcd7
+      internalID: -870684334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_48
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1707
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 640e822ebe4c00a448b3ab098244639f
+      internalID: 1585555529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1138
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 694ce5387300d8e45b91ab0226fcf5f6
+      internalID: 301557826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_50
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1138
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0cc18d77b5b5584ea6238352c691fbb
+      internalID: -578321846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_51
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1138
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 261613db3b008a941abc31abe7a09155
+      internalID: 471953914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_52
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1138
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 634361e1467426c43ac120e27d55101b
+      internalID: 827297194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_53
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1138
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9b1da638b62cb940b3daedf8dbe9dca
+      internalID: -1056007733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_54
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1138
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01152315d9c30654fad4d53cdae17ef4
+      internalID: -1203503453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_55
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1138
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e47a64da41a7e4484bbba8d410f35d
+      internalID: 1947213155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 569
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c64c9ab7673432c4d8881c6daedbcfb0
+      internalID: -1533712471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_57
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 569
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2f82c5a02b8946449ddc98a2a7e5c37
+      internalID: 884825236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_58
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 569
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c4da95c31c07164b8b7deb68af42811
+      internalID: 227141445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_59
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 569
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e86918aaf25b7ec4e8183724e1d7457f
+      internalID: 1222213969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_60
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 569
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45589cef337838e4091993e4786c01d1
+      internalID: 1523352664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_61
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 569
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b562c77ebb213c4695621c9b2723f9a
+      internalID: -1130409781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_62
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 569
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98e830363c0a0b44db4bf5ab88e21caf
+      internalID: 623189423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28dfd3c0bd148b64ca526c5b13715007
+      internalID: -1584653476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_64
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea9ccad7f9685af409382107dee90bde
+      internalID: 890483468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_65
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 941321212ea599e4f9fe721679fad895
+      internalID: -1683312653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_66
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5fc0c82b6368584d97dfd22a367c397
+      internalID: 989954719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_67
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a61da53ffc43f444992313171508a0ef
+      internalID: 1400423873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_68
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 035315552d526404c95741f25a81803f
+      internalID: -22594101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GainMagicPoint_69
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2add052f5cbd3145a347de5335aa222
+      internalID: -678975095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      GainMagicPoint_0: 163650465
+      GainMagicPoint_1: 1867790844
+      GainMagicPoint_10: 102452238
+      GainMagicPoint_11: 1716060883
+      GainMagicPoint_12: 1033536009
+      GainMagicPoint_13: 359322461
+      GainMagicPoint_14: -1493695397
+      GainMagicPoint_15: 366266830
+      GainMagicPoint_16: 300318764
+      GainMagicPoint_17: 1127697541
+      GainMagicPoint_18: 658498925
+      GainMagicPoint_19: -779554774
+      GainMagicPoint_2: -1887947617
+      GainMagicPoint_20: 1458633616
+      GainMagicPoint_21: -1981997360
+      GainMagicPoint_22: -97526451
+      GainMagicPoint_23: -1303296686
+      GainMagicPoint_24: 1219687879
+      GainMagicPoint_25: -1083229784
+      GainMagicPoint_26: 677627370
+      GainMagicPoint_27: -1291537038
+      GainMagicPoint_28: -2128044597
+      GainMagicPoint_29: -1623071159
+      GainMagicPoint_3: -403586550
+      GainMagicPoint_30: -1051914529
+      GainMagicPoint_31: 547287069
+      GainMagicPoint_32: 678024790
+      GainMagicPoint_33: -1656672808
+      GainMagicPoint_34: 1943822555
+      GainMagicPoint_35: 461525463
+      GainMagicPoint_36: -1817606661
+      GainMagicPoint_37: 1136692637
+      GainMagicPoint_38: 1461074731
+      GainMagicPoint_39: -1698477599
+      GainMagicPoint_4: 184574446
+      GainMagicPoint_40: -1539155303
+      GainMagicPoint_41: -1688129987
+      GainMagicPoint_42: 592006061
+      GainMagicPoint_43: -1163419420
+      GainMagicPoint_44: 1090220271
+      GainMagicPoint_45: -1074124181
+      GainMagicPoint_46: -462746009
+      GainMagicPoint_47: -870684334
+      GainMagicPoint_48: 1585555529
+      GainMagicPoint_49: 301557826
+      GainMagicPoint_5: 1049956553
+      GainMagicPoint_50: -578321846
+      GainMagicPoint_51: 471953914
+      GainMagicPoint_52: 827297194
+      GainMagicPoint_53: -1056007733
+      GainMagicPoint_54: -1203503453
+      GainMagicPoint_55: 1947213155
+      GainMagicPoint_56: -1533712471
+      GainMagicPoint_57: 884825236
+      GainMagicPoint_58: 227141445
+      GainMagicPoint_59: 1222213969
+      GainMagicPoint_6: -1426938847
+      GainMagicPoint_60: 1523352664
+      GainMagicPoint_61: -1130409781
+      GainMagicPoint_62: 623189423
+      GainMagicPoint_63: -1584653476
+      GainMagicPoint_64: 890483468
+      GainMagicPoint_65: -1683312653
+      GainMagicPoint_66: 989954719
+      GainMagicPoint_67: 1400423873
+      GainMagicPoint_68: -22594101
+      GainMagicPoint_69: -678975095
+      GainMagicPoint_7: -2056832157
+      GainMagicPoint_8: 1664267116
+      GainMagicPoint_9: 75646352
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

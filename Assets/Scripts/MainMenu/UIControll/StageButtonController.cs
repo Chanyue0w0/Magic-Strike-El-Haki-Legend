@@ -16,6 +16,8 @@ public class StageButtonController : MonoBehaviour
 	private int selectedChapter;
 	private int selectedLevel;
 
+	private GameObject preFrame;
+
 	private void Start()
 	{
 		GenerateStageButtons();
@@ -61,6 +63,8 @@ public class StageButtonController : MonoBehaviour
 				else if (currentChapter == chapter && currentLevel > level) isPassed = true;
 				bool isUnLocked = (currentLevel == level) && (currentChapter == chapter);
 
+				// 設定外框
+				newButton.transform.Find("frame Image").gameObject.SetActive(false);
 				// **設定背景圖片**
 				Image bgImage = newButton.transform.Find("bg Image")?.GetComponent<Image>();
 				if (bgImage != null)
@@ -168,6 +172,11 @@ public class StageButtonController : MonoBehaviour
 			Debug.LogWarning($"OnClickFixCenterStage : 找不到 Chapter_{cha}_Level_{lv}。");
 			return;
 		}
+
+		// 更新鎖定框
+		preFrame?.SetActive(false);
+		preFrame = target.transform.Find("frame Image")?.gameObject;
+		preFrame.SetActive(true);
 
 		// 2. 抓到 ScrollRect（通常跟 viewport 同一層） ----------
 		ScrollRect sr = stageButtonContainer.GetComponentInParent<ScrollRect>();

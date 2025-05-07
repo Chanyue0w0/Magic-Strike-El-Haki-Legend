@@ -1,0 +1,1372 @@
+fileFormatVersion: 2
+guid: e8390f07e1270664a94772172bb4987b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 3.SkillBubble_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3983
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16ae89874ba7e864bbfca93321609bd1
+      internalID: 332547892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3983
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39275cac80c224f40b9127d9548ebc53
+      internalID: 873714466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3983
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27662029ec7c1544d8dc67f355711670
+      internalID: 1716681648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3983
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16e3ab2038fd924c9f1dbd2e1f6c64d
+      internalID: 1479137060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3983
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d440795211dd12c4ab4157a427a17c48
+      internalID: -1701663416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 3983
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e396f670b5e4ff47842190cdb7fc892
+      internalID: -849498820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_6
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3983
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc3d9cd2dcc57344098d7a2da0086602
+      internalID: 1041150884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3414
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c0927f0fc520354b856cab44247d6b9
+      internalID: 704612473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_8
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3414
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a222bc2a2c0d834483d9d75ea37808a
+      internalID: -1096815225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3414
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7df7301be7acae64da50377c28b633d8
+      internalID: 2124788622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_10
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3414
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92e0272027a442d4bbad1c00648e9cac
+      internalID: 968115654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_11
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3414
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2728e64704b21364e8ceac9787d537ae
+      internalID: -1501208220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_12
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 3414
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c98dc08ed719eb49838fcea13807871
+      internalID: -719637287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_13
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3414
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea9cab7d8681354fb0c09bfa74d0af5
+      internalID: 1511586530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2845
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94db93b2bf7e3604e93dc9c3e98b8b4c
+      internalID: -1480556970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_15
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2845
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 756b46519e6c4f5439b13b6b691fc2de
+      internalID: -799747101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_16
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2845
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 776cd109ad563474a932f5eef1be36dd
+      internalID: 1290874564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_17
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2845
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09418edca5b9f9f41ac253814166d097
+      internalID: -834591917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_18
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2845
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cef379a61322834a88bedaec61348b7
+      internalID: -1821145407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_19
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2845
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5345fc96b6b6b83478e358a302df1fe6
+      internalID: -1549742159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_20
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2845
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29613994ae3861345bd151047fd9f969
+      internalID: 1168187334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2276
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5feba02a23584334bba0a8b497cf8e43
+      internalID: -897597099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_22
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2276
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 437ddd920783f824bbd4b802c876cc45
+      internalID: 633018751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_23
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2276
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 551db948dc4ff1847a001bab8d01783e
+      internalID: 812076311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_24
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2276
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da8f5dea238df7c4eb3582710a3a6f6b
+      internalID: 1957864749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_25
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2276
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c85ee816bf1cd45b1cdd752a593616
+      internalID: 1965224475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_26
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 2276
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd0030add7b665344847b26373744205
+      internalID: 1784135965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_27
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2276
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13f7c01edd6b635468db459807abe65a
+      internalID: 1569600670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1707
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c43e2fac76508bd4eb49ce11fd4fcc45
+      internalID: 1703770642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_29
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1707
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 624e5808b0fece54396d7916b420aa8c
+      internalID: 1059889217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_30
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1707
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1508b595e146474da20b2879adeca1d
+      internalID: -454187125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_31
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1707
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fbd95ea9d0787a4ab571617035dfedf
+      internalID: -1828361481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_32
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1707
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d610ca78cf5cee44817ced24332be25
+      internalID: 1449879888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_33
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1707
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e00549cc5d79934889729372262c4d7
+      internalID: 559264002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_34
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1707
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a9b672592f5eba42901edd72f7658a2
+      internalID: -976888697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1138
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 386d63607422c5a409dfe537e26a7d6f
+      internalID: -596159074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_36
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1138
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 161dbaa018d722c4b8d68d67952bce2a
+      internalID: 309419218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_37
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1138
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eee62eb3b46ec7142b420dc551335802
+      internalID: 1773727642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_38
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1138
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e33df5b9d2bae814eb6aa92eea3580e4
+      internalID: 459948755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_39
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1138
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 081e0568fc663d84cae26a028e9cb032
+      internalID: -1077239797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_40
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1138
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e6fe1becd44f9343a554f56a55a5239
+      internalID: -1446324907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_41
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1138
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e242cc8d50ba9c41aa7da4574dbe392
+      internalID: 87190455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 569
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19b3a772f9b1aaa4c9005ffd13e89dae
+      internalID: 446876479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_43
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 569
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c008ec5b2cada5f429919dc12af0c97d
+      internalID: 835792358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_44
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 569
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b99a806b0cf82349a3d0fae2cb5360a
+      internalID: 86671965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_45
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 569
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec106b6cc5d879742ae003ced0697e2f
+      internalID: -1249423219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_46
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 569
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72811dae0c625f4f8ff86a052b52484
+      internalID: -698943633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_47
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 569
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 903d6317d4a2df240843bf2218aa2d93
+      internalID: 217580409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_48
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 569
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff2bc46b4bac42f4c8a4f7b1fb252c17
+      internalID: 735206932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 616fc239954e14044a2700c69a26922f
+      internalID: 1564744346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_50
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5dda9c4d64aac45b053af7cb6e1fbf
+      internalID: 1740833040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_51
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e1d08e430ff7c4cad92422d952a925
+      internalID: 1638089246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_52
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96cd20e3a788ff14e9ea8127f3053530
+      internalID: -1889349786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_53
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bb2eced0e7cf5e4b83c4def6be01f61
+      internalID: -2018107396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_54
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f092dd35b2b3f3b47b010aaad5814145
+      internalID: 1537453870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.SkillBubble_55
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 320
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8786f1b5c1cee8a43bb248392dd92740
+      internalID: -297238135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      3.SkillBubble_0: 332547892
+      3.SkillBubble_1: 873714466
+      3.SkillBubble_10: 968115654
+      3.SkillBubble_11: -1501208220
+      3.SkillBubble_12: -719637287
+      3.SkillBubble_13: 1511586530
+      3.SkillBubble_14: -1480556970
+      3.SkillBubble_15: -799747101
+      3.SkillBubble_16: 1290874564
+      3.SkillBubble_17: -834591917
+      3.SkillBubble_18: -1821145407
+      3.SkillBubble_19: -1549742159
+      3.SkillBubble_2: 1716681648
+      3.SkillBubble_20: 1168187334
+      3.SkillBubble_21: -897597099
+      3.SkillBubble_22: 633018751
+      3.SkillBubble_23: 812076311
+      3.SkillBubble_24: 1957864749
+      3.SkillBubble_25: 1965224475
+      3.SkillBubble_26: 1784135965
+      3.SkillBubble_27: 1569600670
+      3.SkillBubble_28: 1703770642
+      3.SkillBubble_29: 1059889217
+      3.SkillBubble_3: 1479137060
+      3.SkillBubble_30: -454187125
+      3.SkillBubble_31: -1828361481
+      3.SkillBubble_32: 1449879888
+      3.SkillBubble_33: 559264002
+      3.SkillBubble_34: -976888697
+      3.SkillBubble_35: -596159074
+      3.SkillBubble_36: 309419218
+      3.SkillBubble_37: 1773727642
+      3.SkillBubble_38: 459948755
+      3.SkillBubble_39: -1077239797
+      3.SkillBubble_4: -1701663416
+      3.SkillBubble_40: -1446324907
+      3.SkillBubble_41: 87190455
+      3.SkillBubble_42: 446876479
+      3.SkillBubble_43: 835792358
+      3.SkillBubble_44: 86671965
+      3.SkillBubble_45: -1249423219
+      3.SkillBubble_46: -698943633
+      3.SkillBubble_47: 217580409
+      3.SkillBubble_48: 735206932
+      3.SkillBubble_49: 1564744346
+      3.SkillBubble_5: -849498820
+      3.SkillBubble_50: 1740833040
+      3.SkillBubble_51: 1638089246
+      3.SkillBubble_52: -1889349786
+      3.SkillBubble_53: -2018107396
+      3.SkillBubble_54: 1537453870
+      3.SkillBubble_55: -297238135
+      3.SkillBubble_6: 1041150884
+      3.SkillBubble_7: 704612473
+      3.SkillBubble_8: -1096815225
+      3.SkillBubble_9: 2124788622
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
