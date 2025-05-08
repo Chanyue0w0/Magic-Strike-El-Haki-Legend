@@ -226,6 +226,7 @@ public class RoundController : MonoBehaviour
 		SkillManager.Instance.InitialSkillManager();
 		MagicPointsManager.Instance.InitialMagicPointsManager();
 		PassiveSkillManager.Instance.InitialPassiveSkillManager();
+		player1Status.InitStatus(); // 多一次重製玩家
 
 		ContinueGame();
 

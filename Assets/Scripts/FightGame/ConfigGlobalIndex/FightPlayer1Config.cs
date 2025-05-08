@@ -5,8 +5,8 @@ using UnityEngine;
 public static class FightPlayer1Config
 {
 	public static int CurrentChapter = 1;
-	public static int CurrentLevel = 2;
-	public static int CurrentStage = 1;
+	public static int CurrentLevel = 3;
+	public static int CurrentStage = 2;
 
 	public static string[] Group = { "HR00", "SK00", "SK00" };
 	public static string[] PassiveEffectGroup = { "PS00", "PS00" };
@@ -19,6 +19,7 @@ public static class FightPlayer1Config
 
 	public static float BurnDamageIncrease = 0.0f;
 
+	//public static int InitialMaxHP = 1000;//初始最大生命
 	public static int StartHP = 1000;
 	public static int NowHP = 1000;
 	public static int StartATK = 100;

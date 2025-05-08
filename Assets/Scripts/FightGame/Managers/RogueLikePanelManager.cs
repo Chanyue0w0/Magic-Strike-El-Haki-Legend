@@ -114,6 +114,17 @@ public class RogueLikePanelManager : MonoBehaviour
                 FightPlayer1Config.PassiveEffectGroup[1] = skillID;
             }
         }
+        else if (type == "IS")
+        {
+            if(skillID == "IS01")//恢復最大生命20%
+            {
+                FightPlayer1Config.NowHP += Mathf.RoundToInt(FightPlayer1Config.StartHP * 0.2f);
+            } 
+            else if (skillID == "IS02")//補滿魔力值
+            {
+                FightPlayer1Config.NowMagicPoint = 5;
+            }
+        }
 
         //關閉Panel
         SetPanelActive(false);
