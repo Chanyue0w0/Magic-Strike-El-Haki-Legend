@@ -26,6 +26,9 @@ public class RogueLikePanelManager : MonoBehaviour
     private HashSet<string> ownedActiveSkills = new HashSet<string>();
     private HashSet<string> ownedPassiveSkills = new HashSet<string>();
 
+    private string[] drawnSkillIDs = new string[3];
+
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -204,13 +207,127 @@ public class RogueLikePanelManager : MonoBehaviour
                 infoText.text = data.Info;
 
             Transform icon = instance.transform.Find("SkillIcon");
+
+            // 綁定 ReDrawButton 功能
+            Transform redrawBtn = instance.transform.Find("ReDrawButton");
+
+            if (redrawBtn != null && redrawBtn.TryGetComponent(out Button redrawButton))
+            {
+                int capturedIndex = i;
+                redrawButton.onClick.AddListener(() => RedrawSingleSkill(capturedIndex));
+            }
+
+
             if (icon != null && icon.TryGetComponent(out Image iconImage))
             {
                 Sprite sprite = Resources.Load<Sprite>($"Arts/FightScene/RogueLikePanelIcons/icon/{skillID}");
                 if (sprite != null) iconImage.sprite = sprite;
             }
+
+            drawnSkillIDs[i] = skillID;
+
         }
     }
+
+    public void RedrawSingleSkill(int index)
+    {
+        if (index < 0 || index >= 3) return;
+
+        // 找出目前已抽中的技能，排除自己這格
+        List<string> currentDrawnSkills = new List<string>();
+        for (int i = 0; i < drawnSkillIDs.Length; i++)
+        {
+            if (i != index && !string.IsNullOrEmpty(drawnSkillIDs[i]))
+            {
+                currentDrawnSkills.Add(drawnSkillIDs[i]);
+            }
+        }
+
+        // 額外排除當前那格本身的技能
+        if (!string.IsNullOrEmpty(drawnSkillIDs[index]))
+        {
+            currentDrawnSkills.Add(drawnSkillIDs[index]);
+        }
+
+
+        // 更新可用技能清單
+        UpdateOwnedSkillSets();
+        List<string> candidates = new List<string>();
+        bool hasSKSlot = HasEmptySKSlot();
+        bool hasPSSlot = HasEmptyPSSlot();
+
+        foreach (var pair in allSkillData)
+        {
+            string id = pair.Key;
+            string type = pair.Value.Type;
+
+            bool isOwned = (type == "SK" && ownedActiveSkills.Contains(id)) ||
+                           (type == "PS" && ownedPassiveSkills.Contains(id));
+
+            bool typeAllowed = (FightPlayer1Config.CurrentStage == 1 && type == "SK") ||
+                               (FightPlayer1Config.CurrentStage == 2) ||
+                               (FightPlayer1Config.CurrentStage == 3 && (hasSKSlot || type != "SK")) ||
+                               (FightPlayer1Config.CurrentStage == 4 && (
+                                    (!hasSKSlot && !hasPSSlot && type == "IS") ||
+                                    (!hasSKSlot && type != "SK") ||
+                                    (!hasPSSlot && type != "PS") ||
+                                    (hasSKSlot && hasPSSlot)));
+
+            if (typeAllowed && !isOwned && !currentDrawnSkills.Contains(id))
+                candidates.Add(id);
+        }
+
+        if (candidates.Count == 0) return;
+
+        string newSkillID = GetRandomSubset(candidates, 1)[0];
+
+        // 清空原先的
+        foreach (Transform child in skillButtonPositions[index])
+        {
+            Destroy(child.gameObject);
+        }
+
+        // 生成新按鈕
+        SkillData data = allSkillData[newSkillID];
+        GameObject template = skillTemplatePrefabs[data.Type];
+        GameObject instance = Instantiate(template, skillButtonPositions[index]);
+        instance.transform.localPosition = buttonLocalPositions[index];
+        instance.transform.localRotation = Quaternion.identity;
+        instance.name = newSkillID; // 方便找出已抽技能
+
+        Button button = instance.GetComponent<Button>();
+        if (button != null)
+        {
+            button.onClick.AddListener(() => OnSkillButtonClicked(newSkillID));
+        }
+
+        Transform title = instance.transform.Find("SkillTitle");
+        if (title != null && title.TryGetComponent(out Text titleText))
+            titleText.text = data.Title;
+
+        Transform info = instance.transform.Find("SkillInfo");
+        if (info != null && info.TryGetComponent(out Text infoText))
+            infoText.text = data.Info;
+
+        Transform icon = instance.transform.Find("SkillIcon");
+        if (icon != null && icon.TryGetComponent(out Image iconImage))
+        {
+            Sprite sprite = Resources.Load<Sprite>($"Arts/FightScene/RogueLikePanelIcons/icon/{newSkillID}");
+            if (sprite != null) iconImage.sprite = sprite;
+        }
+
+        // 加上 ReDrawButton 的綁定
+        Transform redrawBtn = instance.transform.Find("ReDrawButton");
+        if (redrawBtn != null && redrawBtn.TryGetComponent(out Button redrawButton))
+        {
+            int capturedIndex = index;
+            redrawButton.onClick.AddListener(() => RedrawSingleSkill(capturedIndex));
+        }
+
+        drawnSkillIDs[index] = newSkillID;
+
+    }
+
 
     private void UpdateOwnedSkillSets()
     {
