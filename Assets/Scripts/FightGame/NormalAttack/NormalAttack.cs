@@ -163,7 +163,8 @@ public class NormalAttack : MonoBehaviour
             }
             else if (playerNumber == 2)
             {
-                AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SlimeNormalAttack, new Vector3(0, 0.65f, -20));
+                AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SheildNormalAttack, new Vector3(0, 0.65f, -20));
+                //AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SlimeNormalAttack, new Vector3(0, 0.65f, -20));
             }
 
 
