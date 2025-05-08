@@ -7388,7 +7388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &957565553
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17794,6 +17794,7 @@ MonoBehaviour:
   - {fileID: 576497621}
   - {fileID: 1092428572}
   - {fileID: 92335185}
+  ReDrawClickEffect: {fileID: 4677863265783808838, guid: bf808dbd6f33e0044ba7f1c4c2e3836f, type: 3}
 --- !u!1 &2087101943
 GameObject:
   m_ObjectHideFlags: 0

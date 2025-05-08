@@ -28,6 +28,7 @@ public class RogueLikePanelManager : MonoBehaviour
 
     private string[] drawnSkillIDs = new string[3];
 
+    [SerializeField] private GameObject ReDrawClickEffect;
 
     private void Awake()
     {
