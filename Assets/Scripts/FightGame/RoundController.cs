@@ -162,6 +162,7 @@ public class RoundController : MonoBehaviour
         {
 			if (player1Status.GetHP() <= 0 || nowTime <= 0)
 			{
+				//gameStatus = "Gameover";
 				//Instantiate(dieEffect, player1.transform.position, Quaternion.Euler(-90,0,0));
 				LosePanel.SetActive(true);
 				GameOver();
@@ -169,6 +170,7 @@ public class RoundController : MonoBehaviour
 			}
 			else if (player2Status.GetHP() <= 0 && canInstFountain)
 			{
+				//gameStatus = "Win";
 				PlayDeathAnimation();
 				AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SlimeDie, new Vector3(0, 0.65f, -20));
 				Instantiate(dieEffect, player2.transform.position, Quaternion.Euler(-90, 0, 0));

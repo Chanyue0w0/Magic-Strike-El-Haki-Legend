@@ -71,6 +71,7 @@ public class PlayerStatusManager : MonoBehaviour
     {
         if(player == UserPosition.player2 &&  healthPoint <= 0 && isAlive)
         {
+            FightPlayer2Config.NowHP = healthPoint;
             player_animator.SetTrigger("DiePAnimation");
             isAlive = false;
         }
@@ -309,30 +310,33 @@ public class PlayerStatusManager : MonoBehaviour
 
     public void GetDamage(int damage)
     {
-        VibrationPattern.Instance.StartVibrationPattern();
-        int finalDamage = 0;
-        if(player == UserPosition.player1)
+        if(FightPlayer2Config.NowHP >= 0) //RoundController.Instance.GetGameStatus() == "Continue" 若改變gameStatus會卡住PlayerMoving
         {
-            finalDamage = Mathf.RoundToInt(damage * (1 - FightPlayer1Config.ShieldPercentage));
-            healthPoint -= finalDamage; //扣除減傷量
-            //Debug.Log("FightPlayer1Config.ShieldPercentage" + FightPlayer1Config.ShieldPercentage);
-            //Debug.Log("Final Damage 1 :" + finalDamage);
+            VibrationPattern.Instance.StartVibrationPattern();
+            int finalDamage = 0;
+            if (player == UserPosition.player1)
+            {
+                finalDamage = Mathf.RoundToInt(damage * (1 - FightPlayer1Config.ShieldPercentage));
+                healthPoint -= finalDamage; //扣除減傷量
+                                            //Debug.Log("FightPlayer1Config.ShieldPercentage" + FightPlayer1Config.ShieldPercentage);
+                                            //Debug.Log("Final Damage 1 :" + finalDamage);
+            }
+            else if (player == UserPosition.player2)
+            {
+                finalDamage = Mathf.RoundToInt(damage * (1 - FightPlayer2Config.ShieldPercentage));
+                healthPoint -= finalDamage; //扣除減傷量
+                                            //Debug.Log("FightPlayer2Config.ShieldPercentage" + FightPlayer2Config.ShieldPercentage);
+                                            //Debug.Log("Final Damage 2 :" + finalDamage);
+            }
+            healthBar.SetHealth(healthPoint); // 更新血條
+            if (finalDamage > 0)
+            {
+                UIShakingManager.Instance.ShakePlayerUI(playerNumber);
+                DisplayDamage(finalDamage);
+            }
+            Debug.Log(player + " Get Damage " + finalDamage);
         }
-        else if(player == UserPosition.player2)
-        {
-            finalDamage = Mathf.RoundToInt(damage * (1 - FightPlayer2Config.ShieldPercentage));
-            healthPoint -= finalDamage; //扣除減傷量
-            //Debug.Log("FightPlayer2Config.ShieldPercentage" + FightPlayer2Config.ShieldPercentage);
-            //Debug.Log("Final Damage 2 :" + finalDamage);
-        }
-        healthBar.SetHealth(healthPoint); // 更新血條
-        if(finalDamage > 0)
-        {
-            UIShakingManager.Instance.ShakePlayerUI(playerNumber);
-            DisplayDamage(finalDamage);
-        }
-        Debug.Log(player + " Get Damage "+ finalDamage);
-
+        
     }
 
     public void GetRecoverHP(int recoverHp)
