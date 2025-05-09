@@ -181,11 +181,11 @@ public class RoundController : MonoBehaviour
 				StartCoroutine(DelayInstCoinFountain(1f));
 
 				canInstFountain = false;
-				//PauseMainObjects();
-				//PauseGame();
+                PauseMainObjects();
+                //PauseGame();
 
-				// 判斷是否是該 Level 的最後一關
-				int totalStagesInCurrentLevel = 0;
+                // 判斷是否是該 Level 的最後一關
+                int totalStagesInCurrentLevel = 0;
 				if (totalStagesPerLevel.ContainsKey((currentChapterIndex, currentLevelIndex)))
 				{
 					totalStagesInCurrentLevel = totalStagesPerLevel[(currentChapterIndex, currentLevelIndex)];
@@ -650,7 +650,7 @@ public class RoundController : MonoBehaviour
 
 	public void PauseMainObjects()
     {
-		ballController.SetPauseBallMoving(true);
+		//ballController.SetPauseBallMoving(true);
 		ai_controller.SetPause(true);
 	}
 
