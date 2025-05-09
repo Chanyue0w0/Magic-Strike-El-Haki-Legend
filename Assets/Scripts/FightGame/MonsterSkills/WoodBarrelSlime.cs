@@ -5,7 +5,7 @@ using UnityEngine;
 public class WoodBarrelSlime : MonoBehaviour
 {
     [SerializeField] private int playerNumber = 1;
-    [SerializeField] private int slimeAmount = 2;
+    [SerializeField] private int slimeAmount = 3;
     [SerializeField] private float instSlimeTime = 1;
     [SerializeField] private GameObject instSmoke;//魔法煙霧(移動至生成定點再產生史萊姆)
     [SerializeField] private GameObject woodBarrelSlimeObject;
@@ -32,13 +32,18 @@ public class WoodBarrelSlime : MonoBehaviour
 
     public void Active()
     {
+        StartCoroutine(SpawnSlimesWithInterval());
+    }
+
+    private IEnumerator SpawnSlimesWithInterval()
+    {
         List<Vector2> slimePositions = new List<Vector2>();
 
         for (int i = 0; i < slimeAmount; i++)
         {
             Vector2 targetPosition;
             bool validPosition = false;
-            int maxAttempts = 10; // 避免無窮迴圈
+            int maxAttempts = 10;
             int attempts = 0;
 
             do
@@ -48,7 +53,6 @@ public class WoodBarrelSlime : MonoBehaviour
                 targetPosition = new Vector2(randomX, randomY);
                 attempts++;
 
-                // 檢查是否與所有已經生成的位置間距離至少 (0.5, 0.5)
                 validPosition = true;
                 foreach (var pos in slimePositions)
                 {
@@ -61,18 +65,24 @@ public class WoodBarrelSlime : MonoBehaviour
                 }
             } while (!validPosition && attempts < maxAttempts);
 
-            // 儲存這個位置，確保後續生成的史萊姆與之保持距離
             slimePositions.Add(targetPosition);
 
+            // 生成煙霧
             GameObject CFS = Instantiate(instSmoke, targetPosition, Quaternion.identity);
             moveToPositionSkill moveScript = CFS.GetComponent<moveToPositionSkill>();
             moveScript.SetStartPosition(player2.transform.position);
             moveScript.SetTargetPosition(targetPosition);
             moveScript.SetArriveTime(instSlimeTime);
 
+            // 延遲後再生成 slime
             StartCoroutine(DelayedInstSlime(targetPosition, instSlimeTime));
+
+            // 接下來這個 slime 會延遲 0.3~1 秒才進行
+            float delay = Random.Range(0.3f, 1.0f);
+            yield return new WaitForSeconds(delay);
         }
     }
+
 
 
 
