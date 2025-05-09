@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour
 		}
 
 		Instance = this;
-		//DontDestroyOnLoad(gameObject);
+		DontDestroyOnLoad(gameObject);
 
 
 		if (PlayerPrefs.HasKey("MasterVolume")) masterVolume = PlayerPrefs.GetFloat("MasterVolume");

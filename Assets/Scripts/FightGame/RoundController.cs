@@ -495,13 +495,15 @@ public class RoundController : MonoBehaviour
 			FightPlayer1Config.isFirstTimeEnter = false;
 			FightPlayer1Config.NowMagicPoint = 0;
 			FightPlayer1Config.NowHP = FightPlayer1Config.StartHP;
+
+			
 		}
 
 		player1Status.InitStatus();
 		player2Status.InitStatus();
 
 		ai_controller.InitAI();
-		
+
 		if (FightPlayer2Config.BGM == "battle_theme_1")
 		{
 			AudioManager.Instance.PlayBGM(MusicAudioClips.Instance.BasicBattleBGM);

@@ -76,7 +76,8 @@ public class RogueLikePanelManager : MonoBehaviour
         allSkillData["PS04"] = new SkillData(" 燃燒增幅", "燃燒傷害提升至2倍", "PS");
 
         allSkillData["IS01"] = new SkillData(" 立即治癒", "恢復30%最大生命", "IS");
-        allSkillData["IS02"] = new SkillData(" 立即回魔", "獲得全滿魔力值", "IS");
+        allSkillData["IS02"] = new SkillData(" 魔力補充", "獲得全滿魔力值", "IS");
+        allSkillData["IS03"] = new SkillData(" 金幣加倍", "勝利後\n金幣獎勵x1.5倍", "IS");
     }
 
     public void SetPanelActive(bool isActive)
@@ -120,9 +121,9 @@ public class RogueLikePanelManager : MonoBehaviour
         }
         else if (type == "IS")
         {
-            if(skillID == "IS01")//恢復最大生命20%
+            if(skillID == "IS01")//恢復最大生命30%
             {
-                FightPlayer1Config.NowHP += Mathf.RoundToInt(FightPlayer1Config.StartHP * 0.2f);
+                FightPlayer1Config.NowHP += Mathf.RoundToInt(FightPlayer1Config.StartHP * 0.3f);
             } 
             else if (skillID == "IS02")//補滿魔力值
             {
