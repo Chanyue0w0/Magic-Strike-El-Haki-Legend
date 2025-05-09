@@ -172,7 +172,7 @@ public class RogueLikePanelManager : MonoBehaviour
                     (hasSKSlot || allSkillData[id].Type != "SK")
                 );
                 break;
-            case 4:
+            default:
                 filtered = candidates.FindAll(id =>
                     (!hasSKSlot && !hasPSSlot && allSkillData[id].Type == "IS") ||
                     (!hasSKSlot && allSkillData[id].Type != "SK") ||

@@ -8,7 +8,6 @@ using System.Collections;
 
 public class RoundController : MonoBehaviour
 {
-
 	public static RoundController Instance { get; private set; }
 
 	[Header("----------------- Value ------------------")]
@@ -132,12 +131,17 @@ public class RoundController : MonoBehaviour
 		//PauseGame();
 		//StartCoroutine(ContinueGameDelayed(1.5f));
 
-
-
 		if (currentChapterIndex == 1 && currentLevelIndex == 1)
 		{
 			//TutorialManager.Instance.OpenTutorial();
 			StartCoroutine(OpenTutorialDelayed(1.6f));
+
+            FightPlayer1Config.Group[1] = "SK04";
+            FightPlayer1Config.Group[2] = "SK04";
+            SkillManager.Instance.InitialSkillManager();
+			MagicPointsManager.Instance.InitialMagicPointsManager();
+			PassiveSkillManager.Instance.InitialPassiveSkillManager();
+			player1Status.InitStatus(); // 多一次重製玩家
 		}
 	}
 
@@ -541,7 +545,9 @@ public class RoundController : MonoBehaviour
 			&& FightPlayer1Config.CurrentStage == 1)
         {
 			Debug.Log("Tutorial No RogueLike");
-        }
+			//FightPlayer1Config.Group[1] = "SK01";
+			//FightPlayer1Config.Group[2] = "SK01";
+		}
 		else
         {
 			//開場RogueLike
@@ -676,7 +682,6 @@ public class RoundController : MonoBehaviour
     {
 		yield return new WaitForSecondsRealtime(delay);
         TutorialManager.Instance.OpenTutorial();
-
     }
 
 	public void ContinueGame()
