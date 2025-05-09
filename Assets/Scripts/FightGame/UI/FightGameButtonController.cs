@@ -8,6 +8,7 @@ public class FightGameButtonController : MonoBehaviour
 {
     [SerializeField] private RoundController roundController;
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private LoadingSceneController loadingSceneController;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +55,8 @@ public class FightGameButtonController : MonoBehaviour
         FightPlayer1Config.PassiveEffectGroup[1] = "PS00";
 
         Destroy(AudioManager.Instance.gameObject);
-        SceneManager.LoadSceneAsync("MainMenuScene");
+        //SceneManager.LoadSceneAsync("MainMenuScene");
+        loadingSceneController.LoadStage("MainMenuScene");
     }
 
     public void OnClickRestart()
