@@ -126,10 +126,10 @@ public class RoundController : MonoBehaviour
 
 		GameStart();
 		
-		OpenStagePanel();
-		StartCoroutine(CloseStagePanelDelayed(1.5f));
+		//OpenStagePanel();
+		//StartCoroutine(CloseStagePanelDelayed(1.5f));
 
-		PauseGame();
+		//PauseGame();
 		//StartCoroutine(ContinueGameDelayed(1.5f));
 
 
@@ -207,16 +207,20 @@ public class RoundController : MonoBehaviour
 		PauseGame();
 	}
 
+	//開啟RogueLikePanel Delay
 	private IEnumerator OpenInitialRogueLikePanelDelayed()
 	{
-		yield return new WaitForSecondsRealtime(0.1f);
+        yield return new WaitForSecondsRealtime(0.1f);
 
-		PauseGame();
+        //yield return new WaitForSeconds(0.1f);
+
+        PauseGame();
 		RogueLikePanelManager.Instance.SetPanelActive(true);
 		RogueLikePanelManager.Instance.DrawSkills(FightPlayer1Config.CurrentStage);
 
 		isOpeningRogueLike = true; // 開場觸發
-	}
+
+    }
 
 	public void OnRogueLikePanelFinished()
 	{
@@ -228,7 +232,7 @@ public class RoundController : MonoBehaviour
 		PassiveSkillManager.Instance.InitialPassiveSkillManager();
 		player1Status.InitStatus(); // 多一次重製玩家
 
-		ContinueGame();
+		//ContinueGame();
 
 		//player1.transform.position = new Vector2(0, -2f);
 
@@ -243,6 +247,11 @@ public class RoundController : MonoBehaviour
 			continueMainObjects();
 			NextStage();
 		}
+
+
+		OpenStagePanel();
+		StartCoroutine(CloseStagePanelDelayed(1.5f));
+		PauseGame();
 	}
 
 
@@ -308,6 +317,7 @@ public class RoundController : MonoBehaviour
 	public void CloseStagePanel()
 	{
 		showStagePanel.SetActive(false);
+		ContinueGame();
 	}
 
 
@@ -524,8 +534,18 @@ public class RoundController : MonoBehaviour
 
 		}
 
-		//開場RogueLike
-		StartCoroutine(OpenInitialRogueLikePanelDelayed());
+		if(FightPlayer1Config.CurrentChapter == 1 
+			&& FightPlayer1Config.CurrentLevel == 1 
+			&& FightPlayer1Config.CurrentStage == 1)
+        {
+			Debug.Log("Tutorial No RogueLike");
+        }
+		else
+        {
+			//開場RogueLike
+			StartCoroutine(OpenInitialRogueLikePanelDelayed());
+		}
+		
 
 		//PauseGame();
 		//RogueLikePanelManager.Instance.SetPanelActive(true);

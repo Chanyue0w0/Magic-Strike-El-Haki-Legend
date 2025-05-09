@@ -116,7 +116,10 @@ public class MainMenuButtonController : MonoBehaviour
 
 		battleDataCalculator.CalculateBattleData(GetComponent<HeroBag>().selectedHeroID);
 		battleDataCalculator.ApplyToFightPlayerConfig();
-		loadingSceneController.LoadStage("FightScene");
+
+		FightPlayer1Config.CurrentStage = 1;
+
+        loadingSceneController.LoadStage("FightScene");
 	}
 
 }

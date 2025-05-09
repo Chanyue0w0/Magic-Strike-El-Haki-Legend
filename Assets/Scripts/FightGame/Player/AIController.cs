@@ -57,7 +57,7 @@ public class AIController : MonoBehaviour
 
     private void Start()
     {
-       
+        InitAI();
     }
 
     public void InitAI()
