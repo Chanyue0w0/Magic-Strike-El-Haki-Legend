@@ -181,7 +181,10 @@ public class MagicPointsManager : MonoBehaviour
             p1SparklingRing.SetActive(false);
             StartCoroutine(ActivateUltCoroutine(player1.transform.position, pNumber));
             SetMagicPoint(1, 0);
-
+            
+            //會導致重製球生成瞬間撞擊球體，1秒後球會被拉回至重制位置
+            //RoundController.Instance.PauseMainObjects();
+            //StartCoroutine(DelayResumeMainObject(1f));
         }
         else if (pNumber == 2 && p2CurrentMagicPoint == p2MaxMagicPoint)
         {
@@ -246,9 +249,9 @@ public class MagicPointsManager : MonoBehaviour
     }
 
     // 協程函式，延遲0.5秒後再設定 球&AI可以移動
-    //private IEnumerator DelayResumeMainObject(float delayTime)
-    //{
-    //    yield return new WaitForSecondsRealtime(delayTime); // 不受 timeScale 影響的延遲
-    //    RoundController.Instance.continueMainObjects();
-    //}
+    private IEnumerator DelayResumeMainObject(float delayTime)
+    {
+        yield return new WaitForSecondsRealtime(delayTime); // 不受 timeScale 影響的延遲
+        RoundController.Instance.continueMainObjects();
+    }
 }
