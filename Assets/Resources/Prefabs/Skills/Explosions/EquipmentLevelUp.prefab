@@ -5006,6 +5006,7 @@ GameObject:
   - component: {fileID: 3540628556877847822}
   - component: {fileID: 8985576708716270403}
   - component: {fileID: 1638340586219673441}
+  - component: {fileID: -7947464824855606575}
   m_Layer: 0
   m_Name: EquipmentLevelUp
   m_TagString: Untagged
@@ -10065,3 +10066,17 @@ MonoBehaviour:
     perlinColor: 0
     perlinColorSpeed: 0
   fadeOutReference: {fileID: 0}
+--- !u!114 &-7947464824855606575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7345391402646875717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420587d50df050348b0b3341b63742c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dTime: 0.6
+  unscaleDestroy: 1
