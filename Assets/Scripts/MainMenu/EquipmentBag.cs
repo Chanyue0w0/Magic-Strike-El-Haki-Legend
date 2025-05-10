@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Localization.Components;
 using UnityEngine.Localization.Settings;
+using UnityEngine.EventSystems;
+using System.Collections;
 
 public class EquipmentBag : MonoBehaviour
 {
@@ -49,6 +51,13 @@ public class EquipmentBag : MonoBehaviour
 	[SerializeField] private Image evoNextFrame;
 	[SerializeField] private Image evoStone;
 	[SerializeField] private List<Sprite> evoStoneSprite;
+	[Header("長按升級設定")]
+	[SerializeField] private float longPressThreshold = 0.5f;   // 判定為長按的時間（秒）
+	[SerializeField] private float repeatInterval = 0.1f;   // 長按後每次升級的間隔時間（秒）
+
+	private bool isPressingLevelUp = false;
+	private bool longPressTriggered = false;
+	private Coroutine levelUpHoldRoutine = null;
 
 	[Header("-------------------- Current Hero GUI -------------------- ")]
 	[SerializeField] private Image heroImage;
@@ -80,6 +89,23 @@ public class EquipmentBag : MonoBehaviour
 		currentHero = PlayerHeroManager.Instance.GetHeroByIndex(0);
 		OnClickChangeCurrentHero(1);
 		OnClickChangeCurrentHero(-1);
+
+		// --- 將原本的 onClick 清掉，改用 PointerDown/PointerUp ---
+		levelUpButton.onClick.RemoveAllListeners();
+
+		var trigger = levelUpButton.gameObject.GetComponent<EventTrigger>();
+		if (trigger == null)
+			trigger = levelUpButton.gameObject.AddComponent<EventTrigger>();
+
+		// PointerDown
+		var downEntry = new EventTrigger.Entry { eventID = EventTriggerType.PointerDown };
+		downEntry.callback.AddListener((data) => { OnLevelUpPointerDown(); });
+		trigger.triggers.Add(downEntry);
+
+		// PointerUp
+		var upEntry = new EventTrigger.Entry { eventID = EventTriggerType.PointerUp };
+		upEntry.callback.AddListener((data) => { OnLevelUpPointerUp(); });
+		trigger.triggers.Add(upEntry);
 
 		InitPanel();
 	}
@@ -291,6 +317,47 @@ public class EquipmentBag : MonoBehaviour
 		RefreshBagUI();
 
 		Debug.Log("裝備 " + currentEquipment.name + " 已升級至等級 " + currentEquipment.currentLevel);
+	}
+	private void OnLevelUpPointerDown()
+	{
+		isPressingLevelUp = true;
+		longPressTriggered = false;
+		// 開始協程：先等待 longPressThreshold，再判定是否要持續呼叫 OnClickLevelUp
+		levelUpHoldRoutine = StartCoroutine(LongPressLevelUp());
+	}
+
+	private void OnLevelUpPointerUp()
+	{
+		isPressingLevelUp = false;
+		// 停止長按協程
+		if (levelUpHoldRoutine != null)
+		{
+			StopCoroutine(levelUpHoldRoutine);
+			levelUpHoldRoutine = null;
+		}
+		// 若不到閾值，視為短按，執行一次升級
+		if (!longPressTriggered)
+		{
+			OnClickLevelUp();  // 呼叫原本的方法
+		}
+	}
+
+	private IEnumerator LongPressLevelUp()
+	{
+		// 等待長按判定時間
+		yield return new WaitForSeconds(longPressThreshold);
+		// 如果已經放開，就直接結束
+		if (!isPressingLevelUp)
+			yield break;
+
+		// 標記為長按
+		longPressTriggered = true;
+		// 持續升級直到放開
+		while (isPressingLevelUp)
+		{
+			OnClickLevelUp();
+			yield return new WaitForSeconds(repeatInterval);
+		}
 	}
 
 	public void OnClickChangeCurrentHero(int next)
