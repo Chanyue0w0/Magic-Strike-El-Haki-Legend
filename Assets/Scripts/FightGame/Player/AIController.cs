@@ -297,10 +297,10 @@ public class AIController : MonoBehaviour
             if (freezeCoroutine != null)
             {
                 StopCoroutine(freezeCoroutine); // ­«·s­áµ²
-                if(PassiveSkillManager.Instance.HasIceGroundExplosion())
-                    Instantiate(IceGround, player2.transform.position, Quaternion.identity);
             }
             freezeCoroutine = StartCoroutine(FreezeEffect());
+            if (PassiveSkillManager.Instance.HasIceGroundExplosion())
+                Instantiate(IceGround, player2.transform.position, Quaternion.identity);
         }
 
     }
