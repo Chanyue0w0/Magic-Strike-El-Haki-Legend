@@ -4891,7 +4891,7 @@ MonoBehaviour:
     useMainCamera: 1
     cameras: []
     delay: 0
-    duration: 1
+    duration: 0.5
     shakeSpace: 0
     shakeStrength: {x: 0.8, y: 0.8, z: 0.8}
     shakeCurve:
