@@ -8,6 +8,7 @@ public class HealingMagic : MonoBehaviour
     //[SerializeField] private float OriginalShieldPercentage = 0.0f;
     [SerializeField] private int baseSkillHealingAmount = 100;
     private int skillHealingAmount = 100;
+    [SerializeField] private float baseSkillHealingPersent = 0.1f;// 10%最大生命傷害
     //[SerializeField] private int skillMoveSpeed = 10;
     [SerializeField] private GameObject healingEffect;
     [SerializeField] private GameObject healingUIEffect;
@@ -36,7 +37,10 @@ public class HealingMagic : MonoBehaviour
         //{
         //    skillDamageTMP = baseSkillDamage * (1 + FightPlayer2Config.SkillDamageIncrease);
         //}
-        skillHealingAmount = Mathf.RoundToInt(baseSkillHealingAmount);
+        //skillHealingAmount = Mathf.RoundToInt(baseSkillHealingAmount);
+
+        skillHealingAmount = Mathf.RoundToInt(baseSkillHealingPersent * FightPlayer1Config.StartHP);
+
         healingEffect = Resources.Load<GameObject>("Prefabs/Effect/HealingEffect");
         healingUIEffect = Resources.Load<GameObject>("Prefabs/Effect/HealingUIEffect");
         player1 = GameObject.FindGameObjectWithTag("Player1");
