@@ -8,8 +8,8 @@ public static class FightPlayer1Config
 	public static int CurrentLevel = 2;
 	public static int CurrentStage = 5;
 
-	public static string[] Group = { "HR00", "SK00", "SK00" };
-	public static string[] PassiveEffectGroup = { "PS00", "PS00" };
+	public static string[] Group = { "HR00", "SK03", "SK03" };
+	public static string[] PassiveEffectGroup = { "PS02", "PS00" };
 
 	public static string NormalAttack = "HammerNormalAttack";
 	public static string Ult = "HammerUlt";

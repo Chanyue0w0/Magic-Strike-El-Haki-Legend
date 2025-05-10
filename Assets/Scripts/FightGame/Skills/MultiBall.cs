@@ -14,6 +14,8 @@ public class MultiBall : MonoBehaviour
     //[SerializeField] private GameObject player2;
     [SerializeField] private GameObject ball;
 
+    [SerializeField] private GameObject iceBallEffectPrefab;
+    [SerializeField] private GameObject burningBallEffectPrefab;
 
     public void SetPlayerNumber(int pNumber) // initial
     {
@@ -26,7 +28,9 @@ public class MultiBall : MonoBehaviour
         //float skillDamageTMP = 0;
         cloneBallObj = Resources.Load<GameObject>("Prefabs/Balls/CloneBall");
 
-        explosion = Resources.Load<GameObject>("Prefabs/Skills/Explosions/SmokeExplosion"); 
+        explosion = Resources.Load<GameObject>("Prefabs/Skills/Explosions/SmokeExplosion");
+        iceBallEffectPrefab = Resources.Load<GameObject>("Prefabs/Effect/IceBallEffect");
+        burningBallEffectPrefab = Resources.Load<GameObject>("Prefabs/Effect/BurningBallEffect");
         //player1 = GameObject.FindGameObjectWithTag("Player1");
         //player2 = GameObject.FindGameObjectWithTag("Player2");
         ball = GameObject.FindGameObjectWithTag("Ball");
@@ -45,6 +49,11 @@ public class MultiBall : MonoBehaviour
         if (explosion != null)
             Instantiate(explosion, ball.transform.position, Quaternion.identity);
 
+        string[] passiveSkills = FightPlayer1Config.PassiveEffectGroup;
+
+        
+
+
         // 定義四個方向向量
         Vector2[] directions = new Vector2[]
         {
@@ -57,6 +66,21 @@ public class MultiBall : MonoBehaviour
         for (int i = 0; i < cloneBallAmount; i++)
         {
             GameObject obj = Instantiate(cloneBallObj, ball.transform.position, Quaternion.identity);
+
+            //IceBall
+            if (System.Array.Exists(passiveSkills, s => s == "PS01"))
+            {
+                GameObject iceBallEffect = Instantiate(iceBallEffectPrefab, ball.transform.position, Quaternion.identity, ball.transform);
+                iceBallEffect.transform.SetParent(obj.transform);
+            }
+
+            //BurningBall
+            if (System.Array.Exists(passiveSkills, s => s == "PS02"))
+            {
+                GameObject burningBallEffect = Instantiate(burningBallEffectPrefab, ball.transform.position, Quaternion.identity, ball.transform);
+                burningBallEffect.transform.SetParent(obj.transform);
+            }
+
 
             // 找到名為 "Sprite" 的子物件
             Transform spriteTransform = obj.transform.Find("Sprite");
