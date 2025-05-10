@@ -54,14 +54,14 @@ public class BossInfoManager : MonoBehaviour
 	private Dictionary<string, string> slimeBossSkills = new Dictionary<string, string>
 {
 	{ "OriginSlime", "無" },
-	{ "GrassSlime", "分裂多個史萊姆\n阻擋進球" },
-	{ "WoodBarrelSlime", "分裂多個滾筒\n攻擊玩家" },
-	{ "WindmillSlime", "吹出強風\n減速球體向上" },
-	{ "PoisonFlowerSlime", "噴出毒霧\n使玩家中毒" },
-	{ "VineSlime", "伸長藤蔓\n勾住玩家" },
-	{ "FairySlime", "閃現並射出火焰\n攻擊玩家" },
-	{ "LavaSlime", "投擲岩漿\n使得區域燃燒" },
-	{ "QuartzSlime", "照耀直線區域\n閃瞎玩家" }
+	{ "GrassSlime", "分裂多個史萊姆\n不讓你進!" },
+	{ "WoodBarrelSlime", "分裂多個滾筒\n躲阿!" },
+	{ "WindmillSlime", "吹出強風\n這球有風阻!" },
+	{ "PoisonFlowerSlime", "噴出毒霧\n咳咳..." },
+	{ "VineSlime", "伸長藤蔓\n勾走你心!" },
+	{ "FairySlime", "閃現並射出妖火\n很快很快!" },
+	{ "LavaSlime", "投擲岩漿\n燒燒燙燙!" },
+	{ "QuartzSlime", "照耀直線區域\n閃亮閃亮!" }
 };
 
 
@@ -105,7 +105,7 @@ public class BossInfoManager : MonoBehaviour
 
 
 		// 等待 1 秒（非受 Time.timeScale 影響）
-		yield return new WaitForSecondsRealtime(3f);
+		yield return new WaitForSecondsRealtime(2f);
 
 		// 關閉面板
 		slimeBossPanel.SetActive(false);

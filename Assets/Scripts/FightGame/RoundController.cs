@@ -271,6 +271,8 @@ public class RoundController : MonoBehaviour
 		}
 
 
+		PauseGame();
+
 		OpenStagePanel();
 		// 取得當前這個章節與關卡下，總共的 stage 數
 		int totalStagesInCurrentLevel = 0;
@@ -282,17 +284,27 @@ public class RoundController : MonoBehaviour
 		// 如果這是當前 Level 的最後一關（打 Boss）
 		if (currentStageIndex == totalStagesInCurrentLevel)
 		{
-			BossInfoManager.Instance.PlayBossAnimation();
-			StartCoroutine(DelayedContinueAfterBossInfo(3f));
+			StartCoroutine(HandleFinalStageFlow()); // ← 使用新的協程處理順序
 		}
 		else
 		{
-			StartCoroutine(CloseStagePanelDelayed(1.5f)); // 裡面會自動 ContinueGame
+			StartCoroutine(CloseStagePanelDelayed(1.5f)); // 一般關卡維持原有行為
 		}
-        //StartCoroutine(CloseStagePanelDelayed(1.5f));
 
-        PauseGame();
+		//StartCoroutine(CloseStagePanelDelayed(1.5f));
+
     }
+
+	private IEnumerator HandleFinalStageFlow()
+	{
+		yield return new WaitForSecondsRealtime(1.5f); // 等 StagePanel 顯示結束
+		CloseStagePanel();                             // 關閉 StagePanel，不會自動 ContinueGame
+		BossInfoManager.Instance.PlayBossAnimation();  // 播放 Boss 動畫
+		yield return new WaitForSecondsRealtime(2f);   // 等 Boss 動畫結束
+		ContinueGame();                                // 手動繼續遊戲
+	}
+
+
 	private IEnumerator DelayedContinueAfterBossInfo(float delay)
 	{
 		yield return new WaitForSecondsRealtime(delay);
@@ -363,11 +375,12 @@ public class RoundController : MonoBehaviour
 	{
 		yield return new WaitForSecondsRealtime(delay);
 		CloseStagePanel();
+		ContinueGame();
 	}
 	public void CloseStagePanel()
 	{
 		showStagePanel.SetActive(false);
-		ContinueGame();
+		//ContinueGame();
 	}
 
 
