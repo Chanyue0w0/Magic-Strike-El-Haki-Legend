@@ -1435,7 +1435,34 @@
           "MS07",
           "MS07"
         ],
-        "spawnObjects": []
+        "spawnObjects": [
+          {
+            "prefabName": "LavaPondObj",
+            "position": {
+              "x": -1.53,
+              "y": -2.95,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "LavaPondObj",
+            "position": {
+              "x": 1.53,
+              "y": -2.95,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          }
+        ]
       },
       {
         "StageNumber": "2",
@@ -1449,7 +1476,7 @@
           "x": 5.0,
           "y": 7.0
         },
-        "StartHP": 2200,
+        "StartHP": 2000,
         "StartATK": 200,
         "Player2Skin": "LavaSlime",
         "Player2PuckSkin": "Chapter3SlimePuck",
@@ -1458,99 +1485,34 @@
           "MS07",
           "MS07"
         ],
-        "spawnObjects": []
-      },
-      {
-        "StageNumber": "3",
-        "DeadFrameBackGroundImage": "Chapter3BackGround",
-        "BackGroundImage": "Lava Volcano(Background)",
-        "FieldImage": "Lava Volcano(Field)",
-        "FieldHSBackGroundImage": "Chapter3HSBackGround",
-        "BGM": "CH3 Combat music",
-        "AI_level": 1.5,
-        "AI_AttackFrequency": {
-          "x": 5.0,
-          "y": 7.0
-        },
-        "StartHP": 2200,
-        "StartATK": 200,
-        "Player2Skin": "LavaSlime",
-        "Player2PuckSkin": "Chapter3SlimePuck",
-        "player2_Group": [
-          "MS07",
-          "MS07",
-          "MS07"
-        ],
-        "spawnObjects": []
-      },
-      {
-        "StageNumber": "4",
-        "DeadFrameBackGroundImage": "Chapter3BackGround",
-        "BackGroundImage": "Lava Volcano(Background)",
-        "FieldImage": "Lava Volcano(Field)",
-        "FieldHSBackGroundImage": "Chapter3HSBackGround",
-        "BGM": "CH3 Combat music",
-        "AI_level": 1.5,
-        "AI_AttackFrequency": {
-          "x": 5.0,
-          "y": 7.0
-        },
-        "StartHP": 2200,
-        "StartATK": 200,
-        "Player2Skin": "LavaSlime",
-        "Player2PuckSkin": "Chapter3SlimePuck",
-        "player2_Group": [
-          "MS07",
-          "MS07",
-          "MS07"
-        ],
-        "spawnObjects": []
-      },
-      {
-        "StageNumber": "5",
-        "DeadFrameBackGroundImage": "Chapter3BackGround",
-        "BackGroundImage": "Lava Volcano(Background)",
-        "FieldImage": "Lava Volcano(Field)",
-        "FieldHSBackGroundImage": "Chapter3HSBackGround",
-        "BGM": "CH3 Combat music",
-        "AI_level": 1.5,
-        "AI_AttackFrequency": {
-          "x": 5.0,
-          "y": 7.0
-        },
-        "StartHP": 2200,
-        "StartATK": 200,
-        "Player2Skin": "LavaSlime",
-        "Player2PuckSkin": "Chapter3SlimePuck",
-        "player2_Group": [
-          "MS07",
-          "MS07",
-          "MS07"
-        ],
-        "spawnObjects": []
-      },
-      {
-        "StageNumber": "6",
-        "DeadFrameBackGroundImage": "Chapter3BackGround",
-        "BackGroundImage": "Lava Volcano(Background)",
-        "FieldImage": "Lava Volcano(Field)",
-        "FieldHSBackGroundImage": "Chapter3HSBackGround",
-        "BGM": "CH3 Combat music",
-        "AI_level": 1.5,
-        "AI_AttackFrequency": {
-          "x": 5.0,
-          "y": 7.0
-        },
-        "StartHP": 2200,
-        "StartATK": 200,
-        "Player2Skin": "LavaSlime",
-        "Player2PuckSkin": "Chapter3SlimePuck",
-        "player2_Group": [
-          "MS07",
-          "MS07",
-          "MS07"
-        ],
-        "spawnObjects": []
+        "spawnObjects": [
+          {
+            "prefabName": "LavaPondObj",
+            "position": {
+              "x": -1.53,
+              "y": -2.95,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "LavaPondObj",
+            "position": {
+              "x": 1.53,
+              "y": -2.95,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          }
+        ]
       }
     ],
     "Level_2": [
