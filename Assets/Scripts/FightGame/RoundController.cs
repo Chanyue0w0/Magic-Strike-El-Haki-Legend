@@ -340,6 +340,9 @@ public class RoundController : MonoBehaviour
 		// 需要檢查是否到了新關卡或新章節
 		StageDataEntry nextStage = StageData.Instance.FindStage(currentChapterIndex, currentLevelIndex, currentStageIndex);
 
+		FightPlayer1Config.levelTime += 180 - nowTime;
+
+
 		if (nextStage == null)
 		{
 			//NextLevel();
@@ -363,6 +366,8 @@ public class RoundController : MonoBehaviour
 		AudioManager.Instance.StopBGM();
 		AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.WinSoundEffect, new Vector3(0, 0.65f, -20));
 		WinPanel.SetActive(true);
+
+		//顯示當前關卡名稱
 		string levelTitleNow = "";
 		if(FightPlayer1Config.CurrentChapter == 1)
         {
@@ -377,6 +382,8 @@ public class RoundController : MonoBehaviour
 			levelTitleNow = ch3_levelTitleName[FightPlayer1Config.CurrentLevel - 1];
 		}
 		WinLevelTitleText.text = FightPlayer1Config.CurrentChapter + "-" + FightPlayer1Config.CurrentLevel + " " + levelTitleNow;
+
+		totalTimeText.text = (Mathf.RoundToInt(FightPlayer1Config.levelTime)) + " " + "秒";
 
 		FightPlayer1Config.CurrentStage = 1; // 強制重製
 
@@ -530,7 +537,7 @@ public class RoundController : MonoBehaviour
 			FightPlayer1Config.isFirstTimeEnter = false;
 			FightPlayer1Config.NowMagicPoint = 0;
 			FightPlayer1Config.NowHP = FightPlayer1Config.StartHP;
-
+			FightPlayer1Config.levelTime = 0; //關卡總耗時
 			
 		}
 
