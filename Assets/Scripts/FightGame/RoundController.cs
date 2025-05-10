@@ -187,10 +187,13 @@ public class RoundController : MonoBehaviour
 
 				canInstFountain = false;
                 PauseMainObjects();
-                //PauseGame();
+				//PauseGame();
 
-                // 判斷是否是該 Level 的最後一關
-                int totalStagesInCurrentLevel = 0;
+
+				FightPlayer1Config.levelTime += 180 - nowTime;
+
+				// 判斷是否是該 Level 的最後一關
+				int totalStagesInCurrentLevel = 0;
 				if (totalStagesPerLevel.ContainsKey((currentChapterIndex, currentLevelIndex)))
 				{
 					totalStagesInCurrentLevel = totalStagesPerLevel[(currentChapterIndex, currentLevelIndex)];
@@ -364,7 +367,7 @@ public class RoundController : MonoBehaviour
 		// 需要檢查是否到了新關卡或新章節
 		StageDataEntry nextStage = StageData.Instance.FindStage(currentChapterIndex, currentLevelIndex, currentStageIndex);
 
-		FightPlayer1Config.levelTime += 180 - nowTime;
+		//FightPlayer1Config.levelTime += 180 - nowTime;
 
 
 		if (nextStage == null)
