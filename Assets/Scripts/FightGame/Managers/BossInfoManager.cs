@@ -59,7 +59,7 @@ public class BossInfoManager : MonoBehaviour
 	{ "WindmillSlime", "吹出強風\n這球有風阻!" },
 	{ "PoisonFlowerSlime", "噴出毒霧\n咳咳..." },
 	{ "VineSlime", "伸長藤蔓\n勾走你心!" },
-	{ "FairySlime", "閃現並射出妖火\n很快很快!" },
+	{ "FairySlime", "閃現並射出妖火" },
 	{ "LavaSlime", "投擲岩漿\n燒燒燙燙!" },
 	{ "QuartzSlime", "照耀直線區域\n閃亮閃亮!" }
 };
