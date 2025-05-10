@@ -29,6 +29,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-zh-TW
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d0abc3f88b99cf4a89aa49e0b726ad0
+    m_Address: StageTable_zh-TW
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-TW
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f4c822a2edd96414d8507d9fe2866d05
     m_Address: EquipmentTable_zh-TW
     m_ReadOnly: 1

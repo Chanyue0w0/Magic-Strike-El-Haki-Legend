@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5431aef639f4f2c419ccfea43625d19d
+    m_Address: StageTable_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 593c3498f37dc644f895582cd54b828c
     m_Address: UITable_en
     m_ReadOnly: 1

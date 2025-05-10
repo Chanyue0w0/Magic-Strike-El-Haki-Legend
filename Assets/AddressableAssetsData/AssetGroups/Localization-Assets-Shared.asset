@@ -27,6 +27,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62cf11b31e131394a8d3c1f29cd1af15
+    m_Address: Assets/LocalizationSetting/Stage/StageTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eee840fec44605f47b8d5a5528668d18
     m_Address: Assets/LocalizationSetting/Hero/HeroTable Shared Data.asset
     m_ReadOnly: 1
