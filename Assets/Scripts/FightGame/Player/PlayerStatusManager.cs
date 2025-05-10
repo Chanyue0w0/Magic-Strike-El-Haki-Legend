@@ -310,9 +310,9 @@ public class PlayerStatusManager : MonoBehaviour
 
     public void GetDamage(int damage)
     {
-        if(FightPlayer2Config.NowHP >= 0) //RoundController.Instance.GetGameStatus() == "Continue" 若改變gameStatus會卡住PlayerMoving
+        VibrationPattern.Instance.StartVibrationPattern();
+        if (FightPlayer2Config.NowHP >= 0) //RoundController.Instance.GetGameStatus() == "Continue" 若改變gameStatus會卡住PlayerMoving
         {
-            VibrationPattern.Instance.StartVibrationPattern();
             int finalDamage = 0;
             if (player == UserPosition.player1)
             {
