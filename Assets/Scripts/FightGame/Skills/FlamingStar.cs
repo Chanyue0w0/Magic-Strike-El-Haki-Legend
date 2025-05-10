@@ -8,6 +8,7 @@ public class FlamingStar : MonoBehaviour
     //[SerializeField] private float OriginalShieldPercentage = 0.0f;
     [SerializeField] private int baseSkillDamage = 100;
     private int skillDamage = 100;
+    [SerializeField] private float baseSkillDamagePersent = 0.08f;// 8%最大生命傷害
     //[SerializeField] private int skillMoveSpeed = 10;
     [SerializeField] private GameObject chargeFireShield;
     [SerializeField] private GameObject flamingStarObj;
@@ -25,15 +26,18 @@ public class FlamingStar : MonoBehaviour
     public void InitializedSkillInfo()
     {
         float skillDamageTMP = 0;
-        if (playerNumber == 1)
-        {
-            skillDamageTMP = baseSkillDamage * (1 + FightPlayer1Config.SkillDamageIncrease);
-        }
-        else
-        {
-            skillDamageTMP = baseSkillDamage * (1 + FightPlayer2Config.SkillDamageIncrease);
-        }
-        skillDamage = Mathf.RoundToInt(skillDamageTMP);
+        //if (playerNumber == 1)
+        //{
+        //    skillDamageTMP = baseSkillDamage * (1 + FightPlayer1Config.SkillDamageIncrease);
+        //}
+        //else
+        //{
+        //    skillDamageTMP = baseSkillDamage * (1 + FightPlayer2Config.SkillDamageIncrease);
+        //}
+        //skillDamage = Mathf.RoundToInt(skillDamageTMP);
+
+        skillDamage = Mathf.RoundToInt(baseSkillDamagePersent * FightPlayer2Config.StartHP);
+
         flamingStarObj = Resources.Load<GameObject>("Prefabs/Skills/FlamingStar");
         chargeFireShield = Resources.Load<GameObject>("Prefabs/Effect/FireShield");
         player1 = GameObject.FindGameObjectWithTag("Player1");

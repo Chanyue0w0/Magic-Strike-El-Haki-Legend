@@ -8,6 +8,7 @@ public class StormStrike : MonoBehaviour
     //[SerializeField] private float OriginalShieldPercentage = 0.0f;
     [SerializeField] private int baseSkillDamage = 30;
     private int skillDamage = 30;
+    [SerializeField] private float baseSkillDamagePersent = 0.05f;// 5%最大生命傷害
     [SerializeField] private int skillAmount = 10;
     [SerializeField] private float skillInstTimeGap = 0.1f;//每次雷擊生成時間差
     [SerializeField] private float skillWarningTime = 1f;//警告持續
@@ -34,16 +35,18 @@ public class StormStrike : MonoBehaviour
 
     public void InitializedSkillInfo()
     {
-        float skillDamageTMP = 0;
-        if (playerNumber == 1)
-        {
-            skillDamageTMP = baseSkillDamage * (1 + FightPlayer1Config.SkillDamageIncrease);
-        }
-        else
-        {
-            skillDamageTMP = baseSkillDamage * (1 + FightPlayer2Config.SkillDamageIncrease);
-        }
-        skillDamage = Mathf.RoundToInt(skillDamageTMP);
+        //float skillDamageTMP = 0;
+        //if (playerNumber == 1)
+        //{
+        //    skillDamageTMP = baseSkillDamage * (1 + FightPlayer1Config.SkillDamageIncrease);
+        //}
+        //else
+        //{
+        //    skillDamageTMP = baseSkillDamage * (1 + FightPlayer2Config.SkillDamageIncrease);
+        //}
+        //skillDamage = Mathf.RoundToInt(skillDamageTMP);
+
+        skillDamage = Mathf.RoundToInt(baseSkillDamagePersent * FightPlayer2Config.StartHP);
         lightningStrikeObj = Resources.Load<GameObject>("Prefabs/Skills/LightningStrike");
         
         WarningEffectObj = Resources.Load<GameObject>("Prefabs/Effect/OvalWarning");
