@@ -1,15 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
+using TMPro;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.Settings;
 
 public class StageButtonController : MonoBehaviour
 {
 	[SerializeField] private GameObject stageButtonPrefab;
 	[SerializeField] private Transform stageButtonContainer;
 	[SerializeField] private GameObject stagePanel;
-	[SerializeField] private Text chapterText;
+	[SerializeField] private TextMeshProUGUI chapterText;
 	[SerializeField] private Image chapterBackgroundImage;
-	[SerializeField] private GameObject viewport;
 
 	[SerializeField] MainMenuButtonController mainMenuButtonController;
 
@@ -143,7 +145,7 @@ public class StageButtonController : MonoBehaviour
 		}
 
 		// 更新介面文字顯示
-		chapterText.text = $"{selectedChapter} - {selectedLevel}";
+		chapterText.text = $"{selectedChapter}-{selectedLevel} " + GetLocalizedText(chapterText, $"{selectedChapter}-{selectedLevel}");
 		chapterBackgroundImage.sprite = Resources.Load<Sprite>($"Arts/MainScenes/BackgroundImage/Chapter{selectedChapter}BackGround");
 		if (chapterBackgroundImage.sprite == null)
 			chapterBackgroundImage.sprite = Resources.Load<Sprite>("Arts/MainScenes/BackgroundImage/Chapter1BackGround");
@@ -225,5 +227,21 @@ public class StageButtonController : MonoBehaviour
 		Animator animator = stagePanel.GetComponent<Animator>();
 		Debug.Log(animator.GetBool("Entry"));
 		animator.SetBool("Entry", !animator.GetBool("Entry"));
+	}
+
+	private string GetLocalizedText(TextMeshProUGUI targetText, string key)
+	{
+		LocalizeStringEvent localizedEvent = targetText.GetComponent<LocalizeStringEvent>();
+		if (localizedEvent == null) return "";
+		var loadingResult = LocalizationSettings.StringDatabase.GetTableEntry(localizedEvent.StringReference.TableReference, key);
+		//targetText.text = loadingResult.Entry.GetLocalizedString();
+		if (loadingResult.Entry == null)
+		{
+			Debug.LogWarning($"String table \"{localizedEvent.StringReference.TableReference}\" not found key: {key}");
+			return "";
+		}
+
+		targetText.text = loadingResult.Entry.GetLocalizedString();
+		return targetText.text;
 	}
 }

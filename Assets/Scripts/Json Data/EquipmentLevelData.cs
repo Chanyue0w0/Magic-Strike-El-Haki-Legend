@@ -61,7 +61,7 @@ public class EquipmentLevelData : MonoBehaviour
 				!int.TryParse(tokens[4], out int hp) ||
 				!int.TryParse(tokens[5], out int cost))
 			{
-				Debug.LogWarning($"Parse error at line {i + 1}: {line}");
+				Debug.Log($"Load equipment level data, Parse error at line {i + 1}: {line}");
 				continue;
 			}
 

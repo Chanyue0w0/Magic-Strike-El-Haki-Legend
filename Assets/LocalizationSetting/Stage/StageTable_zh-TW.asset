@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: StageTable_zh-TW
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: zh-TW
+  m_SharedData: {fileID: 11400000, guid: 62cf11b31e131394a8d3c1f29cd1af15, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 439896764416
+    m_Localized: "\u5F37\u98A8\u5439\u62C2\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27026255872
+    m_Localized: "\u96DC\u8349\u53E2\u751F\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45674131456
+    m_Localized: "\u6EFE\u7B52\u4F86\u8972\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 277950492672
+    m_Localized: "\u5287\u6BD2\u5A01\u8105\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 290369826816
+    m_Localized: "\u85E4\u8513\u903C\u8FD1\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 259130650624
+    m_Localized: "\u5996\u7CBE\u8B66\u544A\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 309932060672
+    m_Localized: "\u6EFE\u71D9\u5CA9\u6F3F\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 336033214464
+    m_Localized: "\u9583\u4EAE\u77F3\u82F1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6327365632
+    m_Localized: "\u65B0\u624B\u6559\u5B78\r"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
