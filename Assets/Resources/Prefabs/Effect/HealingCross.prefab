@@ -202,8 +202,8 @@ MonoBehaviour:
   skillDamage: 0
   skillMoveSpeed: 10
   waveringAmount: 1
-  soundEffect: GetMoney
-  explosion: {fileID: 7976570651502986103, guid: 6716d46e68912eb46a248bde65a6635a, type: 3}
+  soundEffect: 
+  explosion: {fileID: 5506239450802841824, guid: 6c047e8e2501964408a6219c3ad5f654, type: 3}
   player1: {fileID: 0}
   player2: {fileID: 0}
   targetPosition: {x: 0, y: 0, z: 0}

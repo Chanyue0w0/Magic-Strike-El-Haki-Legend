@@ -56,6 +56,7 @@ public class RoundController : MonoBehaviour
 	[Header("----------------- ShowStage Panel ------------------")]
 	[SerializeField] private GameObject showStagePanel;
 	[SerializeField] private GameObject coinFountain;
+	[SerializeField] private GameObject healingFountain;
 	[SerializeField] private Text roundText;
 	[SerializeField] private bool canInstFountain;
 
@@ -117,6 +118,7 @@ public class RoundController : MonoBehaviour
 		originalCameraSize = mainCamera.orthographicSize;
 		originalCameraPosition = mainCamera.transform.position;
 
+		canInstFountain = true;
 
 		nowTime = maxTime;
 		Application.targetFrameRate = 60;
@@ -183,9 +185,8 @@ public class RoundController : MonoBehaviour
 				PlayDeathAnimation();
 				AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.SlimeDie, new Vector3(0, 0.65f, -20));
 				Instantiate(dieEffect, player2.transform.position, Quaternion.Euler(-90, 0, 0));
-				StartCoroutine(DelayInstCoinFountain(1f));
 
-				canInstFountain = false;
+				
                 PauseMainObjects();
 				//PauseGame();
 
@@ -201,10 +202,17 @@ public class RoundController : MonoBehaviour
 
 				if (currentStageIndex < totalStagesInCurrentLevel)  // 尚未最後一關，顯示 RogueLike 面板
 				{
+					//StartCoroutine(DelayInstHealingFountain(1f));
+					//canInstFountain = false;
+					StartCoroutine(DelayInstCoinFountain(1f));
+					canInstFountain = false;
+
 					StartCoroutine(HandleStageClearRogueLikeFlow());
 				}
 				else
 				{
+					StartCoroutine(DelayInstCoinFountain(1f));
+					canInstFountain = false;
 					// 若已是最後一關，執行 LevelFinished 流程
 					StartCoroutine(DelayLevelFinished(3f)); // 可以稍微延遲一下讓動畫播完
 				}
@@ -316,7 +324,11 @@ public class RoundController : MonoBehaviour
 		NextStage();
 	}
 
-
+	private IEnumerator DelayInstHealingFountain(float delay)
+	{
+		yield return new WaitForSecondsRealtime(delay);
+		Instantiate(healingFountain, player2.transform.position, Quaternion.Euler(-90, 0, 0));
+	}
 
 	private IEnumerator DelayInstCoinFountain(float delay)
 	{
