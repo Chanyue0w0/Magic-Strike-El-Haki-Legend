@@ -139,7 +139,7 @@ public class RoundController : MonoBehaviour
 		if (currentChapterIndex == 1 && currentLevelIndex == 1)
 		{
 			//TutorialManager.Instance.OpenTutorial();
-			StartCoroutine(OpenTutorialDelayed(1.6f));
+			StartCoroutine(OpenTutorialDelayed(0));
 
             FightPlayer1Config.Group[1] = "SK04";
             FightPlayer1Config.Group[2] = "SK04";
@@ -261,8 +261,32 @@ public class RoundController : MonoBehaviour
 
 
 		OpenStagePanel();
-		StartCoroutine(CloseStagePanelDelayed(1.5f));
-		PauseGame();
+		// 取得當前這個章節與關卡下，總共的 stage 數
+		int totalStagesInCurrentLevel = 0;
+		if (totalStagesPerLevel.ContainsKey((currentChapterIndex, currentLevelIndex)))
+		{
+			totalStagesInCurrentLevel = totalStagesPerLevel[(currentChapterIndex, currentLevelIndex)];
+		}
+
+		// 如果這是當前 Level 的最後一關（打 Boss）
+		if (currentStageIndex == totalStagesInCurrentLevel)
+		{
+			BossInfoManager.Instance.PlayBossAnimation();
+			StartCoroutine(DelayedContinueAfterBossInfo(3f));
+		}
+		else
+		{
+			StartCoroutine(CloseStagePanelDelayed(1.5f)); // 裡面會自動 ContinueGame
+		}
+        //StartCoroutine(CloseStagePanelDelayed(1.5f));
+
+        PauseGame();
+    }
+	private IEnumerator DelayedContinueAfterBossInfo(float delay)
+	{
+		yield return new WaitForSecondsRealtime(delay);
+		CloseStagePanel(); // 關閉面板
+		ContinueGame();    // 手動繼續遊戲（因為不是用 CloseStagePanelDelayed）
 	}
 
 
