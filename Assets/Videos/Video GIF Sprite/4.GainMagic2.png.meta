@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9a73c21542fd8864a81ed2d5eaca836b
+guid: 4b3364a64972692409278e2ebf8bdcbf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,301 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 4.GainMagic2_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2276
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: adefb1d22151d1f4086d62d1c97c986d
-      internalID: -920183268
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4.GainMagic2_1
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 2276
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a0ea60950eb7bd46a1326cc471636f0
-      internalID: 2052704065
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4.GainMagic2_2
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 2276
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 34e0fce71bfe6614db467552745c180e
-      internalID: 472009280
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4.GainMagic2_3
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 2276
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6b375bdc7469e774dbf23950451feef0
-      internalID: 689003372
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4.GainMagic2_4
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 2276
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e067b26bf9272f54193292af2c221883
-      internalID: -680137738
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4.GainMagic2_5
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 2276
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4cd84732454a8434ca055de8f1da4ae7
-      internalID: 1430286339
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4.GainMagic2_6
-      rect:
-        serializedVersion: 2
-        x: 1920
-        y: 2276
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e80326f2ccd29e044a3530db2ea92c03
-      internalID: -120687620
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4.GainMagic2_7
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1707
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6585aefb556c2d644bd29562e7115f17
-      internalID: -218289279
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4.GainMagic2_8
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 1707
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df969e2bb19f5a242a535f7e6916cf5c
-      internalID: 1187914254
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4.GainMagic2_9
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 1707
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 450c734798904e945ba352f0cef91ab1
-      internalID: 520377152
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4.GainMagic2_10
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 1707
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fe47250945b11b14b8d8f825008e225c
-      internalID: -1702326400
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4.GainMagic2_11
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 1707
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 37e48b8d6ad65074e8dcdf029905b795
-      internalID: -1861116274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4.GainMagic2_12
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 1707
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 748d3440bb644df468e9d68dcb1a114d
-      internalID: 1866919634
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4.GainMagic2_13
-      rect:
-        serializedVersion: 2
-        x: 1920
-        y: 1707
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f886804c9d3d22647a0b6472b779c299
-      internalID: -1633284470
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4.GainMagic2_14
+      name: 4_0
       rect:
         serializedVersion: 2
         x: 0
@@ -431,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73952e3ba6f015c4e9a5928684de5b84
-      internalID: -1905576225
+      spriteID: 524af3250d2d2da47ae43228abea8f00
+      internalID: 2045030312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_15
+      name: 4_1
       rect:
         serializedVersion: 2
         x: 320
@@ -452,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70b87f40457fa4842a3c56e73cd3e045
-      internalID: 744602542
+      spriteID: 8055b65c1aac89b499374954c0b823c1
+      internalID: 24750640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_16
+      name: 4_2
       rect:
         serializedVersion: 2
         x: 640
@@ -473,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0a3bd88151469c4aab197e2d91f9c62
-      internalID: 1762733796
+      spriteID: af71869e5f99f024b92d44aa56452499
+      internalID: -1294638619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_17
+      name: 4_3
       rect:
         serializedVersion: 2
         x: 960
@@ -494,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 778e3f22d23d9964394aae9e01a05f68
-      internalID: 1192820297
+      spriteID: 76cc17b5451c2754499fd21b9309e8d6
+      internalID: -998220174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_18
+      name: 4_4
       rect:
         serializedVersion: 2
         x: 1280
@@ -515,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ade16150f4521544abeacf22853f4e63
-      internalID: -80603777
+      spriteID: 044be8cf3fbf60a4eb3f60af94c57381
+      internalID: -382208548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_19
+      name: 4_5
       rect:
         serializedVersion: 2
         x: 1600
@@ -536,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d46bce4268d4414ab760bb38f078af3
-      internalID: -1220360504
+      spriteID: 288ff8d91fcf29a478471edb1655eed9
+      internalID: 1129469481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_20
+      name: 4_6
       rect:
         serializedVersion: 2
         x: 1920
@@ -557,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd82836257332cc4fbe3dc0a7972083c
-      internalID: 2098066058
+      spriteID: 86bec1aff59270746a9de852a0d45429
+      internalID: -485950429
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_21
+      name: 4_7
       rect:
         serializedVersion: 2
         x: 0
@@ -578,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66c491e5dec626e438302199220b8843
-      internalID: -1226484554
+      spriteID: aae2bbd30225eec4da1855310f50b0ad
+      internalID: 251263931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_22
+      name: 4_8
       rect:
         serializedVersion: 2
         x: 320
@@ -599,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09d6ce76af140f74189a0b7cb10219d1
-      internalID: 1190250332
+      spriteID: 9b0fc01e18567fc4c86ee9d82e70f74a
+      internalID: 1230086234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_23
+      name: 4_9
       rect:
         serializedVersion: 2
         x: 640
@@ -620,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c06f7327768f824db500c24359c312f
-      internalID: 1155965786
+      spriteID: b7dde5cbd3f454d42a2c5e83c42e9099
+      internalID: -625852524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_24
+      name: 4_10
       rect:
         serializedVersion: 2
         x: 960
@@ -641,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d088396cc14cd34eb328853b36c7e5e
-      internalID: -227294662
+      spriteID: 58a5c982c75860b49b21cee7f92c0a5d
+      internalID: 950728767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_25
+      name: 4_11
       rect:
         serializedVersion: 2
         x: 1280
@@ -662,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26d577c5d8ceb5243abc9ae293de522e
-      internalID: 1654549553
+      spriteID: 282660b812d45c34fbf17a1eb79ddf34
+      internalID: 1433063995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_26
+      name: 4_12
       rect:
         serializedVersion: 2
         x: 1600
@@ -683,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03fea6b9570234146956143c767eb275
-      internalID: 1951887500
+      spriteID: 57d8997aacb023e4590ab08164b0e92e
+      internalID: 46056740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_27
+      name: 4_13
       rect:
         serializedVersion: 2
         x: 1920
@@ -704,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6e3768e1214db04db1ba95666b3b36b
-      internalID: -788946217
+      spriteID: edff113fa30275e4a8628418214b52ec
+      internalID: 1879809052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_28
+      name: 4_14
       rect:
         serializedVersion: 2
         x: 0
@@ -725,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae41b0537f6e7554484a907363f23937
-      internalID: -367529049
+      spriteID: 1499f0745393ce24a90fddf22e6dc98d
+      internalID: 148010488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_29
+      name: 4_15
       rect:
         serializedVersion: 2
         x: 320
@@ -746,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e350e332fe020554997e35dd5e837ac8
-      internalID: 923972569
+      spriteID: bcda4720dd519224b93f8d7ad1632edd
+      internalID: 1856587552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_30
+      name: 4_16
       rect:
         serializedVersion: 2
         x: 640
@@ -767,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a55246b1fdb30894391200b88e9c8c8d
-      internalID: -718986406
+      spriteID: de1ce6da625bc5d4e8e2e37aba2531b3
+      internalID: 551732002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_31
+      name: 4_17
       rect:
         serializedVersion: 2
         x: 960
@@ -788,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cae10ea189e584f4eaf6309c2c0a5e96
-      internalID: 374814704
+      spriteID: 40cbd6a5f0eb0ba49b167468865517b0
+      internalID: -1283922842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_32
+      name: 4_18
       rect:
         serializedVersion: 2
         x: 1280
@@ -809,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90ef6635d401aa24790aac304faf08be
-      internalID: 916262903
+      spriteID: d34fe631cf293cf4db9bf3969fb37a81
+      internalID: 1671137173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_33
+      name: 4_19
       rect:
         serializedVersion: 2
         x: 1600
@@ -830,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d546ee243304994098f1b846e4a4e73
-      internalID: -157825407
+      spriteID: 7d9fd5e96d7acbb47a50df24604cdba4
+      internalID: 2001516960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4.GainMagic2_34
+      name: 4_20
       rect:
         serializedVersion: 2
         x: 1920
@@ -851,8 +557,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 126b17742a2085f4981323feff49bc6f
-      internalID: -180902083
+      spriteID: 5649c04702733f147bd291f4298b41e6
+      internalID: -1698799904
       vertices: []
       indices: 
       edges: []
@@ -868,41 +574,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      4.GainMagic2_0: -920183268
-      4.GainMagic2_1: 2052704065
-      4.GainMagic2_10: -1702326400
-      4.GainMagic2_11: -1861116274
-      4.GainMagic2_12: 1866919634
-      4.GainMagic2_13: -1633284470
-      4.GainMagic2_14: -1905576225
-      4.GainMagic2_15: 744602542
-      4.GainMagic2_16: 1762733796
-      4.GainMagic2_17: 1192820297
-      4.GainMagic2_18: -80603777
-      4.GainMagic2_19: -1220360504
-      4.GainMagic2_2: 472009280
-      4.GainMagic2_20: 2098066058
-      4.GainMagic2_21: -1226484554
-      4.GainMagic2_22: 1190250332
-      4.GainMagic2_23: 1155965786
-      4.GainMagic2_24: -227294662
-      4.GainMagic2_25: 1654549553
-      4.GainMagic2_26: 1951887500
-      4.GainMagic2_27: -788946217
-      4.GainMagic2_28: -367529049
-      4.GainMagic2_29: 923972569
-      4.GainMagic2_3: 689003372
-      4.GainMagic2_30: -718986406
-      4.GainMagic2_31: 374814704
-      4.GainMagic2_32: 916262903
-      4.GainMagic2_33: -157825407
-      4.GainMagic2_34: -180902083
-      4.GainMagic2_4: -680137738
-      4.GainMagic2_5: 1430286339
-      4.GainMagic2_6: -120687620
-      4.GainMagic2_7: -218289279
-      4.GainMagic2_8: 1187914254
-      4.GainMagic2_9: 520377152
+      4_0: 2045030312
+      4_1: 24750640
+      4_10: 950728767
+      4_11: 1433063995
+      4_12: 46056740
+      4_13: 1879809052
+      4_14: 148010488
+      4_15: 1856587552
+      4_16: 551732002
+      4_17: -1283922842
+      4_18: 1671137173
+      4_19: 2001516960
+      4_2: -1294638619
+      4_20: -1698799904
+      4_3: -998220174
+      4_4: -382208548
+      4_5: 1129469481
+      4_6: -485950429
+      4_7: 251263931
+      4_8: 1230086234
+      4_9: -625852524
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -37,4 +37,16 @@ public class GifPlayerController : MonoBehaviour
 			Debug.LogWarning($"AnimationClip '{animationClipName}' not found.");
 		}
 	}
+
+	public void PlayGIF(int listIndex)
+	{
+		if (listIndex < gifClips.Length && gifClips[listIndex] != null)
+		{
+			PlayGIF(gifClips[listIndex]);
+		}
+		else
+		{
+			Debug.LogWarning($"AnimationClip '{gifClips[listIndex]}' not found.");
+		}
+	}
 }

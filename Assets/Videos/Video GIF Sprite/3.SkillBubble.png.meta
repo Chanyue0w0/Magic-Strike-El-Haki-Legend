@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e8390f07e1270664a94772172bb4987b
+guid: 880a2a7689a182446a3cef0af37f3999
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,448 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 3.SkillBubble_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 3983
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16ae89874ba7e864bbfca93321609bd1
-      internalID: 332547892
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_1
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 3983
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 39275cac80c224f40b9127d9548ebc53
-      internalID: 873714466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_2
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 3983
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27662029ec7c1544d8dc67f355711670
-      internalID: 1716681648
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_3
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 3983
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e16e3ab2038fd924c9f1dbd2e1f6c64d
-      internalID: 1479137060
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_4
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 3983
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d440795211dd12c4ab4157a427a17c48
-      internalID: -1701663416
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_5
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 3983
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e396f670b5e4ff47842190cdb7fc892
-      internalID: -849498820
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_6
-      rect:
-        serializedVersion: 2
-        x: 1920
-        y: 3983
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc3d9cd2dcc57344098d7a2da0086602
-      internalID: 1041150884
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_7
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 3414
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1c0927f0fc520354b856cab44247d6b9
-      internalID: 704612473
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_8
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 3414
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a222bc2a2c0d834483d9d75ea37808a
-      internalID: -1096815225
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_9
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 3414
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7df7301be7acae64da50377c28b633d8
-      internalID: 2124788622
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_10
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 3414
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 92e0272027a442d4bbad1c00648e9cac
-      internalID: 968115654
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_11
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 3414
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2728e64704b21364e8ceac9787d537ae
-      internalID: -1501208220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_12
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 3414
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c98dc08ed719eb49838fcea13807871
-      internalID: -719637287
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_13
-      rect:
-        serializedVersion: 2
-        x: 1920
-        y: 3414
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ea9cab7d8681354fb0c09bfa74d0af5
-      internalID: 1511586530
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_14
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2845
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94db93b2bf7e3604e93dc9c3e98b8b4c
-      internalID: -1480556970
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_15
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 2845
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 756b46519e6c4f5439b13b6b691fc2de
-      internalID: -799747101
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_16
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 2845
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 776cd109ad563474a932f5eef1be36dd
-      internalID: 1290874564
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_17
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 2845
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09418edca5b9f9f41ac253814166d097
-      internalID: -834591917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_18
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 2845
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5cef379a61322834a88bedaec61348b7
-      internalID: -1821145407
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_19
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 2845
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5345fc96b6b6b83478e358a302df1fe6
-      internalID: -1549742159
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_20
-      rect:
-        serializedVersion: 2
-        x: 1920
-        y: 2845
-        width: 320
-        height: 569
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29613994ae3861345bd151047fd9f969
-      internalID: 1168187334
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3.SkillBubble_21
+      name: 3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -578,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5feba02a23584334bba0a8b497cf8e43
-      internalID: -897597099
+      spriteID: cab880d2020aa544c8539e6c0bb94e46
+      internalID: -837779376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_22
+      name: 3_1
       rect:
         serializedVersion: 2
         x: 320
@@ -599,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 437ddd920783f824bbd4b802c876cc45
-      internalID: 633018751
+      spriteID: dbcea2c934296554d8b9a48f11d9019f
+      internalID: 1263437826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_23
+      name: 3_2
       rect:
         serializedVersion: 2
         x: 640
@@ -620,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 551db948dc4ff1847a001bab8d01783e
-      internalID: 812076311
+      spriteID: 3293a40110d75d343aacabfc5c8754e1
+      internalID: -240538356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_24
+      name: 3_3
       rect:
         serializedVersion: 2
         x: 960
@@ -641,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da8f5dea238df7c4eb3582710a3a6f6b
-      internalID: 1957864749
+      spriteID: ee2533b4a1842784586342dc41d1fb61
+      internalID: 790496465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_25
+      name: 3_4
       rect:
         serializedVersion: 2
         x: 1280
@@ -662,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4c85ee816bf1cd45b1cdd752a593616
-      internalID: 1965224475
+      spriteID: 7f5484670ebff37409ab876416b10115
+      internalID: 2073916178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_26
+      name: 3_5
       rect:
         serializedVersion: 2
         x: 1600
@@ -683,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd0030add7b665344847b26373744205
-      internalID: 1784135965
+      spriteID: 0c900a25b78f08c4fa459d957a056359
+      internalID: 461081527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_27
+      name: 3_6
       rect:
         serializedVersion: 2
         x: 1920
@@ -704,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13f7c01edd6b635468db459807abe65a
-      internalID: 1569600670
+      spriteID: 8330779e5c968004e93e5e1c3dfca9f9
+      internalID: 771266920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_28
+      name: 3_7
       rect:
         serializedVersion: 2
         x: 0
@@ -725,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c43e2fac76508bd4eb49ce11fd4fcc45
-      internalID: 1703770642
+      spriteID: ee1782a513755f8499ea9ccffc908bcc
+      internalID: 1564764341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_29
+      name: 3_8
       rect:
         serializedVersion: 2
         x: 320
@@ -746,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 624e5808b0fece54396d7916b420aa8c
-      internalID: 1059889217
+      spriteID: 19fbe6fc4ee9ef54984f173546d041f2
+      internalID: -2112466024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_30
+      name: 3_9
       rect:
         serializedVersion: 2
         x: 640
@@ -767,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1508b595e146474da20b2879adeca1d
-      internalID: -454187125
+      spriteID: eb35eee9b10e8574a8811d00081509fa
+      internalID: 1007222903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_31
+      name: 3_10
       rect:
         serializedVersion: 2
         x: 960
@@ -788,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fbd95ea9d0787a4ab571617035dfedf
-      internalID: -1828361481
+      spriteID: f0d7de0ab8ffa0b41837cc9e6d08b499
+      internalID: -841021245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_32
+      name: 3_11
       rect:
         serializedVersion: 2
         x: 1280
@@ -809,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d610ca78cf5cee44817ced24332be25
-      internalID: 1449879888
+      spriteID: b0b8c0232cd08b54b8eddfce4ef5a33b
+      internalID: -1249095650
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_33
+      name: 3_12
       rect:
         serializedVersion: 2
         x: 1600
@@ -830,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e00549cc5d79934889729372262c4d7
-      internalID: 559264002
+      spriteID: 7bfbfcd6faf7e064e9c3290e3c613b89
+      internalID: 338705601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_34
+      name: 3_13
       rect:
         serializedVersion: 2
         x: 1920
@@ -851,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a9b672592f5eba42901edd72f7658a2
-      internalID: -976888697
+      spriteID: 607210f98d535a5458cf6b3091fe4a21
+      internalID: 1979089350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_35
+      name: 3_14
       rect:
         serializedVersion: 2
         x: 0
@@ -872,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 386d63607422c5a409dfe537e26a7d6f
-      internalID: -596159074
+      spriteID: ef64017dc1904c84c9ed2b165878d2ce
+      internalID: -814729773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_36
+      name: 3_15
       rect:
         serializedVersion: 2
         x: 320
@@ -893,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 161dbaa018d722c4b8d68d67952bce2a
-      internalID: 309419218
+      spriteID: 8fcb0b895833b4149b34363d6beb53fd
+      internalID: 1800663542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_37
+      name: 3_16
       rect:
         serializedVersion: 2
         x: 640
@@ -914,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eee62eb3b46ec7142b420dc551335802
-      internalID: 1773727642
+      spriteID: 2c989f883789ce84ca33e694d6d665fe
+      internalID: -686228600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_38
+      name: 3_17
       rect:
         serializedVersion: 2
         x: 960
@@ -935,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e33df5b9d2bae814eb6aa92eea3580e4
-      internalID: 459948755
+      spriteID: 3e377c5e24a74f44e9c1e71bda03977f
+      internalID: 1184869950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_39
+      name: 3_18
       rect:
         serializedVersion: 2
         x: 1280
@@ -956,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 081e0568fc663d84cae26a028e9cb032
-      internalID: -1077239797
+      spriteID: b20b497cd974a2146b36ba2af7d1b0fd
+      internalID: -197850253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_40
+      name: 3_19
       rect:
         serializedVersion: 2
         x: 1600
@@ -977,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e6fe1becd44f9343a554f56a55a5239
-      internalID: -1446324907
+      spriteID: 84e508a97e62dde41b3ca06f42434259
+      internalID: 1179378606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_41
+      name: 3_20
       rect:
         serializedVersion: 2
         x: 1920
@@ -998,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e242cc8d50ba9c41aa7da4574dbe392
-      internalID: 87190455
+      spriteID: 9f5122893c0d0664f9db5473624e6037
+      internalID: 882617819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_42
+      name: 3_21
       rect:
         serializedVersion: 2
         x: 0
@@ -1019,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19b3a772f9b1aaa4c9005ffd13e89dae
-      internalID: 446876479
+      spriteID: b4195063d7f574248bc93c19b026b0fe
+      internalID: -1504607615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_43
+      name: 3_22
       rect:
         serializedVersion: 2
         x: 320
@@ -1040,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c008ec5b2cada5f429919dc12af0c97d
-      internalID: 835792358
+      spriteID: e15f9f22c34bf2642a6959aaf675048b
+      internalID: -1310551809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_44
+      name: 3_23
       rect:
         serializedVersion: 2
         x: 640
@@ -1061,14 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b99a806b0cf82349a3d0fae2cb5360a
-      internalID: 86671965
+      spriteID: 370f61edc4e7b624d94ef635d2306bb3
+      internalID: 322445431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_45
+      name: 3_24
       rect:
         serializedVersion: 2
         x: 960
@@ -1082,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec106b6cc5d879742ae003ced0697e2f
-      internalID: -1249423219
+      spriteID: 3f347ba83d1748c4fb86c264d0a8e9de
+      internalID: -290524798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_46
+      name: 3_25
       rect:
         serializedVersion: 2
         x: 1280
@@ -1103,14 +662,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b72811dae0c625f4f8ff86a052b52484
-      internalID: -698943633
+      spriteID: 524562b85e1fc6942b93efe7aa882d46
+      internalID: -2003718428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_47
+      name: 3_26
       rect:
         serializedVersion: 2
         x: 1600
@@ -1124,14 +683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 903d6317d4a2df240843bf2218aa2d93
-      internalID: 217580409
+      spriteID: d42e1bbbf20b3eb43bf42e6910af640b
+      internalID: 751609496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_48
+      name: 3_27
       rect:
         serializedVersion: 2
         x: 1920
@@ -1145,14 +704,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff2bc46b4bac42f4c8a4f7b1fb252c17
-      internalID: 735206932
+      spriteID: e936f024f7d3a2348bab26a80ebfe797
+      internalID: 977882393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_49
+      name: 3_28
       rect:
         serializedVersion: 2
         x: 0
@@ -1166,14 +725,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 616fc239954e14044a2700c69a26922f
-      internalID: 1564744346
+      spriteID: 58feedcd611521742ab96a52e11f2b04
+      internalID: 57834283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_50
+      name: 3_29
       rect:
         serializedVersion: 2
         x: 320
@@ -1187,14 +746,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db5dda9c4d64aac45b053af7cb6e1fbf
-      internalID: 1740833040
+      spriteID: 186910801e97cad4191cec6c42f74cd5
+      internalID: -1211496147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_51
+      name: 3_30
       rect:
         serializedVersion: 2
         x: 640
@@ -1208,14 +767,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74e1d08e430ff7c4cad92422d952a925
-      internalID: 1638089246
+      spriteID: c36c7ab1d03023848b39a84f00490ad7
+      internalID: 1208873009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_52
+      name: 3_31
       rect:
         serializedVersion: 2
         x: 960
@@ -1229,14 +788,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96cd20e3a788ff14e9ea8127f3053530
-      internalID: -1889349786
+      spriteID: d541b46469a17464d9e0e55cec565f60
+      internalID: -2025538264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_53
+      name: 3_32
       rect:
         serializedVersion: 2
         x: 1280
@@ -1250,14 +809,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bb2eced0e7cf5e4b83c4def6be01f61
-      internalID: -2018107396
+      spriteID: 2e74e6262f10e034e95831132d8cc6e4
+      internalID: -959311572
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_54
+      name: 3_33
       rect:
         serializedVersion: 2
         x: 1600
@@ -1271,14 +830,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f092dd35b2b3f3b47b010aaad5814145
-      internalID: 1537453870
+      spriteID: f5c053ceab3ee6e4895b60a9eb31b42d
+      internalID: 1358495319
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3.SkillBubble_55
+      name: 3_34
       rect:
         serializedVersion: 2
         x: 1920
@@ -1292,8 +851,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8786f1b5c1cee8a43bb248392dd92740
-      internalID: -297238135
+      spriteID: b7ca9f24f3ae0194b8b168cf8b701a11
+      internalID: -624738889
       vertices: []
       indices: 
       edges: []
@@ -1309,62 +868,41 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      3.SkillBubble_0: 332547892
-      3.SkillBubble_1: 873714466
-      3.SkillBubble_10: 968115654
-      3.SkillBubble_11: -1501208220
-      3.SkillBubble_12: -719637287
-      3.SkillBubble_13: 1511586530
-      3.SkillBubble_14: -1480556970
-      3.SkillBubble_15: -799747101
-      3.SkillBubble_16: 1290874564
-      3.SkillBubble_17: -834591917
-      3.SkillBubble_18: -1821145407
-      3.SkillBubble_19: -1549742159
-      3.SkillBubble_2: 1716681648
-      3.SkillBubble_20: 1168187334
-      3.SkillBubble_21: -897597099
-      3.SkillBubble_22: 633018751
-      3.SkillBubble_23: 812076311
-      3.SkillBubble_24: 1957864749
-      3.SkillBubble_25: 1965224475
-      3.SkillBubble_26: 1784135965
-      3.SkillBubble_27: 1569600670
-      3.SkillBubble_28: 1703770642
-      3.SkillBubble_29: 1059889217
-      3.SkillBubble_3: 1479137060
-      3.SkillBubble_30: -454187125
-      3.SkillBubble_31: -1828361481
-      3.SkillBubble_32: 1449879888
-      3.SkillBubble_33: 559264002
-      3.SkillBubble_34: -976888697
-      3.SkillBubble_35: -596159074
-      3.SkillBubble_36: 309419218
-      3.SkillBubble_37: 1773727642
-      3.SkillBubble_38: 459948755
-      3.SkillBubble_39: -1077239797
-      3.SkillBubble_4: -1701663416
-      3.SkillBubble_40: -1446324907
-      3.SkillBubble_41: 87190455
-      3.SkillBubble_42: 446876479
-      3.SkillBubble_43: 835792358
-      3.SkillBubble_44: 86671965
-      3.SkillBubble_45: -1249423219
-      3.SkillBubble_46: -698943633
-      3.SkillBubble_47: 217580409
-      3.SkillBubble_48: 735206932
-      3.SkillBubble_49: 1564744346
-      3.SkillBubble_5: -849498820
-      3.SkillBubble_50: 1740833040
-      3.SkillBubble_51: 1638089246
-      3.SkillBubble_52: -1889349786
-      3.SkillBubble_53: -2018107396
-      3.SkillBubble_54: 1537453870
-      3.SkillBubble_55: -297238135
-      3.SkillBubble_6: 1041150884
-      3.SkillBubble_7: 704612473
-      3.SkillBubble_8: -1096815225
-      3.SkillBubble_9: 2124788622
+      3_0: -837779376
+      3_1: 1263437826
+      3_10: -841021245
+      3_11: -1249095650
+      3_12: 338705601
+      3_13: 1979089350
+      3_14: -814729773
+      3_15: 1800663542
+      3_16: -686228600
+      3_17: 1184869950
+      3_18: -197850253
+      3_19: 1179378606
+      3_2: -240538356
+      3_20: 882617819
+      3_21: -1504607615
+      3_22: -1310551809
+      3_23: 322445431
+      3_24: -290524798
+      3_25: -2003718428
+      3_26: 751609496
+      3_27: 977882393
+      3_28: 57834283
+      3_29: -1211496147
+      3_3: 790496465
+      3_30: 1208873009
+      3_31: -2025538264
+      3_32: -959311572
+      3_33: 1358495319
+      3_34: -624738889
+      3_4: 2073916178
+      3_5: 461081527
+      3_6: 771266920
+      3_7: 1564764341
+      3_8: -2112466024
+      3_9: 1007222903
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
