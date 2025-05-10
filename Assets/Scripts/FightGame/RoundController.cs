@@ -68,7 +68,12 @@ public class RoundController : MonoBehaviour
 	[Header("----------------- Win & Lose Panel ------------------")]
 	[SerializeField] private GameObject WinPanel;
 	[SerializeField] private GameObject LosePanel;
+	[SerializeField] private Text WinLevelTitleText;
+	[SerializeField] private Text LoseLevelTitleText;
 	[SerializeField] private Text totalTimeText;
+	[SerializeField] private List<string> ch1_levelTitleName;
+	[SerializeField] private List<string> ch2_levelTitleName;
+	[SerializeField] private List<string> ch3_levelTitleName;
 
 
 	[Header("----------------- Ball ------------------")]
@@ -358,6 +363,20 @@ public class RoundController : MonoBehaviour
 		AudioManager.Instance.StopBGM();
 		AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.WinSoundEffect, new Vector3(0, 0.65f, -20));
 		WinPanel.SetActive(true);
+		string levelTitleNow = "";
+		if(FightPlayer1Config.CurrentChapter == 1)
+        {
+			levelTitleNow = ch1_levelTitleName[FightPlayer1Config.CurrentLevel - 1];
+		}
+		else if (FightPlayer1Config.CurrentChapter == 2)
+		{
+			levelTitleNow = ch2_levelTitleName[FightPlayer1Config.CurrentLevel - 1];
+		}
+		else
+		{
+			levelTitleNow = ch3_levelTitleName[FightPlayer1Config.CurrentLevel - 1];
+		}
+		WinLevelTitleText.text = FightPlayer1Config.CurrentChapter + "-" + FightPlayer1Config.CurrentLevel + " " + levelTitleNow;
 
 		FightPlayer1Config.CurrentStage = 1; // 強制重製
 
@@ -699,7 +718,22 @@ public class RoundController : MonoBehaviour
 		//gameOverPanel.SetActive(true);
 		AudioManager.Instance.StopBGM();
 		AudioManager.Instance.PlaySFXAtPosition(SFXAudioClips.Instance.LoseSoundEffect, new Vector3(0, 0.65f, -20));
+
 		LosePanel.SetActive(true);
+		string levelTitleNow = "";
+		if (FightPlayer1Config.CurrentChapter == 1)
+		{
+			levelTitleNow = ch1_levelTitleName[FightPlayer1Config.CurrentLevel - 1];
+		}
+		else if (FightPlayer1Config.CurrentChapter == 2)
+		{
+			levelTitleNow = ch2_levelTitleName[FightPlayer1Config.CurrentLevel - 1];
+		}
+		else
+		{
+			levelTitleNow = ch3_levelTitleName[FightPlayer1Config.CurrentLevel - 1];
+		}
+		LoseLevelTitleText.text = FightPlayer1Config.CurrentChapter + "-" + FightPlayer1Config.CurrentLevel + " " + levelTitleNow;
 
 		PauseGame();
 		gameStatus = "Gameover";
