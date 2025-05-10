@@ -26,6 +26,7 @@ public class AIController : MonoBehaviour
     [SerializeField] private Coroutine attackCoroutine; // 用來存儲協程，以便在 isStuned 時取消
     [SerializeField] private bool attackTimeChosen = false; // 是否已選擇攻擊時間
     [SerializeField] private bool stopMoving = false;
+    private bool eventsRegistered = false;
 
     [Header("移動範圍限制")]
     [SerializeField] private Transform topLeftBoundary;
@@ -53,26 +54,57 @@ public class AIController : MonoBehaviour
 
     [SerializeField] private bool isPause = false;//暫停AI移動
     [SerializeField] private bool moveToAIStartPosition = false;//AI復位
-    
+
+
 
     private void Start()
     {
         InitAI();
     }
 
+    //public void InitAI()
+    //{
+    //    nowAI_Level = FightPlayer2Config.AI_level;
+    //    MaxMovementSpeed = 3 * nowAI_Level;
+    //    originMaxMovementSpeed = MaxMovementSpeed;
+    //    //attackFrequency = (maxAttackFrequency - 3 * nowAI_Level);
+    //    //attackFrequency = (maxAttackFrequency - FightPlayer2Config.AI_AttackFrequencyReduce);
+    //    attackFrequency = FightPlayer2Config.AI_AttackFrequency.x;
+    //    maxAttackFrequency = FightPlayer2Config.AI_AttackFrequency.y;
+
+    //    ball = GameObject.Find("ball");
+    //    ballController = ball.GetComponent<BallController>();//取得球的控制狀態
+
+
+    //    player2 = GameObject.Find("Player2");
+    //    rb = player2.GetComponent<Rigidbody2D>();
+    //    startingPosition = rb.position;
+    //    animator = GameObject.Find("Player2Sprite").GetComponent<Animator>();
+    //    player2Collider = player2.GetComponent<CircleCollider2D>();
+
+    //    // 嘗試取得 CollisionNotifier
+    //    collisionNotifier = player2.GetComponent<PlayerCollisionNotifier>();
+    //    if (collisionNotifier != null)
+    //    {
+    //        collisionNotifier.OnBallCollision += HandleBallCollision;
+    //    }
+
+    //    // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
+    //    PlayerNotification notification = player2.GetComponent<PlayerNotification>();
+    //    RegisterPlayerNotification(notification);//訂閱通知
+    //}
     public void InitAI()
     {
+        UnregisterEvents(); // 確保不重複註冊
+
         nowAI_Level = FightPlayer2Config.AI_level;
         MaxMovementSpeed = 3 * nowAI_Level;
         originMaxMovementSpeed = MaxMovementSpeed;
-        //attackFrequency = (maxAttackFrequency - 3 * nowAI_Level);
-        //attackFrequency = (maxAttackFrequency - FightPlayer2Config.AI_AttackFrequencyReduce);
         attackFrequency = FightPlayer2Config.AI_AttackFrequency.x;
         maxAttackFrequency = FightPlayer2Config.AI_AttackFrequency.y;
 
         ball = GameObject.Find("ball");
-        ballController = ball.GetComponent<BallController>();//取得球的控制狀態
-
+        ballController = ball.GetComponent<BallController>();
 
         player2 = GameObject.Find("Player2");
         rb = player2.GetComponent<Rigidbody2D>();
@@ -80,17 +112,18 @@ public class AIController : MonoBehaviour
         animator = GameObject.Find("Player2Sprite").GetComponent<Animator>();
         player2Collider = player2.GetComponent<CircleCollider2D>();
 
-        // 嘗試取得 CollisionNotifier
         collisionNotifier = player2.GetComponent<PlayerCollisionNotifier>();
         if (collisionNotifier != null)
         {
+            collisionNotifier.OnBallCollision -= HandleBallCollision;
             collisionNotifier.OnBallCollision += HandleBallCollision;
+            eventsRegistered = true;
         }
 
-        // 在 Start 時嘗試找到 PlayerNotification 並綁定事件
         PlayerNotification notification = player2.GetComponent<PlayerNotification>();
-        RegisterPlayerNotification(notification);//訂閱通知
+        RegisterPlayerNotification(notification);
     }
+
 
     private void FixedUpdate()
     {
@@ -209,13 +242,42 @@ public class AIController : MonoBehaviour
 
     }
 
+    private void UnregisterEvents()
+    {
+        if (eventsRegistered)
+        {
+            if (collisionNotifier != null)
+            {
+                collisionNotifier.OnBallCollision -= HandleBallCollision;
+            }
+
+            if (player2 != null)
+            {
+                PlayerNotification notification = player2.GetComponent<PlayerNotification>();
+                if (notification != null)
+                {
+                    notification.OnStatusEffectApplied -= HandleStatusEffectApplied;
+                }
+            }
+
+            eventsRegistered = false;
+        }
+    }
+
+
+
     //訂閱通知
     public void RegisterPlayerNotification(PlayerNotification playerNotification)
     {
-        //Debug.Log($"{gameObject.name} 收到 傷害");
-        playerNotification.OnStatusEffectApplied += HandleStatusEffectApplied;
-        //playerNotification.OnGetMagicPointApplied += HandleGetMagicPointNotification;
+        if (playerNotification != null)
+        {
+            playerNotification.OnStatusEffectApplied -= HandleStatusEffectApplied;
+            playerNotification.OnStatusEffectApplied += HandleStatusEffectApplied;
+            eventsRegistered = true;
+        }
     }
+
+
 
 
     // 接收 `PlayerNotification` 的受到效果通知
