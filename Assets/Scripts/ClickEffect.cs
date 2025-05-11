@@ -14,7 +14,6 @@ public class ClickEffect : MonoBehaviour
 		if (Instance == null)
 		{
 			Instance = this;
-			DontDestroyOnLoad(this); // 讓這個物件在切換場景時不被銷毀
 		}
 		else
 		{

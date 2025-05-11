@@ -49,8 +49,8 @@ public class PlayerDataManager : MonoBehaviour
 		PlayerPrefs.SetInt(PLAYER_ENERGY_KEY, 35);
 		PlayerPrefs.SetInt(PLAYER_MAX_ENERGY_KEY, 35);
 		// ≥π∏`
-		PlayerPrefs.SetInt(PLAYER_CHAPTER_KEY, 3);
-		PlayerPrefs.SetInt(PLAYER_CURRENT_LEVEL_KEY, 2);
+		PlayerPrefs.SetInt(PLAYER_CHAPTER_KEY, 1);
+		PlayerPrefs.SetInt(PLAYER_CURRENT_LEVEL_KEY, 1);
 		// •€¿Y
 		PlayerPrefs.SetInt(COMMON_EVOSTONE_KEY, 100);
 		PlayerPrefs.SetInt(RARE_EVOSTONE_KEY, 1000);

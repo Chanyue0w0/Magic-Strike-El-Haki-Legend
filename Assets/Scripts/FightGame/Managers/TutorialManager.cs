@@ -7,12 +7,10 @@ public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager Instance { get; private set; }
 
-    [SerializeField] private Button nextButton;
-    [SerializeField] private Button lastButton;
     [SerializeField] private Button exitButton;
 
     [SerializeField] private GameObject tutorialPanel;
-    [SerializeField] private VideoPlayerController videoPlayerController;
+    [SerializeField] private GifPlayerController gifPlayerController;
     [SerializeField] private Text tutorialText;
     [SerializeField] private Text pageIndicatorText; // 顯示頁數
     [SerializeField] private string[] tutorialContents;
@@ -50,6 +48,7 @@ public class TutorialManager : MonoBehaviour
             exitButton.interactable = false;
         }
 
+        currentIndex = 0;
 
         ShowTutorialText();
     }
@@ -70,47 +69,22 @@ public class TutorialManager : MonoBehaviour
             {
                 exitButton.interactable = (currentIndex == tutorialContents.Length - 1);
             }
-
-            // Next Button：最後一頁時不可點
-            if (nextButton != null)
-            {
-                nextButton.interactable = (currentIndex < tutorialContents.Length - 1);
-            }
-
-            // Last Button：第一頁時不可點
-            if (lastButton != null)
-            {
-                lastButton.interactable = (currentIndex > 0);
-            }
         }
     }
 
 
-    public void NextTutorial()
+    public void NextTutorial(int add)
     {
         if (tutorialContents == null || tutorialContents.Length == 0)
             return;
 
-        if (currentIndex < tutorialContents.Length - 1)
-        {
-            videoPlayerController.NextVideo();
-            currentIndex++;
-            ShowTutorialText();
-        }
+        gifPlayerController.PlayGIF(currentIndex);
+        ShowTutorialText();
+        currentIndex += add;
+        if (currentIndex >= tutorialContents.Length) currentIndex = tutorialContents.Length - 1;
+        else if (currentIndex < 0) currentIndex = 0;
     }
 
-    public void LastTutorial()
-    {
-        if (tutorialContents == null || tutorialContents.Length == 0)
-            return;
-
-        if (currentIndex > 0)
-        {
-            videoPlayerController.LastVideo();
-            currentIndex--;
-            ShowTutorialText();
-        }
-    }
 
 
     public void CloseTutorial()

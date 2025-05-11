@@ -14,7 +14,7 @@ public class GifPlayerController : MonoBehaviour
 	{
 		animator = GetComponent<Animator>();
 		animator.runtimeAnimatorController = overrideController;
-
+		animator.updateMode = AnimatorUpdateMode.UnscaledTime;
 		PlayGIF(gifClips[0]); // 預設撥第一個
 	}
 
@@ -49,4 +49,5 @@ public class GifPlayerController : MonoBehaviour
 			Debug.LogWarning($"AnimationClip '{gifClips[listIndex]}' not found.");
 		}
 	}
+
 }
