@@ -10,6 +10,7 @@ public class LoadingSceneController : MonoBehaviour
 	[SerializeField] GameObject loadingImage;
 	[SerializeField] Slider slider;
 	[SerializeField] TextMeshProUGUI progressText;
+	[SerializeField] Animator animator;
 
 
 	[Header("------------- Load Image Sprite ------------------")]
@@ -17,6 +18,7 @@ public class LoadingSceneController : MonoBehaviour
 
 	private void Start()
 	{
+		animator.updateMode = AnimatorUpdateMode.UnscaledTime;
 		loadPanel.SetActive(false);
 		if (loadingImage != null) loadingImage.SetActive(false);
 	}

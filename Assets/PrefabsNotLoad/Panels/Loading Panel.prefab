@@ -582,6 +582,7 @@ MonoBehaviour:
   loadingImage: {fileID: 0}
   slider: {fileID: 8913907446888536340}
   progressText: {fileID: 7058497525502622110}
+  animator: {fileID: 1906860837572154345}
   loadingImageSprites: []
 --- !u!1 &6038969812793907768
 GameObject:
@@ -636,7 +637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8542552456437097425
 RectTransform:
   m_ObjectHideFlags: 0
