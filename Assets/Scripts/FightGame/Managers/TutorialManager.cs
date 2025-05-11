@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -73,21 +73,29 @@ public class TutorialManager : MonoBehaviour
     }
 
 
-    public void NextTutorial(int add)
+    public void NextTutorial()
     {
         if (tutorialContents == null || tutorialContents.Length == 0)
             return;
 
+        currentIndex++;
+        if (currentIndex >= tutorialContents.Length) currentIndex = tutorialContents.Length - 1;
         gifPlayerController.PlayGIF(currentIndex);
         ShowTutorialText();
-        currentIndex += add;
-        if (currentIndex >= tutorialContents.Length) currentIndex = tutorialContents.Length - 1;
-        else if (currentIndex < 0) currentIndex = 0;
     }
 
+	public void LastTutorial()
+	{
+		if (tutorialContents == null || tutorialContents.Length == 0)
+			return;
 
+		currentIndex--;
+		if (currentIndex < 0) currentIndex = 0;
+		gifPlayerController.PlayGIF(currentIndex);
+		ShowTutorialText();
+	}
 
-    public void CloseTutorial()
+	public void CloseTutorial()
     {
         RoundController.Instance.SetTimeScale(1);
         tutorialPanel.SetActive(false);

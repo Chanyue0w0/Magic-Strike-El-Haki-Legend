@@ -46,7 +46,7 @@ public class GifPlayerController : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogWarning($"AnimationClip '{gifClips[listIndex]}' not found.");
+			Debug.LogWarning($"AnimationClip '{listIndex}' not found.");
 		}
 	}
 
