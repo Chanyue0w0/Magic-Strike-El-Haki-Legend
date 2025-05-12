@@ -19,9 +19,12 @@ public class StageButtonController : MonoBehaviour
 	private int selectedLevel;
 
 	private GameObject preFrame;
-
+	private Animator animator;
+	
 	private void Start()
 	{
+		animator = stagePanel.GetComponent<Animator>();
+
 		GenerateStageButtons();
 	}
 
@@ -150,7 +153,7 @@ public class StageButtonController : MonoBehaviour
 		if (chapterBackgroundImage.sprite == null)
 			chapterBackgroundImage.sprite = Resources.Load<Sprite>("Arts/MainScenes/BackgroundImage/Chapter1BackGround");
 		ApplySelectedStageToConfig();
-		stagePanel.SetActive(false);
+		animator.SetBool("Entry", false);
 	}
 
 
@@ -222,9 +225,6 @@ public class StageButtonController : MonoBehaviour
 
 	public void OnClickStagePanel()
 	{
-		stagePanel.SetActive(true);
-
-		Animator animator = stagePanel.GetComponent<Animator>();
 		Debug.Log(animator.GetBool("Entry"));
 		animator.SetBool("Entry", !animator.GetBool("Entry"));
 	}

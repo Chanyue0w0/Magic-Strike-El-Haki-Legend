@@ -15,8 +15,9 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private Text pageIndicatorText; // ≈„•‹≠∂º∆
     [SerializeField] private string[] tutorialContents;
 
+    [SerializeField] private GameObject[] stepPanel;
 
-
+    private int currentStep = 0;
     private int currentIndex = 0;
 
     private void Awake()
@@ -49,8 +50,10 @@ public class TutorialManager : MonoBehaviour
         }
 
         currentIndex = 0;
+        currentIndex = 0;
+        StepOn();
 
-        ShowTutorialText();
+		ShowTutorialText();
     }
 
     private void ShowTutorialText()
@@ -97,9 +100,8 @@ public class TutorialManager : MonoBehaviour
 
 	public void CloseTutorial()
     {
-        RoundController.Instance.SetTimeScale(1);
-        tutorialPanel.SetActive(false);
-    }
+        StepOn();
+	}
 
     public void OpenTutorial()
     {
@@ -107,4 +109,33 @@ public class TutorialManager : MonoBehaviour
         tutorialPanel.SetActive(true);
         ShowTutorialText();
     }
+
+    private void StepOn()
+    {
+        foreach (var p in stepPanel)
+        {
+            p.SetActive(false);
+        }
+
+        stepPanel[currentStep].SetActive(true);
+        currentStep++;
+    }
+
+    public void OnClickNextMask()
+    {
+        switch (currentStep)
+        {
+            case 1:
+                StepOn(); 
+                break;
+            case 2:
+                StepOn();
+                break;
+			default:
+				tutorialPanel.SetActive(false);
+				RoundController.Instance.SetTimeScale(1);
+				Debug.Log("Tutorial step Complete");
+                break;
+		}
+	}
 }
