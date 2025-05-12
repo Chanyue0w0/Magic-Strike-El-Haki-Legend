@@ -192,8 +192,8 @@ MonoBehaviour:
   rotationDistanceThreshold: 1
   canInstMagicPowerGain: 0
   NormalAttackDamage: 0
-  EffectToApply: 0
   rb: {fileID: 0}
+  EffectsToApply: 
   explosion: {fileID: 4169145334852256095, guid: 5ee2322ef0c144c4298f48031fb41c50, type: 3}
   magicPowerGain: {fileID: 8818166918595101506, guid: 0539da700981d144a8d9d39be519eea8, type: 3}
 --- !u!1 &3657526505747209559
