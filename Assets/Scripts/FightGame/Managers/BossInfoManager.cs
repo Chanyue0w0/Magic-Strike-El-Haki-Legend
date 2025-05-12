@@ -54,11 +54,11 @@ public class BossInfoManager : MonoBehaviour
 	private Dictionary<string, string> slimeBossSkills = new Dictionary<string, string>
 {
 	{ "OriginSlime", "無" },
-	{ "GrassSlime", "分裂多個史萊姆\n不讓你進!" },
-	{ "WoodBarrelSlime", "分裂多個滾筒\n躲阿!" },
-	{ "WindmillSlime", "吹出強風\n這球有風阻!" },
-	{ "PoisonFlowerSlime", "噴出毒霧\n咳咳..." },
-	{ "VineSlime", "伸長藤蔓\n勾走你心!" },
+	{ "GrassSlime", "分裂多個史萊姆\n阻擋進球" },
+	{ "WoodBarrelSlime", "分裂多個滾筒\n快躲開" },
+	{ "WindmillSlime", "吹出強風\n這球有風阻" },
+	{ "PoisonFlowerSlime", "噴出毒霧" },
+	{ "VineSlime", "伸長藤蔓\n勾走你心" },
 	{ "FairySlime", "閃現並射出妖火" },
 	{ "LavaSlime", "投擲岩漿\n燒燒燙燙!" },
 	{ "QuartzSlime", "照耀直線區域\n閃亮閃亮!" }
