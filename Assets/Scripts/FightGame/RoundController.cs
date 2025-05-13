@@ -577,7 +577,8 @@ public class RoundController : MonoBehaviour
 		PlayerHeadSticker.sprite = Resources.Load<Sprite>("Arts/FightScene/HeadStickers/" + FightPlayer1Config.PlayerSkin);
 		SlimeHeadSticker.sprite = Resources.Load<Sprite>("Arts/FightScene/HeadStickers/" + FightPlayer2Config.PlayerSkin);
 
-		ballSprite.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/FieldObjects/Chapter" + FightPlayer1Config.CurrentChapter + "BallSprite");
+		//ballSprite.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/FieldObjects/Chapter" + FightPlayer1Config.CurrentChapter + "BallSprite");
+		ballSprite.sprite = Resources.Load<Sprite>("Arts/FightScene/Field/FieldObjects/Chapter" + FightPlayer2Config.HSBackGroundImage[7] + "BallSprite");
 
 		P1HSBackGround.sprite = Resources.Load<Sprite>("Arts/FightScene/UI/Magic Panel ver2/" + FightPlayer2Config.HSBackGroundImage);
 		P2HSBackGround.sprite = Resources.Load<Sprite>("Arts/FightScene/UI/Magic Panel ver2/" + FightPlayer2Config.HSBackGroundImage);

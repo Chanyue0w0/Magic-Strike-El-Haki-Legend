@@ -1244,11 +1244,57 @@
     "Level_2": [
       {
         "StageNumber": "1",
+        "DeadFrameBackGroundImage": "Chapter1BackGround",
+        "BackGroundImage": "Wilderness village(Background)",
+        "FieldImage": "Wilderness village(Field)",
+        "FieldHSBackGroundImage": "Chapter1HSBackGround",
+        "BGM": "CH1 Combat music",
+        "AI_level": 1.0,
+        "AI_AttackFrequency": {
+          "x": 8.0,
+          "y": 10.0
+        },
+        "StartHP": 500,
+        "StartATK": 50,
+        "Player2Skin": "GrassSlime",
+        "Player2PuckSkin": "Chapter1SlimePuck",
+        "player2_Group": [
+          "MS01",
+          "MS01",
+          "MS01"
+        ],
+        "spawnObjects": []
+      },
+      {
+        "StageNumber": "2",
+        "DeadFrameBackGroundImage": "Chapter2BackGround",
+        "BackGroundImage": "Dense Forest(Background)",
+        "FieldImage": "Dense Forest(Field)",
+        "FieldHSBackGroundImage": "Chapter2HSBackGround",
+        "BGM": "CH2 Combat music",
+        "AI_level": 1.5,
+        "AI_AttackFrequency": {
+          "x": 8.0,
+          "y": 10.0
+        },
+        "StartHP": 500,
+        "StartATK": 50,
+        "Player2Skin": "PoisonFlowerSlime",
+        "Player2PuckSkin": "Chapter2SlimePuck",
+        "player2_Group": [
+          "MS04",
+          "MS04",
+          "MS04"
+        ],
+        "spawnObjects": []
+      },
+      {
+        "StageNumber": "3",
         "DeadFrameBackGroundImage": "Chapter3BackGround",
         "BackGroundImage": "Lava Volcano(Background)",
         "FieldImage": "Lava Volcano(Field)",
         "FieldHSBackGroundImage": "Chapter3HSBackGround",
-        "BGM": "CH2 Combat music",
+        "BGM": "CH3 Combat music",
         "AI_level": 1.5,
         "AI_AttackFrequency": {
           "x": 5.0,
@@ -1293,12 +1339,12 @@
         ]
       },
       {
-        "StageNumber": "2",
+        "StageNumber": "4",
         "DeadFrameBackGroundImage": "Chapter3BackGround",
         "BackGroundImage": "Lava Volcano(Background)",
         "FieldImage": "Lava Volcano(Field)",
         "FieldHSBackGroundImage": "Chapter3HSBackGround",
-        "BGM": "CH2 Combat music",
+        "BGM": "CH3 Combat music",
         "AI_level": 1.5,
         "AI_AttackFrequency": {
           "x": 5.0,
