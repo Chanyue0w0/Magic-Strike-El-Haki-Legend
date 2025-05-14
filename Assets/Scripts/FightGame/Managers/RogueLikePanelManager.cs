@@ -77,7 +77,7 @@ public class RogueLikePanelManager : MonoBehaviour
 
         allSkillData["IS01"] = new SkillData(" 立即治癒", "恢復30%最大生命", "IS");
         allSkillData["IS02"] = new SkillData(" 魔力補充", "獲得全滿魔力值", "IS");
-        allSkillData["IS03"] = new SkillData(" 金幣加倍", "勝利後\n金幣獎勵x1.5倍", "IS");
+        allSkillData["IS03"] = new SkillData(" 金幣加倍", "勝利後\n金幣獎勵x2倍", "IS");
     }
 
     public void SetPanelActive(bool isActive)
@@ -128,6 +128,10 @@ public class RogueLikePanelManager : MonoBehaviour
             else if (skillID == "IS02")//補滿魔力值
             {
                 FightPlayer1Config.NowMagicPoint = 5;
+            }
+            else if (skillID == "IS03")//金額加倍
+            {
+                FightPlayer1Config.coinBonus++;
             }
         }
 

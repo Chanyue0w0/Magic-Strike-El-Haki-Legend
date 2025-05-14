@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class FightPlayer1Config
 {
-	public static int CurrentChapter = 3;
+	public static int CurrentChapter = 1;
 	public static int CurrentLevel = 2;
 	public static int CurrentStage = 1;
 
@@ -37,4 +37,5 @@ public static class FightPlayer1Config
 
 	public static bool isFirstTimeEnter = true;
 	public static float levelTime = 0.0f;//該關卡總耗時
+	public static int coinBonus = 0;//總加倍次數
 }

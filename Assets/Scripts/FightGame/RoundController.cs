@@ -455,6 +455,7 @@ public class RoundController : MonoBehaviour
 		totalTimeText.text = (Mathf.RoundToInt(FightPlayer1Config.levelTime)) + " " + "秒";
 
 		FightPlayer1Config.levelTime = 0;
+		//FightPlayer1Config.coinBonus = 0; //在RewardManager 重製
 
 		FightPlayer1Config.CurrentStage = 1; // 強制重製
 

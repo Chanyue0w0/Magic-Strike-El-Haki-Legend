@@ -109,7 +109,13 @@ public class RewardManager : MonoBehaviour
 
     private void RewardCoins(int chapter,int level)
     {
-        int coins = chapter * level * 10;
+        //int coins = chapter * level * 10 * (2^FightPlayer1Config.coinBonus);
+        int coins = chapter * level * 10 * (int)Mathf.Pow(2, FightPlayer1Config.coinBonus);
+
+        FightPlayer1Config.coinBonus = 0; //在RewardManager 重製
+        //int coins = chapter * level * 10 * (1 << FightPlayer1Config.coinBonus);
+
+
         GameObject rewardObj = Instantiate(coinPrefab, rewardContainer);
 
         // 修改子物件中的文字
