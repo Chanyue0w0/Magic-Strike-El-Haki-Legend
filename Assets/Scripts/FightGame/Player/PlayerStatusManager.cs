@@ -71,6 +71,7 @@ public class PlayerStatusManager : MonoBehaviour
     {
         if(player == UserPosition.player2 &&  healthPoint <= 0 && isAlive)
         {
+            healthPoint = 0;
             FightPlayer2Config.NowHP = healthPoint;
             player_animator.SetTrigger("DiePAnimation");
             isAlive = false;
@@ -311,7 +312,7 @@ public class PlayerStatusManager : MonoBehaviour
     public void GetDamage(int damage)
     {
         VibrationPattern.Instance.StartVibrationPattern();
-        if (FightPlayer2Config.NowHP >= 0) //RoundController.Instance.GetGameStatus() == "Continue" 若改變gameStatus會卡住PlayerMoving
+        if (FightPlayer2Config.NowHP > 0) //RoundController.Instance.GetGameStatus() == "Continue" 若改變gameStatus會卡住PlayerMoving
         {
             int finalDamage = 0;
             if (player == UserPosition.player1)
@@ -328,7 +329,12 @@ public class PlayerStatusManager : MonoBehaviour
                                             //Debug.Log("FightPlayer2Config.ShieldPercentage" + FightPlayer2Config.ShieldPercentage);
                                             //Debug.Log("Final Damage 2 :" + finalDamage);
             }
+
+            if (healthPoint <= 0)
+                healthPoint = 0;
+
             healthBar.SetHealth(healthPoint); // 更新血條
+
             if (finalDamage > 0)
             {
                 UIShakingManager.Instance.ShakePlayerUI(playerNumber);
