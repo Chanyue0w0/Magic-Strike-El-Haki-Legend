@@ -937,7 +937,7 @@
           "y": 10.0
         },
         "StartHP": 800,
-        "StartATK": 100,
+        "StartATK": 70,
         "Player2Skin": "WindmillSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
         "player2_Group": [
@@ -1029,8 +1029,8 @@
           "x": 7.0,
           "y": 10.0
         },
-        "StartHP": 1200,
-        "StartATK": 150,
+        "StartHP": 1000,
+        "StartATK": 100,
         "Player2Skin": "PoisonFlowerSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [
@@ -1066,7 +1066,7 @@
             }
           },
           {
-            "prefabName": "VineSlimeObj",
+            "prefabName": "PoisonFlowerSlimeObj",
             "position": {
               "x": 1.5,
               "y": 1.6,
@@ -1076,191 +1076,6 @@
               "x": 0.0,
               "y": 0.0,
               "z": 0.0
-            }
-          }
-        ]
-      },
-      {
-        "StageNumber": "2",
-        "DeadFrameBackGroundImage": "Chapter2BackGround",
-        "BackGroundImage": "Dense Forest(Background)",
-        "FieldImage": "Dense Forest(Field)",
-        "FieldHSBackGroundImage": "Chapter2HSBackGround",
-        "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
-        "AI_AttackFrequency": {
-          "x": 7.0,
-          "y": 10.0
-        },
-        "StartHP": 1500,
-        "StartATK": 150,
-        "Player2Skin": "PoisonFlowerSlime",
-        "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [
-          "MS04",
-          "MS04",
-          "MS04"
-        ],
-        "spawnObjects": [
-          {
-            "prefabName": "WaterFlowZoneObj",
-            "position": {
-              "x": -4.3,
-              "y": 0.0,
-              "z": 0.0
-            },
-            "rotation": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 90.0
-            }
-          }
-        ]
-      },
-      {
-        "StageNumber": "3",
-        "DeadFrameBackGroundImage": "Chapter2BackGround",
-        "BackGroundImage": "Dense Forest(Background)",
-        "FieldImage": "Dense Forest(Field)",
-        "FieldHSBackGroundImage": "Chapter2HSBackGround",
-        "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
-        "AI_AttackFrequency": {
-          "x": 7.0,
-          "y": 10.0
-        },
-        "StartHP": 1500,
-        "StartATK": 150,
-        "Player2Skin": "PoisonFlowerSlime",
-        "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [
-          "MS04",
-          "MS04",
-          "MS04"
-        ],
-        "spawnObjects": [
-          {
-            "prefabName": "WaterFlowZoneObj",
-            "position": {
-              "x": -4.3,
-              "y": 0.0,
-              "z": 0.0
-            },
-            "rotation": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 90.0
-            }
-          }
-        ]
-      },
-      {
-        "StageNumber": "4",
-        "DeadFrameBackGroundImage": "Chapter2BackGround",
-        "BackGroundImage": "Dense Forest(Background)",
-        "FieldImage": "Dense Forest(Field)",
-        "FieldHSBackGroundImage": "Chapter2HSBackGround",
-        "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
-        "AI_AttackFrequency": {
-          "x": 7.0,
-          "y": 10.0
-        },
-        "StartHP": 1500,
-        "StartATK": 150,
-        "Player2Skin": "PoisonFlowerSlime",
-        "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [
-          "MS04",
-          "MS04",
-          "MS04"
-        ],
-        "spawnObjects": [
-          {
-            "prefabName": "WaterFlowZoneObj",
-            "position": {
-              "x": -4.3,
-              "y": 0.0,
-              "z": 0.0
-            },
-            "rotation": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 90.0
-            }
-          }
-        ]
-      },
-      {
-        "StageNumber": "5",
-        "DeadFrameBackGroundImage": "Chapter2BackGround",
-        "BackGroundImage": "Dense Forest(Background)",
-        "FieldImage": "Dense Forest(Field)",
-        "FieldHSBackGroundImage": "Chapter2HSBackGround",
-        "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
-        "AI_AttackFrequency": {
-          "x": 7.0,
-          "y": 10.0
-        },
-        "StartHP": 1500,
-        "StartATK": 150,
-        "Player2Skin": "PoisonFlowerSlime",
-        "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [
-          "MS04",
-          "MS04",
-          "MS04"
-        ],
-        "spawnObjects": [
-          {
-            "prefabName": "WaterFlowZoneObj",
-            "position": {
-              "x": -4.3,
-              "y": 0.0,
-              "z": 0.0
-            },
-            "rotation": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 90.0
-            }
-          }
-        ]
-      },
-      {
-        "StageNumber": "6",
-        "DeadFrameBackGroundImage": "Chapter2BackGround",
-        "BackGroundImage": "Dense Forest(Background)",
-        "FieldImage": "Dense Forest(Field)",
-        "FieldHSBackGroundImage": "Chapter2HSBackGround",
-        "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
-        "AI_AttackFrequency": {
-          "x": 7.0,
-          "y": 10.0
-        },
-        "StartHP": 1500,
-        "StartATK": 150,
-        "Player2Skin": "PoisonFlowerSlime",
-        "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [
-          "MS04",
-          "MS04",
-          "MS04"
-        ],
-        "spawnObjects": [
-          {
-            "prefabName": "WaterFlowZoneObj",
-            "position": {
-              "x": -4.3,
-              "y": 0.0,
-              "z": 0.0
-            },
-            "rotation": {
-              "x": 0.0,
-              "y": 0.0,
-              "z": 90.0
             }
           }
         ]
