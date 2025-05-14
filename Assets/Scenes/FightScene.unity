@@ -161,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -88.700226}
+  m_AnchoredPosition: {x: 0, y: -88.700195}
   m_SizeDelta: {x: -127.18, y: -718.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8612942
@@ -6127,7 +6127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -169.09003, y: 540.23}
+  m_AnchoredPosition: {x: -169.09004, y: 540.23}
   m_SizeDelta: {x: -461.82, y: -1331.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &733412639
@@ -15375,7 +15375,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -199.00018, y: -158}
+  m_AnchoredPosition: {x: -199.0002, y: -158}
   m_SizeDelta: {x: -90.35, y: 337.21997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701202708
@@ -21156,6 +21156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodBarrelSlimeObj
       objectReference: {fileID: 0}
+    - target: {fileID: 8705636094641605409, guid: 952d7e3c346470141a8170dc6679b026, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21234,7 +21238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1107565567245634394, guid: 72c318e2b84eeb94d817392d2b8be57d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8508241
+      value: 2.96
       objectReference: {fileID: 0}
     - target: {fileID: 1107565567245634394, guid: 72c318e2b84eeb94d817392d2b8be57d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21275,10 +21279,6 @@ PrefabInstance:
     - target: {fileID: 6009618997618965284, guid: 72c318e2b84eeb94d817392d2b8be57d, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7769578175090747553, guid: 72c318e2b84eeb94d817392d2b8be57d, type: 3}
-      propertyPath: destroyTime
-      value: 999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
