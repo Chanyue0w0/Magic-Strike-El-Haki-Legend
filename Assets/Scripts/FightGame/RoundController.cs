@@ -55,6 +55,8 @@ public class RoundController : MonoBehaviour
 
 	[Header("----------------- ShowStage Panel ------------------")]
 	[SerializeField] private GameObject showStagePanel;
+	[SerializeField] private List<Sprite> stageImages;
+	[SerializeField] private Image nowStage;
 	[SerializeField] private GameObject coinFountain;
 	[SerializeField] private GameObject healingFountain;
 	[SerializeField] private Text roundText;
@@ -368,9 +370,24 @@ public class RoundController : MonoBehaviour
 			totalStagesInCurrentLevel = totalStagesPerLevel[(currentChapterIndex, currentLevelIndex)];
 		}
 
-		// 顯示為 Round X / Y
-		roundText.text = $"Round {currentStageIndex} / {totalStagesInCurrentLevel}";
+		// 顯示對應圖片（命名邏輯為 "totalStageIndex-currentStageIndex"，例如 "4-2"）
+		string targetStageKey = $"{totalStagesInCurrentLevel}-{currentStageIndex}";
+
+		// 在 stageImages 中找尋名稱符合的圖片
+		foreach (var img in stageImages)
+		{
+			if (img != null && img != null && img.name == targetStageKey)
+			{
+				nowStage.sprite = img;
+				break;
+			}
+		}
+
+		// 同時更新 Round 顯示文字
+		//roundText.text = $"Round {currentStageIndex} / {totalStagesInCurrentLevel}";
 	}
+
+
 	private IEnumerator CloseStagePanelDelayed(float delay)
 	{
 		yield return new WaitForSecondsRealtime(delay);
