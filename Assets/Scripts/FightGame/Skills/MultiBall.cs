@@ -90,7 +90,7 @@ public class MultiBall : MonoBehaviour
                 if (sr != null)
                 {
                     // 沮隔畖更 Sprite 戈方安砞璶更 Resources/Sprites/Balls/ChapterXBallSprite
-                    string path = "Arts/FightScene/Field/FieldObjects/Chapter" + FightPlayer1Config.CurrentChapter + "BallSprite";
+                    string path = "Arts/FightScene/Field/FieldObjects/Chapter" + FightPlayer2Config.HSBackGroundImage[7] + "BallSprite";
                     Sprite newSprite = Resources.Load<Sprite>(path);
                     if (newSprite != null)
                     {
