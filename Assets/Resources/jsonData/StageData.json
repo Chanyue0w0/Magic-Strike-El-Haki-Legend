@@ -683,7 +683,7 @@
           "y": 10.0
         },
         "StartHP": 600,
-        "StartATK": 70,
+        "StartATK": 50,
         "Player2Skin": "GrassSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
         "player2_Group": [
@@ -1024,13 +1024,13 @@
         "FieldImage": "Dense Forest(Field)",
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
         "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
+        "AI_level": 1.2,
         "AI_AttackFrequency": {
           "x": 7.0,
           "y": 10.0
         },
         "StartHP": 700,
-        "StartATK": 100,
+        "StartATK": 70,
         "Player2Skin": "PoisonFlowerSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [
@@ -1445,7 +1445,7 @@
         "FieldImage": "Dense Forest(Field)",
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
         "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
+        "AI_level": 1.2,
         "AI_AttackFrequency": {
           "x": 8.0,
           "y": 10.0
@@ -1508,7 +1508,7 @@
         "FieldImage": "Dense Forest(Field)",
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
         "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
+        "AI_level": 1.2,
         "AI_AttackFrequency": {
           "x": 8.0,
           "y": 10.0
@@ -1571,7 +1571,7 @@
         "FieldImage": "Dense Forest(Field)",
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
         "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
+        "AI_level": 1.2,
         "AI_AttackFrequency": {
           "x": 8.0,
           "y": 10.0
@@ -1673,7 +1673,7 @@
         "FieldImage": "Dense Forest(Field)",
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
         "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
+        "AI_level": 1.2,
         "AI_AttackFrequency": {
           "x": 8.0,
           "y": 10.0
@@ -1853,8 +1853,8 @@
         "BGM": "CH2 Combat music",
         "AI_level": 1.7,
         "AI_AttackFrequency": {
-          "x": 3.0,
-          "y": 5.0
+          "x": 5.0,
+          "y": 7.0
         },
         "StartHP": 1500,
         "StartATK": 100,
@@ -1923,8 +1923,8 @@
           "x": 5.0,
           "y": 7.0
         },
-        "StartHP": 2000,
-        "StartATK": 200,
+        "StartHP": 1500,
+        "StartATK": 120,
         "Player2Skin": "LavaSlime",
         "Player2PuckSkin": "Chapter3SlimePuck",
         "player2_Group": [
