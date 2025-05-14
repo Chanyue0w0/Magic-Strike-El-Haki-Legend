@@ -21038,7 +21038,7 @@ PrefabInstance:
     - target: {fileID: 4569686604516703751, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: <SheildNormalAttack>k__BackingField
       value: 
-      objectReference: {fileID: 8300000, guid: a6808e222f3dcb74fa7bfc90d27f3ed5, type: 3}
+      objectReference: {fileID: 8300000, guid: f4d185fcaef5e7f419d6e06715713e23, type: 3}
     - target: {fileID: 8105821547432535743, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
       propertyPath: m_Name
       value: Audio Manager
