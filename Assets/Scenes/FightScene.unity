@@ -17613,6 +17613,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VineSlimeObj
       objectReference: {fileID: 0}
+    - target: {fileID: 5465522720892730898, guid: 27b1ecc06183cfb40802f2109999bff5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7827405077573262456, guid: 27b1ecc06183cfb40802f2109999bff5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.3079205
@@ -20773,11 +20777,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3272771111049058409, guid: 06cc77bf5fde866469f922ff3cefbe0e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.493
+      value: -1.59
       objectReference: {fileID: 0}
     - target: {fileID: 3272771111049058409, guid: 06cc77bf5fde866469f922ff3cefbe0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0434
+      value: 1.88
       objectReference: {fileID: 0}
     - target: {fileID: 3272771111049058409, guid: 06cc77bf5fde866469f922ff3cefbe0e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20814,6 +20818,10 @@ PrefabInstance:
     - target: {fileID: 6449137215714063629, guid: 06cc77bf5fde866469f922ff3cefbe0e, type: 3}
       propertyPath: m_Name
       value: PoisonFlowerSlimeObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 6449137215714063629, guid: 06cc77bf5fde866469f922ff3cefbe0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

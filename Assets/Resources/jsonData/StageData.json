@@ -576,6 +576,32 @@
               "y": 0.0,
               "z": 90.0
             }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 1.6,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "VineSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 1.6,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
           }
         ]
       },
