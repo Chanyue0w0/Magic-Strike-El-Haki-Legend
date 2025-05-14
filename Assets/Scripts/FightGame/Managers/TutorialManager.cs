@@ -13,15 +13,17 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GifPlayerController gifPlayerController;
     [SerializeField] private Text tutorialText;
     [SerializeField] private Text pageIndicatorText; // Åã¥Ü­¶¼Æ
-    [SerializeField] private string[] tutorialContents;
-
-    [SerializeField] private GameObject[] stepPanel;
+	[SerializeField] private Image nextButtonImage;
+	[SerializeField] private Image lastButtonImage;
+	[SerializeField] private GameObject[] stepPanel;
 
     private int currentStep = 0;
     private int currentIndex = 0;
+    private string[] tutorialContents;
 
     private void Awake()
     {
+        tutorialPanel.SetActive(false);
         // Singleton
         if (Instance != null && Instance != this)
         {
@@ -81,8 +83,19 @@ public class TutorialManager : MonoBehaviour
         if (tutorialContents == null || tutorialContents.Length == 0)
             return;
 
-        currentIndex++;
-        if (currentIndex >= tutorialContents.Length) currentIndex = tutorialContents.Length - 1;
+
+		AudioManager.Instance.PlaySFX(SFXAudioClips.Instance.FilpCard);
+		nextButtonImage.color = Color.white;
+		lastButtonImage.color = Color.white;
+		lastButtonImage.transform.GetComponent<Button>().interactable = true;
+		currentIndex++;
+        if (currentIndex >= tutorialContents.Length-1)
+        {
+
+			nextButtonImage.transform.GetComponent<Button>().interactable = false;
+			nextButtonImage.color = Color.gray;
+			currentIndex = tutorialContents.Length - 1;
+		}
         gifPlayerController.PlayGIF(currentIndex);
         ShowTutorialText();
     }
@@ -92,8 +105,18 @@ public class TutorialManager : MonoBehaviour
 		if (tutorialContents == null || tutorialContents.Length == 0)
 			return;
 
+
+		AudioManager.Instance.PlaySFX(SFXAudioClips.Instance.FilpCard);
+		lastButtonImage.color = Color.white;
+		nextButtonImage.color = Color.white;
+		nextButtonImage.transform.GetComponent<Button>().interactable = true;
 		currentIndex--;
-		if (currentIndex < 0) currentIndex = 0;
+		if (currentIndex <= 0)
+        {
+            lastButtonImage.transform.GetComponent<Button>().interactable = false;
+            lastButtonImage.color = Color.gray;
+			currentIndex = 0;
+		}
 		gifPlayerController.PlayGIF(currentIndex);
 		ShowTutorialText();
 	}
@@ -112,7 +135,9 @@ public class TutorialManager : MonoBehaviour
 
     private void StepOn()
     {
-        foreach (var p in stepPanel)
+
+		AudioManager.Instance.PlaySFX(SFXAudioClips.Instance.ClickButton);
+		foreach (var p in stepPanel)
         {
             p.SetActive(false);
         }

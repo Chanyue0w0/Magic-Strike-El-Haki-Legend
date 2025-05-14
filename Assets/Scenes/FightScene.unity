@@ -1987,6 +1987,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2037033076}
+        m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &206507291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2399,6 +2411,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2037033076}
         m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
         m_MethodName: OnClickExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2037033076}
+        m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
+        m_MethodName: PlayClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4907,6 +4931,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2037033076}
         m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
         m_MethodName: OnClickExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2037033076}
+        m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
+        m_MethodName: PlayClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7906,6 +7942,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2037033076}
+        m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &930336157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9079,6 +9127,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2037033076}
         m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
         m_MethodName: OnClickPauseGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2037033076}
+        m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
+        m_MethodName: PlayClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10755,6 +10815,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2037033076}
         m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
         m_MethodName: OnClickRestart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2037033076}
+        m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
+        m_MethodName: PlayClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14327,7 +14399,8 @@ MonoBehaviour:
   gifPlayerController: {fileID: 1300713466}
   tutorialText: {fileID: 384712821}
   pageIndicatorText: {fileID: 1081351924}
-  tutorialContents: []
+  nextButtonImage: {fileID: 271442705}
+  lastButtonImage: {fileID: 1433993320}
   stepPanel:
   - {fileID: 1967268026}
   - {fileID: 733412637}
@@ -14553,6 +14626,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2037033076}
         m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
         m_MethodName: OnClickContinueGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2037033076}
+        m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
+        m_MethodName: PlayClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15693,6 +15778,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2037033076}
         m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
         m_MethodName: OnClickRestart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1941997168}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17669,6 +17766,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933924912}
   m_CullTransparentMesh: 1
+--- !u!114 &1941997168 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5578715452569963177, guid: 898c35760311f7f45905ce9a8dd7e717, type: 3}
+  m_PrefabInstance: {fileID: 3340851331901099523}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f724a80e5865894a9c9d8657510d3d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1945705162
 GameObject:
   m_ObjectHideFlags: 0
@@ -18118,6 +18226,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2037033076}
+        m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1958259698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18324,6 +18444,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2037033076}
         m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
         m_MethodName: OnClickExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2037033076}
+        m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
+        m_MethodName: PlayClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19203,6 +19335,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2037033076}
         m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
         m_MethodName: OnClickNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2037033076}
+        m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
+        m_MethodName: PlayClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20195,6 +20339,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2037033076}
         m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
         m_MethodName: OnClickRestart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2037033076}
+        m_TargetAssemblyTypeName: FightGameButtonController, Assembly-CSharp
+        m_MethodName: PlayClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

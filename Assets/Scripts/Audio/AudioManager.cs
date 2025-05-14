@@ -71,6 +71,6 @@ public class AudioManager : MonoBehaviour
 	// 在指定位置播放音效
 	public void PlaySFXAtPosition(AudioClip clip, Vector3 position)
 	{
-		AudioSource.PlayClipAtPoint(clip, position);
+		AudioSource.PlayClipAtPoint(clip, position, sfxVolume);
 	}
 }

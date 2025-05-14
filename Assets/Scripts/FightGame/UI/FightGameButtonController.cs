@@ -54,7 +54,7 @@ public class FightGameButtonController : MonoBehaviour
         FightPlayer1Config.PassiveEffectGroup[0] = "PS00";
         FightPlayer1Config.PassiveEffectGroup[1] = "PS00";
 
-        Destroy(AudioManager.Instance.gameObject);
+        //Destroy(AudioManager.Instance.gameObject);
         //SceneManager.LoadSceneAsync("MainMenuScene");
         loadingSceneController.LoadStage("MainMenuScene");
     }
@@ -75,6 +75,10 @@ public class FightGameButtonController : MonoBehaviour
         //Time.timeScale = 1;
     }
 
+    public void PlayClickSound()
+    {
+		AudioManager.Instance.PlaySFX(SFXAudioClips.Instance.ClickButton);
+	}
     //public void OnClickNextLevel()
     //{
     //    //SceneManager.LoadSceneAsync("FightScene");
