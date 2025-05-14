@@ -269,8 +269,8 @@ public class PlayerStatusManager : MonoBehaviour
 
         for (int i = 0; i < 5; i++) // ¤¤¬r 5 ¬ν
         {
-            int burnDamage = Mathf.RoundToInt(70);
-            GetDamage(burnDamage);
+            int poisonDamage = Mathf.RoundToInt(30);
+            GetDamage(poisonDamage);
 
             // Εάµµ¦β
             player_skin.color = poisonColor;
