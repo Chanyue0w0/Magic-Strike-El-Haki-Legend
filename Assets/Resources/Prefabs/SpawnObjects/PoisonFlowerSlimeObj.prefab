@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 936397575340695899}
   - component: {fileID: 8695883058839075959}
   - component: {fileID: 4679662548225414135}
+  - component: {fileID: 779777756376236270}
   m_Layer: 0
   m_Name: PoisonFlowerSlimeObj
   m_TagString: Untagged
@@ -210,3 +211,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &779777756376236270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449137215714063629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24e54f7788325e5479f3fa1d6e507726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 2
+  poisonCloudObject: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  animator: {fileID: 0}
+  originAttackTime: 10
