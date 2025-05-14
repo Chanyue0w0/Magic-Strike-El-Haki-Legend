@@ -1958,6 +1958,32 @@
               "y": 0.0,
               "z": 0.0
             }
+          },
+          {
+            "prefabName": "LavaSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "LavaSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
           }
         ]
       }
