@@ -454,6 +454,8 @@ public class RoundController : MonoBehaviour
 
 		totalTimeText.text = (Mathf.RoundToInt(FightPlayer1Config.levelTime)) + " " + "秒";
 
+		FightPlayer1Config.levelTime = 0;
+
 		FightPlayer1Config.CurrentStage = 1; // 強制重製
 
 		FightPlayer1Config.Group[1] = "SK00"; // 重製持有技能
