@@ -6127,7 +6127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -169.09003, y: 540.23}
+  m_AnchoredPosition: {x: -169.09004, y: 540.23}
   m_SizeDelta: {x: -461.82, y: -1331.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &733412639
@@ -9675,6 +9675,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3247af8a4bea6bc4a86d3d0d386d3aab, type: 3}
   - {fileID: 21300000, guid: 4e95962aee9ad7049b6adc9291d37195, type: 3}
   - {fileID: 21300000, guid: ea05e58888c9caa4d85cefae41695116, type: 3}
+  - {fileID: 21300000, guid: d3711c82c81a42a46940b9b163249033, type: 3}
+  - {fileID: 21300000, guid: 2b866c6fb3112094989fa6cc8bf9de3f, type: 3}
+  - {fileID: 21300000, guid: 45a2ad90fc623da4492c614c65e38fb6, type: 3}
+  - {fileID: 21300000, guid: e195cc231093e8443b1ff8c2a028abe5, type: 3}
+  - {fileID: 21300000, guid: 9df1f82aed6bc3a4d967f057ee9b7ae3, type: 3}
+  - {fileID: 21300000, guid: 4f75fe9c99ce9454497d55a0151a56da, type: 3}
+  - {fileID: 21300000, guid: 119023ea44700db4da0350453f7135c5, type: 3}
+  - {fileID: 21300000, guid: 254573de6f0ae6b4092ecc6faaa76dcc, type: 3}
   nowStage: {fileID: 1167912823}
   coinFountain: {fileID: 8557251050425574339, guid: 4250da03c657d6e41b09d0a009710b22, type: 3}
   healingFountain: {fileID: 6893672900930221203, guid: 1b68557026894434f8cd7bf38323c056, type: 3}
@@ -15375,7 +15383,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -199.00018, y: -158}
+  m_AnchoredPosition: {x: -199.0002, y: -158}
   m_SizeDelta: {x: -90.35, y: 337.21997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701202708

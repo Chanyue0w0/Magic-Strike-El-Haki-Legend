@@ -184,8 +184,8 @@
         "BGM": "CH1 Combat music",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 8.0,
-          "y": 10.0
+          "x": 10.0,
+          "y": 13.0
         },
         "StartHP": 500,
         "StartATK": 30,
@@ -275,8 +275,8 @@
         "BGM": "CH1 Combat music",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 8.0,
-          "y": 10.0
+          "x": 10.0,
+          "y": 13.0
         },
         "StartHP": 400,
         "StartATK": 50,
@@ -298,8 +298,8 @@
         "BGM": "CH1 Combat music",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 8.0,
-          "y": 10.0
+          "x": 10.0,
+          "y": 13.0
         },
         "StartHP": 500,
         "StartATK": 50,
@@ -348,8 +348,8 @@
         "BGM": "CH1 Combat music",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 8.0,
-          "y": 10.0
+          "x": 10.0,
+          "y": 13.0
         },
         "StartHP": 600,
         "StartATK": 50,
@@ -450,8 +450,8 @@
         "BGM": "CH1 Combat music",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 8.0,
-          "y": 10.0
+          "x": 10.0,
+          "y": 13.0
         },
         "StartHP": 700,
         "StartATK": 50,
@@ -656,8 +656,8 @@
         "BGM": "CH1 Combat music",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 8.0,
-          "y": 10.0
+          "x": 10.0,
+          "y": 13.0
         },
         "StartHP": 500,
         "StartATK": 50,
@@ -679,8 +679,8 @@
         "BGM": "CH1 Combat music",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 8.0,
-          "y": 10.0
+          "x": 10.0,
+          "y": 13.0
         },
         "StartHP": 600,
         "StartATK": 50,
@@ -781,7 +781,7 @@
         "BGM": "CH1 Combat music",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 8.0,
+          "x": 7.0,
           "y": 10.0
         },
         "StartHP": 600,
@@ -1998,8 +1998,8 @@
         "BGM": "CH1 Combat music",
         "AI_level": 1.0,
         "AI_AttackFrequency": {
-          "x": 8.0,
-          "y": 10.0
+          "x": 10.0,
+          "y": 13.0
         },
         "StartHP": 500,
         "StartATK": 50,
@@ -2010,58 +2010,12 @@
           "MS01",
           "MS01"
         ],
-        "spawnObjects": []
-      },
-      {
-        "StageNumber": "2",
-        "DeadFrameBackGroundImage": "Chapter2BackGround",
-        "BackGroundImage": "Dense Forest(Background)",
-        "FieldImage": "Dense Forest(Field)",
-        "FieldHSBackGroundImage": "Chapter2HSBackGround",
-        "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
-        "AI_AttackFrequency": {
-          "x": 8.0,
-          "y": 10.0
-        },
-        "StartHP": 500,
-        "StartATK": 50,
-        "Player2Skin": "PoisonFlowerSlime",
-        "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [
-          "MS04",
-          "MS04",
-          "MS04"
-        ],
-        "spawnObjects": []
-      },
-      {
-        "StageNumber": "3",
-        "DeadFrameBackGroundImage": "Chapter3BackGround",
-        "BackGroundImage": "Lava Volcano(Background)",
-        "FieldImage": "Lava Volcano(Field)",
-        "FieldHSBackGroundImage": "Chapter3HSBackGround",
-        "BGM": "CH3 Combat music",
-        "AI_level": 1.5,
-        "AI_AttackFrequency": {
-          "x": 5.0,
-          "y": 7.0
-        },
-        "StartHP": 2000,
-        "StartATK": 200,
-        "Player2Skin": "QuartzSlime",
-        "Player2PuckSkin": "Chapter3SlimePuck",
-        "player2_Group": [
-          "MS08",
-          "MS08",
-          "MS08"
-        ],
         "spawnObjects": [
           {
-            "prefabName": "LavaPondObj",
+            "prefabName": "GrassSlimeObj",
             "position": {
-              "x": -1.53,
-              "y": -2.95,
+              "x": -1.5,
+              "y": 2.0,
               "z": 0.0
             },
             "rotation": {
@@ -2071,10 +2025,240 @@
             }
           },
           {
-            "prefabName": "LavaPondObj",
+            "prefabName": "GrassSlimeObj",
             "position": {
-              "x": 1.53,
-              "y": -2.95,
+              "x": -1.0,
+              "y": 2.5,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": -0.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 2.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": 1.0,
+              "y": 2.5,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": 0.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          }
+        ]
+      },
+      {
+        "StageNumber": "2",
+        "DeadFrameBackGroundImage": "Chapter1BackGround",
+        "BackGroundImage": "Wilderness village(Background)",
+        "FieldImage": "Wilderness village(Field)",
+        "FieldHSBackGroundImage": "Chapter1HSBackGround",
+        "BGM": "CH1 Combat music",
+        "AI_level": 1.0,
+        "AI_AttackFrequency": {
+          "x": 8.0,
+          "y": 10.0
+        },
+        "StartHP": 600,
+        "StartATK": 50,
+        "Player2Skin": "WoodBarrelSlime",
+        "Player2PuckSkin": "Chapter1SlimePuck",
+        "player2_Group": [
+          "MS02",
+          "MS02",
+          "MS02"
+        ],
+        "spawnObjects": [
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": -0.6,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": 0.0,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": 0.6,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WoodBarrelSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WoodBarrelSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          }
+        ]
+      },
+      {
+        "StageNumber": "3",
+        "DeadFrameBackGroundImage": "Chapter1BackGround",
+        "BackGroundImage": "Wilderness village(Background)",
+        "FieldImage": "Wilderness village(Field)",
+        "FieldHSBackGroundImage": "Chapter1HSBackGround",
+        "BGM": "CH1 Combat music",
+        "AI_level": 1.0,
+        "AI_AttackFrequency": {
+          "x": 8.0,
+          "y": 10.0
+        },
+        "StartHP": 700,
+        "StartATK": 50,
+        "Player2Skin": "WindmillSlime",
+        "Player2PuckSkin": "Chapter1SlimePuck",
+        "player2_Group": [
+          "MS03",
+          "MS03",
+          "MS03"
+        ],
+        "spawnObjects": [
+          {
+            "prefabName": "WindmillSlimeObj",
+            "position": {
+              "x": -0.6,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WindmillSlimeObj",
+            "position": {
+              "x": 0.0,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WindmillSlimeObj",
+            "position": {
+              "x": 0.6,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WoodBarrelSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WoodBarrelSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 3.0,
               "z": 0.0
             },
             "rotation": {
@@ -2087,6 +2271,349 @@
       },
       {
         "StageNumber": "4",
+        "DeadFrameBackGroundImage": "Chapter2BackGround",
+        "BackGroundImage": "Dense Forest(Background)",
+        "FieldImage": "Dense Forest(Field)",
+        "FieldHSBackGroundImage": "Chapter2HSBackGround",
+        "BGM": "CH2 Combat music",
+        "AI_level": 1.2,
+        "AI_AttackFrequency": {
+          "x": 8.0,
+          "y": 10.0
+        },
+        "StartHP": 700,
+        "StartATK": 70,
+        "Player2Skin": "PoisonFlowerSlime",
+        "Player2PuckSkin": "Chapter2SlimePuck",
+        "player2_Group": [
+          "MS04",
+          "MS04",
+          "MS04"
+        ],
+        "spawnObjects": [
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": -0.6,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": 0.0,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": 0.6,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WaterFlowZoneObj",
+            "position": {
+              "x": -4.3,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 90.0
+            }
+          }
+        ]
+      },
+      {
+        "StageNumber": "5",
+        "DeadFrameBackGroundImage": "Chapter2BackGround",
+        "BackGroundImage": "Dense Forest(Background)",
+        "FieldImage": "Dense Forest(Field)",
+        "FieldHSBackGroundImage": "Chapter2HSBackGround",
+        "BGM": "CH2 Combat music",
+        "AI_level": 1.2,
+        "AI_AttackFrequency": {
+          "x": 8.0,
+          "y": 10.0
+        },
+        "StartHP": 700,
+        "StartATK": 70,
+        "Player2Skin": "VineSlime",
+        "Player2PuckSkin": "Chapter2SlimePuck",
+        "player2_Group": [
+          "MS05",
+          "MS05",
+          "MS05"
+        ],
+        "spawnObjects": [
+          {
+            "prefabName": "VineSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "VineSlimeObj",
+            "position": {
+              "x": 0.0,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "VineSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WaterFlowZoneObj",
+            "position": {
+              "x": -4.3,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 90.0
+            }
+          }
+        ]
+      },
+      {
+        "StageNumber": "6",
+        "DeadFrameBackGroundImage": "Chapter2BackGround",
+        "BackGroundImage": "Dense Forest(Background)",
+        "FieldImage": "Dense Forest(Field)",
+        "FieldHSBackGroundImage": "Chapter2HSBackGround",
+        "BGM": "CH2 Combat music",
+        "AI_level": 1.5,
+        "AI_AttackFrequency": {
+          "x": 5.0,
+          "y": 7.0
+        },
+        "StartHP": 1000,
+        "StartATK": 70,
+        "Player2Skin": "FairySlime",
+        "Player2PuckSkin": "Chapter2SlimePuck",
+        "player2_Group": [
+          "MS06",
+          "MS06",
+          "MS06"
+        ],
+        "spawnObjects": [
+          {
+            "prefabName": "VineSlimeObj",
+            "position": {
+              "x": -0.6,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "VineSlimeObj",
+            "position": {
+              "x": 0.0,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "VineSlimeObj",
+            "position": {
+              "x": 0.6,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WaterFlowZoneObj",
+            "position": {
+              "x": -4.3,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 90.0
+            }
+          }
+        ]
+      },
+      {
+        "StageNumber": "7",
+        "DeadFrameBackGroundImage": "Chapter3BackGround",
+        "BackGroundImage": "Lava Volcano(Background)",
+        "FieldImage": "Lava Volcano(Field)",
+        "FieldHSBackGroundImage": "Chapter3HSBackGround",
+        "BGM": "CH3 Combat music",
+        "AI_level": 1.2,
+        "AI_AttackFrequency": {
+          "x": 5.0,
+          "y": 7.0
+        },
+        "StartHP": 1000,
+        "StartATK": 100,
+        "Player2Skin": "LavaSlime",
+        "Player2PuckSkin": "Chapter3SlimePuck",
+        "player2_Group": [
+          "MS07",
+          "MS07",
+          "MS07"
+        ],
+        "spawnObjects": [
+          {
+            "prefabName": "LavaPondObj",
+            "position": {
+              "x": -1.53,
+              "y": -2.95,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "LavaPondObj",
+            "position": {
+              "x": 1.53,
+              "y": -2.95,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "LavaSlimeObj",
+            "position": {
+              "x": 0.0,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          }
+        ]
+      },
+      {
+        "StageNumber": "8",
         "DeadFrameBackGroundImage": "Chapter3BackGround",
         "BackGroundImage": "Lava Volcano(Background)",
         "FieldImage": "Lava Volcano(Field)",
@@ -2094,11 +2621,11 @@
         "BGM": "CH3 Combat music",
         "AI_level": 1.5,
         "AI_AttackFrequency": {
-          "x": 5.0,
-          "y": 7.0
+          "x": 6.0,
+          "y": 8.0
         },
-        "StartHP": 2000,
-        "StartATK": 200,
+        "StartHP": 1000,
+        "StartATK": 100,
         "Player2Skin": "QuartzSlime",
         "Player2PuckSkin": "Chapter3SlimePuck",
         "player2_Group": [
@@ -2125,6 +2652,45 @@
             "position": {
               "x": 1.53,
               "y": -2.95,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "LavaSlimeObj",
+            "position": {
+              "x": -0.6,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "LavaSlimeObj",
+            "position": {
+              "x": 0.0,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "LavaSlimeObj",
+            "position": {
+              "x": 0.6,
+              "y": 3.3,
               "z": 0.0
             },
             "rotation": {
