@@ -660,13 +660,13 @@
           "y": 10.0
         },
         "StartHP": 500,
-        "StartATK": 70,
-        "Player2Skin": "WoodBarrelSlime",
+        "StartATK": 50,
+        "Player2Skin": "GrassSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
         "player2_Group": [
-          "MS02",
-          "MS02",
-          "MS02"
+          "MS01",
+          "MS01",
+          "MS01"
         ],
         "spawnObjects": []
       },
@@ -684,14 +684,93 @@
         },
         "StartHP": 600,
         "StartATK": 70,
-        "Player2Skin": "WindmillSlime",
+        "Player2Skin": "GrassSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
         "player2_Group": [
-          "MS03",
-          "MS03",
-          "MS03"
+          "MS01",
+          "MS01",
+          "MS01"
         ],
-        "spawnObjects": []
+        "spawnObjects": [
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 2.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": -1.0,
+              "y": 2.5,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": -0.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 2.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": 1.0,
+              "y": 2.5,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": 0.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          }
+        ]
       },
       {
         "StageNumber": "3",
@@ -705,16 +784,69 @@
           "x": 8.0,
           "y": 10.0
         },
-        "StartHP": 700,
-        "StartATK": 70,
-        "Player2Skin": "WindmillSlime",
+        "StartHP": 600,
+        "StartATK": 50,
+        "Player2Skin": "WoodBarrelSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
         "player2_Group": [
-          "MS03",
-          "MS03",
-          "MS03"
+          "MS02",
+          "MS02",
+          "MS02"
         ],
-        "spawnObjects": []
+        "spawnObjects": [
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "GrassSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WoodBarrelSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WoodBarrelSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          }
+        ]
       },
       {
         "StageNumber": "4",
@@ -728,16 +860,69 @@
           "x": 8.0,
           "y": 10.0
         },
-        "StartHP": 1000,
-        "StartATK": 100,
-        "Player2Skin": "WindmillSlime",
+        "StartHP": 700,
+        "StartATK": 50,
+        "Player2Skin": "WoodBarrelSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
         "player2_Group": [
-          "MS03",
-          "MS03",
-          "MS03"
+          "MS02",
+          "MS02",
+          "MS02"
         ],
-        "spawnObjects": []
+        "spawnObjects": [
+          {
+            "prefabName": "WoodBarrelSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WoodBarrelSlimeObj",
+            "position": {
+              "x": -0.7,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WoodBarrelSlimeObj",
+            "position": {
+              "x": 0.7,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WoodBarrelSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          }
+        ]
       },
       {
         "StageNumber": "5",
@@ -751,7 +936,7 @@
           "x": 8.0,
           "y": 10.0
         },
-        "StartHP": 1000,
+        "StartHP": 800,
         "StartATK": 100,
         "Player2Skin": "WindmillSlime",
         "Player2PuckSkin": "Chapter1SlimePuck",
@@ -760,30 +945,73 @@
           "MS03",
           "MS03"
         ],
-        "spawnObjects": []
-      },
-      {
-        "StageNumber": "6",
-        "DeadFrameBackGroundImage": "Chapter1BackGround",
-        "BackGroundImage": "Wilderness village(Background)",
-        "FieldImage": "Wilderness village(Field)",
-        "FieldHSBackGroundImage": "Chapter1HSBackGround",
-        "BGM": "CH1 Combat music",
-        "AI_level": 1.0,
-        "AI_AttackFrequency": {
-          "x": 8.0,
-          "y": 10.0
-        },
-        "StartHP": 1000,
-        "StartATK": 100,
-        "Player2Skin": "WindmillSlime",
-        "Player2PuckSkin": "Chapter1SlimePuck",
-        "player2_Group": [
-          "MS03",
-          "MS03",
-          "MS03"
-        ],
-        "spawnObjects": []
+        "spawnObjects": [
+          {
+            "prefabName": "WoodBarrelSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WoodBarrelSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WindmillSlimeObj",
+            "position": {
+              "x": -0.6,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WindmillSlimeObj",
+            "position": {
+              "x": 0.0,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "WindmillSlimeObj",
+            "position": {
+              "x": 0.6,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          }
+        ]
       }
     ]
   },

@@ -5,8 +5,8 @@ using UnityEngine;
 public static class FightPlayer1Config
 {
 	public static int CurrentChapter = 1;
-	public static int CurrentLevel = 3;
-	public static int CurrentStage = 4;
+	public static int CurrentLevel = 4;
+	public static int CurrentStage = 1;
 
 	public static string[] Group = { "HR00", "SK00", "SK00" };
 	public static string[] PassiveEffectGroup = { "PS00", "PS00" };
