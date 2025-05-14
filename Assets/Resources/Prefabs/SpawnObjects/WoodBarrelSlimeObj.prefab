@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2447487706354157958}
   - component: {fileID: 3268472594124144960}
   - component: {fileID: 4789944239130956056}
-  - component: {fileID: 3596524563863912437}
   - component: {fileID: 1694812457978589578}
   - component: {fileID: 886033132504066203}
+  - component: {fileID: 6001274252918296643}
   m_Layer: 0
   m_Name: WoodBarrelSlimeObj
   m_TagString: Untagged
@@ -138,30 +138,6 @@ MonoBehaviour:
   animatorDestroy: 0
   explosion: {fileID: 7303246784775837857, guid: 3cbaaa41657d4ad49b77ab66d6f91ec6, type: 3}
   animator: {fileID: 886033132504066203}
---- !u!114 &3596524563863912437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8705636094641605409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2f1b00674b7cf748ab1f938260175ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aimingType: 3
-  playerNumber: 2
-  targetNumber: 1
-  skillDamage: 80
-  skillMoveSpeed: 3
-  waveringAmount: 1
-  explosion: {fileID: 0}
-  player1: {fileID: 0}
-  player2: {fileID: 0}
-  targetPosition: {x: 0, y: 0, z: 0}
-  moveDirection: {x: 0, y: 0, z: 0}
-  EffectToApply: 1
 --- !u!212 &1694812457978589578
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -235,3 +211,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6001274252918296643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8705636094641605409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b5c4fb663c160469423d034697d8fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 2
+  rollingWoodBarrelSlime: {fileID: 0}
+  animator: {fileID: 0}
+  attackTimeRange: {x: 10, y: 15}

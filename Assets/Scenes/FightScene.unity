@@ -21118,7 +21118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447356405617616126, guid: 952d7e3c346470141a8170dc6679b026, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.287499
+      value: 3.13
       objectReference: {fileID: 0}
     - target: {fileID: 447356405617616126, guid: 952d7e3c346470141a8170dc6679b026, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21152,17 +21152,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4789944239130956056, guid: 952d7e3c346470141a8170dc6679b026, type: 3}
-      propertyPath: destroyTime
-      value: 999
-      objectReference: {fileID: 0}
     - target: {fileID: 8705636094641605409, guid: 952d7e3c346470141a8170dc6679b026, type: 3}
       propertyPath: m_Name
       value: WoodBarrelSlimeObj
-      objectReference: {fileID: 0}
-    - target: {fileID: 8705636094641605409, guid: 952d7e3c346470141a8170dc6679b026, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
