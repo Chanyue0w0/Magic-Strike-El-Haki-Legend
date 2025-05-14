@@ -9463,6 +9463,7 @@ GameObject:
   - component: {fileID: 3872671531389256773}
   - component: {fileID: 8911752076970627419}
   - component: {fileID: 4539921603588538495}
+  - component: {fileID: -947101074084012940}
   m_Layer: 0
   m_Name: PoisonCloud
   m_TagString: Untagged
@@ -14219,12 +14220,27 @@ MonoBehaviour:
   skillDamage: 0
   skillMoveSpeed: 1
   waveringAmount: 1
+  soundEffect: 
   explosion: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
   targetPosition: {x: 0, y: 0, z: 0}
   moveDirection: {x: 0, y: 0, z: 0}
   EffectToApply: 3
+--- !u!114 &-947101074084012940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3135095174573582329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420587d50df050348b0b3341b63742c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dTime: 10
+  unscaleDestroy: 0
 --- !u!1 &6777821320822501286
 GameObject:
   m_ObjectHideFlags: 0

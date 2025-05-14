@@ -26,9 +26,14 @@ public class GraspingVine : MonoBehaviour
     
     [SerializeField] private StatusEffect EffectToApply = StatusEffect.Grasp; // 要套用的狀態
     [SerializeField] private VineSlime vineSlime; // 誰召喚了這個藤蔓
+    [SerializeField] private VineSlimeObj vineSlimeObj; // 誰召喚了這個藤蔓
     public void SetVineSlime(VineSlime vs)
     {
         vineSlime = vs;
+    }
+    public void SetVineSlimeObj(VineSlimeObj vsObj)
+    {
+        vineSlimeObj = vsObj;
     }
 
     void Start()
@@ -94,6 +99,10 @@ public class GraspingVine : MonoBehaviour
             {
                 vineSlime.OnGraspSuccess(); // 通知主人動畫可以中斷了
             }
+            if(vineSlimeObj != null)
+            {
+                vineSlimeObj.OnGraspSuccess();
+            }
             Destroy(gameObject);
         }
     }
@@ -106,6 +115,10 @@ public class GraspingVine : MonoBehaviour
             if (vineSlime != null)
             {
                 vineSlime.OnGraspSuccess(); // 通知主人動畫可以中斷了
+            }
+            if (vineSlimeObj != null)
+            {
+                vineSlimeObj.OnGraspSuccess();
             }
 
             // 嘗試獲取 IDamageable 介面（目標可受傷）

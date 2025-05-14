@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1841836011529271579}
   - component: {fileID: 7866050394810288625}
   - component: {fileID: 736320203064622766}
+  - component: {fileID: 1455156731033376073}
   m_Layer: 0
   m_Name: VineSlimeObj
   m_TagString: Untagged
@@ -210,3 +211,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1455156731033376073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5465522720892730898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d58ac922a185c46b4a15d81c41300b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 2
+  graspingVineObject: {fileID: 0}
+  animator: {fileID: 0}
+  attackTimeRange: {x: 10, y: 15}
