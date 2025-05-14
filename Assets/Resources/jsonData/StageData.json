@@ -1029,7 +1029,7 @@
           "x": 7.0,
           "y": 10.0
         },
-        "StartHP": 1000,
+        "StartHP": 700,
         "StartATK": 100,
         "Player2Skin": "PoisonFlowerSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
@@ -1089,13 +1089,13 @@
         "FieldImage": "Dense Forest(Field)",
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
         "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
+        "AI_level": 1.2,
         "AI_AttackFrequency": {
           "x": 8.0,
           "y": 10.0
         },
-        "StartHP": 1500,
-        "StartATK": 150,
+        "StartHP": 700,
+        "StartATK": 100,
         "Player2Skin": "PoisonFlowerSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [
@@ -1126,19 +1126,19 @@
         "FieldImage": "Dense Forest(Field)",
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
         "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
+        "AI_level": 1.2,
         "AI_AttackFrequency": {
           "x": 8.0,
           "y": 10.0
         },
-        "StartHP": 1700,
-        "StartATK": 150,
-        "Player2Skin": "VineSlime",
+        "StartHP": 700,
+        "StartATK": 100,
+        "Player2Skin": "PoisonFlowerSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [
-          "MS05",
-          "MS05",
-          "MS05"
+          "MS04",
+          "MS04",
+          "MS04"
         ],
         "spawnObjects": [
           {
@@ -1152,6 +1152,32 @@
               "x": 0.0,
               "y": 0.0,
               "z": 90.0
+            }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
             }
           }
         ]
@@ -1163,19 +1189,19 @@
         "FieldImage": "Dense Forest(Field)",
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
         "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
+        "AI_level": 1.2,
         "AI_AttackFrequency": {
           "x": 8.0,
           "y": 10.0
         },
-        "StartHP": 1700,
-        "StartATK": 150,
-        "Player2Skin": "VineSlime",
+        "StartHP": 800,
+        "StartATK": 100,
+        "Player2Skin": "PoisonFlowerSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [
-          "MS05",
-          "MS05",
-          "MS05"
+          "MS04",
+          "MS04",
+          "MS04"
         ],
         "spawnObjects": [
           {
@@ -1190,6 +1216,45 @@
               "y": 0.0,
               "z": 90.0
             }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": -0.6,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": 0.0,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": 0.6,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
           }
         ]
       },
@@ -1200,19 +1265,19 @@
         "FieldImage": "Dense Forest(Field)",
         "FieldHSBackGroundImage": "Chapter2HSBackGround",
         "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
+        "AI_level": 1.2,
         "AI_AttackFrequency": {
           "x": 8.0,
           "y": 10.0
         },
-        "StartHP": 1700,
-        "StartATK": 150,
-        "Player2Skin": "VineSlime",
+        "StartHP": 1000,
+        "StartATK": 100,
+        "Player2Skin": "PoisonFlowerSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [
-          "MS05",
-          "MS05",
-          "MS05"
+          "MS04",
+          "MS04",
+          "MS04"
         ],
         "spawnObjects": [
           {
@@ -1226,6 +1291,71 @@
               "x": 0.0,
               "y": 0.0,
               "z": 90.0
+            }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": -0.6,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": 0.0,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": 0.6,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": -1.5,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "PoisonFlowerSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
             }
           }
         ]
@@ -1242,8 +1372,8 @@
           "x": 8.0,
           "y": 10.0
         },
-        "StartHP": 1700,
-        "StartATK": 150,
+        "StartHP": 1000,
+        "StartATK": 100,
         "Player2Skin": "VineSlime",
         "Player2PuckSkin": "Chapter2SlimePuck",
         "player2_Group": [
@@ -1264,42 +1394,44 @@
               "y": 0.0,
               "z": 90.0
             }
-          }
-        ]
-      },
-      {
-        "StageNumber": "6",
-        "DeadFrameBackGroundImage": "Chapter2BackGround",
-        "BackGroundImage": "Dense Forest(Background)",
-        "FieldImage": "Dense Forest(Field)",
-        "FieldHSBackGroundImage": "Chapter2HSBackGround",
-        "BGM": "CH2 Combat music",
-        "AI_level": 1.5,
-        "AI_AttackFrequency": {
-          "x": 8.0,
-          "y": 10.0
-        },
-        "StartHP": 1700,
-        "StartATK": 150,
-        "Player2Skin": "VineSlime",
-        "Player2PuckSkin": "Chapter2SlimePuck",
-        "player2_Group": [
-          "MS05",
-          "MS05",
-          "MS05"
-        ],
-        "spawnObjects": [
+          },
           {
-            "prefabName": "WaterFlowZoneObj",
+            "prefabName": "VineSlimeObj",
             "position": {
-              "x": -4.3,
-              "y": 0.0,
+              "x": -1.5,
+              "y": 3.0,
               "z": 0.0
             },
             "rotation": {
               "x": 0.0,
               "y": 0.0,
-              "z": 90.0
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "VineSlimeObj",
+            "position": {
+              "x": 1.5,
+              "y": 3.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          {
+            "prefabName": "VineSlimeObj",
+            "position": {
+              "x": 0.0,
+              "y": 3.3,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
             }
           }
         ]
