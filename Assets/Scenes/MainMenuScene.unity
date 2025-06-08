@@ -3403,6 +3403,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &328513596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4976,7 +4988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.64, y: -8.49}
+  m_AnchoredPosition: {x: 0.00000047684, y: -7.7}
   m_SizeDelta: {x: 163.93, y: 180.53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &566775943
@@ -8894,6 +8906,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &802764257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8967,10 +8991,10 @@ RectTransform:
   - {fileID: 1701081179}
   m_Father: {fileID: 1556955675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.125}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.0117, y: 26.3}
-  m_SizeDelta: {x: 180.28, y: 216.99}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 2.0117188, y: 26.300049}
+  m_SizeDelta: {x: -15.720001, y: -173.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &803343837
 MonoBehaviour:
@@ -12875,10 +12899,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 803343836}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -13.8}
-  m_SizeDelta: {x: 144.66, y: 115.49}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 1.1500244, y: -13.799927}
+  m_SizeDelta: {x: 146.95999, y: -100.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094509131
 MonoBehaviour:
@@ -14876,11 +14900,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 803343836}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.3, y: 13.8}
-  m_SizeDelta: {x: 165.78, y: 120.51}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0.2999878, y: -33.944946}
+  m_SizeDelta: {x: 165.78, y: -95.48999}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1318725257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19150,10 +19174,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 803343836}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 64.8, y: 95.045}
-  m_SizeDelta: {x: 39.46, y: 26.9}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -26.200012, y: -12.954956}
+  m_SizeDelta: {x: 39.45999, y: 26.899994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701081180
 MonoBehaviour:
@@ -19206,6 +19230,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1556955674}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 746429471}
+        m_TargetAssemblyTypeName: MainMenuButtonController, Assembly-CSharp
+        m_MethodName: SoundClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -23777,7 +23813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1356624392705681195, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.85998535
+      value: 0.8600464
       objectReference: {fileID: 0}
     - target: {fileID: 1726461473247845985, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -23785,7 +23821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3436949918477199567, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.85998535
+      value: 0.8600464
       objectReference: {fileID: 0}
     - target: {fileID: 3446540502402932920, guid: 3223e3e2b459e4d45962cde1263d6755, type: 3}
       propertyPath: m_AnchorMax.x

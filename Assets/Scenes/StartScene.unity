@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb468ca7d6739c4b94eeb44db22d68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetPlayerData: 0
+  resetPlayerData: 1
 --- !u!1 &121117639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,7 +1097,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2908051867518329080, guid: adbe95961f5da9d40bcbe389b93f1d3c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4261348282885620425, guid: adbe95961f5da9d40bcbe389b93f1d3c, type: 3}
       propertyPath: m_Pivot.x
@@ -1197,7 +1197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7286550538285173452, guid: adbe95961f5da9d40bcbe389b93f1d3c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7314031129641826044, guid: adbe95961f5da9d40bcbe389b93f1d3c, type: 3}
       propertyPath: loadPanel

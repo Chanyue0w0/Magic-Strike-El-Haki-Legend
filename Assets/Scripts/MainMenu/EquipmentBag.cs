@@ -158,6 +158,7 @@ public class EquipmentBag : MonoBehaviour
 			// 設定按鈕點擊事件，利用捕捉到的 index 傳入 OnClickOpenEquipmentPanel
 			Button btn = slot.GetComponent<Button>();
 			btn.onClick.AddListener(() => OnClickOpenEquipmentPanel(equipment.id));
+			btn.onClick.AddListener(() => GetComponent<MainMenuButtonController>().SoundClick());
 
 			// 若有子物件 LevelText，則更新其文字內容
 			TextMeshProUGUI slotLevelText = slot.transform.Find("LevelText")?.GetComponent<TextMeshProUGUI>();

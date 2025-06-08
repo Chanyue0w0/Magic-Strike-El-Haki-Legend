@@ -12,16 +12,18 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject tutorialPanel;
     [SerializeField] private GifPlayerController gifPlayerController;
     [SerializeField] private Text tutorialText;
-    [SerializeField] private Text pageIndicatorText; // Åã¥Ü­¶¼Æ
-    [SerializeField] private string[] tutorialContents;
-
-    [SerializeField] private GameObject[] stepPanel;
+    [SerializeField] private Text pageIndicatorText; // ï¿½ï¿½Ü­ï¿½ï¿½ï¿½
+	[SerializeField] private Image nextButtonImage;
+	[SerializeField] private Image lastButtonImage;
+	[SerializeField] private GameObject[] stepPanel;
 
     private int currentStep = 0;
     private int currentIndex = 0;
+    private string[] tutorialContents;
 
     private void Awake()
     {
+        tutorialPanel.SetActive(false);
         // Singleton
         if (Instance != null && Instance != this)
         {
@@ -36,14 +38,15 @@ public class TutorialManager : MonoBehaviour
     {
         tutorialContents = new string[]
        {
-            "©ì¦²²¾°Êª±®a¡A¥´À»²yÅé",
-            "¡u¶i²y±N¦Û°Ê§ðÀ»¡v¹ï¤â¡A\n³y¦¨¶Ë®`",
-            "À»¯}¡u§Þ¯àªwªw¡v\n¬I©ñ¡i¥D°Ê§Þ¯à¡j",
-            "¨C¦¸¶i²yÀò±o1ÂIÅ]¤O­È",
-            "Å]¤O­È¶°º¡¡A\n¡m§Ö³tÂIÀ»¨â¤U¡n¬I©ñ¤j©Û"
+            "ï¿½ì¦²ï¿½ï¿½ï¿½Êªï¿½ï¿½aï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½yï¿½ï¿½",
+            "ï¿½uï¿½iï¿½yï¿½Nï¿½Û°Ê§ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½A\nï¿½yï¿½ï¿½ï¿½Ë®`",
+            "ï¿½ï¿½ï¿½}ï¿½uï¿½Þ¯ï¿½wï¿½wï¿½v\nï¿½Iï¿½ï¿½iï¿½Dï¿½Ê§Þ¯ï¿½j",
+
+            "ï¿½Cï¿½ï¿½ï¿½iï¿½yï¿½ï¿½o1ï¿½Iï¿½]ï¿½Oï¿½ï¿½",
+            "ï¿½]ï¿½Oï¿½È¶ï¿½ï¿½ï¿½ï¿½A\nï¿½mï¿½Ö³tï¿½Iï¿½ï¿½ï¿½ï¿½Uï¿½nï¿½Iï¿½ï¿½jï¿½ï¿½"
        };
 
-        // ªì©l±N Exit «ö¶s³]¬°¤£¥i«ö
+        // ï¿½ï¿½lï¿½N Exit ï¿½ï¿½ï¿½sï¿½]ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½
         if (exitButton != null)
         {
             exitButton.interactable = false;
@@ -67,7 +70,7 @@ public class TutorialManager : MonoBehaviour
                 pageIndicatorText.text = $"{currentIndex + 1} / {tutorialContents.Length}";
             }
 
-            // Exit Button¡G¥u¦³¦b³Ì«á¤@­¶¤~¥iÂI
+            // Exit Buttonï¿½Gï¿½uï¿½ï¿½ï¿½bï¿½Ì«ï¿½@ï¿½ï¿½ï¿½~ï¿½iï¿½I
             if (exitButton != null)
             {
                 exitButton.interactable = (currentIndex == tutorialContents.Length - 1);
@@ -81,8 +84,19 @@ public class TutorialManager : MonoBehaviour
         if (tutorialContents == null || tutorialContents.Length == 0)
             return;
 
-        currentIndex++;
-        if (currentIndex >= tutorialContents.Length) currentIndex = tutorialContents.Length - 1;
+
+		AudioManager.Instance.PlaySFX(SFXAudioClips.Instance.FilpCard);
+		nextButtonImage.color = Color.white;
+		lastButtonImage.color = Color.white;
+		lastButtonImage.transform.GetComponent<Button>().interactable = true;
+		currentIndex++;
+        if (currentIndex >= tutorialContents.Length-1)
+        {
+
+			nextButtonImage.transform.GetComponent<Button>().interactable = false;
+			nextButtonImage.color = Color.gray;
+			currentIndex = tutorialContents.Length - 1;
+		}
         gifPlayerController.PlayGIF(currentIndex);
         ShowTutorialText();
     }
@@ -92,8 +106,18 @@ public class TutorialManager : MonoBehaviour
 		if (tutorialContents == null || tutorialContents.Length == 0)
 			return;
 
+
+		AudioManager.Instance.PlaySFX(SFXAudioClips.Instance.FilpCard);
+		lastButtonImage.color = Color.white;
+		nextButtonImage.color = Color.white;
+		nextButtonImage.transform.GetComponent<Button>().interactable = true;
 		currentIndex--;
-		if (currentIndex < 0) currentIndex = 0;
+		if (currentIndex <= 0)
+        {
+            lastButtonImage.transform.GetComponent<Button>().interactable = false;
+            lastButtonImage.color = Color.gray;
+			currentIndex = 0;
+		}
 		gifPlayerController.PlayGIF(currentIndex);
 		ShowTutorialText();
 	}
@@ -112,7 +136,9 @@ public class TutorialManager : MonoBehaviour
 
     private void StepOn()
     {
-        foreach (var p in stepPanel)
+
+		AudioManager.Instance.PlaySFX(SFXAudioClips.Instance.ClickButton);
+		foreach (var p in stepPanel)
         {
             p.SetActive(false);
         }
